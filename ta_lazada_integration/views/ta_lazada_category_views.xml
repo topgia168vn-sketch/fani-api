@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ta_lazada_category_form" model="ir.ui.view">
+        <field name="name">ta.lazada.category.form</field>
+        <field name="model">ta.lazada.category</field>
+        <field name="arch" type="xml">
+            <form string="Lazada Category">
+                <header>
+                    <field name="active" widget="boolean_toggle"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Category Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="lazada_category_id"/>
+                            <field name="parent_id"/>
+                            <field name="authorized_shop_id"/>
+                        </group>
+                        <group>
+                            <field name="is_leaf"/>
+                            <field name="is_var"/>
+                            <field name="category_level"/>
+                            <field name="category_path"/>
+                            <field name="is_mandatory"/>
+                            <field name="last_sync_date" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Child Categories" name="child_categories">
+                            <field name="child_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="lazada_category_id"/>
+                                    <field name="is_leaf"/>
+                                    <field name="is_var"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ta_lazada_category_tree" model="ir.ui.view">
+        <field name="name">ta.lazada.category.tree</field>
+        <field name="model">ta.lazada.category</field>
+        <field name="arch" type="xml">
+            <list string="Lazada Categories" create="false" edit="false">
+                <field name="name"/>
+                <field name="lazada_category_id"/>
+                <field name="parent_id"/>
+                <field name="authorized_shop_id"/>
+                <field name="is_leaf"/>
+                <field name="is_var"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ta_lazada_category_search" model="ir.ui.view">
+        <field name="name">ta.lazada.category.search</field>
+        <field name="model">ta.lazada.category</field>
+        <field name="arch" type="xml">
+            <search string="Search Lazada Categories">
+                <field name="name"/>
+                <field name="lazada_category_id"/>
+                <field name="authorized_shop_id"/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Leaf Categories" name="leaf" domain="[('is_leaf', '=', True)]"/>
+                <filter string="Parent Categories" name="parent" domain="[('is_leaf', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Authorized Shop" name="group_shop" context="{'group_by': 'authorized_shop_id'}"/>
+                    <filter string="Parent Category" name="group_parent" context="{'group_by': 'parent_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ta_lazada_category" model="ir.actions.act_window">
+        <field name="name">Lazada Categories</field>
+        <field name="res_model">ta.lazada.category</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Lazada categories found!
+            </p>
+            <p>
+                Categories from Lazada will appear here after syncing.
+            </p>
+        </field>
+    </record>
+
+</odoo>

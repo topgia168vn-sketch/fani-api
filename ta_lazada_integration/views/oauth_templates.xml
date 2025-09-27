@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="oauth_success" name="OAuth Success">
+        <t t-call="web.layout">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <div class="mb-4">
+                                    <i class="fa fa-check-circle text-success" style="font-size: 4rem;"></i>
+                                </div>
+                                <h3 class="card-title text-success">Authorization Successful!</h3>
+                                <p class="card-text">
+                                    Shop <strong t-esc="shop_name"/> has been successfully authorized for 
+                                    <strong t-esc="config_name"/>.
+                                </p>
+                                <p class="card-text">
+                                    You can now close this window and return to Odoo to manage the shop.
+                                </p>
+                                <button type="button" class="btn btn-primary" onclick="window.close();">
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="oauth_error" name="OAuth Error">
+        <t t-call="web.layout">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <div class="mb-4">
+                                    <i class="fa fa-exclamation-triangle text-danger" style="font-size: 4rem;"></i>
+                                </div>
+                                <h3 class="card-title text-danger">Authorization Failed!</h3>
+                                <p class="card-text">
+                                    <strong>Error:</strong> <span t-esc="error"/>
+                                </p>
+                                <p class="card-text">
+                                    Please contact your system administrator for assistance.
+                                </p>
+                                <button type="button" class="btn btn-secondary" onclick="window.close();">
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

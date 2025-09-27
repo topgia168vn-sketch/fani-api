@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ta_lazada_authorized_shop_form" model="ir.ui.view">
+        <field name="name">ta.lazada.authorized.shop.form</field>
+        <field name="model">ta.lazada.authorized.shop</field>
+        <field name="arch" type="xml">
+            <form string="Authorized Shop">
+                <header>
+                    <button name="authorize_shop" string="Authorize Shop" type="object" class="btn-primary" 
+                            invisible="authorization_status == 'authorized'"/>
+                    <button name="revoke_authorization" string="Revoke Authorization" type="object" class="btn-danger" 
+                            invisible="authorization_status != 'authorized'"/>
+                    <button name="refresh_access_token" string="Refresh Token" type="object" class="btn-secondary" 
+                            invisible="authorization_status != 'authorized'"/>
+                    <button name="sync_categories" string="Sync Categories" type="object" class="btn-info" 
+                            invisible="authorization_status != 'authorized'"/>
+                    <button name="sync_products" string="Sync Products" type="object" class="btn-info" 
+                            invisible="authorization_status != 'authorized'"/>
+                    <button name="sync_orders" string="Sync Orders" type="object" class="btn-warning" 
+                            invisible="authorization_status != 'authorized'"/>
+                    <button name="sync_campaign" string="Sync Campaigns" type="object" class="btn-secondary" 
+                            invisible="authorization_status != 'authorized'"/>
+                    <button name="sync_warehouses" string="Sync Warehouses" type="object" class="btn-success" 
+                            invisible="authorization_status != 'authorized'"/>
+                    <field name="authorization_status" widget="statusbar" statusbar_visible="pending,authorized,expired,revoked"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_products" type="object" class="oe_stat_button" icon="fa-shopping-cart">
+                            <field name="total_products" widget="statinfo" string="Products"/>
+                        </button>
+                        <button name="action_view_orders" type="object" class="oe_stat_button" icon="fa-shopping-bag">
+                            <field name="total_orders" widget="statinfo" string="Orders"/>
+                        </button>
+                        <button name="action_view_campaigns" type="object" class="oe_stat_button" icon="fa-bullhorn">
+                            <field name="total_campaigns" widget="statinfo" string="Campaigns"/>
+                        </button>
+                        <button name="action_view_warehouses" type="object" class="oe_stat_button" icon="fa-building">
+                            <field name="total_warehouses" widget="statinfo" string="Warehouses"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="shop_name" placeholder="Shop Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Basic Information">
+                            <field name="seller_id"/>
+                            <field name="user_id" readonly="1"/>
+                            <field name="country_code"/>
+                            <field name="shop_url"/>
+                            <field name="account" readonly="1"/>
+                        </group>
+                        <group string="Authorization Details">
+                            <field name="isv_config_id"/>
+                            <field name="authorized_date" readonly="1"/>
+                            <field name="revoked_date" readonly="1"/>
+                            <field name="last_sync_date" readonly="1"/>
+                        </group>
+                        <group string="Data Sync Configuration">
+                            <field name="total_products" readonly="1"/>
+                            <field name="total_orders" readonly="1"/>
+                            <field name="total_campaigns" readonly="1"/>
+                            <field name="total_revenue" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Authorization Details" name="authorization">
+                            <group>
+                                <group>
+                                    <field name="access_token" password="True" readonly="1"/>
+                                    <field name="refresh_token" password="True" readonly="1"/>
+                                    <field name="token_expires_at" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="auto_sync"/>
+                                    <field name="sync_interval"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Order Sync Configuration" name="order_sync_config">
+                            <group>
+                                <field name="order_sync_created_after"/>
+                            </group>
+                        </page>
+                        <page string="Campaign Sync Configuration" name="campaign_sync_config">
+                            <group string="Campaign List Parameters">
+                                <group>
+                                    <field name="campaign_biz_code"/>
+                                    <field name="campaign_start_date"/>
+                                    <field name="campaign_end_date"/>
+                                </group>
+                                <group>
+                                    <field name="campaign_page_no"/>
+                                    <field name="campaign_page_size"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Warehouse Sync Configuration" name="warehouse_sync_config">
+                            <group string="Warehouse List Parameters">
+                                <group>
+                                    <field name="warehouse_country_code"/>
+                                </group>
+                                <group>
+                                    <field name="warehouse_page_size"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ta_lazada_authorized_shop_list" model="ir.ui.view">
+        <field name="name">ta.lazada.authorized.shop.list</field>
+        <field name="model">ta.lazada.authorized.shop</field>
+        <field name="arch" type="xml">
+            <list string="Authorized Shops">
+                <field name="shop_name"/>
+                <field name="seller_id"/>
+                <field name="country_code"/>
+                <field name="isv_config_id"/>
+                <field name="authorization_status"/>
+                <field name="total_products"/>
+                <field name="total_orders"/>
+                <field name="total_revenue"/>
+                <field name="last_sync_date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ta_lazada_authorized_shop_search" model="ir.ui.view">
+        <field name="name">ta.lazada.authorized.shop.search</field>
+        <field name="model">ta.lazada.authorized.shop</field>
+        <field name="arch" type="xml">
+            <search string="Search Authorized Shops">
+                <field name="shop_name"/>
+                <field name="seller_id"/>
+                <field name="isv_config_id"/>
+                <filter string="Authorized" name="authorized" domain="[('authorization_status', '=', 'authorized')]"/>
+                <filter string="Pending" name="pending" domain="[('authorization_status', '=', 'pending')]"/>
+                <filter string="Expired" name="expired" domain="[('authorization_status', '=', 'expired')]"/>
+                <filter string="Revoked" name="revoked" domain="[('authorization_status', '=', 'revoked')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="ISV Configuration" name="group_isv" context="{'group_by': 'isv_config_id'}"/>
+                    <filter string="Authorization Status" name="group_status" context="{'group_by': 'authorization_status'}"/>
+                    <filter string="Country" name="group_country" context="{'group_by': 'country_code'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ta_lazada_authorized_shop" model="ir.actions.act_window">
+        <field name="name">Authorized Shops</field>
+        <field name="res_model">ta.lazada.authorized.shop</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No authorized shops found!
+            </p>
+            <p>
+                Authorized shops will appear here after shop owners authorize your ISV application.
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ta_lazada_order_form" model="ir.ui.view">
+        <field name="name">ta.lazada.order.form</field>
+        <field name="model">ta.lazada.order</field>
+        <field name="arch" type="xml">
+            <form string="Lazada Order">
+                <header>
+                    <field name="order_status" widget="statusbar" statusbar_visible="pending,ready_to_ship,shipped,delivered"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="order_number" placeholder="Order Number"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="order_id"/>
+                            <field name="authorized_shop_id"/>
+                            <field name="created_at"/>
+                            <field name="updated_at"/>
+                            <field name="payment_method"/>
+                        </group>
+                        <group>
+                            <field name="customer_full_name"/>
+                            <field name="customer_first_name"/>
+                            <field name="customer_last_name"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                            <field name="customer_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Order Lines" name="order_lines">
+                            <field name="order_line_ids">
+                                <list>
+                                    <field name="order_item_id"/>
+                                    <field name="sku"/>
+                                    <field name="shop_sku"/>
+                                    <field name="name"/>
+                                    <field name="lazada_product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="price"/>
+                                    <field name="paid_price"/>
+                                    <field name="currency"/>
+                                    <field name="total_price"/>
+                                    <field name="status"/>
+                                    <field name="shipment_provider"/>
+                                    <field name="tracking_number"/>
+                                    <field name="warehouse_code"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Shipping Information" name="shipping">
+                            <group>
+                                <group>
+                                    <field name="shipping_address_first_name"/>
+                                    <field name="shipping_address_last_name"/>
+                                    <field name="shipping_address" widget="text"/>
+                                    <field name="shipping_address_city"/>
+                                    <field name="shipping_address_state"/>
+                                </group>
+                                <group>
+                                    <field name="shipping_address_post_code"/>
+                                    <field name="shipping_address_country"/>
+                                    <field name="shipping_address_phone"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Billing Information" name="billing">
+                            <group>
+                                <group>
+                                    <field name="billing_address_first_name"/>
+                                    <field name="billing_address_last_name"/>
+                                    <field name="billing_address" widget="text"/>
+                                    <field name="billing_address_city"/>
+                                    <field name="billing_address_state"/>
+                                </group>
+                                <group>
+                                    <field name="billing_address_post_code"/>
+                                    <field name="billing_address_country"/>
+                                    <field name="billing_address_phone"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Pricing" name="pricing">
+                            <group>
+                                <group>
+                                    <field name="order_amount"/>
+                                    <field name="currency"/>
+                                    <field name="shipping_fee"/>
+                                    <field name="shipping_fee_original"/>
+                                    <field name="tax_amount"/>
+                                </group>
+                                <group>
+                                    <field name="voucher"/>
+                                    <field name="voucher_platform"/>
+                                    <field name="voucher_seller"/>
+                                    <field name="items_count"/>
+                                    <field name="warehouse_code"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="shipping_fee_discount_platform"/>
+                                    <field name="shipping_fee_discount_seller"/>
+                                </group>
+                                <group>
+                                    <field name="gift_option"/>
+                                    <field name="is_cancel_pending"/>
+                                    <field name="need_cancel_confirm"/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="remarks"/>
+                                <field name="buyer_note"/>
+                                <field name="gift_message"/>
+                            </group>
+                        </page>
+                        <page string="Sync Information" name="sync">
+                            <group>
+                                <group>
+                                    <field name="last_sync_date"/>
+                                    <field name="sync_status"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ta_lazada_order_tree" model="ir.ui.view">
+        <field name="name">ta.lazada.order.tree</field>
+        <field name="model">ta.lazada.order</field>
+        <field name="arch" type="xml">
+            <list string="Lazada Orders">
+                <field name="order_number"/>
+                <field name="order_id"/>
+                <field name="authorized_shop_id"/>
+                <field name="created_at"/>
+                <field name="customer_full_name"/>
+                <field name="order_amount"/>
+                <field name="currency"/>
+                <field name="order_status"/>
+                <field name="items_count"/>
+                <field name="sync_status"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ta_lazada_order_search" model="ir.ui.view">
+        <field name="name">ta.lazada.order.search</field>
+        <field name="model">ta.lazada.order</field>
+        <field name="arch" type="xml">
+            <search string="Search Lazada Orders">
+                <field name="order_number"/>
+                <field name="order_id"/>
+                <field name="customer_full_name"/>
+                <field name="customer_first_name"/>
+                <field name="customer_last_name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="authorized_shop_id"/>
+                <filter string="Unpaid" name="unpaid" domain="[('order_status', '=', 'unpaid')]"/>
+                <filter string="Pending" name="pending" domain="[('order_status', '=', 'pending')]"/>
+                <filter string="Canceled" name="canceled" domain="[('order_status', '=', 'canceled')]"/>
+                <filter string="Ready to Ship" name="ready_to_ship" domain="[('order_status', '=', 'ready_to_ship')]"/>
+                <filter string="Delivered" name="delivered" domain="[('order_status', '=', 'delivered')]"/>
+                <filter string="Returned" name="returned" domain="[('order_status', '=', 'returned')]"/>
+                <filter string="Shipped" name="shipped" domain="[('order_status', '=', 'shipped')]"/>
+                <filter string="Failed" name="failed" domain="[('order_status', '=', 'failed')]"/>
+                <filter string="To Pack" name="topack" domain="[('order_status', '=', 'topack')]"/>
+                <filter string="To Ship" name="toship" domain="[('order_status', '=', 'toship')]"/>
+                <filter string="Shipping" name="shipping" domain="[('order_status', '=', 'shipping')]"/>
+                <filter string="Lost" name="lost" domain="[('order_status', '=', 'lost')]"/>
+                <filter string="Synced" name="synced" domain="[('sync_status', '=', 'synced')]"/>
+                <filter string="Pending Sync" name="pending_sync" domain="[('sync_status', '=', 'pending')]"/>
+                <filter string="Sync Failed" name="sync_failed" domain="[('sync_status', '=', 'failed')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Order Status" name="group_order_status" context="{'group_by': 'order_status'}"/>
+                    <filter string="Sync Status" name="group_sync_status" context="{'group_by': 'sync_status'}"/>
+                    <filter string="Authorized Shop" name="group_authorized_shop" context="{'group_by': 'authorized_shop_id'}"/>
+                    <filter string="Created Date" name="group_created_at" context="{'group_by': 'created_at:day'}"/>
+                    <filter string="Payment Method" name="group_payment_method" context="{'group_by': 'payment_method'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ta_lazada_order" model="ir.actions.act_window">
+        <field name="name">Lazada Orders</field>
+        <field name="res_model">ta.lazada.order</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Lazada orders found!
+            </p>
+            <p>
+                Orders from Lazada will appear here after syncing.
+            </p>
+        </field>
+    </record>
+
+    <!-- Order Line Form -->
+    <record id="view_ta_lazada_order_line_form" model="ir.ui.view">
+        <field name="name">ta.lazada.order.line.form</field>
+        <field name="model">ta.lazada.order.line</field>
+        <field name="arch" type="xml">
+            <form string="Order Line">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Product Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="order_item_id"/>
+                            <field name="sku"/>
+                            <field name="shop_sku"/>
+                            <field name="lazada_product_id"/>
+                            <field name="product_id"/>
+                            <field name="sku_id"/>
+                            <field name="quantity"/>
+                            <field name="variation"/>
+                            <field name="price"/>
+                            <field name="paid_price"/>
+                            <field name="supply_price"/>
+                            <field name="currency"/>
+                            <field name="total_price"/>
+                        </group>
+                        <group>
+                            <field name="tax_amount"/>
+                            <field name="shipping_fee"/>
+                            <field name="shipping_amount"/>
+                            <field name="status"/>
+                            <field name="shipment_provider"/>
+                            <field name="tracking_number"/>
+                            <field name="shipping_type"/>
+                            <field name="warehouse_code"/>
+                            <field name="order_type"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Voucher &amp; Discount" name="voucher_discount">
+                            <group>
+                                <group>
+                                    <field name="voucher_amount"/>
+                                    <field name="voucher_platform"/>
+                                    <field name="voucher_seller"/>
+                                    <field name="voucher_code"/>
+                                    <field name="voucher_code_seller"/>
+                                    <field name="voucher_code_platform"/>
+                                </group>
+                                <group>
+                                    <field name="shipping_fee_original"/>
+                                    <field name="shipping_fee_discount_platform"/>
+                                    <field name="shipping_fee_discount_seller"/>
+                                    <field name="voucher_seller_lpi"/>
+                                    <field name="voucher_platform_lpi"/>
+                                    <field name="wallet_credits"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Additional Info" name="additional_info">
+                            <group>
+                                <group>
+                                    <field name="buyer_id"/>
+                                    <field name="purchase_order_id"/>
+                                    <field name="purchase_order_number"/>
+                                    <field name="invoice_number"/>
+                                    <field name="is_cancel_pending"/>
+                                    <field name="need_cancel_confirm"/>
+                                    <field name="package_id"/>
+                                    <field name="biz_group"/>
+                                    <field name="show_gift_wrapping_tag"/>
+                                    <field name="show_personalization_tag"/>
+                                    <field name="can_escalate_pickup"/>
+                                </group>
+                                <group>
+                                    <field name="gift_wrapping"/>
+                                    <field name="personalization"/>
+                                    <field name="product_main_image"/>
+                                    <field name="product_detail_url"/>
+                                    <field name="created_at"/>
+                                    <field name="updated_at"/>
+                                    <field name="cancel_trigger_time"/>
+                                    <field name="cancel_return_initiator"/>
+                                    <field name="is_reroute"/>
+                                    <field name="stage_pay_status"/>
+                                    <field name="tracking_code_pre"/>
+                                    <field name="order_flag"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="is_fbl"/>
+                                    <field name="delivery_option_sof"/>
+                                    <field name="fulfillment_sla"/>
+                                    <field name="promised_shipping_time"/>
+                                    <field name="mp3_order"/>
+                                    <field name="reverse_order_id"/>
+                                    <field name="shipping_provider_type"/>
+                                    <field name="schedule_delivery_start_timeslot"/>
+                                    <field name="schedule_delivery_end_timeslot"/>
+                                    <field name="is_digital"/>
+                                    <field name="shipping_service_cost"/>
+                                    <field name="return_status"/>
+                                    <field name="semi_managed"/>
+                                    <field name="priority_fulfillment_tag"/>
+                                    <field name="supply_price_currency"/>
+                                    <field name="digital_delivery_info"/>
+                                    <field name="extra_attributes"/>
+                                    <field name="sla_time_stamp"/>
+                                    <field name="payment_time"/>
+                                </group>
+                            </group>
+                            <group>
+                                <field name="reason"/>
+                                <field name="reason_detail"/>
+                            </group>
+                        </page>
+                        <page string="Pick Up Store" name="pickup_store">
+                            <group>
+                                <group>
+                                    <field name="pick_up_store_address"/>
+                                    <field name="pick_up_store_name"/>
+                                    <field name="pick_up_store_code"/>
+                                </group>
+                                <group>
+                                    <field name="pick_up_store_open_hour"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- Order Line Tree -->
+    <record id="view_ta_lazada_order_line_tree" model="ir.ui.view">
+        <field name="name">ta.lazada.order.line.tree</field>
+        <field name="model">ta.lazada.order.line</field>
+        <field name="arch" type="xml">
+            <list string="Order Lines">
+                <field name="order_item_id"/>
+                <field name="sku"/>
+                <field name="shop_sku"/>
+                <field name="name"/>
+                <field name="lazada_product_id"/>
+                <field name="quantity"/>
+                <field name="price"/>
+                <field name="paid_price"/>
+                <field name="currency"/>
+                <field name="total_price"/>
+                <field name="status"/>
+                <field name="shipment_provider"/>
+                <field name="tracking_number"/>
+                <field name="warehouse_code"/>
+            </list>
+        </field>
+    </record>
+    
+    <!-- Order Line Search -->
+    <record id="view_ta_lazada_order_line_search" model="ir.ui.view">
+        <field name="name">ta.lazada.order.line.search</field>
+        <field name="model">ta.lazada.order.line</field>
+        <field name="arch" type="xml">
+            <search string="Search Order Lines">
+                <field name="order_item_id"/>
+                <field name="sku"/>
+                <field name="shop_sku"/>
+                <field name="name"/>
+                <field name="order_id"/>
+                <field name="lazada_product_id"/>
+                <separator/>
+                <filter string="Unpaid" name="unpaid" domain="[('status', '=', 'unpaid')]"/>
+                <filter string="Pending" name="pending" domain="[('status', '=', 'pending')]"/>
+                <filter string="Canceled" name="canceled" domain="[('status', '=', 'canceled')]"/>
+                <filter string="Ready to Ship" name="ready_to_ship" domain="[('status', '=', 'ready_to_ship')]"/>
+                <filter string="Delivered" name="delivered" domain="[('status', '=', 'delivered')]"/>
+                <filter string="Returned" name="returned" domain="[('status', '=', 'returned')]"/>
+                <filter string="Shipped" name="shipped" domain="[('status', '=', 'shipped')]"/>
+                <filter string="Failed" name="failed" domain="[('status', '=', 'failed')]"/>
+                <filter string="To Pack" name="topack" domain="[('status', '=', 'topack')]"/>
+                <filter string="To Ship" name="toship" domain="[('status', '=', 'toship')]"/>
+                <filter string="Shipping" name="shipping" domain="[('status', '=', 'shipping')]"/>
+                <filter string="Lost" name="lost" domain="[('status', '=', 'lost')]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Status" name="group_status" context="{'group_by': 'status'}"/>
+                    <filter string="Order" name="group_order" context="{'group_by': 'order_id'}"/>
+                    <filter string="Product" name="group_product" context="{'group_by': 'lazada_product_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

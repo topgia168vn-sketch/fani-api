@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Warehouse Tree View -->
+    <record id="view_ta_lazada_warehouse_tree" model="ir.ui.view">
+        <field name="name">ta.lazada.warehouse.tree</field>
+        <field name="model">ta.lazada.warehouse</field>
+        <field name="arch" type="xml">
+            <list string="Lazada Warehouses" decoration-info="sync_status == 'pending'" decoration-success="sync_status == 'synced'" decoration-danger="sync_status == 'failed'">
+                <field name="warehouse_name"/>
+                <field name="warehouse_code"/>
+                <field name="country_code"/>
+                <field name="platform_name"/>
+                <field name="multi_channel"/>
+                <field name="zip_code"/>
+                <field name="authorized_shop_id"/>
+                <field name="sync_status"/>
+                <field name="last_sync_date"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Warehouse Form View -->
+    <record id="view_ta_lazada_warehouse_form" model="ir.ui.view">
+        <field name="name">ta.lazada.warehouse.form</field>
+        <field name="model">ta.lazada.warehouse</field>
+        <field name="arch" type="xml">
+            <form string="Lazada Warehouse">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="warehouse_name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="warehouse_code"/>
+                            <field name="authorized_shop_id"/>
+                            <field name="country_code"/>
+                            <field name="platform_name"/>
+                            <field name="multi_channel"/>
+                        </group>
+                        <group>
+                            <field name="zip_code"/>
+                            <field name="town_code"/>
+                            <field name="area_code"/>
+                            <field name="city_code"/>
+                            <field name="division_id"/>
+                        </group>
+                    </group>
+                    <group string="Location Coordinates">
+                        <group>
+                            <field name="latitude"/>
+                        </group>
+                        <group>
+                            <field name="longitude"/>
+                        </group>
+                    </group>
+                    <group string="Sync Information">
+                        <group>
+                            <field name="sync_status"/>
+                        </group>
+                        <group>
+                            <field name="last_sync_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Warehouse Search View -->
+    <record id="view_ta_lazada_warehouse_search" model="ir.ui.view">
+        <field name="name">ta.lazada.warehouse.search</field>
+        <field name="model">ta.lazada.warehouse</field>
+        <field name="arch" type="xml">
+            <search string="Search Warehouses">
+                <field name="warehouse_name"/>
+                <field name="warehouse_code"/>
+                <field name="country_code"/>
+                <field name="platform_name"/>
+                <field name="authorized_shop_id"/>
+                <field name="zip_code"/>
+                <field name="town_code"/>
+                <field name="area_code"/>
+                <field name="city_code"/>
+                
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                
+                <separator/>
+                <filter string="Pending Sync" name="pending" domain="[('sync_status', '=', 'pending')]"/>
+                <filter string="Synced" name="synced" domain="[('sync_status', '=', 'synced')]"/>
+                <filter string="Failed" name="failed" domain="[('sync_status', '=', 'failed')]"/>
+                
+                <separator/>
+                <filter string="Multi Channel" name="multi_channel" domain="[('multi_channel', '=', True)]"/>
+                
+                <separator/>
+                <filter string="Singapore" name="sg" domain="[('country_code', '=', 'SG')]"/>
+                <filter string="Malaysia" name="my" domain="[('country_code', '=', 'MY')]"/>
+                <filter string="Thailand" name="th" domain="[('country_code', '=', 'TH')]"/>
+                <filter string="Philippines" name="ph" domain="[('country_code', '=', 'PH')]"/>
+                <filter string="Indonesia" name="id" domain="[('country_code', '=', 'ID')]"/>
+                <filter string="Vietnam" name="vn" domain="[('country_code', '=', 'VN')]"/>
+                
+                <group expand="0" string="Group By">
+                    <filter string="Authorized Shop" name="group_shop" domain="[]" context="{'group_by': 'authorized_shop_id'}"/>
+                    <filter string="Country" name="group_country" domain="[]" context="{'group_by': 'country_code'}"/>
+                    <filter string="Sync Status" name="group_sync_status" domain="[]" context="{'group_by': 'sync_status'}"/>
+                    <filter string="Multi Channel" name="group_multi_channel" domain="[]" context="{'group_by': 'multi_channel'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Warehouse Action -->
+    <record id="action_ta_lazada_warehouse" model="ir.actions.act_window">
+        <field name="name">Lazada Warehouses</field>
+        <field name="res_model">ta.lazada.warehouse</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_ta_lazada_warehouse_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Lazada Warehouse!
+            </p>
+            <p>
+                Warehouses are imported from Lazada and contain location information
+                for fulfillment centers and distribution points.
+            </p>
+        </field>
+    </record>
+
+
+    <!-- Kanban View for Warehouses -->
+    <record id="view_ta_lazada_warehouse_kanban" model="ir.ui.view">
+        <field name="name">ta.lazada.warehouse.kanban</field>
+        <field name="model">ta.lazada.warehouse</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="warehouse_name"/>
+                <field name="warehouse_code"/>
+                <field name="country_code"/>
+                <field name="platform_name"/>
+                <field name="multi_channel"/>
+                <field name="sync_status"/>
+                <field name="authorized_shop_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <field name="warehouse_name"/>
+                                        </strong>
+                                        <small class="o_kanban_record_subtitle">
+                                            <field name="warehouse_code"/>
+                                        </small>
+                                    </div>
+                                    <div class="o_dropdown_kanban dropdown">
+                                        <a class="dropdown-toggle o-no-caret btn" role="button" data-toggle="dropdown" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                            <span class="fa fa-ellipsis-v"/>
+                                        </a>
+                                        <div class="dropdown-menu" role="menu">
+                                            <t t-if="widget.editable">
+                                                <a role="menuitem" type="edit" class="dropdown-item">Edit</a>
+                                            </t>
+                                            <t t-if="widget.deletable">
+                                                <a role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <div>
+                                        <span class="badge badge-info">
+                                            <field name="country_code"/>
+                                        </span>
+                                        <t t-if="record.multi_channel.raw_value">
+                                            <span class="badge badge-success">Multi Channel</span>
+                                        </t>
+                                        <span t-attf-class="badge badge-#{record.sync_status.raw_value == 'synced' ? 'success' : record.sync_status.raw_value == 'failed' ? 'danger' : 'warning'}">
+                                            <field name="sync_status"/>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <i class="fa fa-building" title="Shop"/> <field name="authorized_shop_id"/>
+                                    </div>
+                                    <div t-if="record.platform_name.raw_value">
+                                        <i class="fa fa-globe" title="Platform"/> <field name="platform_name"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Warehouse Action with Kanban -->
+    <record id="action_ta_lazada_warehouse_kanban" model="ir.actions.act_window">
+        <field name="name">Lazada Warehouses</field>
+        <field name="res_model">ta.lazada.warehouse</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="view_ta_lazada_warehouse_search"/>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Lazada Warehouse!
+            </p>
+            <p>
+                Warehouses are imported from Lazada and contain location information
+                for fulfillment centers and distribution points.
+            </p>
+        </field>
+    </record>
+
+</odoo>

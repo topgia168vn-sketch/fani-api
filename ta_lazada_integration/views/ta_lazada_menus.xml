@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_ta_lazada_root" 
+              name="Lazada Integration" 
+              web_icon="ta_lazada_integration,static/description/icon.png"
+              sequence="100"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_ta_lazada_config" 
+              name="Configuration" 
+              parent="menu_ta_lazada_root" 
+              sequence="10"/>
+
+    <menuitem id="menu_ta_lazada_config_settings" 
+              name="Settings" 
+              parent="menu_ta_lazada_config" 
+              action="action_ta_lazada_config" 
+              sequence="10"/>
+
+    <!-- Authorized Shops Menu -->
+    <menuitem id="menu_ta_lazada_authorized_shops"
+              name="Authorized Shops"
+              parent="menu_ta_lazada_config"
+              action="action_ta_lazada_authorized_shop"
+              sequence="20"/>
+
+    <!-- Data Sync Menu -->
+    <menuitem id="menu_ta_lazada_data_sync"
+              name="Data Sync"
+              parent="menu_ta_lazada_root"
+              sequence="30"/>
+
+    <menuitem id="menu_ta_lazada_categories_list"
+              name="Categories"
+              parent="menu_ta_lazada_data_sync"
+              action="action_ta_lazada_category"
+              sequence="10"/>
+    <menuitem id="menu_ta_lazada_products_list"
+              name="Products"
+              parent="menu_ta_lazada_data_sync"
+              action="action_ta_lazada_product"
+              sequence="20"/>
+    <menuitem id="menu_ta_lazada_orders_list"
+              name="Orders"
+              parent="menu_ta_lazada_data_sync"
+              action="action_ta_lazada_order"
+              sequence="30"/>
+    <menuitem id="menu_ta_lazada_campaigns_list"
+              name="Campaigns"
+              parent="menu_ta_lazada_data_sync"
+              action="action_ta_lazada_campaign"
+              sequence="40"/>
+    <menuitem id="menu_ta_lazada_warehouses_list"
+              name="Warehouses"
+              parent="menu_ta_lazada_data_sync"
+              action="action_ta_lazada_warehouse"
+              sequence="50"/>
+</odoo>
