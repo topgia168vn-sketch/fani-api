@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree/List View -->
+        <record id="view_jst_sale_order_list" model="ir.ui.view">
+            <field name="name">jst.sale.order.tree</field>
+            <field name="model">jst.sale.order</field>
+            <field name="arch" type="xml">
+                <list string="JST Sale Orders">
+                    <field name="orderId_str"/>
+                    <field name="platformOrderId"/>
+                    <field name="status"/>
+                    <field name="orderTime"/>
+                    <field name="amount"/>
+                    <field name="currency" invisible="1"/>
+                    <field name="shopName"/>
+                    <field name="isPaid"/>
+                    <field name="created"/>
+                    <field name="jst_modified"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_jst_sale_order_form" model="ir.ui.view">
+            <field name="name">jst.sale.order.form</field>
+            <field name="model">jst.sale.order</field>
+            <field name="arch" type="xml">
+                <form string="JST Sale Order">
+                    <header>
+                        <button name="action_sync_this_orders" type="object" string="Sync Order" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="orderId_str" readonly="1"/>
+                            </h1>
+                            <h2>
+                                <field name="platformOrderId" readonly="1"/>
+                            </h2>
+                        </div>
+                        <notebook>
+                            <page string="Info">
+                                <group>
+                                    <group string="Order Information">
+                                        <field name="orderId_str"/>
+                                        <field name="platformOrderId"/>
+                                        <field name="platformBuyerId"/>
+                                        <field name="platformBuyerNickName"/>
+                                        <field name="orderTime"/>
+                                        <field name="orderType"/>
+                                        <field name="orderTypeDisplay"/>
+                                        <field name="orderFrom"/>
+                                    </group>
+                                    <group string="Status - Tracking">
+                                        <field name="status"/>
+                                        <field name="statusDisplay"/>
+                                        <field name="platformStatus"/>
+                                        <field name="trackingNumber"/>
+                                        <field name="isQuestion"/>
+                                        <field name="isQuestionText"/>
+                                        <field name="questionType"/>
+                                    </group>
+                                </group>
+        
+                                <group>
+                                    <group string="Payment Information">
+                                        <field name="amount"/>
+                                        <field name="amountDisPlay"/>
+                                        <field name="currency"/>
+                                        <field name="prefix"/>
+                                        <field name="isPaid"/>
+                                        <field name="payTime"/>
+                                        <field name="finalPayTime"/>
+                                        <field name="paidAmount"/>
+                                        <field name="paidAmountDisPlay"/>
+                                        <field name="payAmount"/>
+                                        <field name="payAmountDisPlay"/>
+                                        <field name="payment"/>
+                                    </group>
+                                    <group string="Additional Amounts">
+                                        <field name="ortherAmount"/>
+                                        <field name="ortherAmountDisPlay"/>
+                                        <field name="platformFreeAmount"/>
+                                        <field name="platformFreeAmountDisPlay"/>
+                                        <field name="shopFreeAmount"/>
+                                        <field name="shopFreeAmountDisPlay"/>
+                                        <field name="freightFee"/>
+                                        <field name="freightIncome"/>
+                                        <field name="freightIncomeDisPlay"/>
+                                        <field name="drpAmount"/>
+                                        <field name="discountRate"/>
+                                    </group>
+                                </group>
+        
+                                <group>
+                                    <group string="Buyer Information">
+                                        <field name="buyerId"/>
+                                        <field name="buyerMessage"/>
+                                        <field name="isBuyerRate"/>
+                                        <field name="afterSaleId"/>
+                                    </group>
+                                    <group string="Shop Information">
+                                        <field name="shopId"/>
+                                        <field name="shopName"/>
+                                        <field name="companyId"/>
+                                        <field name="salesman"/>
+                                    </group>
+                                </group>
+        
+                                <group>
+                                    <group string="Receiver Information">
+                                        <field name="receiverFirstName"/>
+                                        <field name="receiverLastName"/>
+                                        <field name="receiverFirstNameEn"/>
+                                        <field name="receiverLastNameEn"/>
+                                        <field name="receiverMobileEn"/>
+                                        <field name="receiverPhoneEn"/>
+                                        <field name="receiverIdCard"/>
+                                        <field name="receiverIdCardType"/>
+                                        <field name="receiverAddress"/>
+                                        <field name="receiverZip"/>
+                                    </group>
+                                    <group string="Delivery Address">
+                                        <field name="receiverCountry"/>
+                                        <field name="receiverProvince"/>
+                                        <field name="receiverCity"/>
+                                        <field name="receiverDistrict"/>
+                                        <field name="receiverTown"/>
+                                        <field name="countryId"/>
+                                        <field name="deliveryWay"/>
+                                    </group>
+                                </group>
+        
+                                <group>
+                                    <group string="Logistics Information">
+                                        <field name="logisticsId"/>
+                                        <field name="logisticsCompanyName"/>
+                                        <field name="logisticsCompanyCode"/>
+                                        <field name="logisticsBillType"/>
+                                        <field name="isCod"/>
+                                        <field name="sendTime"/>
+                                        <field name="signTime"/>
+                                        <field name="endDeliveryTime"/>
+                                        <field name="endPickupTime"/>
+                                    </group>
+                                    <group string="Warehouse - Weight">
+                                        <field name="warehouseId"/>
+                                        <field name="wmsCoId"/>
+                                        <field name="weight"/>
+                                        <field name="calcWeight"/>
+                                        <field name="skus"/>
+                                        <field name="skuIdStr"/>
+                                    </group>
+                                </group>
+        
+                                <group>
+                                    <group string="Flags">
+                                        <field name="isPresend"/>
+                                        <field name="isPrintExpress"/>
+                                        <field name="isPrintShip"/>
+                                        <field name="isSellerRate"/>
+                                        <field name="isSplit"/>
+                                        <field name="isMerge"/>
+                                        <field name="isRejectOrder"/>
+                                        <field name="isInvoice"/>
+                                    </group>
+                                    <group string="DRP Information">
+                                        <field name="drpType"/>
+                                        <field name="drpCoIdFrom"/>
+                                        <field name="drpCoIdTo"/>
+                                        <field name="settlementMethod"/>
+                                    </group>
+                                </group>
+        
+                                <group>
+                                    <group string="Invoice Information">
+                                        <field name="invoiceTitle"/>
+                                        <field name="invoiceTaxNo"/>
+                                        <field name="invoiceType"/>
+                                        <field name="invoiceData"/>
+                                    </group>
+                                    <group string="Additional Info">
+                                        <field name="cardInfo"/>
+                                        <field name="mergePlatformOrderId"/>
+                                        <field name="splitBeforeOrderId"/>
+                                        <field name="presendSendTime"/>
+                                        <field name="platformId"/>
+                                        <field name="ossId"/>
+                                        <field name="pdfFileUrl"/>
+                                    </group>
+                                </group>
+        
+                                <group>
+                                    <group string="Notes - Remarks">
+                                        <field name="sellerRemark"/>
+                                        <field name="offlineNote"/>
+                                        <field name="questionDesc"/>
+                                        <field name="cancelDesc"/>
+                                        <field name="cancelType"/>
+                                        <field name="extendData"/>
+                                        <field name="labelStr"/>
+                                    </group>
+                                    <group string="System Information">
+                                        <field name="created"/>
+                                        <field name="creator"/>
+                                        <field name="jst_modified"/>
+                                        <field name="modifier"/>
+                                        <field name="saveHashCode"/>
+                                    </group>
+                                </group>
+                                <group string="Tecnical" groups="base.group_no_one">
+                                    <field name="raw_payload"/>
+                                </group>
+                            </page>
+                            <page string="Order Lines">
+                                <field name="jst_sale_order_line_ids" />
+                            </page>
+                            <page string="Tracking">
+                                <field name="jst_order_tracking_ids">
+                                    <list>
+                                        <field name="jst_modified"/>
+                                        <field name="orderId"/>
+                                        <field name="field_check"/>
+                                        <field name="field_value"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_jst_sale_order_search" model="ir.ui.view">
+            <field name="name">jst.sale.order.search</field>
+            <field name="model">jst.sale.order</field>
+            <field name="arch" type="xml">
+                <search string="Search JST Sale Orders">
+                    <field name="orderId_str"/>
+                    <field name="platformOrderId"/>
+                    <field name="trackingNumber"/>
+                    <field name="shopName"/>
+                    <separator/>
+                    
+                    <filter name="paid" string="Paid Orders" domain="[('isPaid', '=', True)]"/>
+                    <filter name="unpaid" string="Unpaid Orders" domain="[('isPaid', '=', False)]"/>
+                    <filter name="questions" string="Has Questions" domain="[('isQuestion', '=', True)]"/>
+                    <filter name="cod" string="Cash on Delivery" domain="[('isCod', '=', True)]"/>
+                    
+                    <separator/>
+                    <filter name="ftr_order_time" string="Order Time" date="orderTime"/>
+                    <filter name="ftr_send_time" string="Send Time" date="sendTime"/>
+                    <filter name="ftr_sign_time" string="Sign Time" date="signTime"/>
+                    <separator/>
+                    <filter name="ftr_status_WaitConfirm" string="WaitConfirm" domain="[('status','=','WaitConfirm')]"/>
+                    <filter name="ftr_status_WaitPay" string="WaitPay" domain="[('status','=','WaitPay')]"/>
+                    <filter name="ftr_status_Delivering" string="Delivering" domain="[('status','=','Delivering')]"/>
+                    <filter name="ftr_status_Delivered" string="Delivered" domain="[('status','=','Delivered')]"/>
+                    <filter name="ftr_status_Cancelled" string="Cancelled" domain="[('status','=','Cancelled')]"/>
+                    <filter name="ftr_status_Question" string="Question" domain="[('status','=','Question')]"/>
+                    <filter name="ftr_status_Split" string="Split" domain="[('status','=','Split')]"/>
+                    
+                    <group expand="0" string="Group By">
+                        <filter string="Status" name="group_by_status" context="{'group_by': 'status'}"/>
+                        <filter string="Shop" name="group_by_shop" context="{'group_by': 'shopName'}"/>
+                        <filter string="Order Date" name="group_by_order_date" context="{'group_by': 'orderTime:day'}"/>
+                        <filter string="Send Date" name="group_by_send_date" context="{'group_by': 'sendTime:day'}"/>
+                        <filter string="sign Date" name="group_by_sign_date" context="{'group_by': 'signTime:day'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_jst_sale_order" model="ir.actions.act_window">
+            <field name="name">JST Sale Orders</field>
+            <field name="res_model">jst.sale.order</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="view_jst_sale_order_search"/>
+            <field name="context">{'search_default_ftr_order_time': 1}
+            </field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first JST Sale Order!
+                </p>
+                <p>
+                    JST Sale Orders are synchronized from the JST system.
+                    You can sync orders manually or they will be automatically synchronized every 10 minutes.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

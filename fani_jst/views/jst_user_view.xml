@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree/List View -->
+        <record id="view_jst_user_tree" model="ir.ui.view">
+            <field name="name">jst.user.tree</field>
+            <field name="model">jst.user</field>
+            <field name="arch" type="xml">
+                <list string="JST Users">
+                    <field name="userName"/>
+                    <field name="userId"/>
+                    <field name="isAdmin"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_jst_user_form" model="ir.ui.view">
+            <field name="name">jst.user.form</field>
+            <field name="model">jst.user</field>
+            <field name="arch" type="xml">
+                <form string="JST User">
+                    <sheet>
+                        <group>
+                            <field name="userName"/>
+                            <field name="userId"/>
+                            <field name="isAdmin"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_jst_user_search" model="ir.ui.view">
+            <field name="name">jst.user.search</field>
+            <field name="model">jst.user</field>
+            <field name="arch" type="xml">
+                <search string="Search JST Users">
+                    <field name="userName"/>
+                    <field name="userId"/>
+                    <field name="isAdmin"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Is Admin" name="group_is_admin" context="{'group_by': 'isAdmin'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_jst_user" model="ir.actions.act_window">
+            <field name="name">JST Users</field>
+            <field name="res_model">jst.user</field>
+        </record>
+    </data>
+</odoo>

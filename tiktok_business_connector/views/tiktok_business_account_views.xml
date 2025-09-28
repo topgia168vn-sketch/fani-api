@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- TikTok Business Account Views -->
+    
+    <!-- Tree/List View -->
+    <record id="view_tiktok_business_account_list" model="ir.ui.view">
+        <field name="name">tiktok.business.account.list</field>
+        <field name="model">tiktok.bussiness.account</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="advertiser_ids_synced" widget="many2many_tags"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_tiktok_business_account_form" model="ir.ui.view">
+        <field name="name">tiktok.business.account.form</field>
+        <field name="model">tiktok.bussiness.account</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_tiktok_authorize" 
+                            type="object" 
+                            string="Authorize TikTok" 
+                            class="btn-primary"/>
+                    <button name="action_sync_advertisers" 
+                            type="object" 
+                            string="Sync Advertisers" 
+                            class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="TikTok Business Account Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Account Information">
+                            <field name="name" string="Account Name"/>
+                            <field name="advertiser_ids_synced" widget="many2many_tags"/>
+                        </group>
+                        <group string="Advertiser Configuration" groups="base.group_no_one">
+                            <field name="access_token" 
+                                   string="Access Token" 
+                                   password="True"
+                                   help="TikTok Business API Access Token"/>
+                            <field name="scope" string="Scope"/>
+                            <field name="advertiser_ids" 
+                                   string="Advertiser IDs" 
+                                   widget="text"
+                                   help="Comma-separated list of advertiser IDs"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_tiktok_business_account_search" model="ir.ui.view">
+        <field name="name">tiktok.business.account.search</field>
+        <field name="model">tiktok.bussiness.account</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="advertiser_ids"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action Window -->
+    <record id="action_tiktok_business_account" model="ir.actions.act_window">
+        <field name="name">Business Accounts</field>
+        <field name="res_model">tiktok.bussiness.account</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first TikTok Business Account!
+            </p>
+            <p>
+                Connect your TikTok Business account to start managing your advertising campaigns.
+                Click on "Authorize TikTok" to authenticate with TikTok Business API.
+            </p>
+        </field>
+    </record>
+
+</odoo>

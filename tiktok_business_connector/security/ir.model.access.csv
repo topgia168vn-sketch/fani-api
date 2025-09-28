@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tiktok_business_account_user,tiktok.business.account.user,model_tiktok_bussiness_account,base.group_system,1,0,0,0
+access_tiktok_business_account_system,tiktok.business.account.system,model_tiktok_bussiness_account,base.group_system,1,1,1,1
+access_tiktok_advertiser_user,tiktok.advertiser.user,model_tiktok_advertiser,base.group_user,1,1,1,1
+access_tiktok_campaign_user,tiktok.campaign.user,model_tiktok_campaign,base.group_user,1,1,1,1
+access_tiktok_ad_group_user,tiktok.ad_group.user,model_tiktok_ad_group,base.group_user,1,1,1,1
+access_tiktok_ad_user,tiktok.ad.user,model_tiktok_ad,base.group_user,1,1,1,1
+access_wizard_sync_tiktok_advertiser_user,wizard.sync.tiktok.advertiser.user,model_wizard_sync_tiktok_advertiser,base.group_user,1,1,1,1
+access_wizard_sync_tiktok_campaign_user,wizard.sync.tiktok.campaign.user,model_wizard_sync_tiktok_campaign,base.group_user,1,1,1,1
+access_wizard_sync_tiktok_ad_group_user,wizard.sync.tiktok.ad_group.user,model_wizard_sync_tiktok_ad_group,base.group_user,1,1,1,1
+access_tiktok_bc_report_user,tiktok.bc.report.user,model_tiktok_bc_report,base.group_user,1,1,1,1
+access_tiktok_bc_report_line_user,tiktok.bc.report.line.user,model_tiktok_bc_report_line,base.group_user,1,1,1,1

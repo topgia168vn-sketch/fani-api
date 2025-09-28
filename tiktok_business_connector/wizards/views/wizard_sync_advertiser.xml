@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Wizard Sync TikTok Advertiser Form View -->
+    <record id="view_wizard_sync_tiktok_advertiser_form" model="ir.ui.view">
+        <field name="name">wizard.sync.tiktok.advertiser.form</field>
+        <field name="model">wizard.sync.tiktok.advertiser</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                        <field name="business_account_ids" 
+                            widget="many2many_tags"
+                            string="Business Accounts"/>
+                </group>
+                
+                <footer>
+                    <button name="action_sync" 
+                            string="Sync Advertisers" 
+                            type="object" 
+                            class="btn-primary"/>
+                    <button string="Cancel" 
+                            class="btn-secondary" 
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Wizard Sync TikTok Advertiser Action -->
+    <record id="action_wizard_sync_tiktok_advertiser" model="ir.actions.act_window">
+        <field name="name">Sync Advertisers</field>
+        <field name="res_model">wizard.sync.tiktok.advertiser</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_wizard_sync_tiktok_advertiser_form"/>
+    </record>
+
+    <menuitem id="wizard_sync_tiktok_advertiser_menu"
+                name="Sync Advertisers"
+                parent="menu_tiktok_wizard"
+                action="action_wizard_sync_tiktok_advertiser"
+                sequence="10"/>
+</odoo>

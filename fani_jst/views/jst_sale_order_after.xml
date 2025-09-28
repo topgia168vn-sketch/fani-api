@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree/List View -->
+        <record id="view_jst_sale_order_after_list" model="ir.ui.view">
+            <field name="name">jst.sale.order.after.tree</field>
+            <field name="model">jst.sale.order.after</field>
+            <field name="arch" type="xml">
+                <list string="JST After Sale Orders">
+                    <field name="orderTime"/>
+                    <field name="afterSaleOrderId_str"/>
+                    <field name="orderId_str"/>
+                    <field name="platformOrderId"/>
+                    <field name="afterSaleType"/>
+                    <field name="status"/>
+                    <field name="platformGoodsStatus"/>
+                    <field name="refundAmount"/>
+                    <field name="shopId"/>
+                    <field name="created"/>
+                    <field name="jst_modified"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_jst_sale_order_after_form" model="ir.ui.view">
+            <field name="name">jst.sale.order.after.form</field>
+            <field name="model">jst.sale.order.after</field>
+            <field name="arch" type="xml">
+                <form string="JST After Sale Order">
+                    <header>
+                        <button name="action_sync_this_after_orders" type="object" string="Sync After Order" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="afterSaleOrderId_str" readonly="1"/>
+                            </h1>
+                            <h2>
+                                <field name="platformOrderId" readonly="1"/>
+                            </h2>
+                        </div>
+                        <notebook>
+                            <page string="Info">
+                                <group>
+                                    <group string="After Sale Information">
+                                        <field name="afterSaleOrderId_str"/>
+                                        <field name="orderId_str"/>
+                                        <field name="platformOrderId"/>
+                                        <field name="platformAfterSaleId"/>
+                                        <field name="platformBuyerId"/>
+                                        <field name="afterSaleType"/>
+                                        <field name="afterSaleTypeDisplay"/>
+                                        <field name="areaType"/>
+                                        <field name="areaTypeDisplay"/>
+                                        <field name="createType"/>
+                                        <field name="createTypeDisplay"/>
+                                    </group>
+                                    <group string="Status Information">
+                                        <field name="status"/>
+                                        <field name="statusDisplay"/>
+                                        <field name="platformGoodsStatus"/>
+                                        <field name="platformGoodsStatusDisplay"/>
+                                        <field name="platformRefundStatus"/>
+                                        <field name="platformRefundStatusDisplay"/>
+                                    </group>
+                                </group>
+
+                                <group>
+                                    <group string="Financial Information">
+                                        <field name="refundAmount"/>
+                                        <field name="payment"/>
+                                        <field name="freight"/>
+                                    </group>
+                                    <group string="Shop - Warehouse">
+                                        <field name="shopId"/>
+                                        <field name="warehouseId"/>
+                                        <field name="drpCoIdFrom"/>
+                                        <field name="drpCoIdTo"/>
+                                    </group>
+                                </group>
+
+                                <group>
+                                    <group string="Receiver Information">
+                                        <field name="receiverFirstNameEn"/>
+                                        <field name="receiverLastNameEn"/>
+                                        <field name="receiverMobileEn"/>
+                                        <field name="receiverPhoneEn"/>
+                                    </group>
+                                    <group string="Logistics Information">
+                                        <field name="logisticsId"/>
+                                        <field name="logisticsCompanyId"/>
+                                        <field name="logisticsCompanyName"/>
+                                    </group>
+                                </group>
+
+                                <group>
+                                    <group string="Time Information">
+                                        <field name="created"/>
+                                        <field name="jst_modified"/>
+                                        <field name="orderTime"/>
+                                        <field name="orderPayTime"/>
+                                    </group>
+                                    <group string="Additional Info">
+                                        <field name="remark"/>
+                                        <field name="labels"/>
+                                    </group>
+                                </group>
+
+                                <group string="Technical" groups="base.group_no_one">
+                                    <field name="raw_payload"/>
+                                </group>
+                            </page>
+                            <page string="After Order Lines">
+                                <field name="jst_sale_order_after_line_ids" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_jst_sale_order_after_search" model="ir.ui.view">
+            <field name="name">jst.sale.order.after.search</field>
+            <field name="model">jst.sale.order.after</field>
+            <field name="arch" type="xml">
+                <search string="Search JST After Sale Orders">
+                    <field name="afterSaleOrderId_str"/>
+                    <field name="orderId_str"/>
+                    <field name="platformOrderId"/>
+                    <field name="platformAfterSaleId"/>
+                    
+                    <separator/>
+                    <filter name="ftr_order_time" string="Order Time" date="orderTime"/>
+                    
+                    <group expand="0" string="Group By">
+                        <filter string="After Sale Type" name="group_by_type" context="{'group_by': 'afterSaleType'}"/>
+                        <filter string="Status" name="group_by_status" context="{'group_by': 'status'}"/>
+                        <filter string="Shop" name="group_by_shop" context="{'group_by': 'shopId'}"/>
+                        <filter string="Order Time" name="group_by_order_time" context="{'group_by': 'orderTime:day'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_jst_sale_order_after" model="ir.actions.act_window">
+            <field name="name">JST After Sale Orders</field>
+            <field name="res_model">jst.sale.order.after</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="view_jst_sale_order_after_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first JST After Sale Order!
+                </p>
+                <p>
+                    JST After Sale Orders are synchronized from the JST system.
+                    You can sync after sale orders manually or they will be automatically synchronized every 10 minutes.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

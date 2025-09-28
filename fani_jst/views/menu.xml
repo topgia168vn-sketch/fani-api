@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menu Item -->
+   <menuitem id="menu_jst_root"
+        name="JST"
+        sequence="5"/>
+
+
+    <!-- Menu Sale Orders -->
+    <menuitem id="menu_jst_sale_order"
+              name="Orders"
+              parent="menu_jst_root"
+              sequence="10"/>
+    <menuitem id="menu_jst_order"
+                name="Sale Orders"
+                parent="menu_jst_sale_order"
+                action="action_jst_sale_order"
+                sequence="10"/>
+    <menuitem id="menu_jst_order_after"
+                name="After-Sale Orders"
+                parent="menu_jst_sale_order"
+                action="action_jst_sale_order_after"
+                sequence="20"/>
+
+
+    <!-- Menu Purchase Orders -->
+    <menuitem id="menu_jst_purchase"
+              name="Purchase"
+              parent="menu_jst_root"
+              sequence="15"/>
+    <menuitem id="menu_jst_purchase_order"
+                name="Purchase Orders"
+                parent="menu_jst_purchase"
+                action="action_jst_purchase_order"
+                sequence="10"/>
+
+
+    <!-- Menu Inventory -->
+    <menuitem id="menu_jst_stock"
+              name="Stock"
+              parent="menu_jst_root"
+              sequence="20"/>
+    <menuitem id="menu_jst_operation"
+              name="Operations"
+              parent="menu_jst_stock"
+              sequence="10"/>
+    <menuitem id="menu_jst_stock_inout"
+                name="All Stock Orders"
+                parent="menu_jst_operation"
+                action="action_jst_stock_inout"
+                sequence="10"/>
+    <menuitem id="menu_jst_stock_inout_delivery"
+                name="Delivery Orders"
+                parent="menu_jst_operation"
+                action="action_jst_stock_inout_delivery"
+                sequence="50"/>
+    <menuitem id="menu_jst_stock_inout_receipt"
+                name="Receipt Orders"
+                parent="menu_jst_operation"
+                action="action_jst_stock_inout_receipt"
+                sequence="20"/>
+    <menuitem id="menu_jst_stock_inout_other"
+                name="Other Orders"
+                parent="menu_jst_operation"
+                action="action_jst_stock_inout_other"
+                sequence="25"/>
+              
+    <menuitem id="menu_jst_inventory"
+              name="Inventory"
+              parent="menu_jst_stock"
+              sequence="20"/>
+   <menuitem id="menu_jst_product_inventory"
+                name="Product Inventory"
+                parent="menu_jst_inventory"
+                action="action_jst_product_inventory"
+                sequence="10"/>
+   <menuitem id="menu_jst_warehouse_inventory"
+                name="Warehouse Inventory"
+                parent="menu_jst_inventory"
+                action="action_jst_warehouse_inventory"
+                sequence="20"/>
+
+
+    <!-- Menu Products -->
+    <menuitem id="menu_jst_product"
+              name="Products"
+              parent="menu_jst_root"
+              sequence="30"/>
+    <menuitem id="menu_jst_product_template"
+              name="Product Tempplates"
+              parent="menu_jst_product"
+              action="action_jst_product_template"
+              sequence="10"/>
+    <menuitem id="menu_jst_product_product"
+              name="Product Variants"
+              parent="menu_jst_product"
+              action="jst_product_product_action"
+              sequence="20"/>
+    <menuitem id="menu_jst_shop_product"
+              name="Shop Products"
+              parent="menu_jst_product"
+              action="action_jst_shop_product"
+              sequence="30"/>
+
+
+    <menuitem id="menu_jst_wizard"
+              name="Manual synchronization"
+              parent="menu_jst_root"
+              sequence="90"/>
+
+
+    <!-- Menu config -->
+    <menuitem id="menu_jst_config"
+              name="Configuration"
+              parent="menu_jst_root"
+              sequence="100"/>
+    <menuitem id="menu_jst_shop"
+              name="Shops"
+              parent="menu_jst_config"
+              action="action_jst_shop"
+              sequence="10"/>
+    <menuitem id="menu_jst_warehouse"
+            name="Warehouses"
+            parent="menu_jst_config"
+            action="action_jst_warehouse"
+            sequence="20"/>
+    <menuitem id="menu_jst_logistic_comapny"
+            name="Logistic Companies"
+            parent="menu_jst_config"
+            action="action_jst_logistic_company"
+            sequence="50"/>
+    <menuitem id="menu_jst_user"
+            name="Users"
+            parent="menu_jst_config"
+            action="action_jst_user"
+            sequence="60"/>
+
+</odoo>

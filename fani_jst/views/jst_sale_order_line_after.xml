@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Tree View for After Order Lines -->
+        <record id="view_jst_sale_order_after_line_list" model="ir.ui.view">
+            <field name="name">jst.sale.order.after.line.tree</field>
+            <field name="model">jst.sale.order.after.line</field>
+            <field name="arch" type="xml">
+                <list string="JST After Sale Order Lines">
+                    <field name="afterSaleOrderItemId" optional="hile"/>
+                    <field name="afterSaleOrderId" optional="hile"/>
+                    <field name="skuId"/>
+                    <field name="skuName"/>
+                    <field name="qty"/>
+                    <field name="returnQty"/>
+                    <field name="price"/>
+                    <field name="amount"/>
+                    <field name="type"/>
+                    <field name="typeDisplay"/>
+                    <field name="created"/>
+                    <field name="jst_modified"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View for After Order Lines -->
+        <record id="view_jst_sale_order_after_line_form" model="ir.ui.view">
+            <field name="name">jst.sale.order.after.line.form</field>
+            <field name="model">jst.sale.order.after.line</field>
+            <field name="arch" type="xml">
+                <form string="JST After Sale Order Line">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="afterSaleOrderItemId" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="Product Information">
+                                <field name="afterSaleOrderId"/>
+                                <field name="itemId"/>
+                                <field name="skuId"/>
+                                <field name="skuName"/>
+                                <field name="propertiesValue"/>
+                                <field name="pic"/>
+                                <field name="unit"/>
+                            </group>
+                            <group string="Quantity - Price">
+                                <field name="qty"/>
+                                <field name="returnQty"/>
+                                <field name="price"/>
+                                <field name="salePrice"/>
+                                <field name="costPrice"/>
+                                <field name="amount"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group string="Order Information">
+                                <field name="orderItemId"/>
+                                <field name="platformOrderItemId"/>
+                                <field name="platformSkuId"/>
+                                <field name="type"/>
+                                <field name="typeDisplay"/>
+                            </group>
+                            <group string="Additional Info">
+                                <field name="combineSkuId"/>
+                                <field name="isCombine"/>
+                                <field name="remark"/>
+                                <field name="created"/>
+                                <field name="jst_modified"/>
+                                <field name="inoutTime"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action for After Order Lines -->
+        <record id="action_jst_sale_order_after_line" model="ir.actions.act_window">
+            <field name="name">JST After Sale Order Lines</field>
+            <field name="res_model">jst.sale.order.after.line</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No after sale order lines found!
+                </p>
+                <p>
+                    After sale order lines are automatically created when syncing after sale orders from JST system.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

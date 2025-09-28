@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree/List View -->
+        <record id="view_jst_warehouse_inventory_tree" model="ir.ui.view">
+            <field name="name">jst.warehouse.inventory.tree</field>
+            <field name="model">jst.warehouse.inventory</field>
+            <field name="arch" type="xml">
+                <list string="JST Warehouse Inventory">
+                    <field name="warehouseId"/>
+                    <field name="warehouseName"/>
+                    <field name="itemId"/>
+                    <field name="skuId"/>
+                    <field name="qty" sum="Total Qty"/>
+                    <field name="defectiveQty" sum="Total Defective"/>
+                    <field name="inQty" sum="Total In Qty"/>
+                    <field name="pickLock" sum="Total Pick Lock"/>
+                    <field name="purchaseQty" sum="Total Purchase"/>
+                    <field name="returnQty" sum="Total Return"/>
+                    <field name="allocationQty" sum="Total Allocation"/>
+                    <field name="created"/>
+                    <field name="jst_modified"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_jst_warehouse_inventory_form" model="ir.ui.view">
+            <field name="name">jst.warehouse.inventory.form</field>
+            <field name="model">jst.warehouse.inventory</field>
+            <field name="arch" type="xml">
+                <form string="JST Warehouse Inventory">
+                    <sheet>
+                        <group>
+                            <group string="Product Information">
+                                <field name="itemId"/>
+                                <field name="skuId"/>
+                            </group>
+                            <group string="Warehouse Information">
+                                <field name="warehouseId"/>
+                                <field name="warehouseName"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Stock Quantities">
+                                <field name="qty"/>
+                                <field name="defectiveQty"/>
+                                <field name="inQty"/>
+                                <field name="allocationQty"/>
+                            </group>
+                            <group string="Reserved - Transit">
+                                <field name="pickLock"/>
+                                <field name="purchaseQty"/>
+                                <field name="returnQty"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Related Products">
+                                <field name="combineSkuIds" widget="text"/>
+                            </group>
+                            <group string="Timestamps">
+                                <field name="created" readonly="1"/>
+                                <field name="jst_modified" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_jst_warehouse_inventory_search" model="ir.ui.view">
+            <field name="name">jst.warehouse.inventory.search</field>
+            <field name="model">jst.warehouse.inventory</field>
+            <field name="arch" type="xml">
+                <search string="Search JST Warehouse Inventory">
+                    <field name="itemId"/>
+                    <field name="skuId"/>
+                    <field name="warehouseId"/>
+                    <field name="warehouseName"/>
+                    <separator/>
+                    <filter string="In Stock" name="in_stock" domain="[('qty', '>', 0)]"/>
+                    <filter string="Out of Stock" name="out_of_stock" domain="[('qty', '=', 0)]"/>
+                    <filter string="Low Stock" name="low_stock" domain="[('qty', '>', 0), ('qty', '&lt;=', 10)]"/>
+                    <separator/>
+                    <filter string="Has Defective" name="has_defective" domain="[('defectiveQty', '>', 0)]"/>
+                    <filter string="Has Pick Lock" name="has_pick_lock" domain="[('pickLock', '>', 0)]"/>
+                    <filter string="Has Incoming" name="has_incoming" domain="[('inQty', '>', 0)]"/>
+                    <filter string="Has Purchase Transit" name="has_purchase" domain="[('purchaseQty', '>', 0)]"/>
+                    <filter string="Has Return" name="has_return" domain="[('returnQty', '>', 0)]"/>
+                    <filter string="Has Allocation" name="has_allocation" domain="[('allocationQty', '>', 0)]"/>
+                    <separator/>
+                    <filter string="Has Combine SKUs" name="has_combine" domain="[('combineSkuIds', '!=', False), ('combineSkuIds', '!=', '')]"/>
+                    <separator/>
+                    <filter string="Created Today" name="created_today" domain="[('created', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0,0,0))), ('created', '&lt;=', datetime.datetime.combine(context_today(), datetime.time(23,59,59)))]"/>
+                    <filter string="Modified Today" name="modified_today" domain="[('jst_modified', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0,0,0))), ('jst_modified', '&lt;=', datetime.datetime.combine(context_today(), datetime.time(23,59,59)))]"/>
+                    <separator/>
+                    <filter string="Created This Week" name="created_week" domain="[('created', '&gt;=', (context_today() - datetime.timedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+                    <filter string="Modified This Week" name="modified_week" domain="[('jst_modified', '&gt;=', (context_today() - datetime.timedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Item ID" name="group_item" context="{'group_by': 'itemId'}"/>
+                        <filter string="SKU ID" name="group_sku" context="{'group_by': 'skuId'}"/>
+                        <filter string="Warehouse" name="group_warehouse" context="{'group_by': 'warehouseId'}"/>
+                        <filter string="Creation Date" name="group_created" context="{'group_by': 'created:day'}"/>
+                        <filter string="Modification Date" name="group_modified" context="{'group_by': 'jst_modified:day'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action Window -->
+        <record id="action_jst_warehouse_inventory" model="ir.actions.act_window">
+            <field name="name">JST Warehouse Inventory</field>
+            <field name="res_model">jst.warehouse.inventory</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No warehouse inventory found!
+                </p>
+                <p>
+                    JST Warehouse Inventory shows stock levels per warehouse.
+                    Sync inventory data from JST system to monitor quantities, defects, and warehouse stock movements.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="wizard_sync_jst_warehouse_inventory_view_from" model="ir.ui.view">
+        <field name="name">wizard.sync.jst.warehouse.inventory.form</field>
+        <field name="model">wizard.sync.jst.warehouse.inventory</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <group>
+                        <field name="warehouseId"/>
+                        <field name="itemIds" placeholder="ví dụ: 123, 456, 234"/>
+                        <field name="skuIds" placeholder="ví dụ: 123, 456, 234"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_sync" string="Sync Warehouse Inventory" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="wizard_sync_jst_warehouse_inventory_action" model="ir.actions.act_window">
+        <field name="name">Sync warehouse Inventory</field>
+        <field name="res_model">wizard.sync.jst.warehouse.inventory</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="wizard_sync_jst_warehouse_inventory_menu"
+                name="Sync Warehouse Inventory"
+                parent="fani_jst.menu_jst_wizard"
+                action="fani_jst.wizard_sync_jst_warehouse_inventory_action"
+                sequence="60"/>
+</odoo> 

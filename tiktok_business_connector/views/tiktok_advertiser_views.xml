@@ -1,0 +1,47 @@
+<odoo>
+    <!-- TikTok Advertiser Views -->
+    <record id="view_tiktok_advertiser_list" model="ir.ui.view">
+        <field name="name">tiktok.advertiser.list</field>
+        <field name="model">tiktok.advertiser</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="action_sync_campaigns" string="Sync Campaigns" type="object" class="btn-primary"/>
+                    <button name="action_sync_ad_groups" string="Sync Ad Groups" type="object" class="btn-primary"/>
+                    <button name="action_sync_ads" string="Sync Ads" type="object" class="btn-primary"/>
+                </header>
+                <field name="name"/>
+                <field name="advertiser_id"/>
+                <field name="business_account_ids" widget="many2many_tags"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_tiktok_advertiser_form" model="ir.ui.view">
+        <field name="name">tiktok.advertiser.form</field>
+        <field name="model">tiktok.advertiser</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_sync_campaigns" string="Sync Campaigns" type="object" class="btn-primary"/>
+                    <button name="action_sync_ad_groups" string="Sync Ad Groups" type="object" class="btn-primary"/>
+                    <button name="action_sync_ads" string="Sync Ads" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="advertiser_id"/>
+                            <field name="business_account_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tiktok_advertiser" model="ir.actions.act_window">
+        <field name="name">TikTok Advertisers</field>
+        <field name="res_model">tiktok.advertiser</field>
+    </record>
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="wizard_sync_jst_logistic_company_view_form" model="ir.ui.view">
+        <field name="name">wizard.sync.jst.logistic.company.form</field>
+        <field name="model">wizard.sync.jst.logistic.company</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="date_from" invisible="1"/>
+                    <field name="date_to" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="action_sync" string="Sync Logistics Companies" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="wizard_sync_jst_logistic_company_view_action" model="ir.actions.act_window">
+        <field name="name">Sync Logistics Companies</field>
+        <field name="res_model">wizard.sync.jst.logistic.company</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="wizard_sync_jst_logistic_company_view_menu"
+                name="Sync Logistics Companies"
+                parent="fani_jst.menu_jst_wizard"
+                action="fani_jst.wizard_sync_jst_logistic_company_view_action"
+                sequence="70"/>
+</odoo> 

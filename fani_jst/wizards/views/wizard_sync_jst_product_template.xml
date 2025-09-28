@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="wizard_sync_jst_product_template_view_from" model="ir.ui.view">
+        <field name="name">wizard.sync.jst.product.template.form</field>
+        <field name="model">wizard.sync.jst.product.template</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="enabled"/>
+                </group>
+                <footer>
+                    <button name="action_sync" string="Sync Product Template" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="wizard_sync_jst_product_template_action" model="ir.actions.act_window">
+        <field name="name">Sync Product Template</field>
+        <field name="res_model">wizard.sync.jst.product.template</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="wizard_sync_jst_product_template_menu"
+                name="Sync Product Template"
+                parent="fani_jst.menu_jst_wizard"
+                action="fani_jst.wizard_sync_jst_product_template_action"
+                sequence="20"/>
+</odoo> 

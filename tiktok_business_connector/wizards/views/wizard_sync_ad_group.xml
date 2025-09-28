@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="wizard_sync_tiktok_ad_group_view_form" model="ir.ui.view">
+        <field name="name">wizard.sync.tiktok.ad_group.form</field>
+        <field name="model">wizard.sync.tiktok.ad_group</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="odoo_advertiser_ids" widget="many2many_tags"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <footer>
+                    <button name="action_sync" string="Sync Ad Groups" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="wizard_sync_tiktok_ad_group_action" model="ir.actions.act_window">
+        <field name="name">Sync Ad Groups</field>
+        <field name="res_model">wizard.sync.tiktok.ad_group</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="wizard_sync_tiktok_ad_group_menu"
+                name="Sync Ad Groups"
+                parent="menu_tiktok_wizard"
+                action="wizard_sync_tiktok_ad_group_action"
+                sequence="30"/>
+</odoo> 

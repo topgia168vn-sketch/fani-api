@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree/List View -->
+        <record id="view_jst_product_product_tree" model="ir.ui.view">
+            <field name="name">jst.product.product.tree</field>
+            <field name="model">jst.product.product</field>
+            <field name="arch" type="xml">
+                <list string="JST SKUs">
+                    <field name="itemId"/>
+                    <field name="skuId"/>
+                    <field name="name"/>
+                    <field name="skuCode"/>
+                    <field name="enabled"/>
+                    <field name="salePrice"/>
+                    <field name="created"/>
+                    <field name="jst_modified"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_jst_product_product_form" model="ir.ui.view">
+            <field name="name">jst.product.product.form</field>
+            <field name="model">jst.product.product</field>
+            <field name="arch" type="xml">
+                <form string="JST SKU">
+                    <sheet>
+                        <group>
+                            <group string="Identifiers">
+                                <field name="companyId"/>
+                                <field name="itemId"/>
+                                <field name="skuId"/>
+                                <field name="skuCode"/>
+                            </group>
+                            <group string="Names">
+                                <field name="name"/>
+                                <field name="fullName"/>
+                                <field name="shortName"/>
+                                <field name="itemName"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Category">
+                                <field name="brandName"/>
+                                <field name="categoryName"/>
+                                <field name="vcName"/>
+                            </group>
+                            <group string="Flags">
+                                <field name="enabled"/>
+                                <field name="isAllowLessthencost"/>
+                                <field name="isCombined"/>
+                                <field name="isInspection"/>
+                                <field name="isOnPurchaseSale"/>
+                                <field name="isStockSync2wms"/>
+                                <field name="isVerifyShelfLife"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Pricing">
+                                <field name="averageCostPrice"/>
+                                <field name="costPrice"/>
+                                <field name="memberPrice"/>
+                                <field name="lowestSalePrice"/>
+                                <field name="nameplatePrice"/>
+                                <field name="salePrice"/>
+                                <field name="wholesalePrice"/>
+                            </group>
+                            <group string="Limits">
+                                <field name="lowerLimitQty"/>
+                                <field name="upperLimitQty"/>
+                                <field name="virtualQty"/>
+                                <field name="safetyStockQty"/>
+                                <field name="standardBoxQty"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Dimensions">
+                                <field name="height"/>
+                                <field name="length"/>
+                                <field name="width"/>
+                                <field name="cube"/>
+                                <field name="weight"/>
+                                <field name="weightUnit"/>
+                            </group>
+                            <group string="Media">
+                                <field name="picture"/>
+                                <field name="picturesString"/>
+                                <field name="barCode"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Supplier">
+                                <field name="supplierCode"/>
+                                <field name="supplierName"/>
+                                <field name="unit"/>
+                            </group>
+                            <group string="Custom / Labels">
+                                <field name="lableString"/>
+                                <field name="propertyNameString"/>
+                                <field name="propertyShortName"/>
+                                <field name="propertyValueString"/>
+                                <field name="customProperty1"/>
+                                <field name="customProperty2"/>
+                                <field name="customProperty3"/>
+                                <field name="customProperty4"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Dates - Users">
+                                <field name="created"/>
+                                <field name="creator"/>
+                                <field name="jst_modified"/>
+                                <field name="modifier"/>
+                            </group>
+                            <group string="Extra">
+                                <field name="categoryPropertyContent"/>
+                                <field name="bagCodes"/>
+                                <field name="auxiliaryCodes"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="jst_product_product_action" model="ir.actions.act_window">
+            <field name="name">Product Variants</field>
+            <field name="res_model">jst.product.product</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+</odoo>
+

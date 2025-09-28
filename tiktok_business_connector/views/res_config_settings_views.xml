@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- TikTok Business API Configuration View -->
+    <record id="view_tiktok_config_settings" model="ir.ui.view">
+        <field name="name">tiktok.business.config.settings</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <block name="integration" position="inside">
+                <setting id="tiktok_business_api" string="TikTok Business API">
+                    <div class="content-group mt16">
+                        <label for="tiktok_app_id" class="o_light_label mr8"/>
+                        <field name="tiktok_app_id"/>
+                    </div>
+                    <div class="content-group">
+                        <label for="tiktok_client_secret" class="o_light_label mr8"/>
+                        <field name="tiktok_client_secret" password="True"/>
+                    </div>
+                </setting>
+            </block>
+
+        </field>
+    </record>
+
+</odoo>

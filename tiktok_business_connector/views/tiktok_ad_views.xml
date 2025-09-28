@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- TikTok Ad Tree View -->
+    <record id="view_tiktok_ad_tree" model="ir.ui.view">
+        <field name="name">tiktok.ad.tree</field>
+        <field name="model">tiktok.ad</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="ad_id"/>
+                <field name="ad_name"/>
+                <field name="odoo_ad_group_id"/>
+                <field name="odoo_campaign_id"/>
+                <field name="odoo_advertiser_id"/>
+                <field name="operation_status"/>
+                <field name="secondary_status"/>
+                <field name="creative_type"/>
+                <field name="ad_format"/>
+                <field name="call_to_action"/>
+                <field name="landing_page_url"/>
+                <field name="create_time"/>
+                <field name="modify_time"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- TikTok Ad Form View -->
+    <record id="view_tiktok_ad_form" model="ir.ui.view">
+        <field name="name">tiktok.ad.form</field>
+        <field name="model">tiktok.ad</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_sync_ads" string="Sync Ad" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    
+                    <!-- Basic Information -->
+                    <group>
+                        <group string="Basic Information">
+                            <field name="ad_id"/>
+                            <field name="ad_name"/>
+                            <field name="odoo_advertiser_id"/>
+                            <field name="odoo_campaign_id"/>
+                            <field name="odoo_ad_group_id"/>
+                            <field name="advertiser_id"/>
+                            <field name="campaign_id"/>
+                            <field name="campaign_name"/>
+                            <field name="adgroup_id"/>
+                            <field name="adgroup_name"/>
+                            <field name="campaign_system_origin"/>
+                            <field name="create_time"/>
+                            <field name="modify_time"/>
+                        </group>
+                        <group string="Status &amp; Operation">
+                            <field name="operation_status"/>
+                            <field name="secondary_status"/>
+                            <field name="creative_type"/>
+                            <field name="creative_authorized"/>
+                            <field name="is_aco"/>
+                            <field name="is_new_structure"/>
+                            <field name="optimization_event"/>
+                        </group>
+                    </group>
+                    
+                    <!-- Creative Content -->
+                    <group>
+                        <group string="Creative Settings">
+                            <field name="ad_format"/>
+                            <field name="vertical_video_strategy"/>
+                            <field name="dynamic_format"/>
+                            <field name="video_id"/>
+                            <field name="image_ids"/>
+                            <field name="carousel_image_index"/>
+                            <field name="end_card_cta"/>
+                            <field name="music_id"/>
+                            <field name="tiktok_item_id"/>
+                            <field name="promotional_music_disabled"/>
+                        </group>
+                        <group string="Content Settings">
+                            <field name="item_duet_status"/>
+                            <field name="item_stitch_status"/>
+                            <field name="dark_post_status"/>
+                            <field name="branded_content_disabled"/>
+                            <field name="shopping_ads_video_package_id"/>
+                            <field name="ad_text"/>
+                            <field name="ad_texts"/>
+                            <field name="call_to_action"/>
+                            <field name="call_to_action_id"/>
+                            <field name="card_id"/>
+                        </group>
+                    </group>
+                    
+                    <!-- Destination & Landing -->
+                    <group>
+                        <group string="Landing Page">
+                            <field name="landing_page_url"/>
+                            <field name="utm_params"/>
+                            <field name="page_id"/>
+                            <field name="cpp_url"/>
+                            <field name="tiktok_page_category"/>
+                        </group>
+                        <group string="Phone &amp; Contact">
+                            <field name="phone_region_code"/>
+                            <field name="phone_region_calling_code"/>
+                            <field name="phone_number"/>
+                        </group>
+                    </group>
+                    
+                    <!-- Deeplink & Fallback -->
+                    <group>
+                        <group string="Deeplink Settings">
+                            <field name="deeplink"/>
+                            <field name="deeplink_type"/>
+                            <field name="deeplink_format_type"/>
+                            <field name="shopping_ads_deeplink_type"/>
+                            <field name="deeplink_utm_params"/>
+                        </group>
+                        <group string="Fallback Settings">
+                            <field name="shopping_ads_fallback_type"/>
+                            <field name="fallback_type"/>
+                            <field name="dynamic_destination"/>
+                            <field name="auto_message_id"/>
+                        </group>
+                    </group>
+                    
+                    <!-- Shopping & Product -->
+                    <group>
+                        <group string="Shopping Ads">
+                            <field name="identity_id"/>
+                            <field name="identity_type"/>
+                            <field name="identity_authorized_bc_id"/>
+                            <field name="catalog_id"/>
+                            <field name="product_specific_type"/>
+                            <field name="item_group_ids"/>
+                            <field name="product_set_id"/>
+                            <field name="sku_ids"/>
+                            <field name="vehicle_ids"/>
+                            <field name="showcase_products"/>
+                        </group>
+                        <group string="Product Display">
+                            <field name="auto_disclaimer_types"/>
+                            <field name="product_display_field_list"/>
+                            <field name="aigc_disclosure_type"/>
+                            <field name="disclaimer_type"/>
+                            <field name="disclaimer_text"/>
+                            <field name="disclaimer_clickable_texts"/>
+                        </group>
+                    </group>
+                    
+                    <!-- Tracking & Analytics -->
+                    <group>
+                        <group string="Tracking Settings">
+                            <field name="tracking_pixel_id"/>
+                            <field name="tracking_app_id"/>
+                            <field name="tracking_offline_event_set_ids"/>
+                            <field name="tracking_message_event_set_id"/>
+                            <field name="vast_moat_enabled"/>
+                        </group>
+                        <group string="Viewability &amp; Brand Safety">
+                            <field name="viewability_postbid_partner"/>
+                            <field name="viewability_vast_url"/>
+                            <field name="brand_safety_postbid_partner"/>
+                            <field name="brand_safety_vast_url"/>
+                        </group>
+                    </group>
+                    
+                    <!-- URLs & Links -->
+                    <group>
+                        <group string="Tracking URLs">
+                            <field name="impression_tracking_url"/>
+                            <field name="click_tracking_url"/>
+                            <field name="playable_url"/>
+                        </group>
+                        <group string="App &amp; Profile">
+                            <field name="app_name"/>
+                            <field name="display_name"/>
+                            <field name="avatar_icon_web_uri"/>
+                            <field name="profile_image_url"/>
+                        </group>
+                    </group>
+                    
+                    <!-- Raw Data -->
+                    <group>
+                        <group string="Raw Data">
+                            <field name="raw_payload" widget="json"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- TikTok Ad Search View -->
+    <record id="view_tiktok_ad_search" model="ir.ui.view">
+        <field name="name">tiktok.ad.search</field>
+        <field name="model">tiktok.ad</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ad_id"/>
+                <field name="ad_name"/>
+                <field name="campaign_id"/>
+                <field name="campaign_name"/>
+                <field name="adgroup_id"/>
+                <field name="adgroup_name"/>
+                <field name="advertiser_id"/>
+                <field name="creative_type"/>
+                <field name="ad_format"/>
+                <field name="call_to_action"/>
+                <field name="operation_status"/>
+                <field name="secondary_status"/>
+                <field name="landing_page_url"/>
+                
+                <separator/>
+                <filter string="ACO Ads" name="aco_ads" domain="[('is_aco', '=', True)]"/>
+                <filter string="New Structure" name="new_structure" domain="[('is_new_structure', '=', True)]"/>
+                <filter string="Creative Authorized" name="creative_authorized" domain="[('creative_authorized', '=', True)]"/>
+                <filter string="Promotional Music Disabled" name="promotional_music_disabled" domain="[('promotional_music_disabled', '=', True)]"/>
+                <filter string="Branded Content Disabled" name="branded_content_disabled" domain="[('branded_content_disabled', '=', True)]"/>
+                
+                <separator/>
+                <filter string="Operation Status: ENABLE" name="operation_enable" domain="[('operation_status', '=', 'ENABLE')]"/>
+                <filter string="Operation Status: DISABLE" name="operation_disable" domain="[('operation_status', '=', 'DISABLE')]"/>
+                <filter string="Secondary Status: ENABLE" name="secondary_enable" domain="[('secondary_status', '=', 'ENABLE')]"/>
+                <filter string="Secondary Status: DISABLE" name="secondary_disable" domain="[('secondary_status', '=', 'DISABLE')]"/>
+                
+                <separator/>
+                <filter string="Video Ads" name="video_ads" domain="[('ad_format', '=', 'VIDEO')]"/>
+                <filter string="Image Ads" name="image_ads" domain="[('ad_format', '=', 'IMAGE')]"/>
+                <filter string="Carousel Ads" name="carousel_ads" domain="[('ad_format', '=', 'CAROUSEL')]"/>
+                <filter string="Collection Ads" name="collection_ads" domain="[('ad_format', '=', 'COLLECTION')]"/>
+                
+                <separator/>
+                <filter string="Has Landing Page" name="has_landing_page" domain="[('landing_page_url', '!=', False)]"/>
+                <filter string="No Landing Page" name="no_landing_page" domain="[('landing_page_url', '=', False)]"/>
+                <filter string="Has Deeplink" name="has_deeplink" domain="[('deeplink', '!=', False)]"/>
+                <filter string="No Deeplink" name="no_deeplink" domain="[('deeplink', '=', False)]"/>
+                
+                <separator/>
+                <filter string="Shopping Ads" name="shopping_ads" domain="[('catalog_id', '!=', False)]"/>
+                <filter string="App Promotion" name="app_promotion" domain="[('app_name', '!=', False)]"/>
+                <filter string="Has Video" name="has_video" domain="[('video_id', '!=', False)]"/>
+                <filter string="Has Images" name="has_images" domain="[('image_ids', '!=', False)]"/>
+                
+                <group expand="0" string="Group By">
+                    <filter string="Advertiser" name="group_advertiser" context="{'group_by': 'odoo_advertiser_id'}"/>
+                    <filter string="Campaign" name="group_campaign" context="{'group_by': 'odoo_campaign_id'}"/>
+                    <filter string="Ad Group" name="group_ad_group" context="{'group_by': 'odoo_ad_group_id'}"/>
+                    <filter string="Creative Type" name="group_creative_type" context="{'group_by': 'creative_type'}"/>
+                    <filter string="Ad Format" name="group_ad_format" context="{'group_by': 'ad_format'}"/>
+                    <filter string="Operation Status" name="group_operation_status" context="{'group_by': 'operation_status'}"/>
+                    <filter string="Secondary Status" name="group_secondary_status" context="{'group_by': 'secondary_status'}"/>
+                    <filter string="Call To Action" name="group_call_to_action" context="{'group_by': 'call_to_action'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- TikTok Ad Action -->
+    <record id="action_tiktok_ad" model="ir.actions.act_window">
+        <field name="name">Ads</field>
+        <field name="res_model">tiktok.ad</field>
+    </record>
+
+</odoo>

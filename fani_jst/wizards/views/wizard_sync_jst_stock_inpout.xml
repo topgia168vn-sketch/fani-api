@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="wizard_sync_jst_stock_inout_view_from" model="ir.ui.view">
+        <field name="name">wizard.sync.jst.stock.inout.form</field>
+        <field name="model">wizard.sync.jst.stock.inout</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="inout_type"/>
+                    <field name="time_type" invisible="inout_type != 'sale'"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <footer>
+                    <button name="action_sync" string="Sync Stock Orders" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="wizard_sync_jst_stock_inout_action" model="ir.actions.act_window">
+        <field name="name">Sync Stock Orders</field>
+        <field name="res_model">wizard.sync.jst.stock.inout</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="wizard_sync_jst_stock_inout_menu"
+                name="Sync Stock Orders"
+                parent="fani_jst.menu_jst_wizard"
+                action="fani_jst.wizard_sync_jst_stock_inout_action"
+                sequence="45"/>
+</odoo>

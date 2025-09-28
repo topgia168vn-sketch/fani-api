@@ -1,0 +1,60 @@
+<odoo>
+    <!-- Main Menu Root -->
+    <menuitem id="menu_tiktok_marketing_root"
+              name="TikTok Marketing"
+              sequence="11"/>
+
+    <!-- Ad Menu -->
+    <menuitem id="menu_tiktok_ad" 
+              name="Ads" 
+              parent="menu_tiktok_marketing_root" 
+              action="action_tiktok_ad" 
+              sequence="10"/>
+
+    <!-- Ad Group Menu -->
+    <menuitem id="menu_tiktok_ad_group" 
+              name="Ad Groups" 
+              parent="menu_tiktok_marketing_root" 
+              action="action_tiktok_ad_group" 
+              sequence="20"/>
+
+    <!-- Campaign Menu -->
+    <menuitem id="menu_tiktok_campaign" 
+              name="Campaigns" 
+              parent="menu_tiktok_marketing_root" 
+              action="action_tiktok_campaign" 
+              sequence="30"/>
+
+    <!-- Advertiser Menu -->
+    <menuitem id="menu_tiktok_advertiser" 
+            name="Advertisers" 
+            parent="menu_tiktok_marketing_root" 
+            action="action_tiktok_advertiser" 
+            sequence="40"/>
+
+    <!-- Wizard Menu -->
+    <menuitem id="menu_tiktok_wizard" 
+              name="Wizard" 
+              parent="menu_tiktok_marketing_root" 
+              sequence="100"/>
+
+
+    <!-- Reporting Menu -->
+    <menuitem id="menu_tiktok_reporting" 
+              name="Reporting" 
+              parent="menu_tiktok_marketing_root" 
+              sequence="200"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_tiktok_configuration" 
+              name="Configuration" 
+              parent="menu_tiktok_marketing_root" 
+              sequence="1000"/>
+
+    <menuitem id="menu_tiktok_configuration_business_account" 
+              name="Business Accounts" 
+              parent="menu_tiktok_configuration" 
+              action="action_tiktok_business_account" 
+              sequence="10"/>
+
+</odoo>

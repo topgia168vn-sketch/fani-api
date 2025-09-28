@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree/List View -->
+        <record id="view_jst_logistic_company_tree" model="ir.ui.view">
+            <field name="name">jst.logistic.company.tree</field>
+            <field name="model">jst.logistic.company</field>
+            <field name="arch" type="xml">
+                <list string="JST Logistic Companies">
+                    <field name="logisticsCompanyName"/>
+                    <field name="logisticsCompanyCode"/>
+                    <field name="countryId"/>
+                    <field name="enabled"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_jst_logistic_company_form" model="ir.ui.view">
+            <field name="name">jst.logistic.company.form</field>
+            <field name="model">jst.logistic.company</field>
+            <field name="arch" type="xml">
+                <form string="JST Logistic Company">
+                    <sheet>
+                        <group>
+                            <group string="Basic Information">
+                                <field name="logisticsCompanyName"/>
+                                <field name="logisticsCompanyCode"/>
+                                <field name="logisticsCompanyId"/>
+                                <field name="autoId"/>
+                            </group>
+                            <group string="Company Details">
+                                <field name="companyId"/>
+                                <field name="countryId"/>
+                                <field name="enabled"/>
+                                <field name="createType"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Connection Settings">
+                                <field name="connectionMode"/>
+                                <field name="connectionModeDisplay"/>
+                                <field name="isOfflineDocking"/>
+                            </group>
+                            <group string="Print Settings">
+                                <field name="isOpenAdvancePrint"/>
+                                <field name="isAdvancePrintByDefault"/>
+                                <field name="waterMark"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Timestamps">
+                                <field name="created"/>
+                                <field name="jst_modified"/>
+                            </group>
+                            <group string="Users">
+                                <field name="creator"/>
+                                <field name="modifier"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="remark" placeholder="Add remarks here..."/>
+                            <field name="waybillConfig"/>
+                            <field name="platformApiExtendConfig"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_jst_logistic_company_search" model="ir.ui.view">
+            <field name="name">jst.logistic.company.search</field>
+            <field name="model">jst.logistic.company</field>
+            <field name="arch" type="xml">
+                <search string="Search JST Logistic Companies">
+                    <field name="logisticsCompanyName"/>
+                    <field name="logisticsCompanyCode"/>
+                    <field name="countryId"/>
+                    <field name="connectionMode"/>
+                    <filter string="Enabled" name="enabled" domain="[('enabled', '=', True)]"/>
+                    <filter string="Offline Docking" name="offline_docking" domain="[('isOfflineDocking', '=', True)]"/>
+                    <filter string="Advanced Print" name="advanced_print" domain="[('isOpenAdvancePrint', '=', True)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Country" name="group_country" context="{'group_by': 'countryId'}"/>
+                        <filter string="Connection Mode" name="group_connection" context="{'group_by': 'connectionMode'}"/>
+                        <filter string="Create Type" name="group_create_type" context="{'group_by': 'createType'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_jst_logistic_company" model="ir.actions.act_window">
+            <field name="name">JST Logistic Companies</field>
+            <field name="res_model">jst.logistic.company</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first JST logistic company!
+                </p>
+                <p>
+                    JST logistic companies are synchronized from the JST ERP system.
+                    Click the "Sync from JST" button to import logistic companies.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

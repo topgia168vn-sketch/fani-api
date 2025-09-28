@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- TikTok BC Report Tree View -->
+    <record id="view_tiktok_bc_report_tree" model="ir.ui.view">
+        <field name="name">tiktok.bc.report.tree</field>
+        <field name="model">tiktok.bc.report</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="action_generate_data" string="Generate Data" type="object" class="btn-primary"/>
+                </header>
+                <field name="name"/>
+                <field name="odoo_bc_id"/>
+                <field name="odoo_advertiser_id"/>
+                <field name="report_type"/>
+                <field name="data_level"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="page_size"/>
+                <field name="report_line_ids" widget="badge" decoration-info="report_line_ids"/>
+                <field name="create_date"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- TikTok BC Report Form View -->
+    <record id="view_tiktok_bc_report_form" model="ir.ui.view">
+        <field name="name">tiktok.bc.report.form</field>
+        <field name="model">tiktok.bc.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_generate_data" string="Generate Data" type="object" class="btn-primary" invisible="is_template"/>
+                    <button name="action_generate_report_and_data" string="Generate Reports" type="object" class="btn-primary" invisible="not is_template"/>
+                </header>
+                <sheet>
+                    <!-- Thêm 1 thẻ div màu vàng, cảnh báo report này không có data từ tiktok -->
+                    <div class="alert alert-warning" role="alert" invisible="not no_data">
+                        <p>Report này không có dữ liệu từ TikTok!</p>
+                    </div>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_report_lines" type="object" class="oe_stat_button" icon="fa-list">
+                            <field name="report_line_ids" widget="statinfo" string="Report Lines"/>
+                        </button>
+                    </div>
+                    
+                    <group>
+                        <group string="Basic Information">
+                            <field name="name"/>
+                            <field name="odoo_bc_id" required="1"/>
+                            <field name="odoo_advertiser_id" required="not is_template" invisible="is_template"/>
+                            <field name="odoo_advertiser_ids" required="is_template" invisible="not is_template" widget="many2many_tags"/>
+                            <field name="report_type" required="1"/>
+                            <field name="data_level" required="1"/>
+                            <field name="report_id" invisible="not report_id"/>
+                            <field name="is_template" invisible="1"/>
+                        </group>
+                        <group string="Date Range">
+                            <field name="start_date" required="1"/>
+                            <field name="end_date" required="1"/>
+                            <field name="page_size"/>
+                        </group>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Configuration" name="configuration">
+                            <group>
+                                <field name="dimensions"/>
+                                <field name="metrics"/>
+                                <field name="filters"/>
+                                <field name="final_params"/>
+                            </group>
+                        </page>
+                        <page string="Report Lines" name="report_lines">
+                            <field name="report_line_ids" readonly="1">
+                                <list>
+                                    <field name="stat_time_day"/>
+                                    <field name="stat_time_hour"/>
+                                    <field name="spend"/>
+                                    <field name="impressions"/>
+                                    <field name="clicks"/>
+                                    <field name="ctr"/>
+                                    <field name="cpc"/>
+                                    <field name="cpm"/>
+                                    <field name="conversion"/>
+                                    <field name="cost_per_conversion"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- TikTok BC Report Search View -->
+    <record id="view_tiktok_bc_report_search" model="ir.ui.view">
+        <field name="name">tiktok.bc.report.search</field>
+        <field name="model">tiktok.bc.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="odoo_bc_id"/>
+                <field name="odoo_advertiser_id"/>
+                <field name="report_type"/>
+                <field name="data_level"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                
+                <separator/>
+                <filter string="Advertiser Level" name="advertiser_level" domain="[('data_level', '=', 'AUCTION_ADVERTISER')]"/>
+                <filter string="Campaign Level" name="campaign_level" domain="[('data_level', '=', 'AUCTION_CAMPAIGN')]"/>
+                <filter string="Ad Group Level" name="adgroup_level" domain="[('data_level', '=', 'AUCTION_ADGROUP')]"/>
+                <filter string="Ad Level" name="ad_level" domain="[('data_level', '=', 'AUCTION_AD')]"/>
+                
+                <separator/>
+                <filter string="Start Date" name="ftr_start_date" date="start_date" />
+                <filter string="End Date" name="ftr_end_date" date="end_date" />
+                
+                <group expand="0" string="Group By">
+                    <filter string="Business Account" name="group_bc" context="{'group_by': 'odoo_bc_id'}"/>
+                    <filter string="Advertiser" name="group_advertiser" context="{'group_by': 'odoo_advertiser_id'}"/>
+                    <filter string="Data Level" name="group_data_level" context="{'group_by': 'data_level'}"/>
+                    <separator/>
+                    <filter string="Start Date" name="group_start_date" context="{'group_by': 'start_date'}"/>
+                    <filter string="End Date" name="group_end_date" context="{'group_by': 'end_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- TikTok BC Report Action -->
+    <record id="tiktok_bc_report_action" model="ir.actions.act_window">
+        <field name="name">TikTok Reports</field>
+        <field name="res_model">tiktok.bc.report</field>
+        <field name="domain">[('is_template', '=', False)]</field>
+    </record>
+
+    <!-- TikTok BC Report Action -->
+    <record id="tiktok_bc_report_action_template" model="ir.actions.act_window">
+        <field name="name">Report Templates</field>
+        <field name="res_model">tiktok.bc.report</field>
+        <field name="context">{'default_is_template': True}</field>
+        <field name="domain">[('is_template', '=', True)]</field>
+    </record>
+
+    <!-- TikTok BC Report Line Tree View -->
+    <record id="view_tiktok_bc_report_line_tree" model="ir.ui.view">
+        <field name="name">tiktok.bc.report.line.tree</field>
+        <field name="model">tiktok.bc.report.line</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="bc_report_id"/>
+                <field name="odoo_advertiser_id"/>
+                <field name="odoo_campaign_id"/>
+                <field name="odoo_adgroup_id"/>
+                <field name="odoo_ad_id"/>
+                <field name="stat_time_day"/>
+                <field name="stat_time_hour"/>
+                <field name="spend"/>
+                <field name="impressions"/>
+                <field name="clicks"/>
+                <field name="ctr"/>
+                <field name="cpc"/>
+                <field name="cpm"/>
+                <field name="conversion"/>
+                <field name="cost_per_conversion"/>
+                <field name="reach"/>
+                <field name="frequency"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- TikTok BC Report Line Form View -->
+    <record id="view_tiktok_bc_report_line_form" model="ir.ui.view">
+        <field name="name">tiktok.bc.report.line.form</field>
+        <field name="model">tiktok.bc.report.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Report Information">
+                            <field name="bc_report_id"/>
+                            <field name="odoo_advertiser_id"/>
+                            <field name="odoo_campaign_id"/>
+                            <field name="odoo_adgroup_id"/>
+                            <field name="odoo_ad_id"/>
+                        </group>
+                        <group string="Time Information">
+                            <field name="stat_time_day"/>
+                            <field name="stat_time_hour"/>
+                        </group>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Cost Metrics" name="cost_metrics">
+                            <group>
+                                <group string="Spend">
+                                    <field name="spend"/>
+                                    <field name="billed_cost"/>
+                                    <field name="cash_spend"/>
+                                    <field name="voucher_spend"/>
+                                </group>
+                                <group string="Cost per Action">
+                                    <field name="cpc"/>
+                                    <field name="cpm"/>
+                                    <field name="cost_per_conversion"/>
+                                    <field name="cost_per_result"/>
+                                    <field name="cost_per_secondary_goal_result"/>
+                                </group>
+                            </group>
+                        </page>
+                        
+                        <page string="Performance Metrics" name="performance_metrics">
+                            <group>
+                                <group string="Impressions &amp; Clicks">
+                                    <field name="impressions"/>
+                                    <field name="gross_impressions"/>
+                                    <field name="clicks"/>
+                                    <field name="ctr"/>
+                                </group>
+                                <group string="Reach &amp; Frequency">
+                                    <field name="reach"/>
+                                    <field name="frequency"/>
+                                    <field name="cost_per_1000_reached"/>
+                                </group>
+                            </group>
+                        </page>
+                        
+                        <page string="Conversion Metrics" name="conversion_metrics">
+                            <group>
+                                <group string="Standard Conversions">
+                                    <field name="conversion"/>
+                                    <field name="conversion_rate"/>
+                                    <field name="conversion_rate_v2"/>
+                                </group>
+                                <group string="Real-time Conversions">
+                                    <field name="real_time_conversion"/>
+                                    <field name="real_time_conversion_rate"/>
+                                    <field name="real_time_conversion_rate_v2"/>
+                                </group>
+                            </group>
+                        </page>
+                        
+                        <page string="Result Metrics" name="result_metrics">
+                            <group>
+                                <group string="Standard Results">
+                                    <field name="result"/>
+                                    <field name="result_rate"/>
+                                </group>
+                                <group string="Real-time Results">
+                                    <field name="real_time_result"/>
+                                    <field name="real_time_result_rate"/>
+                                </group>
+                                <group string="Deep Funnel Results">
+                                    <field name="secondary_goal_result"/>
+                                    <field name="secondary_goal_result_rate"/>
+                                </group>
+                            </group>
+                        </page>
+                        
+                        <page string="TikTok IDs" name="tiktok_ids">
+                            <group>
+                                <group string="TikTok Dimension IDs">
+                                    <field name="advertiser_id"/>
+                                    <field name="campaign_id"/>
+                                    <field name="adgroup_id"/>
+                                    <field name="ad_id"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- TikTok BC Report Line Search View -->
+    <record id="view_tiktok_bc_report_line_search" model="ir.ui.view">
+        <field name="name">tiktok.bc.report.line.search</field>
+        <field name="model">tiktok.bc.report.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="bc_report_id"/>
+                <field name="odoo_advertiser_id"/>
+                <field name="odoo_campaign_id"/>
+                <field name="odoo_adgroup_id"/>
+                <field name="odoo_ad_id"/>
+
+                <field name="advertiser_id"/>
+                <field name="campaign_id"/>
+                <field name="adgroup_id"/>
+                <field name="ad_id"/>
+
+                <field name="report_type"/>
+                <field name="data_level"/>
+                
+                <separator/>
+                <filter string="Advertiser Level" name="advertiser_level" domain="[('data_level', '=', 'AUCTION_ADVERTISER')]"/>
+                <filter string="Campaign Level" name="campaign_level" domain="[('data_level', '=', 'AUCTION_CAMPAIGN')]"/>
+                <filter string="Ad Group Level" name="adgroup_level" domain="[('data_level', '=', 'AUCTION_ADGROUP')]"/>
+                <filter string="Ad Level" name="ad_level" domain="[('data_level', '=', 'AUCTION_AD')]"/>
+
+                <separator/>
+                <filter string="Date" name="ftr_start_date" date="stat_time_day" />
+                <filter string="Hour" name="ftr_hour" date="stat_time_hour" />
+                
+                <group expand="0" string="Group By">
+                    <filter string="Odoo Report" name="group_report" context="{'group_by': 'bc_report_id'}"/>
+                    <filter string="Odoo Advertiser" name="group_advertiser" context="{'group_by': 'odoo_advertiser_id'}"/>
+                    <filter string="Odoo Campaign" name="group_campaign" context="{'group_by': 'odoo_campaign_id'}"/>
+                    <filter string="Odoo Ad Group" name="group_adgroup" context="{'group_by': 'odoo_adgroup_id'}"/>
+                    <filter string="Odoo Ad" name="group_ad" context="{'group_by': 'odoo_ad_id'}"/>
+                    <separator/>
+                     <filter string="Advertiser ID" name="group_advertiser_id" context="{'group_by': 'advertiser_id'}"/>
+                    <filter string="Campaign ID" name="group_campaign_id" context="{'group_by': 'campaign_id'}"/>
+                    <filter string="Ad Group ID" name="group_adgroup_id" context="{'group_by': 'adgroup_id'}"/>
+                    <filter string="Ad ID" name="group_ad_id" context="{'group_by': 'ad_id'}"/>
+                    <separator/>
+                    <filter string="Data Level" name="group_data_level" context="{'group_by': 'data_level'}"/>
+                    <separator/>
+                    <filter string="Date" name="group_date" context="{'group_by': 'stat_time_day'}"/>
+                    <filter string="Hour" name="group_hour" context="{'group_by': 'stat_time_hour'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- TikTok BC Report Line Action -->
+    <record id="tiktok_bc_report_line_action" model="ir.actions.act_window">
+        <field name="name">TikTok Report Lines</field>
+        <field name="res_model">tiktok.bc.report.line</field>
+    </record>
+
+    <!-- Generate Reports Menu -->
+    <menuitem id="tiktok_bc_report_menu_template" 
+            name="Reports Templates" 
+            parent="menu_tiktok_reporting" 
+            action="tiktok_bc_report_action_template" 
+            sequence="5"/>
+
+    <!-- TikTok BC Report Menu -->
+    <menuitem id="tiktok_bc_report_menu" 
+            name="Reports" 
+            parent="menu_tiktok_reporting" 
+            action="tiktok_bc_report_action" 
+            sequence="10"/>
+    
+
+    <!-- TikTok BC Report Line Menu -->
+    <menuitem id="tiktok_bc_report_line_menu" 
+            name="Report Lines" 
+            parent="menu_tiktok_reporting" 
+            action="tiktok_bc_report_line_action" 
+            sequence="20"/>
+
+</odoo>

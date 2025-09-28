@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree/List View -->
+        <record id="view_jst_stock_inout_tree" model="ir.ui.view">
+            <field name="name">jst.stock.inout.tree</field>
+            <field name="model">jst.stock.inout</field>
+            <field name="arch" type="xml">
+                <list string="JST Stock InOuts">
+                    <field name="inoutId"/>
+                    <field name="orderId_str"/>
+                    <field name="status"/>
+                    <field name="warehouseName"/>
+                    <field name="shopId"/>
+                    <field name="companyId"/>
+                    <field name="platformOrderId"/>
+                    <field name="qty"/>
+                    <field name="realQty"/>
+                    <field name="totalAmount"/>
+                    <field name="paidAmount"/>
+                    <field name="currency"/>
+                    <field name="inoutTime"/>
+                    <field name="sendTime"/>
+                    <field name="created"/>
+                    <field name="jst_modified"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_jst_stock_inout_form" model="ir.ui.view">
+            <field name="name">jst.stock.inout.form</field>
+            <field name="model">jst.stock.inout</field>
+            <field name="arch" type="xml">
+                <form string="JST Stock InOut">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="inoutId" readonly="1"/></h1>
+                        </div>
+                        <notebook>
+                            <page string="General Info">
+                                <group>
+                                    <group string="Identifiers">
+                                        <field name="inoutId"/>
+                                        <field name="orderId_str"/>
+                                        <field name="orderDate"/>
+                                        <field name="platformOrderId"/>
+                                        <field name="platformName"/>
+                                    </group>
+                                    <group string="Status">
+                                        <field name="status"/>
+                                        <field name="statusDisplay"/>
+                                        <field name="type"/>
+                                        <field name="typeDisplay"/>
+                                    </group>
+                                </group>
+
+                                <group>
+                                    <group string="Warehouse">
+                                        <field name="warehouseId"/>
+                                        <field name="warehouseName"/>
+                                        <field name="areaType"/>
+                                        <field name="areaTypeDisplay"/>
+                                    </group>
+                                    <group string="Logistics">
+                                        <field name="logisticsId"/>
+                                        <field name="logisticsCompany"/>
+                                        <field name="logisticsCompanyCode"/>
+                                        <field name="sendTime"/>
+                                    </group>
+                                </group>
+
+                                <group>
+                                    <group string="Amounts">
+                                        <field name="qty"/>
+                                        <field name="realQty"/>
+                                        <field name="skuQty"/>
+                                        <field name="totalQty"/>
+                                        <field name="totalAmount"/>
+                                        <field name="paidAmount"/>
+                                        <field name="freight"/>
+                                        <field name="factFreight"/>
+                                    </group>
+                                    <group string="Extra">
+                                        <field name="totalCostAmount"/>
+                                        <field name="realTotalCostAmount"/>
+                                        <field name="currency"/>
+                                        <field name="remark"/>
+                                    </group>
+                                </group>
+
+                                <group string="System Info">
+                                    <field name="companyId"/>
+                                    <field name="linkCoId"/>
+                                    <field name="linkCompanyName"/>
+                                    <field name="inoutTime"/>
+                                    <field name="created"/>
+                                    <field name="creator"/>
+                                    <field name="creatorName"/>
+                                    <field name="jst_modified"/>
+                                    <field name="modifier"/>
+                                    <field name="outType"/>
+                                    <field name="is_other_delivery"/>
+                                    <field name="receiverName"/>
+                                </group>
+                            </page>
+
+                            <page string="InOut Items">
+                                <field name="jst_stock_inout_item_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    <record id="view_jst_stock_inout_search" model="ir.ui.view">
+            <field name="name">jst.stock.inout.search</field>
+            <field name="model">jst.stock.inout</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="inoutId"/>
+                    <field name="orderId_str"/>
+                    <field name="platformOrderId"/>
+                    <field name="warehouseName"/>
+                    <field name="shopId"/>
+                    <separator/>
+                    <filter name="ftr_status_WaitLogistics" string="Delivery: WaitLogistics" domain="[('status','=','WaitLogistics')]"/>
+                    <filter name="ftr_status_Delivering" string="Delivery: Delivering" domain="[('status','=','Delivering')]"/>
+                    <filter name="ftr_status_Delivered" string="Delivery: Delivered" domain="[('status','=','Delivered')]"/>
+                    <filter name="ftr_status_Cancel" string="Delivery: Cancel" domain="[('status','=','Cancel')]"/>
+                    <filter name="ftr_status_Deleted" string="Delivery: Deleted" domain="[('status','=','Deleted')]"/>
+                    <separator/>
+                    <filter name="ftr_status_WaitIn" string="Receipt: WaitIn" domain="[('status','=','WaitIn')]"/>
+                    <filter name="ftr_status_InFinish" string="Receipt: InFinish" domain="[('status','=','  InFinish')]"/>
+                    <separator/>
+                    <filter name="ftr_orderDate" string="Order Date" date="orderDate"/>
+                    <filter name="ftr_created" string="Created Time" date="created"/>
+                    <filter name="ftr_inoutTime" string="Inout Time" date="inoutTime"/>
+                    <filter name="ftr_send_time" string="Send Time" date="sendTime"/>
+                    <separator/>
+                    <filter name="delivery_order" string="Delivery Order" domain="[('type','=','SaleOut')]"/>
+                    <filter name="receipt_order" string="Purchase Receipt" domain="[('type','=','PurchaseIn')]"/>
+                    <filter name="other_order" string="Other Order" domain="[('is_other_delivery','=',True)]"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Status" name="group_by_status" context="{'group_by':'status'}"/>
+                        <filter string="Warehouse" name="group_by_warehouseName" context="{'group_by':'warehouseName'}"/>
+                        <filter string="Shop" name="group_by_shopId" context="{'group_by':'shopId'}"/>
+                        <separator/>
+                        <filter string="Stock Type" name="group_by_type" context="{'group_by':'type'}"/>
+                        <separator/>
+                        <filter string="Created Time" name="group_by_created" context="{'group_by':'created:day'}"/>
+                        <filter string="Send Time" name="group_by_sendTime" context="{'group_by':'sendTime:day'}"/>
+                        <separator/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_jst_stock_inout" model="ir.actions.act_window">
+            <field name="name">All Stock Orders</field>
+            <field name="res_model">jst.stock.inout</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{'search_default_ftr_inoutTime': 1}
+            </field>
+        </record>
+        <record id="action_jst_stock_inout_delivery" model="ir.actions.act_window">
+            <field name="name">Delivery Orders</field>
+            <field name="res_model">jst.stock.inout</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('type', '=', 'SaleOut')]</field>
+            <field name="context">{'search_default_ftr_inoutTime': 1}
+            </field>
+        </record>
+        <record id="action_jst_stock_inout_receipt" model="ir.actions.act_window">
+            <field name="name">Receipt Orders</field>
+            <field name="res_model">jst.stock.inout</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('type', '=', 'PurchaseIn')]</field>
+            <field name="context">{'search_default_ftr_inoutTime': 1}
+            </field>
+        </record>
+        <record id="action_jst_stock_inout_other" model="ir.actions.act_window">
+            <field name="name">Other Orders</field>
+            <field name="res_model">jst.stock.inout</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('is_other_delivery', '=', True)]</field>
+            <field name="context">{'search_default_ftr_inoutTime': 1}
+            </field>
+        </record>
+    </data>
+</odoo>
