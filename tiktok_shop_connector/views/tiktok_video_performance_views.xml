@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List View -->
+    <record id="view_tiktok_video_performance_list" model="ir.ui.view">
+        <field name="name">tiktok.video.performance.list</field>
+        <field name="model">tiktok.video.performance</field>
+        <field name="arch" type="xml">
+            <list string="Video Performance">
+                <field name="video_id"/>
+                <field name="report_date"/>
+                <field name="gmv_amount"/>
+                <field name="gmv_currency"/>
+                <field name="views"/>
+                <field name="click_through_rate"/>
+                <field name="daily_avg_buyers"/>
+                <field name="live_gmv"/>
+                <field name="video_gmv"/>
+                <field name="product_card_gmv"/>
+                <field name="shop_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_tiktok_video_performance_form" model="ir.ui.view">
+        <field name="name">tiktok.video.performance.form</field>
+        <field name="model">tiktok.video.performance</field>
+        <field name="arch" type="xml">
+            <form string="Video Performance">
+                <sheet>
+                    <group>
+                        <group name="basic_info" string="Basic Information">
+                            <field name="video_id"/>
+                            <field name="shop_id"/>
+                            <field name="report_date"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group name="overall_metrics" string="Overall Metrics">
+                            <field name="gmv_amount"/>
+                            <field name="gmv_currency"/>
+                            <field name="views"/>
+                            <field name="click_through_rate"/>
+                            <field name="daily_avg_buyers"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group name="live_metrics" string="Live Stream Metrics">
+                            <field name="live_gmv"/>
+                            <field name="live_orders"/>
+                            <field name="live_units_sold"/>
+                            <field name="live_impressions"/>
+                            <field name="live_page_views"/>
+                            <field name="live_click_through_rate"/>
+                        </group>
+                        <group name="video_metrics" string="Video Metrics">
+                            <field name="video_gmv"/>
+                            <field name="video_orders"/>
+                            <field name="video_units_sold"/>
+                            <field name="video_impressions"/>
+                            <field name="video_page_views"/>
+                            <field name="video_click_through_rate"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group name="product_card_metrics" string="Product Card Metrics">
+                            <field name="product_card_gmv"/>
+                            <field name="product_card_orders"/>
+                            <field name="product_card_units_sold"/>
+                            <field name="product_card_impressions"/>
+                            <field name="product_card_page_views"/>
+                            <field name="product_card_click_through_rate"/>
+                        </group>
+                        <group name="video_specific" string="Video Specific">
+                            <field name="video_post_time"/>
+                            <field name="latest_available_date"/>
+                            <field name="engagement_data"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group name="raw_data" string="Raw Data">
+                            <field name="raw_payload" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_tiktok_video_performance_search" model="ir.ui.view">
+        <field name="name">tiktok.video.performance.search</field>
+        <field name="model">tiktok.video.performance</field>
+        <field name="arch" type="xml">
+            <search string="Search Video Performance">
+                <field name="video_id"/>
+                <field name="shop_id"/>
+                <field name="report_date"/>
+                <separator/>
+                <filter string="Today" name="today" domain="[('report_date', '=', context_today())]"/>
+                <filter string="This Week" name="this_week" domain="[
+                    ('report_date', '&gt;=', (context_today() + relativedelta(weeks=-1, days=1, weekday=0)).strftime('%Y-%m-%d')),
+                    ('report_date', '&lt;', (context_today() + relativedelta(days=1, weekday=0)).strftime('%Y-%m-%d'))
+                ]"/>
+                <filter string="This Month" name="this_month" domain="[
+                    ('report_date', '&gt;=', (context_today() + relativedelta(day=1)).strftime('%Y-%m-%d')),
+                    ('report_date', '&lt;', (context_today() + relativedelta(months=1,day=1)).strftime('%Y-%m-%d'))
+                ]"/>
+                <separator/>
+                <filter string="High GMV" name="high_gmv" domain="[('gmv_amount', '&gt;', 1000)]"/>
+                <filter string="High Views" name="high_views" domain="[('views', '&gt;', 10000)]"/>
+                <filter string="High CTR" name="high_ctr" domain="[('click_through_rate', '&gt;', 0.05)]"/>
+                <separator/>
+                <filter string="Has Live Performance" name="has_live" domain="[('live_gmv', '&gt;', 0)]"/>
+                <filter string="Has Video Performance" name="has_video" domain="[('video_gmv', '&gt;', 0)]"/>
+                <filter string="Has Product Card Performance" name="has_product_card" domain="[('product_card_gmv', '&gt;', 0)]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Video" name="group_by_video" context="{'group_by': 'video_id'}"/>
+                    <filter string="Shop" name="group_by_shop" context="{'group_by': 'shop_id'}"/>
+                    <filter string="Report Date" name="group_by_date" context="{'group_by': 'report_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pivot View -->
+    <record id="view_tiktok_video_performance_pivot" model="ir.ui.view">
+        <field name="name">tiktok.video.performance.pivot</field>
+        <field name="model">tiktok.video.performance</field>
+        <field name="arch" type="xml">
+            <pivot string="Video Performance Analysis">
+                <field name="report_date" type="row"/>
+                <field name="shop_id" type="row"/>
+                <field name="video_id" type="row"/>
+                <field name="gmv_amount" type="measure"/>
+                <field name="views" type="measure"/>
+                <field name="click_through_rate" type="measure"/>
+                <field name="daily_avg_buyers" type="measure"/>
+                <field name="live_gmv" type="measure"/>
+                <field name="video_gmv" type="measure"/>
+                <field name="product_card_gmv" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="view_tiktok_video_performance_graph" model="ir.ui.view">
+        <field name="name">tiktok.video.performance.graph</field>
+        <field name="model">tiktok.video.performance</field>
+        <field name="arch" type="xml">
+            <graph string="Video Performance Trends" type="line">
+                <field name="report_date" type="row"/>
+                <field name="shop_id" type="col"/>
+                <field name="gmv_amount" type="measure"/>
+                <field name="views" type="measure"/>
+                <field name="click_through_rate" type="measure"/>
+                <field name="daily_avg_buyers" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_tiktok_video_performance" model="ir.actions.act_window">
+        <field name="name">Video Performance</field>
+        <field name="res_model">tiktok.video.performance</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="context">{'search_default_this_month': 1}</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Ads CPC Report List View -->
+    <record id="view_ads_cpc_report_list" model="ir.ui.view">
+        <field name="name">shopee.ads.cpc.report.list</field>
+        <field name="model">shopee.ads.cpc.report</field>
+        <field name="arch" type="xml">
+            <list string="Ads CPC Reports">
+                <field name="shop_id"/>
+                <field name="report_date"/>
+                <field name="campaign_name"/>
+                <field name="campaign_type"/>
+                <field name="status"/>
+                <field name="views"/>
+                <field name="clicks"/>
+                <field name="click_rate"/>
+                <field name="conversions"/>
+                <field name="cost"/>
+                <field name="gmv"/>
+                <field name="roas"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Ads CPC Report Form View -->
+    <record id="view_ads_cpc_report_form" model="ir.ui.view">
+        <field name="name">shopee.ads.cpc.report.form</field>
+        <field name="model">shopee.ads.cpc.report</field>
+        <field name="arch" type="xml">
+            <form string="Ads CPC Report">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="campaign_name" placeholder="Campaign Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="shop_id"/>
+                            <field name="report_date"/>
+                            <field name="status"/>
+                            <field name="campaign_type"/>
+                        </group>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="target_setting"/>
+                            <field name="campaign_content"/>
+                            <field name="bidding_method"/>
+                            <field name="position"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Views &amp; Clicks">
+                            <field name="views"/>
+                            <field name="clicks"/>
+                            <field name="click_rate"/>
+                        </group>
+                        <group string="Conversions">
+                            <field name="conversions"/>
+                            <field name="direct_conversions"/>
+                            <field name="conversion_rate"/>
+                            <field name="direct_conversion_rate"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Cost">
+                            <field name="cost_per_conversion"/>
+                            <field name="cost_per_direct_conversion"/>
+                            <field name="cost"/>
+                        </group>
+                        <group string="Sales">
+                            <field name="products_sold"/>
+                            <field name="direct_products_sold"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="GMV">
+                            <field name="gmv"/>
+                            <field name="direct_gmv"/>
+                        </group>
+                        <group string="Performance">
+                            <field name="roas"/>
+                            <field name="direct_roas"/>
+                            <field name="acos"/>
+                            <field name="direct_acos"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Product Metrics">
+                            <field name="product_views"/>
+                            <field name="product_clicks"/>
+                            <field name="product_click_rate"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Ads CPC Report Search View -->
+    <record id="view_ads_cpc_report_search" model="ir.ui.view">
+        <field name="name">shopee.ads.cpc.report.search</field>
+        <field name="model">shopee.ads.cpc.report</field>
+        <field name="arch" type="xml">
+            <search string="Search Ads CPC Reports">
+                <field name="shop_id"/>
+                <field name="campaign_name"/>
+                <field name="product_id"/>
+                <field name="campaign_type"/>
+                <field name="status"/>
+                <separator/>
+                <filter string="This Week" name="this_week" domain="[
+                        ('report_date', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(weeks=-1,days=1,weekday=0), datetime.time(0,0,0)).to_utc())),
+                        ('report_date', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(days=1,weekday=0), datetime.time(0,0,0)).to_utc())),
+                    ]"/>
+                <filter string="This Month" name="this_month" domain="[
+                        ('report_date', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(day=1), datetime.time(0,0,0)).to_utc())),
+                        ('report_date', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(months=1,day=1), datetime.time(0,0,0)).to_utc())),
+                    ]"/>
+                <filter string="Last 30 Days" name="last_30_days" domain="[
+                        ('report_date', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(days=-30), datetime.time(0,0,0)).to_utc())),
+                        ('report_date', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(days=1), datetime.time(0,0,0)).to_utc())),
+                    ]"/>
+                <separator/>
+                <filter string="Active Campaigns" name="active"
+                        domain="[('status', '=', 'Đang diễn ra')]"/>
+                <filter string="Shop Campaigns" name="shop_campaigns"
+                        domain="[('campaign_type', '=', 'Dịch vụ Hiển thị Shop')]"/>
+                <filter string="Product Campaigns" name="product_campaigns"
+                        domain="[('campaign_type', '=', 'Dịch vụ Hiển thị Sản phẩm')]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Shop" name="group_shop" context="{'group_by': 'shop_id'}"/>
+                    <filter string="Report Date" name="group_date" context="{'group_by': 'report_date'}"/>
+                    <filter string="Campaign Type" name="group_type" context="{'group_by': 'campaign_type'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by': 'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Ads CPC Report Pivot View -->
+    <record id="view_ads_cpc_report_pivot" model="ir.ui.view">
+        <field name="name">shopee.ads.cpc.report.pivot</field>
+        <field name="model">shopee.ads.cpc.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Ads CPC Reports Analysis">
+                <field name="shop_id" type="row"/>
+                <field name="report_date" type="row"/>
+                <field name="campaign_type" type="col"/>
+                <field name="views" type="measure"/>
+                <field name="clicks" type="measure"/>
+                <field name="cost" type="measure"/>
+                <field name="gmv" type="measure"/>
+                <field name="roas" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Ads CPC Report Graph View -->
+    <record id="view_ads_cpc_report_graph" model="ir.ui.view">
+        <field name="name">shopee.ads.cpc.report.graph</field>
+        <field name="model">shopee.ads.cpc.report</field>
+        <field name="arch" type="xml">
+            <graph string="Ads CPC Reports Analysis" type="line">
+                <field name="report_date" type="row"/>
+                <field name="views" type="measure"/>
+                <field name="clicks" type="measure"/>
+                <field name="cost" type="measure"/>
+                <field name="gmv" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Ads CPC Report Action -->
+    <record id="action_ads_cpc_report" model="ir.actions.act_window">
+        <field name="name">Ads CPC Reports</field>
+        <field name="res_model">shopee.ads.cpc.report</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="context">{'search_default_this_month': 1}</field>
+    </record>
+
+</odoo>

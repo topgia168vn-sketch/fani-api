@@ -1,0 +1,23 @@
+{
+    'name': 'Pancake Connector',
+    'summary': 'Mirror Pancake data into Odoo (Phase 1 - read-only sync)',
+    'version': '1.0.0',
+    'category': 'Connector',
+    'author': 'Fani',
+    'license': 'LGPL-3',
+    'depends': ['base'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/pancake_cron_data.xml',
+        'wizard/pancake_fetch_geo_wizard_views.xml',
+        'views/pancake_order_views.xml',
+        'views/pancake_customer_views.xml',
+        'views/pancake_shop_views.xml',
+        'views/pancake_geo_views.xml',
+        'views/pancake_order_item_views.xml',
+        'views/menu.xml',
+    ],
+    'demo': [],
+    'application': True,
+    'installable': True,
+}

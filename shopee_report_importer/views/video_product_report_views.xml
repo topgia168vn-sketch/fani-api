@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ==================== LIST VIEW ==================== -->
+    <record id="view_video_product_report_list" model="ir.ui.view">
+        <field name="name">shopee.video.product.report.list</field>
+        <field name="model">shopee.video.product.report</field>
+        <field name="arch" type="xml">
+            <list string="Video Product Reports">
+                <field name="shop_id"/>
+                <field name="report_date"/>
+                <field name="streamer_id"/>
+                <field name="ranking"/>
+                <field name="product_name"/>
+                <field name="orders_placed"/>
+                <field name="orders_confirmed"/>
+                <field name="revenue_placed"/>
+                <field name="revenue_confirmed"/>
+                <field name="buyers_placed"/>
+                <field name="buyers_confirmed"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ==================== FORM VIEW ==================== -->
+    <record id="view_video_product_report_form" model="ir.ui.view">
+        <field name="name">shopee.video.product.report.form</field>
+        <field name="model">shopee.video.product.report</field>
+        <field name="arch" type="xml">
+            <form string="Video Product Report">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="product_name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Basic Information">
+                            <field name="shop_id"/>
+                            <field name="report_date"/>
+                            <field name="streamer_id"/>
+                            <field name="ranking"/>
+                        </group>
+                        <group string="Orders Performance">
+                            <field name="orders_placed"/>
+                            <field name="orders_confirmed"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Revenue Performance">
+                            <field name="revenue_placed"/>
+                            <field name="revenue_confirmed"/>
+                        </group>
+                        <group string="Buyers Performance">
+                            <field name="buyers_placed"/>
+                            <field name="buyers_confirmed"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ==================== SEARCH VIEW ==================== -->
+    <record id="view_video_product_report_search" model="ir.ui.view">
+        <field name="name">shopee.video.product.report.search</field>
+        <field name="model">shopee.video.product.report</field>
+        <field name="arch" type="xml">
+            <search string="Search Video Product Reports">
+                <field name="product_name"/>
+                <field name="streamer_id"/>
+                <separator/>
+                <filter string="This Week" name="this_week"
+                        domain="[('report_date', '&gt;=', (context_today() + relativedelta(weekday=0)).strftime('%Y-%m-%d'))]"/>
+                <filter string="This Month" name="this_month"
+                        domain="[('report_date', '&gt;=', (context_today() + relativedelta(day=1)).strftime('%Y-%m-%d'))]"/>
+                <filter string="Last 30 Days" name="last_30_days"
+                        domain="[('report_date', '&gt;=', (context_today() + relativedelta(days=-30)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter string="Top 3 Products" name="top_3" domain="[('ranking', '&lt;=', 3)]"/>
+                <filter string="High Revenue (>1M VND)" name="high_revenue" domain="[('revenue_confirmed', '&gt;', 1000000)]"/>
+                <filter string="High Orders (>10)" name="high_orders" domain="[('orders_confirmed', '&gt;', 10)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Shop" name="group_shop" context="{'group_by': 'shop_id'}"/>
+                    <filter string="Report Date" name="group_report_date" context="{'group_by': 'report_date'}"/>
+                    <filter string="Streamer" name="group_streamer" context="{'group_by': 'streamer_id'}"/>
+                    <filter string="Product" name="group_product" context="{'group_by': 'product_name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ==================== PIVOT VIEW ==================== -->
+    <record id="view_video_product_report_pivot" model="ir.ui.view">
+        <field name="name">shopee.video.product.report.pivot</field>
+        <field name="model">shopee.video.product.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Video Product Reports Analysis">
+                <field name="shop_id" type="row"/>
+                <field name="report_date" type="row"/>
+                <field name="streamer_id" type="col"/>
+                <field name="ranking" type="col"/>
+                <field name="orders_placed" type="measure"/>
+                <field name="orders_confirmed" type="measure"/>
+                <field name="revenue_placed" type="measure"/>
+                <field name="revenue_confirmed" type="measure"/>
+                <field name="buyers_placed" type="measure"/>
+                <field name="buyers_confirmed" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- ==================== GRAPH VIEW ==================== -->
+    <record id="view_video_product_report_graph" model="ir.ui.view">
+        <field name="name">shopee.video.product.report.graph</field>
+        <field name="model">shopee.video.product.report</field>
+        <field name="arch" type="xml">
+            <graph string="Video Product Reports Analysis" type="bar">
+                <field name="report_date" type="row"/>
+                <field name="ranking" type="row"/>
+                <field name="orders_confirmed" type="measure"/>
+                <field name="revenue_confirmed" type="measure"/>
+                <field name="buyers_confirmed" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- ==================== ACTION ==================== -->
+    <record id="action_video_product_report" model="ir.actions.act_window">
+        <field name="name">Video Product Reports</field>
+        <field name="res_model">shopee.video.product.report</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="context">{'search_default_this_month': 1}</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ==================== LIST VIEW ==================== -->
+    <record id="view_live_product_report_list" model="ir.ui.view">
+        <field name="name">shopee.live.product.report.list</field>
+        <field name="model">shopee.live.product.report</field>
+        <field name="arch" type="xml">
+            <list string="Live Product Reports">
+                <field name="shop_id"/>
+                <field name="report_date"/>
+                <field name="streamer_id"/>
+                <field name="ranking"/>
+                <field name="product_name"/>
+                <field name="product_clicks"/>
+                <field name="add_to_cart"/>
+                <field name="orders_placed"/>
+                <field name="orders_confirmed"/>
+                <field name="products_sold_placed"/>
+                <field name="products_sold_confirmed"/>
+                <field name="revenue_placed"/>
+                <field name="revenue_confirmed"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ==================== FORM VIEW ==================== -->
+    <record id="view_live_product_report_form" model="ir.ui.view">
+        <field name="name">shopee.live.product.report.form</field>
+        <field name="model">shopee.live.product.report</field>
+        <field name="arch" type="xml">
+            <form string="Live Product Report">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="shop_id" readonly="1"/>
+                            <field name="report_date" readonly="1"/>
+                            <field name="streamer_id" readonly="1"/>
+                            <field name="ranking" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Product Info">
+                            <field name="product_name"/>
+                        </group>
+                        <group string="Engagement Metrics">
+                            <field name="product_clicks"/>
+                            <field name="add_to_cart"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Order Metrics">
+                            <field name="orders_placed"/>
+                            <field name="orders_confirmed"/>
+                            <field name="products_sold_placed"/>
+                            <field name="products_sold_confirmed"/>
+                        </group>
+                        <group string="Revenue Metrics">
+                            <field name="revenue_placed"/>
+                            <field name="revenue_confirmed"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ==================== SEARCH VIEW ==================== -->
+    <record id="view_live_product_report_search" model="ir.ui.view">
+        <field name="name">shopee.live.product.report.search</field>
+        <field name="model">shopee.live.product.report</field>
+        <field name="arch" type="xml">
+            <search string="Search Live Product Reports">
+                <field name="shop_id"/>
+                <field name="report_date"/>
+                <field name="streamer_id"/>
+                <field name="product_name"/>
+                <separator/>
+                <filter string="This Week" name="this_week" domain="[
+                        ('report_date', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(weeks=-1,days=1,weekday=0), datetime.time(0,0,0)).to_utc())),
+                        ('report_date', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(days=1,weekday=0), datetime.time(0,0,0)).to_utc())),
+                    ]"/>
+                <filter string="This Month" name="this_month" domain="[
+                        ('report_date', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(day=1), datetime.time(0,0,0)).to_utc())),
+                        ('report_date', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(months=1,day=1), datetime.time(0,0,0)).to_utc())),
+                    ]"/>
+                <filter string="Last 30 Days" name="last_30_days" domain="[
+                        ('report_date', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(days=-30), datetime.time(0,0,0)).to_utc())),
+                        ('report_date', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(days=1), datetime.time(0,0,0)).to_utc())),
+                    ]"/>
+                <separator/>
+                <filter string="Top 10 Products" name="top_10" domain="[('ranking', '&lt;=', 10)]"/>
+                <filter string="High Revenue (>10M VND)" name="high_revenue" domain="[('revenue_confirmed', '&gt;', 10000000)]"/>
+                <filter string="High Engagement (>1000 clicks)" name="high_engagement" domain="[('product_clicks', '&gt;', 1000)]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Shop" name="group_shop" context="{'group_by': 'shop_id'}"/>
+                    <filter string="Report Date" name="group_report_date" context="{'group_by': 'report_date'}"/>
+                    <filter string="Streamer" name="group_streamer" context="{'group_by': 'streamer_id'}"/>
+                    <filter string="Ranking" name="group_ranking" context="{'group_by': 'ranking'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ==================== PIVOT VIEW ==================== -->
+    <record id="view_live_product_report_pivot" model="ir.ui.view">
+        <field name="name">shopee.live.product.report.pivot</field>
+        <field name="model">shopee.live.product.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Live Product Reports Analysis">
+                <field name="shop_id" type="row"/>
+                <field name="report_date" type="row"/>
+                <field name="streamer_id" type="col"/>
+                <field name="ranking" type="col"/>
+                <field name="product_clicks" type="measure"/>
+                <field name="add_to_cart" type="measure"/>
+                <field name="orders_placed" type="measure"/>
+                <field name="orders_confirmed" type="measure"/>
+                <field name="products_sold_placed" type="measure"/>
+                <field name="products_sold_confirmed" type="measure"/>
+                <field name="revenue_placed" type="measure"/>
+                <field name="revenue_confirmed" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- ==================== GRAPH VIEW ==================== -->
+    <record id="view_live_product_report_graph" model="ir.ui.view">
+        <field name="name">shopee.live.product.report.graph</field>
+        <field name="model">shopee.live.product.report</field>
+        <field name="arch" type="xml">
+            <graph string="Live Product Reports Analysis" type="bar">
+                <field name="ranking" type="row"/>
+                <field name="product_clicks" type="measure"/>
+                <field name="add_to_cart" type="measure"/>
+                <field name="orders_placed" type="measure"/>
+                <field name="orders_confirmed" type="measure"/>
+                <field name="revenue_placed" type="measure"/>
+                <field name="revenue_confirmed" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- ==================== ACTION ==================== -->
+    <record id="action_live_product_report" model="ir.actions.act_window">
+        <field name="name">Live Product Reports</field>
+        <field name="res_model">shopee.live.product.report</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="context">{'search_default_this_month': 1}</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,68 @@
+<odoo>
+    <!-- SKU Inventory List View -->
+    <record id="view_tiktok_sku_inventory_list" model="ir.ui.view">
+        <field name="name">tiktok.sku.inventory.list</field>
+        <field name="model">tiktok.sku.inventory</field>
+        <field name="arch" type="xml">
+            <list string="TikTok SKU Inventory" editable="bottom">
+                <field name="sku_id"/>
+                <field name="warehouse_id"/>
+                <field name="quantity"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- SKU Inventory Search View -->
+    <record id="view_tiktok_sku_inventory_search" model="ir.ui.view">
+        <field name="name">tiktok.sku.inventory.search</field>
+        <field name="model">tiktok.sku.inventory</field>
+        <field name="arch" type="xml">
+            <search string="Search SKU Inventory">
+                <field name="sku_id"/>
+                <field name="warehouse_id"/>
+                <field name="quantity"/>
+
+                <filter string="Has Stock" name="has_stock" domain="[('quantity', '&gt;', 0)]"/>
+                <filter string="Out of Stock" name="out_of_stock" domain="[('quantity', '=', 0)]"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="SKU" name="group_sku" context="{'group_by': 'sku_id'}"/>
+                    <filter string="Warehouse" name="group_warehouse" context="{'group_by': 'warehouse_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pivot View -->
+    <record id="view_tiktok_sku_inventory_pivot" model="ir.ui.view">
+        <field name="name">tiktok.sku.inventory.pivot</field>
+        <field name="model">tiktok.sku.inventory</field>
+        <field name="arch" type="xml">
+            <pivot string="SKU Inventory Analysis">
+                <field name="sku_id" type="row"/>
+                <field name="warehouse_id" type="col"/>
+                <field name="quantity" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="view_tiktok_sku_inventory_graph" model="ir.ui.view">
+        <field name="name">tiktok.sku.inventory.graph</field>
+        <field name="model">tiktok.sku.inventory</field>
+        <field name="arch" type="xml">
+            <graph string="SKU Inventory Trends" type="line">
+                <field name="sku_id" type="row"/>
+                <field name="quantity" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- SKU Inventory Action -->
+    <record id="action_tiktok_sku_inventory" model="ir.actions.act_window">
+        <field name="name">TikTok SKU Inventory</field>
+        <field name="res_model">tiktok.sku.inventory</field>
+        <field name="view_mode">list,pivot,graph</field>
+    </record>
+
+</odoo>

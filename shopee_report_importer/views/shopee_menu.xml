@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_shopee_main"
+              name="Shopee Report"
+              sequence="100"/>
+
+    <!-- Shopee Shops Menu -->
+    <menuitem id="menu_shopee_shops"
+              name="Shops"
+              parent="menu_shopee_main"
+              action="action_shopee_shop"
+              sequence="10"/>
+
+    <!-- Reports Menu -->
+    <menuitem id="menu_shopee_reports"
+              name="Reports"
+              parent="menu_shopee_main"
+              sequence="20"/>
+
+    <!-- Ads CPC Reports Menu -->
+    <menuitem id="menu_ads_cpc_report"
+              name="Ads CPC Reports"
+              parent="menu_shopee_reports"
+              action="action_ads_cpc_report"
+              sequence="10"/>
+
+    <!-- Ads Live Reports Menu -->
+    <menuitem id="menu_ads_live_report"
+              name="Ads Live Reports"
+              parent="menu_shopee_reports"
+              action="action_ads_live_report"
+              sequence="20"/>
+
+    <!-- Booking Reports Menu -->
+    <menuitem id="menu_booking_report"
+              name="Booking Reports"
+              parent="menu_shopee_reports"
+              action="action_booking_report"
+              sequence="30"/>
+
+    <!-- Laban Reports Menu -->
+    <menuitem id="menu_laban_report"
+              name="Laban Reports"
+              parent="menu_shopee_reports"
+              action="action_laban_report"
+              sequence="40"/>
+
+    <!-- Live Product Reports Menu -->
+    <menuitem id="menu_live_product_report"
+              name="Live Product Reports"
+              parent="menu_shopee_reports"
+              action="action_live_product_report"
+              sequence="50"/>
+
+    <!-- Order Reports Menu -->
+    <menuitem id="menu_order_report"
+                name="Order Reports"
+                parent="menu_shopee_reports"
+                action="action_order_report"
+                sequence="60"/>
+
+    <!-- Video Product Reports Menu -->
+    <menuitem id="menu_video_product_report"
+                name="Video Product Reports"
+                parent="menu_shopee_reports"
+                action="action_video_product_report"
+                sequence="70"/>
+
+</odoo>

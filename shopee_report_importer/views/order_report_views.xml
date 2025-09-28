@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ==================== LIST VIEW ==================== -->
+    <record id="view_order_report_list" model="ir.ui.view">
+        <field name="name">shopee.order.report.list</field>
+        <field name="model">shopee.order.report</field>
+        <field name="arch" type="xml">
+            <list string="Order Reports">
+                <field name="shop_id"/>
+                <field name="order_date"/>
+                <field name="order_id"/>
+                <field name="order_status"/>
+                <field name="product_name"/>
+                <field name="quantity"/>
+                <field name="total_order_value"/>
+                <field name="total_customer_payment"/>
+                <field name="buyer"/>
+                <field name="recipient_name"/>
+                <field name="phone_number"/>
+                <field name="warehouse_name"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ==================== FORM VIEW ==================== -->
+    <record id="view_order_report_form" model="ir.ui.view">
+        <field name="name">shopee.order.report.form</field>
+        <field name="model">shopee.order.report</field>
+        <field name="arch" type="xml">
+            <form string="Order Report">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="order_id" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Order Information">
+                            <field name="shop_id"/>
+                            <field name="order_date"/>
+                            <field name="order_status"/>
+                            <field name="package_id"/>
+                            <field name="cancel_reason"/>
+                            <field name="hot_product"/>
+                            <field name="customer_review" widget="text"/>
+                        </group>
+                        <group string="Shipping Information">
+                            <field name="tracking_number"/>
+                            <field name="shipping_carrier"/>
+                            <field name="delivery_method"/>
+                            <field name="order_type"/>
+                            <field name="ship_date"/>
+                            <field name="expected_delivery_date"/>
+                            <field name="domestic_delivery_date"/>
+                            <field name="delivery_date"/>
+                            <field name="order_completion_date"/>
+                            <field name="return_refund_status"/>
+                            <field name="cancel_success_date"/>
+                            <field name="processed_by_shopee"/>
+                        </group>
+                    </group>
+                    <group string="Product Details">
+                        <field name="product_sku"/>
+                        <field name="product_name"/>
+                        <field name="product_weight"/>
+                        <field name="total_weight"/>
+                        <field name="warehouse_name"/>
+                        <field name="category_sku"/>
+                        <field name="category_name"/>
+                        <field name="owned_by_shopee"/>
+                        <field name="quantity"/>
+                        <field name="returned_quantity"/>
+                    </group>
+                    <group>
+                        <group string="Pricing &amp; Discounts">
+                            <field name="original_price"/>
+                            <field name="seller_discount"/>
+                            <field name="shopee_discount"/>
+                            <field name="total_seller_discount"/>
+                            <field name="discounted_price"/>
+                            <field name="shop_discount_code"/>
+                            <field name="cashback"/>
+                            <field name="shopee_discount_code"/>
+                            <field name="combo_promotion_target"/>
+                            <field name="shopee_combo_discount"/>
+                            <field name="shop_combo_discount"/>
+                            <field name="shopee_coin_refund"/>
+                            <field name="debit_card_discount"/>
+                            <field name="trade_in_discount"/>
+                            <field name="trade_in_bonus"/>
+                            <field name="seller_trade_in_bonus"/>
+                        </group>
+                        <group string="Financials">
+                            <field name="total_product_price"/>
+                            <field name="total_order_value"/>
+                            <field name="expected_shipping_fee"/>
+                            <field name="customer_shipping_fee"/>
+                            <field name="return_fee"/>
+                            <field name="total_customer_payment"/>
+                            <field name="payment_date"/>
+                            <field name="deposit_verification_date"/>
+                            <field name="payment_method"/>
+                            <field name="fixed_fee"/>
+                            <field name="service_fee"/>
+                            <field name="payment_fee"/>
+                            <field name="deposit_amount"/>
+                        </group>
+                    </group>
+                    <group string="Customer &amp; Delivery Address">
+                        <field name="buyer"/>
+                        <field name="recipient_name"/>
+                        <field name="phone_number"/>
+                        <field name="country"/>
+                        <field name="province_city"/>
+                        <field name="city_district"/>
+                        <field name="district"/>
+                        <field name="delivery_address" widget="text"/>
+                        <field name="notes" widget="text"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ==================== SEARCH VIEW ==================== -->
+    <record id="view_order_report_search" model="ir.ui.view">
+        <field name="name">shopee.order.report.search</field>
+        <field name="model">shopee.order.report</field>
+        <field name="arch" type="xml">
+            <search string="Search Order Reports">
+                <field name="order_id"/>
+                <field name="product_name"/>
+                <field name="buyer"/>
+                <field name="recipient_name"/>
+                <field name="phone_number"/>
+                <field name="warehouse_name"/>
+                <separator/>
+                <filter string="This Week" name="this_week"
+                        domain="[('order_date', '&gt;=', (context_today() + relativedelta(weekday=0)).strftime('%Y-%m-%d'))]"/>
+                <filter string="This Month" name="this_month"
+                        domain="[('order_date', '&gt;=', (context_today() + relativedelta(day=1)).strftime('%Y-%m-%d'))]"/>
+                <filter string="Last 30 Days" name="last_30_days"
+                        domain="[('order_date', '&gt;=', (context_today() + relativedelta(days=-30)).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <filter string="Delivered Orders" name="delivered_orders" domain="[('order_status', '=', 'Đã giao')]"/>
+                <filter string="Cancelled Orders" name="cancelled_orders" domain="[('order_status', '=', 'Đã hủy')]"/>
+                <filter string="High Value Orders (>1M VND)" name="high_value_orders" domain="[('total_order_value', '&gt;', 1000000)]"/>
+                <filter string="High Quantity Orders (>5 products)" name="high_quantity_orders" domain="[('quantity', '&gt;', 5)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Shop" name="group_shop" context="{'group_by': 'shop_id'}"/>
+                    <filter string="Order Date" name="group_order_date" context="{'group_by': 'order_date'}"/>
+                    <filter string="Order Status" name="group_order_status" context="{'group_by': 'order_status'}"/>
+                    <filter string="Warehouse" name="group_warehouse" context="{'group_by': 'warehouse_name'}"/>
+                    <filter string="Product" name="group_product" context="{'group_by': 'product_name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ==================== PIVOT VIEW ==================== -->
+    <record id="view_order_report_pivot" model="ir.ui.view">
+        <field name="name">shopee.order.report.pivot</field>
+        <field name="model">shopee.order.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Order Reports Analysis">
+                <field name="shop_id" type="row"/>
+                <field name="order_date" type="row"/>
+                <field name="order_status" type="col"/>
+                <field name="total_order_value" type="measure"/>
+                <field name="total_customer_payment" type="measure"/>
+                <field name="quantity" type="measure"/>
+                <field name="fixed_fee" type="measure"/>
+                <field name="service_fee" type="measure"/>
+                <field name="payment_fee" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- ==================== GRAPH VIEW ==================== -->
+    <record id="view_order_report_graph" model="ir.ui.view">
+        <field name="name">shopee.order.report.graph</field>
+        <field name="model">shopee.order.report</field>
+        <field name="arch" type="xml">
+            <graph string="Order Reports Analysis" type="bar">
+                <field name="order_date" type="row"/>
+                <field name="total_order_value" type="measure"/>
+                <field name="total_customer_payment" type="measure"/>
+                <field name="quantity" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- ==================== ACTION ==================== -->
+    <record id="action_order_report" model="ir.actions.act_window">
+        <field name="name">Order Reports</field>
+        <field name="res_model">shopee.order.report</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="context">{'search_default_this_month': 1}</field>
+    </record>
+
+</odoo>

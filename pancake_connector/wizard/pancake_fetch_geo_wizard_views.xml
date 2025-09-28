@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Pancake Fetch Geo Wizard Form View -->
+    <record id="view_pancake_fetch_geo_wizard_form" model="ir.ui.view">
+        <field name="name">pancake.fetch.geo.wizard.form</field>
+        <field name="model">pancake.fetch.geo.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Fetch Geographic Data">
+                <sheet>
+                    <group>
+                        <group name="basic_settings">
+                            <field name="shop_id"/>
+                            <field name="country_code"/>
+                        </group>
+                        <group name="fetch_options">
+                            <field name="fetch_type"/>
+                            <field name="include_districts"/>
+                            <field name="include_communes"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Fetch Data" name="action_fetch_geo_data" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Pancake Fetch Geo Wizard Action -->
+    <record id="action_pancake_fetch_geo_wizard" model="ir.actions.act_window">
+        <field name="name">Fetch Geographic Data</field>
+        <field name="res_model">pancake.fetch.geo.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{}</field>
+    </record>
+
+</odoo>

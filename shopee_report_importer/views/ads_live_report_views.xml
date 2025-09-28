@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Ads Live Report List View -->
+    <record id="view_ads_live_report_list" model="ir.ui.view">
+        <field name="name">shopee.ads.live.report.list</field>
+        <field name="model">shopee.ads.live.report</field>
+        <field name="arch" type="xml">
+            <list string="Ads Live Reports">
+                <field name="shop_id"/>
+                <field name="report_date"/>
+                <field name="campaign_name"/>
+                <field name="campaign_id"/>
+                <field name="status"/>
+                <field name="objective"/>
+                <field name="views"/>
+                <field name="orders"/>
+                <field name="conversion_rate"/>
+                <field name="gmv"/>
+                <field name="cost"/>
+                <field name="roas"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Ads Live Report Form View -->
+    <record id="view_ads_live_report_form" model="ir.ui.view">
+        <field name="name">shopee.ads.live.report.form</field>
+        <field name="model">shopee.ads.live.report</field>
+        <field name="arch" type="xml">
+            <form string="Ads Live Report">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="campaign_name" placeholder="Campaign Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="shop_id"/>
+                            <field name="report_date"/>
+                            <field name="campaign_id"/>
+                            <field name="status"/>
+                        </group>
+                        <group>
+                            <field name="objective"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="daily_start_time"/>
+                            <field name="daily_end_time"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Budget">
+                            <field name="budget"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Performance">
+                            <field name="views"/>
+                            <field name="orders"/>
+                            <field name="conversion_rate"/>
+                        </group>
+                        <group string="Financial">
+                            <field name="gmv"/>
+                            <field name="cost"/>
+                            <field name="roas"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Ads Live Report Search View -->
+    <record id="view_ads_live_report_search" model="ir.ui.view">
+        <field name="name">shopee.ads.live.report.search</field>
+        <field name="model">shopee.ads.live.report</field>
+        <field name="arch" type="xml">
+            <search string="Search Ads Live Reports">
+                <field name="shop_id"/>
+                <field name="campaign_name"/>
+                <field name="campaign_id"/>
+                <field name="objective"/>
+                <field name="status"/>
+                <separator/>
+                <filter string="This Week" name="this_week" domain="[
+                        ('report_date', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(weeks=-1,days=1,weekday=0), datetime.time(0,0,0)).to_utc())),
+                        ('report_date', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(days=1,weekday=0), datetime.time(0,0,0)).to_utc())),
+                    ]"/>
+                <filter string="This Month" name="this_month" domain="[
+                        ('report_date', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(day=1), datetime.time(0,0,0)).to_utc())),
+                        ('report_date', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(months=1,day=1), datetime.time(0,0,0)).to_utc())),
+                    ]"/>
+                <filter string="Last 30 Days" name="last_30_days" domain="[
+                        ('report_date', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(days=-30), datetime.time(0,0,0)).to_utc())),
+                        ('report_date', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(days=1), datetime.time(0,0,0)).to_utc())),
+                    ]"/>
+                <separator/>
+                <filter string="Active Campaigns" name="active"
+                        domain="[('status', '=', 'Đang diễn ra')]"/>
+                <filter string="Paused Campaigns" name="paused"
+                        domain="[('status', '=', 'Tạm dừng')]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Shop" name="group_shop" context="{'group_by': 'shop_id'}"/>
+                    <filter string="Report Date" name="group_date" context="{'group_by': 'report_date'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by': 'status'}"/>
+                    <filter string="Objective" name="group_objective" context="{'group_by': 'objective'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Ads Live Report Pivot View -->
+    <record id="view_ads_live_report_pivot" model="ir.ui.view">
+        <field name="name">shopee.ads.live.report.pivot</field>
+        <field name="model">shopee.ads.live.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Ads Live Reports Analysis">
+                <field name="shop_id" type="row"/>
+                <field name="report_date" type="row"/>
+                <field name="status" type="col"/>
+                <field name="views" type="measure"/>
+                <field name="orders" type="measure"/>
+                <field name="cost" type="measure"/>
+                <field name="gmv" type="measure"/>
+                <field name="roas" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Ads Live Report Graph View -->
+    <record id="view_ads_live_report_graph" model="ir.ui.view">
+        <field name="name">shopee.ads.live.report.graph</field>
+        <field name="model">shopee.ads.live.report</field>
+        <field name="arch" type="xml">
+            <graph string="Ads Live Reports Analysis" type="line">
+                <field name="report_date" type="row"/>
+                <field name="views" type="measure"/>
+                <field name="orders" type="measure"/>
+                <field name="cost" type="measure"/>
+                <field name="gmv" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Ads Live Report Action -->
+    <record id="action_ads_live_report" model="ir.actions.act_window">
+        <field name="name">Ads Live Reports</field>
+        <field name="res_model">shopee.ads.live.report</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="context">{'search_default_this_month': 1}</field>
+    </record>
+
+</odoo>

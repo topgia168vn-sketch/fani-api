@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu Root -->
+    <menuitem id="menu_pancake_connector_root"
+              name="Pancake"
+              web_icon="pancake_connector,static/description/icon.png"
+              sequence="10"/>
+
+    <!-- Sales & Orders Section -->
+    <menuitem id="menu_pancake_sales"
+              name="Orders"
+              parent="menu_pancake_connector_root"
+              sequence="10"/>
+
+    <menuitem id="menu_pancake_orders"
+              name="Orders"
+              parent="menu_pancake_sales"
+              action="action_pancake_orders"
+              sequence="10"/>
+
+    <menuitem id="menu_pancake_order_items"
+              name="Order Items"
+              parent="menu_pancake_sales"
+              action="action_pancake_order_items"
+              sequence="20"/>
+
+    <!-- Customers Section -->
+    <menuitem id="menu_pancake_customers"
+              name="Customers"
+              parent="menu_pancake_connector_root"
+              sequence="20"/>
+
+    <menuitem id="menu_pancake_customer_list"
+              name="Customers"
+              parent="menu_pancake_customers"
+              action="action_pancake_customers"
+              sequence="10"/>
+
+    <menuitem id="menu_pancake_customer_addresses"
+              name="Customer Addresses"
+              parent="menu_pancake_customers"
+              action="action_pancake_customer_addresses"
+              sequence="20"/>
+
+    <!-- Configuration Section -->
+    <menuitem id="menu_pancake_config"
+              name="Configuration"
+              parent="menu_pancake_connector_root"
+              sequence="30"/>
+
+    <!-- Shops & Pages Section -->
+    <menuitem id="menu_pancake_shops"
+              name="Shops &amp; Pages"
+              parent="menu_pancake_config"
+              sequence="10"/>
+
+    <menuitem id="menu_pancake_shop_list"
+              name="Shops"
+              parent="menu_pancake_shops"
+              action="action_pancake_shops"
+              sequence="10"/>
+
+    <menuitem id="menu_pancake_page_list"
+              name="Pages"
+              parent="menu_pancake_shops"
+              action="action_pancake_pages"
+              sequence="20"/>
+
+    <!-- Geographic Data Section -->
+    <menuitem id="menu_pancake_geographic"
+              name="Geographic Data"
+              parent="menu_pancake_config"
+              sequence="20"/>
+
+    <menuitem id="menu_pancake_fetch_geo"
+              name="Fetch Geographic Data"
+              parent="menu_pancake_geographic"
+              action="action_pancake_fetch_geo_wizard"
+              sequence="5"/>
+
+    <menuitem id="menu_pancake_provinces"
+              name="Provinces"
+              parent="menu_pancake_geographic"
+              action="action_pancake_provinces"
+              sequence="10"/>
+
+    <menuitem id="menu_pancake_districts"
+              name="Districts"
+              parent="menu_pancake_geographic"
+              action="action_pancake_districts"
+              sequence="20"/>
+
+    <menuitem id="menu_pancake_communes"
+              name="Communes"
+              parent="menu_pancake_geographic"
+              action="action_pancake_communes"
+              sequence="30"/>
+
+    <!-- Reports Section (for future use) -->
+    <menuitem id="menu_pancake_reports"
+              name="Reports"
+              parent="menu_pancake_connector_root"
+              sequence="40"/>
+
+</odoo>

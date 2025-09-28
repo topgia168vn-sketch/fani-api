@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tiktok_order_list" model="ir.ui.view">
+        <field name="name">tiktok.order.list</field>
+        <field name="model">tiktok.order</field>
+        <field name="arch" type="xml">
+            <list string="TikTok Orders">
+                <field name="tiktok_id" />
+                <field name="states" />
+                <field name="user_id" />
+                <field name="buyer_email" />
+                <field name="shipping_provider" />
+                <field name="tracking_number" />
+                <field name="payment_total_amount" />
+                <field name="create_time" />
+                <field name="update_time" />
+                <field name="shop_id" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_tiktok_order_form" model="ir.ui.view">
+        <field name="name">tiktok.order.form</field>
+        <field name="model">tiktok.order</field>
+        <field name="arch" type="xml">
+            <form string="TikTok Order">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="tiktok_id" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <!-- Key Information Outside Notebook -->
+                    <group>
+                        <group string="Order Details">
+                            <field name="states" />
+                            <field name="order_type" />
+                            <field name="ecommerce_platform" />
+                            <field name="fulfillment_type" />
+                            <field name="is_cod" />
+                            <field name="is_sample_order" />
+                        </group>
+                        <group string="Customer &amp; Shop">
+                            <field name="user_id" />
+                            <field name="buyer_email" />
+                            <field name="buyer_message" />
+                            <field name="shop_id" />
+                            <field name="seller_note" />
+                            <field name="cpf" />
+                            <field name="cpf_name" />
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Order Lines" name="order_lines">
+                            <field name="line_ids">
+                                <list string="Order Lines">
+                                    <field name="product_name"/>
+                                    <field name="sku_name"/>
+                                    <field name="seller_sku"/>
+                                    <field name="sale_price"/>
+                                    <field name="display_status"/>
+                                    <field name="package_status"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Payment &amp; Financial" name="payment_financial">
+                            <group>
+                                <group string="Payment Information">
+                                    <field name="payment_method_name" />
+                                    <field name="payment_method_code" />
+                                    <field name="payment_card_type" />
+                                    <field name="payment_auth_code" />
+                                    <field name="is_cod" />
+                                </group>
+                                <group string="Payment Amounts">
+                                    <field name="payment_currency" />
+                                    <field name="payment_sub_total" />
+                                    <field name="payment_shipping_fee" />
+                                    <field name="payment_total_amount" />
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Discounts">
+                                    <field name="payment_seller_discount" />
+                                    <field name="payment_platform_discount" />
+                                    <field name="payment_shipping_fee_seller_discount" />
+                                    <field name="payment_shipping_fee_platform_discount" />
+                                    <field name="payment_shipping_fee_co_funded_discount" />
+                                </group>
+                                <group string="Taxes &amp; Fees">
+                                    <field name="payment_tax" />
+                                    <field name="payment_small_order_fee" />
+                                    <field name="payment_shipping_fee_tax" />
+                                    <field name="payment_product_tax" />
+                                    <field name="payment_retail_delivery_fee" />
+                                    <field name="payment_buyer_service_fee" />
+                                    <field name="payment_handling_fee" />
+                                    <field name="payment_shipping_insurance_fee" />
+                                    <field name="payment_item_insurance_fee" />
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Original Amounts">
+                                    <field name="payment_original_total_product_price" />
+                                    <field name="payment_original_shipping_fee" />
+                                </group>
+                                <group string="Raw Payment Data">
+                                    <field name="payment_info" readonly="1" />
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Shipping &amp; Delivery" name="shipping_delivery">
+                            <group>
+                                <group string="Shipping Information">
+                                    <field name="shipping_provider" />
+                                    <field name="shipping_provider_id" />
+                                    <field name="shipping_type" />
+                                    <field name="tracking_number" />
+                                    <field name="shipping_due_time" />
+                                </group>
+                                <group string="Delivery Information">
+                                    <field name="delivery_type" />
+                                    <field name="delivery_option_id" />
+                                    <field name="delivery_option_name" />
+                                    <field name="delivery_due_time" />
+                                    <field name="delivery_time" />
+                                    <field name="delivery_sla_time" />
+                                    <field name="fast_delivery_program" />
+                                </group>
+                                <group string="Logistics Information">
+                                    <field name="rts_time" />
+                                    <field name="rts_sla_time" />
+                                    <field name="tts_sla_time" />
+                                    <field name="paid_time" />
+                                    <field name="collection_time" />
+                                    <field name="collection_due_time" />
+                                    <field name="pick_up_cut_off_time" />
+                                    <field name="fast_dispatch_sla_time" />
+                                </group>
+                                <group string="Fulfillment Information">
+                                    <field name="fulfillment_type" />
+                                    <field name="warehouse_id" />
+                                    <field name="packages" readonly="1" />
+                                    <field name="is_sample_order" />
+                                    <field name="split_or_combine_tag" />
+                                    <field name="has_updated_recipient_address" />
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Customer Information" name="customer_info">
+                            <group>
+                                <group string="Buyer Information">
+                                    <field name="user_id" />
+                                    <field name="buyer_email" />
+                                    <field name="buyer_message" />
+                                    <field name="cpf" />
+                                    <field name="cpf_name" />
+                                </group>
+                                <group string="Recipient Information">
+                                    <field name="recipient_name" />
+                                    <field name="recipient_first_name" />
+                                    <field name="recipient_last_name" />
+                                    <field name="recipient_phone" />
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Recipient Address Details">
+                                    <field name="recipient_region_code" />
+                                    <field name="recipient_postal_code" />
+                                    <field name="recipient_post_town" />
+                                    <field name="recipient_address_line1" />
+                                    <field name="recipient_address_line2" />
+                                    <field name="recipient_address_line3" />
+                                    <field name="recipient_address_line4" />
+                                </group>
+                                <group string="Local Script Names (Japan)">
+                                    <field name="recipient_first_name_local_script" />
+                                    <field name="recipient_last_name_local_script" />
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Raw Data">
+                                    <field name="recipient_address" readonly="1" />
+                                    <field name="recipient_district_info" readonly="1" />
+                                    <field name="recipient_delivery_preferences" readonly="1" />
+                                    <field name="buyer_info" readonly="1" />
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Order Lifecycle" name="order_lifecycle">
+                            <group>
+                                <group string="Cancel Information">
+                                    <field name="cancellation_initiator" />
+                                    <field name="cancel_reason" />
+                                    <field name="cancel_time" />
+                                    <field name="request_cancel_time" />
+                                    <field name="cancel_order_sla_time" />
+                                    <field name="is_buyer_request_cancel" />
+                                </group>
+                                <group string="Order Status">
+                                    <field name="is_on_hold_order" />
+                                    <field name="is_replacement_order" />
+                                    <field name="replaced_order_id" />
+                                    <field name="is_exchange_order" />
+                                    <field name="exchange_source_order_id" />
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Additional Information" name="additional_info">
+                            <group>
+                                <group string="Order Classification">
+                                    <field name="order_type" />
+                                    <field name="ecommerce_platform" />
+                                    <field name="auto_combine_group_id" />
+                                    <field name="consultation_id" />
+                                    <field name="channel_entity_national_registry_id" />
+                                    <field name="need_upload_invoice" />
+                                </group>
+                                <group string="Timestamps">
+                                    <field name="create_time" />
+                                    <field name="update_time" />
+                                    <field name="release_date" />
+                                    <field name="delivery_option_required_delivery_time" />
+                                </group>
+                                <group string="Handling Information">
+                                    <field name="handling_duration" readonly="1" />
+                                </group>
+                                <group string="Raw Data">
+                                    <field name="raw_payload" readonly="1" />
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tiktok_order_search" model="ir.ui.view">
+        <field name="name">tiktok.order.search</field>
+        <field name="model">tiktok.order</field>
+        <field name="arch" type="xml">
+            <search string="Search Orders">
+                <field name="tiktok_id" string="Order ID" />
+                <field name="user_id" string="Buyer UID" />
+                <field name="seller_note" string="Seller Note" />
+                <field name="shop_id" string="Shop" />
+
+                <separator />
+                <filter string="Unpaid" name="unpaid" domain="[('states', '=', 'UNPAID')]" />
+                <filter string="On Hold" name="on_hold" domain="[('states', '=', 'ON_HOLD')]" />
+                <filter string="Awaiting Shipment" name="awaiting_shipment" domain="[('states', '=', 'AWAITING_SHIPMENT')]" />
+                <filter string="Partially Shipping" name="partially_shipping" domain="[('states', '=', 'PARTIALLY_SHIPPING')]" />
+                <filter string="Awaiting Collection" name="awaiting_collection" domain="[('states', '=', 'AWAITING_COLLECTION')]" />
+                <filter string="In Transit" name="in_transit" domain="[('states', '=', 'IN_TRANSIT')]" />
+                <filter string="Delivered" name="delivered" domain="[('states', '=', 'DELIVERED')]" />
+                <filter string="Completed" name="completed" domain="[('states', '=', 'COMPLETED')]" />
+                <filter string="Cancelled" name="cancelled" domain="[('states', '=', 'CANCELLED')]" />
+
+                <separator />
+                <filter string="COD Orders" name="cod" domain="[('is_cod', '=', True)]" />
+                <filter string="Sample Orders" name="sample" domain="[('is_sample_order', '=', True)]" />
+                <filter string="Replacement Orders" name="replacement" domain="[('is_replacement_order', '=', True)]" />
+                <filter string="Exchange Orders" name="exchange" domain="[('is_exchange_order', '=', True)]" />
+                <filter string="On Hold Orders" name="on_hold_orders" domain="[('is_on_hold_order', '=', True)]" />
+
+                <separator />
+                <filter string="Today" name="today" domain="[
+                    ('create_time', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0, 0, 0)).to_utc()),
+                    ('create_time', '&lt;', datetime.datetime.combine(context_today() + relativedelta(days=1), datetime.time(0, 0, 0)).to_utc())
+                ]"/>
+                <filter string="This Week" name="this_week" domain="[
+                    ('create_time', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(weeks=-1,days=1,weekday=0), datetime.time(0, 0, 0)).to_utc())),
+                    ('create_time', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(days=1,weekday=0), datetime.time(0, 0, 0)).to_utc())),
+                ]"/>
+                <filter string="This Month" name="this_month" domain="[
+                    ('create_time', '&gt;=', datetime.datetime.combine(context_today() + relativedelta(day=1), datetime.time(0, 0, 0)).to_utc()),
+                    ('create_time', '&lt;', datetime.datetime.combine(context_today() + relativedelta(months=1,day=1), datetime.time(0, 0, 0)).to_utc())
+                ]"/>
+
+                <separator />
+                <group expand="0" string="Group By">
+                    <filter string="Order Status" name="group_status" context="{'group_by': 'states'}" />
+                    <filter string="Shop" name="group_shop" context="{'group_by': 'shop_id'}" />
+                    <filter string="Create Date" name="group_create_date" context="{'group_by': 'create_time:day'}" />
+                    <filter string="Payment Method" name="group_payment_method" context="{'group_by': 'payment_method_name'}" />
+                    <filter string="Shipping Provider" name="group_shipping_provider" context="{'group_by': 'shipping_provider'}" />
+                    <filter string="Fulfillment Type" name="group_fulfillment_type" context="{'group_by': 'fulfillment_type'}" />
+                    <filter string="Order Type" name="group_order_type" context="{'group_by': 'order_type'}" />
+                    <filter string="Ecommerce Platform" name="group_ecommerce_platform" context="{'group_by': 'ecommerce_platform'}" />
+                    <filter string="Shipping Type" name="group_shipping_type" context="{'group_by': 'shipping_type'}" />
+                    <filter string="Delivery Type" name="group_delivery_type" context="{'group_by': 'delivery_type'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pivot View -->
+    <record id="view_tiktok_order_pivot" model="ir.ui.view">
+        <field name="name">tiktok.order.pivot</field>
+        <field name="model">tiktok.order</field>
+        <field name="arch" type="xml">
+            <pivot string="Order Analysis">
+                <field name="create_time" type="row"/>
+                <field name="shop_id" type="row"/>
+                <field name="payment_total_amount" type="measure"/>
+                <field name="payment_shipping_fee" type="measure"/>
+                <field name="payment_original_shipping_fee" type="measure"/>
+                <field name="payment_shipping_fee_tax" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="view_tiktok_order_graph" model="ir.ui.view">
+        <field name="name">tiktok.order.graph</field>
+        <field name="model">tiktok.order</field>
+        <field name="arch" type="xml">
+            <graph string="Order Trends" type="line">
+                <field name="create_time" type="row"/>
+                <field name="shop_id" type="col"/>
+                <field name="payment_total_amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_tiktok_order" model="ir.actions.act_window">
+        <field name="name">TikTok Orders</field>
+        <field name="res_model">tiktok.order</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="context">{'search_default_this_month': 1}</field>
+    </record>
+</odoo>

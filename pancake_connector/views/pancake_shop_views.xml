@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Pancake Shops List View -->
+    <record id="view_pancake_shops_tree" model="ir.ui.view">
+        <field name="name">pancake.shop.tree</field>
+        <field name="model">pancake.shop</field>
+        <field name="arch" type="xml">
+            <list string="Pancake Shops" default_order="name">
+                <field name="name"/>
+                <field name="pancake_id"/>
+                <field name="avatar_url"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Pancake Shops Form View -->
+    <record id="view_pancake_shops_form" model="ir.ui.view">
+        <field name="name">pancake.shop.form</field>
+        <field name="model">pancake.shop</field>
+        <field name="arch" type="xml">
+            <form string="Pancake Shop">
+                <!-- Hướng dẫn đồng bộ dữ liệu -->
+                <div class="alert alert-info" role="alert">
+                    <h4><i class="fa fa-info-circle"></i> Pancake Data Synchronization Guide</h4>
+                    <p>Please follow the steps below in order to ensure data is synchronized correctly:</p>
+                    <ol>
+                        <li><strong>Fetch Pages</strong> - Synchronize shop and page information from Pancake (must be done first)</li>
+                        <li><strong>Fetch Geographic Data</strong> - Synchronize geographic data (province/city, district, ward/commune) from the <strong>Configuration</strong> menu</li>
+                        <li><strong>Fetch Customers</strong> - Synchronize the customer list from Pancake</li>
+                        <li><strong>Fetch Orders</strong> - Synchronize orders from Pancake</li>
+                    </ol>
+                    <p>Additionally, the system will automatically synchronize pages, customers, and orders frequently.</p>
+                </div>
+                <header>
+                    <button name="action_fetch_pages" string="Fetch Pages" type="object" class="oe_highlight"/>
+                    <button name="action_fetch_customers" string="Fetch Customers" type="object"/>
+                    <button name="action_fetch_orders" string="Fetch Orders" type="object"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="basic_info">
+                            <field name="api_key" password="True"/>
+                            <field name="pancake_id"/>
+                            <field name="name"/>
+                            <field name="avatar_url"/>
+                            <field name="last_cron_sync"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Pages" name="pages">
+                            <field name="page_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="platform"/>
+                                    <field name="settings" widget="json"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Raw Data" name="raw_data">
+                            <field name="raw_payload" widget="json"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Pancake Shops Search View -->
+    <record id="view_pancake_shops_search" model="ir.ui.view">
+        <field name="name">pancake.shop.search</field>
+        <field name="model">pancake.shop</field>
+        <field name="arch" type="xml">
+            <search string="Search Pancake Shops">
+                <field name="name"/>
+                <field name="pancake_id"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Server Actions for Batch Operations -->
+    <record id="action_pancake_shop_fetch_pages" model="ir.actions.server">
+        <field name="name">Fetch Pages</field>
+        <field name="model_id" ref="model_pancake_shop"/>
+        <field name="binding_model_id" ref="model_pancake_shop"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">records.action_fetch_pages()</field>
+    </record>
+
+    <record id="action_pancake_shop_fetch_customers" model="ir.actions.server">
+        <field name="name">Fetch Customers</field>
+        <field name="model_id" ref="model_pancake_shop"/>
+        <field name="binding_model_id" ref="model_pancake_shop"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">records.action_fetch_customers()</field>
+    </record>
+
+    <record id="action_pancake_shop_fetch_orders" model="ir.actions.server">
+        <field name="name">Fetch Orders</field>
+        <field name="model_id" ref="model_pancake_shop"/>
+        <field name="binding_model_id" ref="model_pancake_shop"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">records.action_fetch_orders()</field>
+    </record>
+
+    <!-- Pancake Shops Action -->
+    <record id="action_pancake_shops" model="ir.actions.act_window">
+        <field name="name">Pancake Shops</field>
+        <field name="res_model">pancake.shop</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_pancake_shops_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Pancake Shop!
+            </p>
+            <p>
+                Pancake Shops are synchronized from the Pancake system.
+            </p>
+        </field>
+    </record>
+
+    <!-- Pancake Pages List View -->
+    <record id="view_pancake_pages_tree" model="ir.ui.view">
+        <field name="name">pancake.page.tree</field>
+        <field name="model">pancake.page</field>
+        <field name="arch" type="xml">
+            <list string="Pancake Pages" default_order="name">
+                <field name="name"/>
+                <field name="shop_id"/>
+                <field name="platform"/>
+                <field name="pancake_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Pancake Pages Form View -->
+    <record id="view_pancake_pages_form" model="ir.ui.view">
+        <field name="name">pancake.page.form</field>
+        <field name="model">pancake.page</field>
+        <field name="arch" type="xml">
+            <form string="Pancake Page">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="basic_info">
+                            <field name="pancake_id"/>
+                            <field name="shop_id"/>
+                            <field name="name"/>
+                            <field name="platform"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Settings" name="settings">
+                            <field name="settings" widget="json"/>
+                        </page>
+                        <page string="Raw Data" name="raw_data">
+                            <field name="raw_payload" widget="json"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Pancake Pages Search View -->
+    <record id="view_pancake_pages_search" model="ir.ui.view">
+        <field name="name">pancake.page.search</field>
+        <field name="model">pancake.page</field>
+        <field name="arch" type="xml">
+            <search string="Search Pancake Pages">
+                <field name="name"/>
+                <field name="shop_id"/>
+                <field name="platform"/>
+                <field name="pancake_id"/>
+                <separator/>
+                <filter string="Facebook" name="facebook" domain="[('platform', '=', 'facebook')]"/>
+                <filter string="Instagram" name="instagram" domain="[('platform', '=', 'instagram')]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Shop" name="group_shop" context="{'group_by': 'shop_id'}"/>
+                    <filter string="Platform" name="group_platform" context="{'group_by': 'platform'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pancake Pages Action -->
+    <record id="action_pancake_pages" model="ir.actions.act_window">
+        <field name="name">Pancake Pages</field>
+        <field name="res_model">pancake.page</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_pancake_pages_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Pancake Page!
+            </p>
+            <p>
+                Pancake Pages are synchronized from the Pancake system.
+            </p>
+        </field>
+    </record>
+
+</odoo>

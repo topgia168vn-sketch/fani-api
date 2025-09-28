@@ -1,0 +1,19 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tiktok_shop_user,tiktok.shop user,model_tiktok_shop,base.group_user,1,1,1,1
+access_tiktok_category_user,tiktok.category user,model_tiktok_category,base.group_user,1,1,1,1
+access_tiktok_product_user,tiktok.product user,model_tiktok_product,base.group_user,1,1,1,1
+access_tiktok_sku_user,tiktok.sku user,model_tiktok_sku,base.group_user,1,1,1,1
+access_tiktok_order_user,tiktok.order user,model_tiktok_order,base.group_user,1,1,1,1
+access_tiktok_order_line_user,tiktok.order.line user,model_tiktok_order_line,base.group_user,1,1,1,1
+access_tiktok_warehouse_user,tiktok.warehouse user,model_tiktok_warehouse,base.group_user,1,1,1,1
+access_tiktok_sku_inventory_user,tiktok.sku.inventory user,model_tiktok_sku_inventory,base.group_user,1,1,1,1
+access_tiktok_return_user,tiktok.return user,model_tiktok_return,base.group_user,1,1,1,1
+access_tiktok_return_line_user,tiktok.return.line user,model_tiktok_return_line,base.group_user,1,1,1,1
+access_tiktok_return_reason_user,tiktok.return.reason user,model_tiktok_return_reason,base.group_user,1,1,1,1
+access_tiktok_cancel_user,tiktok.cancel user,model_tiktok_cancel,base.group_user,1,1,1,1
+access_tiktok_cancel_line_user,tiktok.cancel.line user,model_tiktok_cancel_line,base.group_user,1,1,1,1
+access_tiktok_cancel_reason_user,tiktok.cancel.reason user,model_tiktok_cancel_reason,base.group_user,1,1,1,1
+access_tiktok_product_performance_user,tiktok.product.performance user,model_tiktok_product_performance,base.group_user,1,1,1,1
+access_tiktok_sku_performance_user,tiktok.sku.performance user,model_tiktok_sku_performance,base.group_user,1,1,1,1
+access_tiktok_video_performance_user,tiktok.video.performance user,model_tiktok_video_performance,base.group_user,1,1,1,1
+access_tiktok_live_performance_user,tiktok.live.performance user,model_tiktok_live_performance,base.group_user,1,1,1,1

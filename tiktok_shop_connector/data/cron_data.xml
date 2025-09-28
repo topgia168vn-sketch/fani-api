@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Cron job để tự động refresh TikTok Shop access tokens -->
+        <record id="ir_cron_refresh_tiktok_tokens" model="ir.cron">
+            <field name="name">TikTok Shop: Refresh Access Tokens</field>
+            <field name="model_id" ref="model_tiktok_shop"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_refresh_tokens()</field>
+            <field name="interval_number">6</field>
+            <field name="interval_type">hours</field>
+            <field name="active">True</field>
+            <field name="user_id" ref="base.user_root"/>
+        </record>
+
+        <!-- Cron job để tự động đồng bộ tất cả data (products + orders) của tất cả shops -->
+        <record id="ir_cron_sync_tiktok_all_data" model="ir.cron">
+            <field name="name">TikTok Shop: Sync All Data</field>
+            <field name="model_id" ref="model_tiktok_shop"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_sync_all_data()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active">True</field>
+            <field name="user_id" ref="base.user_root"/>
+        </record>
+
+        <!-- Cron job để tự động đồng bộ tất cả performance analytics -->
+        <record id="ir_cron_sync_tiktok_performance_analytics" model="ir.cron">
+            <field name="name">TikTok Shop: Sync Performance Analytics</field>
+            <field name="model_id" ref="model_tiktok_shop"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_sync_all_performance()</field>
+            <field name="interval_number">12</field>
+            <field name="interval_type">hours</field>
+            <field name="active">True</field>
+            <field name="user_id" ref="base.user_root"/>
+        </record>
+
+        <!-- Cron job để fill dữ liệu product_id/sku_id từ tiktok_product_id/tiktok_sku_id -->
+        <record id="ir_cron_fill_missing_product_sku_relations" model="ir.cron">
+            <field name="name">TikTok Shop: Fill Missing Product/SKU Relations</field>
+            <field name="model_id" ref="model_tiktok_shop"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_fill_missing_product_sku_relations()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="active">True</field>
+            <field name="user_id" ref="base.user_root"/>
+        </record>
+    </data>
+</odoo>

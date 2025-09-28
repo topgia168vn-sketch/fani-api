@@ -1,0 +1,139 @@
+<odoo>
+    <!-- Main Menu Root -->
+    <menuitem id="menu_tiktok_connector_root"
+              name="TikTok Shop"
+              sequence="10"/>
+
+    <!-- Sales & Orders Section -->
+    <menuitem id="menu_tiktok_sales"
+              name="Sales &amp; Orders"
+              parent="menu_tiktok_connector_root"
+              sequence="10"/>
+
+    <menuitem id="menu_tiktok_orders"
+              name="Orders"
+              parent="menu_tiktok_sales"
+              action="action_tiktok_order"
+              sequence="10"/>
+
+    <menuitem id="menu_tiktok_order_lines"
+              name="Order Lines"
+              parent="menu_tiktok_sales"
+              action="action_tiktok_order_line"
+              sequence="20"/>
+
+    <menuitem id="menu_tiktok_returns"
+              name="Returns"
+              parent="menu_tiktok_sales"
+              action="action_tiktok_return"
+              sequence="30"/>
+
+    <menuitem id="menu_tiktok_return_lines"
+              name="Return Lines"
+              parent="menu_tiktok_sales"
+              action="action_tiktok_return_line"
+              sequence="40"/>
+
+    <menuitem id="menu_tiktok_cancellations"
+              name="Cancellations"
+              parent="menu_tiktok_sales"
+              action="action_tiktok_cancel"
+              sequence="50"/>
+
+    <menuitem id="menu_tiktok_cancel_lines"
+              name="Cancel Lines"
+              parent="menu_tiktok_sales"
+              action="action_tiktok_cancel_line"
+              sequence="60"/>
+
+    <!-- Products & Catalog Section -->
+    <menuitem id="menu_tiktok_catalog"
+              name="Products &amp; Catalog"
+              parent="menu_tiktok_connector_root"
+              sequence="20"/>
+
+    <menuitem id="menu_tiktok_products"
+              name="Products"
+              parent="menu_tiktok_catalog"
+              action="action_tiktok_product"
+              sequence="10"/>
+
+    <menuitem id="menu_tiktok_skus"
+              name="SKUs"
+              parent="menu_tiktok_catalog"
+              action="action_tiktok_sku"
+              sequence="20"/>
+
+    <menuitem id="menu_tiktok_sku_inventory"
+              name="SKU Inventory"
+              parent="menu_tiktok_catalog"
+              action="action_tiktok_sku_inventory"
+              sequence="25"/>
+
+    <menuitem id="menu_tiktok_categories"
+              name="Categories"
+              parent="menu_tiktok_catalog"
+              action="action_tiktok_category"
+              sequence="30"/>
+
+    <menuitem id="menu_tiktok_warehouses"
+              name="Warehouses"
+              parent="menu_tiktok_catalog"
+              action="action_tiktok_warehouse"
+              sequence="40"/>
+
+    <!-- Analytics Section -->
+    <menuitem id="menu_tiktok_analytics"
+              name="Analytics"
+              parent="menu_tiktok_connector_root"
+              sequence="30"/>
+
+    <menuitem id="menu_tiktok_product_performance"
+              name="Product Performance"
+              parent="menu_tiktok_analytics"
+              action="action_tiktok_product_performance"
+              sequence="10"/>
+
+    <menuitem id="menu_tiktok_sku_performance"
+              name="SKU Performance"
+              parent="menu_tiktok_analytics"
+              action="action_tiktok_sku_performance"
+              sequence="20"/>
+
+    <menuitem id="menu_tiktok_video_performance"
+              name="Video Performance"
+              parent="menu_tiktok_analytics"
+              action="action_tiktok_video_performance"
+              sequence="30"/>
+
+    <menuitem id="menu_tiktok_live_performance"
+              name="Live Performance"
+              parent="menu_tiktok_analytics"
+              action="action_tiktok_live_performance"
+              sequence="40"/>
+
+    <!-- Configuration Section -->
+    <menuitem id="menu_tiktok_config"
+              name="Configuration"
+              parent="menu_tiktok_connector_root"
+              sequence="40"/>
+
+    <menuitem id="menu_tiktok_shops"
+              name="Shops"
+              parent="menu_tiktok_config"
+              action="action_tiktok_shop"
+              sequence="10"/>
+
+    <menuitem id="menu_tiktok_return_reasons"
+              name="Return Reasons"
+              parent="menu_tiktok_config"
+              action="action_tiktok_return_reason"
+              sequence="20"/>
+
+    <menuitem id="menu_tiktok_cancel_reasons"
+              name="Cancel Reasons"
+              parent="menu_tiktok_config"
+              action="action_tiktok_cancel_reason"
+              sequence="30"/>
+
+</odoo>

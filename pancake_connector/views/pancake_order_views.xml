@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Pancake Orders List View -->
+    <record id="view_pancake_orders_tree" model="ir.ui.view">
+        <field name="name">pancake.order.tree</field>
+        <field name="model">pancake.order</field>
+        <field name="arch" type="xml">
+            <list string="Pancake Orders" default_order="inserted_at desc">
+                <field name="pancake_id"/>
+                <field name="shop_id"/>
+                <field name="customer_id"/>
+                <field name="status"/>
+                <field name="total_discount"/>
+                <field name="cash"/>
+                <field name="transfer_money"/>
+                <field name="inserted_at"/>
+                <field name="updated_at"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Pancake Orders Form View -->
+    <record id="view_pancake_orders_form" model="ir.ui.view">
+        <field name="name">pancake.order.form</field>
+        <field name="model">pancake.order</field>
+        <field name="arch" type="xml">
+            <form string="Pancake Order">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="pancake_id"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="basic_info">
+                            <field name="shop_id"/>
+                            <field name="page_id"/>
+                            <field name="customer_id"/>
+                            <field name="system_id"/>
+                        </group>
+                        <group name="order_info">
+                            <field name="status"/>
+                            <field name="sub_status"/>
+                            <field name="is_livestream"/>
+                            <field name="is_live_shopping"/>
+                            <field name="is_smc"/>
+                            <field name="is_from_ecommerce"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group name="financial_info">
+                            <field name="total_discount"/>
+                            <field name="discount"/>
+                            <field name="surcharge"/>
+                            <field name="tax"/>
+                            <field name="shipping_fee"/>
+                            <field name="cod"/>
+                        </group>
+                        <group name="payment_info">
+                            <field name="cash"/>
+                            <field name="transfer_money"/>
+                            <field name="charged_by_card"/>
+                            <field name="charged_by_momo"/>
+                            <field name="charged_by_vnpay"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group name="customer_info">
+                            <field name="bill_full_name"/>
+                            <field name="bill_email"/>
+                            <field name="duplicated_phone"/>
+                            <field name="duplicated_customer"/>
+                        </group>
+                        <group name="timing_info">
+                            <field name="inserted_at"/>
+                            <field name="updated_at"/>
+                            <field name="last_update_status_at"/>
+                            <field name="estimate_delivery_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Order Items" name="order_items">
+                            <field name="item_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="product_id_ext"/>
+                                    <field name="variation_id_ext"/>
+                                    <field name="quantity"/>
+                                    <field name="price"/>
+                                    <field name="subtotal"/>
+                                    <field name="total"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="note"/>
+                            <field name="note_print"/>
+                        </page>
+                        <page string="Raw Data" name="raw_data">
+                            <field name="raw_payload" widget="json"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Pancake Orders Search View -->
+    <record id="view_pancake_orders_search" model="ir.ui.view">
+        <field name="name">pancake.order.search</field>
+        <field name="model">pancake.order</field>
+        <field name="arch" type="xml">
+            <search string="Search Pancake Orders">
+                <field name="pancake_id"/>
+                <field name="shop_id"/>
+                <field name="customer_id"/>
+                <field name="status"/>
+                <field name="bill_full_name"/>
+                <field name="bill_email"/>
+                <separator/>
+                <filter string="Livestream Orders" name="livestream" domain="[('is_livestream', '=', True)]"/>
+                <filter string="Live Shopping" name="live_shopping" domain="[('is_live_shopping', '=', True)]"/>
+                <filter string="SMC Orders" name="smc" domain="[('is_smc', '=', True)]"/>
+                <separator/>
+                <filter string="Today" name="today" domain="[('inserted_at', '>=', datetime.datetime.combine(context_today(), datetime.time(0,0,0)))]"/>
+                <filter string="This Week" name="this_week" domain="[('inserted_at', '>=', (context_today() - datetime.timedelta(days=context_today().weekday())).strftime('%Y-%m-%d'))]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Shop" name="group_shop" context="{'group_by': 'shop_id'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by': 'status'}"/>
+                    <filter string="Customer" name="group_customer" context="{'group_by': 'customer_id'}"/>
+                    <filter string="Creation Date" name="group_creation" context="{'group_by': 'inserted_at:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pancake Orders Action -->
+    <record id="action_pancake_orders" model="ir.actions.act_window">
+        <field name="name">Pancake Orders</field>
+        <field name="res_model">pancake.order</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_pancake_orders_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Pancake Order!
+            </p>
+            <p>
+                Pancake Orders are synchronized from the Pancake system.
+            </p>
+        </field>
+    </record>
+
+</odoo>

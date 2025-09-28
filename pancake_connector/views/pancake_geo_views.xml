@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Pancake Provinces List View -->
+    <record id="view_pancake_provinces_list" model="ir.ui.view">
+        <field name="name">pancake.geo.province.list</field>
+        <field name="model">pancake.geo.province</field>
+        <field name="arch" type="xml">
+            <list string="Pancake Provinces" default_order="name">
+                <field name="name"/>
+                <field name="name_en"/>
+                <field name="pancake_id"/>
+                <field name="new_id"/>
+                <field name="country_code"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Pancake Provinces Form View -->
+    <record id="view_pancake_provinces_form" model="ir.ui.view">
+        <field name="name">pancake.geo.province.form</field>
+        <field name="model">pancake.geo.province</field>
+        <field name="arch" type="xml">
+            <form string="Pancake Province">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="basic_info">
+                            <field name="pancake_id"/>
+                            <field name="name"/>
+                            <field name="name_en"/>
+                            <field name="new_id"/>
+                            <field name="country_code"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Districts" name="districts">
+                            <field name="district_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="name_en"/>
+                                    <field name="pancake_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Communes" name="communes">
+                            <field name="commune_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="name_en"/>
+                                    <field name="pancake_id"/>
+                                    <field name="postcode"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Raw Data" name="raw_data">
+                            <field name="raw_payload" widget="json"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Pancake Provinces Search View -->
+    <record id="view_pancake_provinces_search" model="ir.ui.view">
+        <field name="name">pancake.geo.province.search</field>
+        <field name="model">pancake.geo.province</field>
+        <field name="arch" type="xml">
+            <search string="Search Pancake Provinces">
+                <field name="name"/>
+                <field name="name_en"/>
+                <field name="pancake_id"/>
+                <field name="country_code"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pancake Provinces Action -->
+    <record id="action_pancake_provinces" model="ir.actions.act_window">
+        <field name="name">Pancake Provinces</field>
+        <field name="res_model">pancake.geo.province</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_pancake_provinces_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Pancake Province!
+            </p>
+            <p>
+                Pancake Provinces are synchronized from the Pancake system.
+            </p>
+        </field>
+    </record>
+
+    <!-- Pancake Districts List View -->
+    <record id="view_pancake_districts_list" model="ir.ui.view">
+        <field name="name">pancake.geo.district.list</field>
+        <field name="model">pancake.geo.district</field>
+        <field name="arch" type="xml">
+            <list string="Pancake Districts" default_order="name">
+                <field name="name"/>
+                <field name="name_en"/>
+                <field name="province_id"/>
+                <field name="pancake_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Pancake Districts Form View -->
+    <record id="view_pancake_districts_form" model="ir.ui.view">
+        <field name="name">pancake.geo.district.form</field>
+        <field name="model">pancake.geo.district</field>
+        <field name="arch" type="xml">
+            <form string="Pancake District">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="basic_info">
+                            <field name="pancake_id"/>
+                            <field name="name"/>
+                            <field name="name_en"/>
+                            <field name="province_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Communes" name="communes">
+                            <field name="commune_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="name_en"/>
+                                    <field name="pancake_id"/>
+                                    <field name="postcode"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Raw Data" name="raw_data">
+                            <field name="raw_payload" widget="json"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Pancake Districts Search View -->
+    <record id="view_pancake_districts_search" model="ir.ui.view">
+        <field name="name">pancake.geo.district.search</field>
+        <field name="model">pancake.geo.district</field>
+        <field name="arch" type="xml">
+            <search string="Search Pancake Districts">
+                <field name="name"/>
+                <field name="name_en"/>
+                <field name="province_id"/>
+                <field name="pancake_id"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Province" name="group_province" context="{'group_by': 'province_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pancake Districts Action -->
+    <record id="action_pancake_districts" model="ir.actions.act_window">
+        <field name="name">Pancake Districts</field>
+        <field name="res_model">pancake.geo.district</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_pancake_districts_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Pancake District!
+            </p>
+            <p>
+                Pancake Districts are synchronized from the Pancake system.
+            </p>
+        </field>
+    </record>
+
+    <!-- Pancake Communes List View -->
+    <record id="view_pancake_communes_list" model="ir.ui.view">
+        <field name="name">pancake.geo.commune.list</field>
+        <field name="model">pancake.geo.commune</field>
+        <field name="arch" type="xml">
+            <list string="Pancake Communes" default_order="name">
+                <field name="name"/>
+                <field name="name_en"/>
+                <field name="province_id"/>
+                <field name="district_id"/>
+                <field name="postcode"/>
+                <field name="pancake_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Pancake Communes Form View -->
+    <record id="view_pancake_communes_form" model="ir.ui.view">
+        <field name="name">pancake.geo.commune.form</field>
+        <field name="model">pancake.geo.commune</field>
+        <field name="arch" type="xml">
+            <form string="Pancake Commune">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="basic_info">
+                            <field name="pancake_id"/>
+                            <field name="name"/>
+                            <field name="name_en"/>
+                            <field name="new_id"/>
+                            <field name="postcode"/>
+                        </group>
+                        <group name="location_info">
+                            <field name="province_id"/>
+                            <field name="district_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Raw Data" name="raw_data">
+                            <field name="raw_payload" widget="json"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Pancake Communes Search View -->
+    <record id="view_pancake_communes_search" model="ir.ui.view">
+        <field name="name">pancake.geo.commune.search</field>
+        <field name="model">pancake.geo.commune</field>
+        <field name="arch" type="xml">
+            <search string="Search Pancake Communes">
+                <field name="name"/>
+                <field name="name_en"/>
+                <field name="province_id"/>
+                <field name="district_id"/>
+                <field name="postcode"/>
+                <field name="pancake_id"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Province" name="group_province" context="{'group_by': 'province_id'}"/>
+                    <filter string="District" name="group_district" context="{'group_by': 'district_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pancake Communes Action -->
+    <record id="action_pancake_communes" model="ir.actions.act_window">
+        <field name="name">Pancake Communes</field>
+        <field name="res_model">pancake.geo.commune</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_pancake_communes_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Pancake Commune!
+            </p>
+            <p>
+                Pancake Communes are synchronized from the Pancake system.
+            </p>
+        </field>
+    </record>
+
+</odoo>

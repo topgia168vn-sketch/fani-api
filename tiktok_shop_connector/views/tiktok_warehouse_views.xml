@@ -1,0 +1,156 @@
+<odoo>
+    <!-- Warehouse List View -->
+    <record id="view_tiktok_warehouse_list" model="ir.ui.view">
+        <field name="name">tiktok.warehouse.list</field>
+        <field name="model">tiktok.warehouse</field>
+        <field name="arch" type="xml">
+            <list string="TikTok Warehouses">
+                <field name="name"/>
+                <field name="effect_status"/>
+                <field name="type"/>
+                <field name="sub_type"/>
+                <field name="is_default"/>
+                <field name="display_address"/>
+                <field name="contact_person"/>
+                <field name="phone_number"/>
+                <field name="shop_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Warehouse Form View -->
+    <record id="view_tiktok_warehouse_form" model="ir.ui.view">
+        <field name="name">tiktok.warehouse.form</field>
+        <field name="model">tiktok.warehouse</field>
+        <field name="arch" type="xml">
+            <form string="TikTok Warehouse">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Basic Information">
+                            <field name="tiktok_id"/>
+                            <field name="entity_id"/>
+                            <field name="effect_status"/>
+                            <field name="type"/>
+                            <field name="sub_type"/>
+                            <field name="is_default"/>
+                        </group>
+                        <group string="Contact Information">
+                            <field name="contact_person"/>
+                            <field name="phone_number"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Address Information" name="address">
+                            <group>
+                                <group string="Location Details">
+                                    <field name="region"/>
+                                    <field name="state"/>
+                                    <field name="city"/>
+                                    <field name="district"/>
+                                    <field name="town"/>
+                                    <field name="region_code"/>
+                                    <field name="postal_code"/>
+                                </group>
+                                <group string="Address Lines">
+                                    <field name="address_line1"/>
+                                    <field name="address_line2"/>
+                                    <field name="address_line3"/>
+                                    <field name="address_line4"/>
+                                </group>
+                            </group>
+                            <group string="Full Address">
+                                <field name="full_address" nolabel="1"/>
+                            </group>
+                        </page>
+
+                        <page string="Japanese Market Fields" name="japanese_fields" invisible="not first_name and not last_name">
+                            <group>
+                                <group string="Kanji Names">
+                                    <field name="first_name"/>
+                                    <field name="last_name"/>
+                                </group>
+                                <group string="Local Script Names">
+                                    <field name="first_name_local_script"/>
+                                    <field name="last_name_local_script"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Geolocation" name="geolocation">
+                            <group>
+                                <group string="Coordinates">
+                                    <field name="latitude"/>
+                                    <field name="longitude"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Shop Information" name="shop_info">
+                            <group>
+                                <field name="shop_id"/>
+                            </group>
+                        </page>
+
+                        <page string="Raw Data" name="raw_data" groups="base.group_system">
+                            <group>
+                                <field name="raw_payload" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Warehouse Search View -->
+    <record id="view_tiktok_warehouse_search" model="ir.ui.view">
+        <field name="name">tiktok.warehouse.search</field>
+        <field name="model">tiktok.warehouse</field>
+        <field name="arch" type="xml">
+            <search string="Search Warehouses">
+                <field name="name"/>
+                <field name="tiktok_id"/>
+                <field name="contact_person"/>
+                <field name="phone_number"/>
+                <field name="shop_id"/>
+
+                <filter string="Enabled" name="enabled" domain="[('effect_status', '=', 'ENABLED')]"/>
+                <filter string="Disabled" name="disabled" domain="[('effect_status', '=', 'DISABLED')]"/>
+                <filter string="Restricted" name="restricted" domain="[('effect_status', '=', 'RESTRICTED')]"/>
+
+                <separator/>
+                <filter string="Sales Warehouses" name="sales" domain="[('type', '=', 'SALES_WAREHOUSE')]"/>
+                <filter string="Return Warehouses" name="return" domain="[('type', '=', 'RETURN_WAREHOUSE')]"/>
+
+                <separator/>
+                <filter string="Default Warehouses" name="default" domain="[('is_default', '=', True)]"/>
+
+                <separator/>
+                <filter string="Domestic" name="domestic" domain="[('sub_type', '=', 'DOMESTIC_WAREHOUSE')]"/>
+                <filter string="Cross-border Overseas" name="overseas" domain="[('sub_type', '=', 'CR_OVERSEA_WAREHOUSE')]"/>
+                <filter string="Cross-border Direct" name="direct" domain="[('sub_type', '=', 'CR_DIRECT_SHIPPING_WAREHOUSE')]"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="Shop" name="group_shop" context="{'group_by': 'shop_id'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by': 'effect_status'}"/>
+                    <filter string="Type" name="group_type" context="{'group_by': 'type'}"/>
+                    <filter string="Sub Type" name="group_sub_type" context="{'group_by': 'sub_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Warehouse Action -->
+    <record id="action_tiktok_warehouse" model="ir.actions.act_window">
+        <field name="name">TikTok Warehouses</field>
+        <field name="res_model">tiktok.warehouse</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

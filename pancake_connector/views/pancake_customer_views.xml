@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Pancake Customers List View -->
+    <record id="view_pancake_customers_tree" model="ir.ui.view">
+        <field name="name">pancake.customer.tree</field>
+        <field name="model">pancake.customer</field>
+        <field name="arch" type="xml">
+            <list string="Pancake Customers" default_order="name">
+                <field name="name"/>
+                <field name="shop_id"/>
+                <field name="gender"/>
+                <field name="order_count"/>
+                <field name="succeed_order_count"/>
+                <field name="purchased_amount"/>
+                <field name="last_order_at"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Pancake Customers Form View -->
+    <record id="view_pancake_customers_form" model="ir.ui.view">
+        <field name="name">pancake.customer.form</field>
+        <field name="model">pancake.customer</field>
+        <field name="arch" type="xml">
+            <form string="Pancake Customer">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="basic_info">
+                            <field name="pancake_id"/>
+                            <field name="shop_id"/>
+                            <field name="gender"/>
+                            <field name="date_of_birth"/>
+                            <field name="inserted_at"/>
+                            <field name="updated_at"/>
+                        </group>
+                        <group name="statistics">
+                            <field name="order_count"/>
+                            <field name="succeed_order_count"/>
+                            <field name="purchased_amount"/>
+                            <field name="last_order_at"/>
+                            <field name="reward_point"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group name="contact_info">
+                            <field name="emails" widget="json"/>
+                            <field name="phone_numbers" widget="json"/>
+                        </group>
+                        <group name="social_info">
+                            <field name="fb_id"/>
+                            <field name="referral_code"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Addresses" name="addresses">
+                            <field name="address_ids">
+                                <list editable="bottom">
+                                    <field name="full_name"/>
+                                    <field name="phone_number"/>
+                                    <field name="full_address"/>
+                                    <field name="province_id"/>
+                                    <field name="district_id"/>
+                                    <field name="commune_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Raw Data" name="raw_data">
+                            <field name="raw_payload" widget="json"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Pancake Customers Search View -->
+    <record id="view_pancake_customers_search" model="ir.ui.view">
+        <field name="name">pancake.customer.search</field>
+        <field name="model">pancake.customer</field>
+        <field name="arch" type="xml">
+            <search string="Search Pancake Customers">
+                <field name="name"/>
+                <field name="pancake_id"/>
+                <field name="shop_id"/>
+                <field name="gender"/>
+                <field name="fb_id"/>
+                <field name="referral_code"/>
+                <separator/>
+                <filter string="High Value Customers" name="high_value" domain="[('purchased_amount', '>', 1000000)]"/>
+                <filter string="Frequent Buyers" name="frequent" domain="[('order_count', '>', 5)]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Shop" name="group_shop" context="{'group_by': 'shop_id'}"/>
+                    <filter string="Gender" name="group_gender" context="{'group_by': 'gender'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pancake Customers Action -->
+    <record id="action_pancake_customers" model="ir.actions.act_window">
+        <field name="name">Pancake Customers</field>
+        <field name="res_model">pancake.customer</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_pancake_customers_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Pancake Customer!
+            </p>
+            <p>
+                Pancake Customers are synchronized from the Pancake system.
+            </p>
+        </field>
+    </record>
+
+    <!-- Pancake Customer Addresses List View -->
+    <record id="view_pancake_customer_addresses_tree" model="ir.ui.view">
+        <field name="name">pancake.customer.address.tree</field>
+        <field name="model">pancake.customer.address</field>
+        <field name="arch" type="xml">
+            <list string="Pancake Customer Addresses" default_order="full_name">
+                <field name="full_name"/>
+                <field name="customer_id"/>
+                <field name="phone_number"/>
+                <field name="full_address"/>
+                <field name="province_id"/>
+                <field name="district_id"/>
+                <field name="commune_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Pancake Customer Addresses Form View -->
+    <record id="view_pancake_customer_addresses_form" model="ir.ui.view">
+        <field name="name">pancake.customer.address.form</field>
+        <field name="model">pancake.customer.address</field>
+        <field name="arch" type="xml">
+            <form string="Pancake Customer Address">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="full_name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="contact_info">
+                            <field name="customer_id"/>
+                            <field name="full_name"/>
+                            <field name="phone_number"/>
+                        </group>
+                        <group name="address_info">
+                            <field name="address_line"/>
+                            <field name="full_address"/>
+                            <field name="country_code"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group name="location_info">
+                            <field name="province_id"/>
+                            <field name="district_id"/>
+                            <field name="commune_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Raw Data" name="raw_data">
+                            <field name="raw_payload" widget="json"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Pancake Customer Addresses Search View -->
+    <record id="view_pancake_customer_addresses_search" model="ir.ui.view">
+        <field name="name">pancake.customer.address.search</field>
+        <field name="model">pancake.customer.address</field>
+        <field name="arch" type="xml">
+            <search string="Search Pancake Customer Addresses">
+                <field name="full_name"/>
+                <field name="customer_id"/>
+                <field name="phone_number"/>
+                <field name="full_address"/>
+                <field name="province_id"/>
+                <field name="district_id"/>
+                <field name="commune_id"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Province" name="group_province" context="{'group_by': 'province_id'}"/>
+                    <filter string="District" name="group_district" context="{'group_by': 'district_id'}"/>
+                    <filter string="Customer" name="group_customer" context="{'group_by': 'customer_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pancake Customer Addresses Action -->
+    <record id="action_pancake_customer_addresses" model="ir.actions.act_window">
+        <field name="name">Pancake Customer Addresses</field>
+        <field name="res_model">pancake.customer.address</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_pancake_customer_addresses_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Pancake Customer Address!
+            </p>
+            <p>
+                Pancake Customer Addresses are synchronized from the Pancake system.
+            </p>
+        </field>
+    </record>
+
+</odoo>

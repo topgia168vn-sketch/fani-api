@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tiktok_product_list" model="ir.ui.view">
+        <field name="name">tiktok.product.list</field>
+        <field name="model">tiktok.product</field>
+        <field name="arch" type="xml">
+            <list string="TikTok Products">
+                <field name="tiktok_id" />
+                <field name="title" />
+                <field name="category_id" />
+                <field name="status" />
+                <field name="listing_quality_tier" />
+                <field name="is_cod_allowed" />
+                <field name="is_not_for_sale" />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_tiktok_product_form" model="ir.ui.view">
+        <field name="name">tiktok.product.form</field>
+        <field name="model">tiktok.product</field>
+        <field name="arch" type="xml">
+            <form string="TikTok Product">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="title"/>
+                        </h1>
+                    </div>
+
+                    <!-- Key Information Outside Notebook -->
+                    <group>
+                        <group string="Product Details">
+                            <field name="tiktok_id" />
+                            <field name="category_id" />
+                            <field name="status" />
+                            <field name="product_status" />
+                            <field name="listing_quality_tier" />
+                        </group>
+                        <group string="Product Features &amp; Classification">
+                            <field name="is_cod_allowed" />
+                            <field name="is_not_for_sale" />
+                            <field name="is_pre_owned" />
+                            <field name="has_draft" />
+                            <field name="brand" readonly="1" />
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <!-- Tab 1: Description -->
+                        <page string="Description" name="description">
+                            <field name="description" />
+                        </page>
+
+                        <!-- Tab 2: Product Information -->
+                        <page string="Product Information" name="product_info">
+                            <group>
+                                <group string="Product Types &amp; Attributes">
+                                    <field name="product_types" />
+                                    <field name="minimum_order_quantity" />
+                                    <field name="is_replicated" />
+                                    <field name="recommended_categories" readonly="1" />
+                                </group>
+                                <group string="Media">
+                                    <field name="main_images" readonly="1" />
+                                    <field name="video" readonly="1" />
+                                </group>
+                            </group>
+
+                            <group>
+                                <group string="Physical Properties">
+                                    <field name="package_dimensions" readonly="1" />
+                                    <field name="package_weight" readonly="1" />
+                                    <field name="size_chart" readonly="1" />
+                                </group>
+                                <group string="Attributes &amp; Certifications">
+                                    <field name="product_attributes" readonly="1" />
+                                    <field name="certifications" readonly="1" />
+                                    <field name="audit_failed_reasons" readonly="1" />
+                                    <field name="audit" readonly="1" />
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Tab 3: System &amp; Advanced -->
+                        <page string="System &amp; Advanced" name="system_advanced">
+                            <group>
+                                <group string="Shipping &amp; Delivery">
+                                    <field name="delivery_options" readonly="1" />
+                                    <field name="shipping_insurance_requirement" />
+                                    <field name="external_product_id" />
+                                    <field name="manufacturer_ids" readonly="1" />
+                                    <field name="responsible_person_ids" readonly="1" />
+                                </group>
+                                <group string="Advanced Features">
+                                    <field name="global_product_association" readonly="1" />
+                                    <field name="primary_combined_product_id" />
+                                    <field name="product_families" readonly="1" />
+                                    <field name="integrated_platform_statuses" readonly="1" />
+                                    <field name="subscribe_info" readonly="1" />
+                                    <field name="prescription_requirement" readonly="1" />
+                                </group>
+                            </group>
+
+                            <group>
+                                <group string="System Information">
+                                    <field name="shop_id" />
+                                    <field name="create_time" />
+                                    <field name="update_time" />
+                                </group>
+                                <group string="Raw Data">
+                                    <field name="raw_payload" readonly="1" />
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Tab 4: SKUs -->
+                        <page string="SKUs" name="skus">
+                            <field name="sku_ids">
+                                <list string="Product SKUs">
+                                    <field name="seller_sku"/>
+                                    <field name="variant_display"/>
+                                    <field name="sale_price"/>
+                                    <field name="total_quantity"/>
+                                    <field name="status"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tiktok_product_search" model="ir.ui.view">
+        <field name="name">tiktok.product.search</field>
+        <field name="model">tiktok.product</field>
+        <field name="arch" type="xml">
+            <search string="Search Products">
+                <field name="tiktok_id" string="Product ID" />
+                <field name="title" string="Product Title" />
+                <field name="category_id" string="Category" />
+                <field name="status" string="Status" />
+                <field name="shop_id" string="Shop" />
+
+                <separator />
+                <filter string="Active Products" name="active_products" domain="[('status', '=', 'ACTIVATE')]" />
+                <filter string="Inactive Products" name="inactive_products" domain="[('status', '!=', 'ACTIVATE')]" />
+                <filter string="COD Allowed" name="cod_allowed" domain="[('is_cod_allowed', '=', True)]" />
+                <filter string="Not for Sale" name="not_for_sale" domain="[('is_not_for_sale', '=', True)]" />
+                <filter string="Pre-owned" name="pre_owned" domain="[('is_pre_owned', '=', True)]" />
+                <filter string="Has Draft" name="has_draft" domain="[('has_draft', '=', True)]" />
+
+                <separator />
+                <filter string="High Quality" name="high_quality" domain="[('listing_quality_tier', '=', 'HIGH')]" />
+                <filter string="Medium Quality" name="medium_quality" domain="[('listing_quality_tier', '=', 'MEDIUM')]" />
+                <filter string="Low Quality" name="low_quality" domain="[('listing_quality_tier', '=', 'LOW')]" />
+
+                <separator />
+                <group expand="0" string="Group By">
+                    <filter string="Category" name="group_category" context="{'group_by': 'category_id'}" />
+                    <filter string="Status" name="group_status" context="{'group_by': 'status'}" />
+                    <filter string="Shop" name="group_shop" context="{'group_by': 'shop_id'}" />
+                    <filter string="Quality Tier" name="group_quality" context="{'group_by': 'listing_quality_tier'}" />
+                    <filter string="Create Date" name="group_create_date" context="{'group_by': 'create_time:day'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_tiktok_product" model="ir.actions.act_window">
+        <field name="name">TikTok Products</field>
+        <field name="res_model">tiktok.product</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

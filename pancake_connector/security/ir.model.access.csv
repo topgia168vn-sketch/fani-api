@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pancake_shop_user,pancake.shop user,model_pancake_shop,base.group_user,1,1,1,1
+access_pancake_page_user,pancake.page user,model_pancake_page,base.group_user,1,1,1,1
+access_pancake_geo_province_user,pancake.geo.province user,model_pancake_geo_province,base.group_user,1,1,1,1
+access_pancake_geo_district_user,pancake.geo.district user,model_pancake_geo_district,base.group_user,1,1,1,1
+access_pancake_geo_commune_user,pancake.geo.commune user,model_pancake_geo_commune,base.group_user,1,1,1,1
+access_pancake_customer_user,pancake.customer user,model_pancake_customer,base.group_user,1,1,1,1
+access_pancake_customer_address_user,pancake.customer.address user,model_pancake_customer_address,base.group_user,1,1,1,1
+access_pancake_order_user,pancake.order user,model_pancake_order,base.group_user,1,1,1,1
+access_pancake_order_item_user,pancake.order.item user,model_pancake_order_item,base.group_user,1,1,1,1
+access_pancake_fetch_geo_wizard_user,pancake.fetch.geo.wizard user,model_pancake_fetch_geo_wizard,base.group_user,1,1,1,1

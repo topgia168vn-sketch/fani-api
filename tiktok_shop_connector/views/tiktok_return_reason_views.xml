@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- TikTok Return Reason List View -->
+    <record id="view_tiktok_return_reason_list" model="ir.ui.view">
+        <field name="name">tiktok.return.reason.list</field>
+        <field name="model">tiktok.return.reason</field>
+        <field name="arch" type="xml">
+            <list string="Return Reasons" editable="bottom">
+                <field name="code" string="Code"/>
+                <field name="name" string="Name"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- TikTok Return Reason Form View -->
+    <record id="view_tiktok_return_reason_form" model="ir.ui.view">
+        <field name="name">tiktok.return.reason.form</field>
+        <field name="model">tiktok.return.reason</field>
+        <field name="arch" type="xml">
+            <form string="Return Reason">
+                <sheet>
+                    <group>
+                        <field name="code" string="Reason Code"/>
+                        <field name="name" string="Reason Name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- TikTok Return Reason Search View -->
+    <record id="view_tiktok_return_reason_search" model="ir.ui.view">
+        <field name="name">tiktok.return.reason.search</field>
+        <field name="model">tiktok.return.reason</field>
+        <field name="arch" type="xml">
+            <search string="Search Return Reasons">
+                <field name="code" string="Code"/>
+                <field name="name" string="Name"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- TikTok Return Reason Action -->
+    <record id="action_tiktok_return_reason" model="ir.actions.act_window">
+        <field name="name">Return Reasons</field>
+        <field name="res_model">tiktok.return.reason</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

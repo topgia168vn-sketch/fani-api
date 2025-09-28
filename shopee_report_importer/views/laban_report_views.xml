@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ==================== LIST VIEW ==================== -->
+    <record id="view_laban_report_list" model="ir.ui.view">
+        <field name="name">shopee.laban.report.list</field>
+        <field name="model">shopee.laban.report</field>
+        <field name="arch" type="xml">
+            <list string="Laban Reports">
+                <field name="shop_id"/>
+                <field name="report_date"/>
+                <field name="hour" widget="float_time" />
+                <field name="product_visits"/>
+                <field name="product_page_views"/>
+                <field name="products_accessed"/>
+                <field name="bounce_rate"/>
+                <field name="likes"/>
+                <field name="products_added_to_cart"/>
+                <field name="add_to_cart_conversion_rate"/>
+                <field name="buyers_placed_orders"/>
+                <field name="products_sold"/>
+                <field name="placed_orders_revenue"/>
+                <field name="order_conversion_rate"/>
+                <field name="buyers_confirmed_orders"/>
+                <field name="confirmed_orders_revenue"/>
+                <field name="confirmed_order_conversion_rate"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ==================== FORM VIEW ==================== -->
+    <record id="view_laban_report_form" model="ir.ui.view">
+        <field name="name">shopee.laban.report.form</field>
+        <field name="model">shopee.laban.report</field>
+        <field name="arch" type="xml">
+            <form string="Laban Report">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="shop_id" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="report_date"/>
+                            <field name="hour" widget="float_time" />
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Traffic Metrics">
+                            <field name="product_visits"/>
+                            <field name="product_page_views"/>
+                            <field name="products_accessed"/>
+                        </group>
+                        <group string="Engagement Metrics">
+                            <field name="bounce_count"/>
+                            <field name="bounce_rate"/>
+                            <field name="search_clicks"/>
+                            <field name="likes"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Cart Metrics">
+                            <field name="add_to_cart_visits"/>
+                            <field name="products_added_to_cart"/>
+                            <field name="add_to_cart_conversion_rate"/>
+                        </group>
+                        <group string="Order Metrics">
+                            <field name="buyers_placed_orders"/>
+                            <field name="products_in_placed_orders"/>
+                            <field name="products_sold"/>
+                            <field name="placed_orders_revenue"/>
+                            <field name="order_conversion_rate"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Confirmed Order Metrics">
+                            <field name="buyers_confirmed_orders"/>
+                            <field name="products_in_confirmed_orders"/>
+                            <field name="approved_products"/>
+                            <field name="confirmed_orders_revenue"/>
+                            <field name="confirmed_order_conversion_rate"/>
+                        </group>
+                        <group string="Conversion Funnel">
+                            <field name="order_to_confirmed_conversion_rate"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ==================== SEARCH VIEW ==================== -->
+    <record id="view_laban_report_search" model="ir.ui.view">
+        <field name="name">shopee.laban.report.search</field>
+        <field name="model">shopee.laban.report</field>
+        <field name="arch" type="xml">
+            <search string="Search Laban Reports">
+                <field name="shop_id"/>
+                <field name="report_date"/>
+                <field name="hour"/>
+                <separator/>
+                <filter string="This Week" name="this_week" domain="[
+                        ('report_date', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(weeks=-1,days=1,weekday=0), datetime.time(0,0,0)).to_utc())),
+                        ('report_date', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(days=1,weekday=0), datetime.time(0,0,0)).to_utc())),
+                    ]"/>
+                <filter string="This Month" name="this_month" domain="[
+                        ('report_date', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(day=1), datetime.time(0,0,0)).to_utc())),
+                        ('report_date', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(months=1,day=1), datetime.time(0,0,0)).to_utc())),
+                    ]"/>
+                <filter string="Last 30 Days" name="last_30_days" domain="[
+                        ('report_date', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(days=-30), datetime.time(0,0,0)).to_utc())),
+                        ('report_date', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(days=1), datetime.time(0,0,0)).to_utc())),
+                    ]"/>
+                <separator/>
+                <filter string="Peak Hours (9-17)" name="peak_hours" domain="[('hour', '&gt;=', 9), ('hour', '&lt;=', 17)]"/>
+                <filter string="Evening Hours (18-23)" name="evening_hours" domain="[('hour', '&gt;=', 18), ('hour', '&lt;=', 23)]"/>
+                <filter string="High Traffic (>1000 visits)" name="high_traffic" domain="[('product_visits', '&gt;', 1000)]"/>
+                <filter string="High Revenue (>10M VND)" name="high_revenue" domain="[('confirmed_orders_revenue', '&gt;', 10000000)]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Shop" name="group_shop" context="{'group_by': 'shop_id'}"/>
+                    <filter string="Report Date" name="group_report_date" context="{'group_by': 'report_date'}"/>
+                    <filter string="Hour" name="group_hour" context="{'group_by': 'hour'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ==================== PIVOT VIEW ==================== -->
+    <record id="view_laban_report_pivot" model="ir.ui.view">
+        <field name="name">shopee.laban.report.pivot</field>
+        <field name="model">shopee.laban.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Laban Reports Analysis">
+                <field name="shop_id" type="row"/>
+                <field name="report_date" type="row"/>
+                <field name="hour" type="col"/>
+                <field name="product_visits" type="measure"/>
+                <field name="product_page_views" type="measure"/>
+                <field name="products_accessed" type="measure"/>
+                <field name="likes" type="measure"/>
+                <field name="products_added_to_cart" type="measure"/>
+                <field name="products_sold" type="measure"/>
+                <field name="placed_orders_revenue" type="measure"/>
+                <field name="confirmed_orders_revenue" type="measure"/>
+                <field name="bounce_rate" type="measure"/>
+                <field name="add_to_cart_conversion_rate" type="measure"/>
+                <field name="order_conversion_rate" type="measure"/>
+                <field name="confirmed_order_conversion_rate" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- ==================== GRAPH VIEW ==================== -->
+    <record id="view_laban_report_graph" model="ir.ui.view">
+        <field name="name">shopee.laban.report.graph</field>
+        <field name="model">shopee.laban.report</field>
+        <field name="arch" type="xml">
+            <graph string="Laban Reports Analysis" type="bar">
+                <field name="hour" type="row"/>
+                <field name="product_visits" type="measure"/>
+                <field name="product_page_views" type="measure"/>
+                <field name="products_sold" type="measure"/>
+                <field name="placed_orders_revenue" type="measure"/>
+                <field name="confirmed_orders_revenue" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- ==================== ACTION ==================== -->
+    <record id="action_laban_report" model="ir.actions.act_window">
+        <field name="name">Laban Reports</field>
+        <field name="res_model">shopee.laban.report</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="context">{'search_default_this_month': 1}</field>
+    </record>
+
+</odoo>

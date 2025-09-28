@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Shopee Shop List View -->
+    <record id="view_shopee_shop_list" model="ir.ui.view">
+        <field name="name">shopee.shop.list</field>
+        <field name="model">shopee.shop</field>
+        <field name="arch" type="xml">
+            <list string="Shopee Shops">
+                <field name="name"/>
+                <field name="workspace_path"/>
+                <field name="last_sync_date"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Shopee Shop Form View -->
+    <record id="view_shopee_shop_form" model="ir.ui.view">
+        <field name="name">shopee.shop.form</field>
+        <field name="model">shopee.shop</field>
+        <field name="arch" type="xml">
+            <form string="Shopee Shop">
+                <header>
+                    <button name="action_generate_cookies_file" type="object"
+                            class="oe_highlight" string="Generate Cookies" invisible="cookies_file"/>
+                    <button name="action_deploy_workspace" type="object"
+                            class="oe_highlight" string="Deploy Workspace"
+                            invisible="not cookies_file or workspace_deployed"/>
+                    <button name="action_import_downloaded_data" type="object"
+                            class="oe_highlight" string="Import Downloaded Data"
+                            invisible="not cookies_file or not workspace_deployed"/>
+                    <button name="action_generate_cookies_file" type="object"
+                            string="Re-generate Cookies" invisible="not cookies_file"/>
+                    <button name="action_redeploy_workspace" type="object"
+                            string="Redeploy Workspace"
+                            invisible="not cookies_file or not workspace_deployed"/>
+                    <button name="action_undeploy_workspace" type="object"
+                            string="Undeploy Workspace"
+                            invisible="not cookies_file or not workspace_deployed"/>
+                </header>
+                <sheet>
+                    <field name="active" invisible="1"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Shop Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="last_sync_date"/>
+                            <field name="workspace_path"/>
+                            <field name="workspace_deployed"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Headers &amp; Cookies">
+                            <group>
+                                <field name="headers_text"
+                                       placeholder="SPC_SI=xxx; SPC_F=yyy; CTOKEN=zzz"/>
+                                <field name="cookies_file" filename="cookies_filename"
+                                       readonly="1"/>
+                                <field name="cookies_filename" invisible="1"/>
+                            </group>
+                        </page>
+                        <page string="Last Run Log">
+                            <field name="last_run_log" widget="code"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Shopee Shop Search View -->
+    <record id="view_shopee_shop_search" model="ir.ui.view">
+        <field name="name">shopee.shop.search</field>
+        <field name="model">shopee.shop</field>
+        <field name="arch" type="xml">
+            <search string="Search Shops">
+                <field name="name"/>
+                <field name="active"/>
+                <separator/>
+                <filter string="Active" name="active"
+                        domain="[('active', '=', True)]"/>
+                <filter string="Archived" name="archived"
+                        domain="[('active', '=', False)]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Active" name="group_active"
+                            context="{'group_by': 'active'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Shopee Shop Action -->
+    <record id="action_shopee_shop" model="ir.actions.act_window">
+        <field name="name">Shopee Shops</field>
+        <field name="res_model">shopee.shop</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Server Actions -->
+    <record id="action_shopee_shop_bulk_deploy_workspace" model="ir.actions.server">
+        <field name="name">Deploy Workspace</field>
+        <field name="model_id" ref="model_shopee_shop"/>
+        <field name="binding_model_id" ref="model_shopee_shop"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+for record in records:
+    record.action_deploy_workspace()
+        </field>
+    </record>
+
+    <record id="action_shopee_shop_bulk_redeploy_workspace" model="ir.actions.server">
+        <field name="name">Redeploy Workspace</field>
+        <field name="model_id" ref="model_shopee_shop"/>
+        <field name="binding_model_id" ref="model_shopee_shop"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+for record in records:
+    record.action_redeploy_workspace()
+        </field>
+    </record>
+
+    <record id="action_shopee_shop_bulk_undeploy_workspace" model="ir.actions.server">
+        <field name="name">Undeploy Workspace</field>
+        <field name="model_id" ref="model_shopee_shop"/>
+        <field name="binding_model_id" ref="model_shopee_shop"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+for record in records:
+    record.action_undeploy_workspace()
+        </field>
+    </record>
+
+    <record id="action_shopee_shop_bulk_import_data" model="ir.actions.server">
+        <field name="name">Import Downloaded Data</field>
+        <field name="model_id" ref="model_shopee_shop"/>
+        <field name="binding_model_id" ref="model_shopee_shop"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+for record in records:
+    record.action_import_downloaded_data()
+        </field>
+    </record>
+</odoo>

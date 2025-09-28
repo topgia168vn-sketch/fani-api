@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_shopee_shop_user,shopee.shop.user,model_shopee_shop,base.group_user,1,1,1,1
+access_ads_cpc_report_user,shopee.ads.cpc.report.user,model_shopee_ads_cpc_report,base.group_user,1,1,1,1
+access_ads_live_report_user,shopee.ads.live.report.user,model_shopee_ads_live_report,base.group_user,1,1,1,1
+access_booking_report_user,shopee.booking.report.user,model_shopee_booking_report,base.group_user,1,1,1,1
+access_laban_report_user,shopee.laban.report.user,model_shopee_laban_report,base.group_user,1,1,1,1
+access_live_product_report_user,shopee.live.product.report.user,model_shopee_live_product_report,base.group_user,1,1,1,1
+access_order_report_user,shopee.order.report.user,model_shopee_order_report,base.group_user,1,1,1,1
+access_video_product_report_user,shopee.video.product.report.user,model_shopee_video_product_report,base.group_user,1,1,1,1

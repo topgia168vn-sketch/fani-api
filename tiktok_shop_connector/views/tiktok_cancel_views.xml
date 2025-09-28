@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- TikTok Cancel List View -->
+    <record id="view_tiktok_cancel_list" model="ir.ui.view">
+        <field name="name">tiktok.cancel.list</field>
+        <field name="model">tiktok.cancel</field>
+        <field name="arch" type="xml">
+            <list string="Cancellations">
+                <field name="cancel_id" string="Cancel ID"/>
+                <field name="tiktok_order_id" string="Order ID"/>
+                <field name="cancel_type" string="Type"/>
+                <field name="cancel_status" string="Status"/>
+                <field name="role" string="Initiator"/>
+                <field name="cancel_reason_id" string="Reason"/>
+                <field name="refund_total" string="Refund Total"/>
+                <field name="create_time" string="Create Time"/>
+                <field name="update_time" string="Update Time"/>
+                <field name="shop_id" string="Shop"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- TikTok Cancel Form View -->
+    <record id="view_tiktok_cancel_form" model="ir.ui.view">
+        <field name="name">tiktok.cancel.form</field>
+        <field name="model">tiktok.cancel</field>
+        <field name="arch" type="xml">
+            <form string="Cancellation">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="cancel_id" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="basic_info" string="Basic Information">
+                            <field name="tiktok_order_id" string="TikTok Order ID"/>
+                            <field name="order_id" string="Original Order"/>
+                            <field name="cancel_type" string="Cancel Type"/>
+                            <field name="cancel_status" string="Cancel Status"/>
+                            <field name="role" string="Initiator Role"/>
+                            <field name="cancel_reason_id" string="Cancel Reason"/>
+                        </group>
+                        <group name="timeline" string="Timeline">
+                            <field name="create_time" string="Create Time"/>
+                            <field name="update_time" string="Update Time"/>
+                            <field name="seller_next_action" string="Seller Next Action"/>
+                            <field name="seller_action_deadline" string="Seller Action Deadline"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group name="financial_info" string="Financial Information">
+                            <field name="refund_currency" string="Refund Currency"/>
+                            <field name="refund_total" string="Refund Total"/>
+                            <field name="refund_subtotal" string="Refund Subtotal"/>
+                            <field name="refund_shipping_fee" string="Refund Shipping Fee"/>
+                            <field name="refund_tax" string="Refund Tax"/>
+                            <field name="retail_delivery_fee" string="Retail Delivery Fee"/>
+                            <field name="buyer_service_fee" string="Buyer Service Fee"/>
+                        </group>
+                        <group name="shop_info" string="Shop Information">
+                            <field name="shop_id" string="TikTok Shop"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Cancel Lines" name="cancel_lines">
+                            <field name="line_ids" string="Cancel Lines">
+                                <list editable="bottom">
+                                    <field name="cancel_line_item_id" string="Line Item ID"/>
+                                    <field name="order_line_item_id" string="Order Line Item ID"/>
+                                    <field name="product_name" string="Product Name"/>
+                                    <field name="sku_name" string="SKU Name"/>
+                                    <field name="seller_sku" string="Seller SKU"/>
+                                    <field name="refund_total" string="Refund Total"/>
+                                    <field name="refund_currency" string="Currency"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Raw Data" name="raw_data">
+                            <field name="raw_payload" string="Raw Payload" widget="json"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- TikTok Cancel Search View -->
+    <record id="view_tiktok_cancel_search" model="ir.ui.view">
+        <field name="name">tiktok.cancel.search</field>
+        <field name="model">tiktok.cancel</field>
+        <field name="arch" type="xml">
+            <search string="Search Cancellations">
+                <field name="cancel_id" string="Cancel ID"/>
+                <field name="tiktok_order_id" string="Order ID"/>
+                <field name="cancel_type" string="Cancel Type"/>
+                <field name="cancel_status" string="Cancel Status"/>
+                <field name="role" string="Initiator"/>
+                <field name="cancel_reason_id" string="Reason"/>
+                <field name="shop_id" string="Shop"/>
+                <separator/>
+                <filter string="Pending" name="pending" domain="[('cancel_status', '=', 'CANCELLATION_REQUEST_PENDING')]"/>
+                <filter string="Success" name="success" domain="[('cancel_status', '=', 'CANCELLATION_REQUEST_SUCCESS')]"/>
+                <filter string="Cancelled" name="cancelled" domain="[('cancel_status', '=', 'CANCELLATION_REQUEST_CANCEL')]"/>
+                <filter string="Complete" name="complete" domain="[('cancel_status', '=', 'CANCELLATION_REQUEST_COMPLETE')]"/>
+                <separator/>
+                <filter string="Seller Cancel" name="seller_cancel" domain="[('cancel_type', '=', 'CANCEL')]"/>
+                <filter string="Buyer Cancel" name="buyer_cancel" domain="[('cancel_type', '=', 'BUYER_CANCEL')]"/>
+                <separator/>
+                <filter string="Today" name="today" domain="[
+                    ('create_time', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0, 0, 0)).to_utc()),
+                    ('create_time', '&lt;', datetime.datetime.combine(context_today() + relativedelta(days=1), datetime.time(0, 0, 0)).to_utc())
+                ]"/>
+                <filter string="This Week" name="this_week" domain="[
+                    ('create_time', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(weeks=-1,days=1,weekday=0), datetime.time(0, 0, 0)).to_utc())),
+                    ('create_time', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(days=1,weekday=0), datetime.time(0, 0, 0)).to_utc())),
+                ]"/>
+                <filter string="This Month" name="this_month" domain="[
+                    ('create_time', '&gt;=', datetime.datetime.combine(context_today() + relativedelta(day=1), datetime.time(0, 0, 0)).to_utc()),
+                    ('create_time', '&lt;', datetime.datetime.combine(context_today() + relativedelta(months=1,day=1), datetime.time(0, 0, 0)).to_utc())
+                ]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Cancel Type" name="group_by_type" context="{'group_by': 'cancel_type'}"/>
+                    <filter string="Cancel Status" name="group_by_status" context="{'group_by': 'cancel_status'}"/>
+                    <filter string="Initiator Role" name="group_by_role" context="{'group_by': 'role'}"/>
+                    <filter string="Cancel Reason" name="group_by_reason" context="{'group_by': 'cancel_reason_id'}"/>
+                    <filter string="Shop" name="group_by_shop" context="{'group_by': 'shop_id'}"/>
+                    <filter string="Create Time" name="group_by_create_time" context="{'group_by': 'create_time:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- TikTok Cancel Action -->
+    <record id="action_tiktok_cancel" model="ir.actions.act_window">
+        <field name="name">Cancellations</field>
+        <field name="res_model">tiktok.cancel</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_tiktok_cancel_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first cancellation!
+            </p>
+            <p>
+                Cancellations are automatically synced from TikTok Shop.
+            </p>
+        </field>
+    </record>
+
+    <!-- Pivot View -->
+    <record id="view_tiktok_cancel_pivot" model="ir.ui.view">
+        <field name="name">tiktok.cancel.pivot</field>
+        <field name="model">tiktok.cancel</field>
+        <field name="arch" type="xml">
+            <pivot string="Cancellation Analysis">
+                <field name="create_time" type="row"/>
+                <field name="shop_id" type="row"/>
+                <field name="refund_total" type="measure"/>
+                <field name="refund_subtotal" type="measure"/>
+                <field name="refund_shipping_fee" type="measure"/>
+                <field name="refund_tax" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="view_tiktok_cancel_graph" model="ir.ui.view">
+        <field name="name">tiktok.cancel.graph</field>
+        <field name="model">tiktok.cancel</field>
+        <field name="arch" type="xml">
+            <graph string="Cancellation Trends" type="line">
+                <field name="create_time" type="row"/>
+                <field name="refund_total" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Cancel Action -->
+    <record id="action_tiktok_cancel" model="ir.actions.act_window">
+        <field name="name">TikTok Cancellations</field>
+        <field name="res_model">tiktok.cancel</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="context">{'search_default_this_month': 1}</field>
+    </record>
+
+</odoo>

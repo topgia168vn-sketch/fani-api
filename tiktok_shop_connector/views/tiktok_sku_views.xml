@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- TiktokSku List View -->
+    <record id="view_tiktok_sku_list" model="ir.ui.view">
+        <field name="name">tiktok.sku.list</field>
+        <field name="model">tiktok.sku</field>
+        <field name="arch" type="xml">
+            <list string="TikTok SKUs">
+                <field name="product_id"/>
+                <field name="variant_display"/>
+                <field name="seller_sku"/>
+                <field name="shop_id"/>
+                <field name="sale_price"/>
+                <field name="total_quantity"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- TiktokSku Form View -->
+    <record id="view_tiktok_sku_form" model="ir.ui.view">
+        <field name="name">tiktok.sku.form</field>
+        <field name="model">tiktok.sku</field>
+        <field name="arch" type="xml">
+            <form string="TikTok SKU">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="product_id" readonly="1"/>
+                        </h1>
+                        <h2>
+                            <field name="variant_display"/>
+                        </h2>
+                    </div>
+                    <group>
+                        <group string="Basic Information">
+                            <field name="tiktok_id"/>
+                            <field name="seller_sku"/>
+                            <field name="shop_id"/>
+                        </group>
+                        <group string="Pricing">
+                            <field name="currency"/>
+                            <field name="sale_price"/>
+                            <field name="tax_exclusive_price"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Variant Information">
+                            <field name="sales_attributes"/>
+                            <field name="sku_images"/>
+                            <field name="global_listing_policy"/>
+                        </group>
+                        <group string="Status">
+                            <field name="status"/>
+                            <field name="status_info"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Inventory">
+                            <field name="inventory_type"/>
+                            <field name="price_sync"/>
+                            <field name="total_quantity"/>
+                            <field name="inventory_ids">
+                                <list>
+                                    <field name="warehouse_id"/>
+                                    <field name="quantity"/>
+                                </list>
+                            </field>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- TiktokSku Search View -->
+    <record id="view_tiktok_sku_search" model="ir.ui.view">
+        <field name="name">tiktok.sku.search</field>
+        <field name="model">tiktok.sku</field>
+        <field name="arch" type="xml">
+            <search string="Search TikTok SKUs">
+                <field name="variant_display" string="Variant"
+                    filter_domain="[('variant_display', 'ilike', self), ('product_id.title', 'ilike', self)]"/>
+                <field name="seller_sku"/>
+                <field name="shop_id"/>
+                <field name="tiktok_id"/>
+                <separator/>
+                <filter string="Available" name="available" domain="[('total_quantity', '&gt;', 0)]"/>
+                <filter string="Out of Stock" name="out_of_stock" domain="[('total_quantity', '=', 0)]"/>
+                <filter string="Normal Status" name="normal_status" domain="[('status', '=', 'NORMAL')]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Product" name="group_product" context="{'group_by': 'product_id'}"/>
+                    <filter string="Shop" name="group_shop" context="{'group_by': 'shop_id'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by': 'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- TiktokSku Action -->
+    <record id="action_tiktok_sku" model="ir.actions.act_window">
+        <field name="name">TikTok SKUs</field>
+        <field name="res_model">tiktok.sku</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

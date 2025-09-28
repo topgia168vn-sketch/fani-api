@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- TikTok Cancel Line List View -->
+    <record id="view_tiktok_cancel_line_list" model="ir.ui.view">
+        <field name="name">tiktok.cancel.line.list</field>
+        <field name="model">tiktok.cancel.line</field>
+        <field name="arch" type="xml">
+            <list string="Cancel Lines">
+                <field name="cancel_line_item_id"/>
+                <field name="cancel_id"/>
+                <field name="order_line_item_id"/>
+                <field name="product_name"/>
+                <field name="sku_name"/>
+                <field name="seller_sku"/>
+                <field name="refund_total"/>
+                <field name="refund_currency"/>
+                <field name="shop_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- TikTok Cancel Line Form View -->
+    <record id="view_tiktok_cancel_line_form" model="ir.ui.view">
+        <field name="name">tiktok.cancel.line.form</field>
+        <field name="model">tiktok.cancel.line</field>
+        <field name="arch" type="xml">
+            <form string="Cancel Line">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="display_name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="basic_info" string="Basic Information">
+                            <field name="cancel_line_item_id"/>
+                            <field name="cancel_id"/>
+                            <field name="order_line_item_id"/>
+                            <field name="shop_id"/>
+                        </group>
+                        <group name="product_info" string="Product Information">
+                            <field name="product_id"/>
+                            <field name="sku_id"/>
+                            <field name="tiktok_sku_id"/>
+                            <field name="seller_sku"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group name="product_details" string="Product Details">
+                            <field name="product_name"/>
+                            <field name="sku_name"/>
+                            <field name="product_image_uri"/>
+                            <field name="product_image_width"/>
+                            <field name="product_image_height"/>
+                        </group>
+                        <group name="refund_info" string="Refund Information">
+                            <field name="refund_currency"/>
+                            <field name="refund_total"/>
+                            <field name="refund_subtotal"/>
+                            <field name="refund_shipping_fee"/>
+                            <field name="refund_tax"/>
+                            <field name="retail_delivery_fee"/>
+                            <field name="buyer_service_fee"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- TikTok Cancel Line Search View -->
+    <record id="view_tiktok_cancel_line_search" model="ir.ui.view">
+        <field name="name">tiktok.cancel.line.search</field>
+        <field name="model">tiktok.cancel.line</field>
+        <field name="arch" type="xml">
+            <search string="Search Cancel Lines">
+                <field name="cancel_line_item_id"/>
+                <field name="cancel_id"/>
+                <field name="order_line_item_id"/>
+                <field name="product_name"/>
+                <field name="sku_name"/>
+                <field name="seller_sku"/>
+                <field name="shop_id"/>
+                <separator/>
+                <filter string="Has Refund" name="has_refund" domain="[('refund_total', '&gt;', 0)]"/>
+                <filter string="No Refund" name="no_refund" domain="[('refund_total', '=', 0)]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Cancellation" name="group_by_cancel" context="{'group_by': 'cancel_id'}"/>
+                    <filter string="Product" name="group_by_product" context="{'group_by': 'product_id'}"/>
+                    <filter string="SKU" name="group_by_sku" context="{'group_by': 'sku_id'}"/>
+                    <filter string="Shop" name="group_by_shop" context="{'group_by': 'shop_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pivot View -->
+    <record id="view_tiktok_cancel_line_pivot" model="ir.ui.view">
+        <field name="name">tiktok.cancel.line.pivot</field>
+        <field name="model">tiktok.cancel.line</field>
+        <field name="arch" type="xml">
+            <pivot string="Cancel Line Analysis">
+                <field name="shop_id" type="row"/>
+                <field name="refund_total" type="measure"/>
+                <field name="refund_subtotal" type="measure"/>
+                <field name="refund_shipping_fee" type="measure"/>
+                <field name="refund_tax" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="view_tiktok_cancel_line_graph" model="ir.ui.view">
+        <field name="name">tiktok.cancel.line.graph</field>
+        <field name="model">tiktok.cancel.line</field>
+        <field name="arch" type="xml">
+            <graph string="Cancel Line Trends" type="line">
+                <field name="shop_id" type="row"/>
+                <field name="refund_total" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- TikTok Cancel Line Action -->
+    <record id="action_tiktok_cancel_line" model="ir.actions.act_window">
+        <field name="name">Cancel Lines</field>
+        <field name="res_model">tiktok.cancel.line</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,225 @@
+<odoo>
+    <!-- Return List View -->
+    <record id="view_tiktok_return_list" model="ir.ui.view">
+        <field name="name">tiktok.return.list</field>
+        <field name="model">tiktok.return</field>
+        <field name="arch" type="xml">
+            <list string="TikTok Returns">
+                <field name="return_id"/>
+                <field name="tiktok_order_id"/>
+                <field name="return_type"/>
+                <field name="return_status"/>
+                <field name="arbitration_status"/>
+                <field name="return_reason_id"/>
+                <field name="refund_total"/>
+                <field name="create_time"/>
+                <field name="update_time"/>
+                <field name="shop_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Return Form View -->
+    <record id="view_tiktok_return_form" model="ir.ui.view">
+        <field name="name">tiktok.return.form</field>
+        <field name="model">tiktok.return</field>
+        <field name="arch" type="xml">
+            <form string="TikTok Return">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="return_id"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Basic Information">
+                            <field name="tiktok_order_id"/>
+                            <field name="order_id"/>
+                            <field name="return_type"/>
+                            <field name="return_status"/>
+                            <field name="arbitration_status"/>
+                        </group>
+                        <group string="Return Details">
+                            <field name="role"/>
+                            <field name="return_reason_id"/>
+                            <field name="can_buyer_keep_item"/>
+                            <field name="is_combined_return"/>
+                            <field name="combined_return_id"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Shipping Information" name="shipping">
+                            <group>
+                                <group string="Shipping Details">
+                                    <field name="shipment_type"/>
+                                    <field name="handover_method"/>
+                                    <field name="return_method"/>
+                                    <field name="return_shipping_document_type"/>
+                                </group>
+                                <group string="Tracking Information">
+                                    <field name="return_tracking_number"/>
+                                    <field name="return_provider_name"/>
+                                    <field name="return_provider_id"/>
+                                </group>
+                            </group>
+                            <group string="Return Warehouse">
+                                <field name="return_warehouse_address" nolabel="1"/>
+                            </group>
+                        </page>
+
+                        <page string="Financial Information" name="financial">
+                            <group>
+                                <group string="Refund Amount">
+                                    <field name="refund_currency"/>
+                                    <field name="refund_total"/>
+                                    <field name="refund_subtotal"/>
+                                    <field name="refund_shipping_fee"/>
+                                    <field name="refund_tax"/>
+                                    <field name="retail_delivery_fee"/>
+                                    <field name="buyer_service_fee"/>
+                                </group>
+                                <group string="Partial Refund">
+                                    <field name="seller_proposed_return_type"/>
+                                    <field name="partial_refund_currency"/>
+                                    <field name="partial_refund_amount"/>
+                                    <field name="buyer_rejected_partial_refund"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Timeline" name="timeline">
+                            <group>
+                                <group string="Dates">
+                                    <field name="create_time"/>
+                                    <field name="update_time"/>
+                                </group>
+                                <group string="Seller Actions">
+                                    <field name="seller_next_action"/>
+                                    <field name="seller_action_deadline"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Return Lines" name="return_lines">
+                            <field name="line_ids">
+                                <list>
+                                    <field name="product_name"/>
+                                    <field name="sku_name"/>
+                                    <field name="seller_sku"/>
+                                    <field name="refund_total"/>
+                                    <field name="refund_currency"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Shop Information" name="shop_info">
+                            <group>
+                                <field name="shop_id"/>
+                            </group>
+                        </page>
+
+                        <page string="Raw Data" name="raw_data" groups="base.group_system">
+                            <group>
+                                <field name="raw_payload" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Return Search View -->
+    <record id="view_tiktok_return_search" model="ir.ui.view">
+        <field name="name">tiktok.return.search</field>
+        <field name="model">tiktok.return</field>
+        <field name="arch" type="xml">
+            <search string="Search Returns">
+                <field name="return_id"/>
+                <field name="tiktok_order_id"/>
+                <field name="return_reason_id"/>
+                <field name="shop_id"/>
+
+                <filter string="Pending" name="pending" domain="[('return_status', '=', 'RETURN_OR_REFUND_REQUEST_PENDING')]"/>
+                <filter string="Rejected" name="rejected" domain="[('return_status', '=', 'REFUND_OR_RETURN_REQUEST_REJECT')]"/>
+                <filter string="Success" name="success" domain="[('return_status', '=', 'RETURN_OR_REFUND_REQUEST_SUCCESS')]"/>
+                <filter string="Complete" name="complete" domain="[('return_status', '=', 'RETURN_OR_REFUND_REQUEST_COMPLETE')]"/>
+                <filter string="Cancelled" name="cancelled" domain="[('return_status', '=', 'RETURN_OR_REFUND_REQUEST_CANCEL')]"/>
+
+                <separator/>
+                <filter string="Refund Only" name="refund" domain="[('return_type', '=', 'REFUND')]"/>
+                <filter string="Return and Refund" name="return_refund" domain="[('return_type', '=', 'RETURN_AND_REFUND')]"/>
+                <filter string="Replacement" name="replacement" domain="[('return_type', '=', 'REPLACEMENT')]"/>
+
+                <separator/>
+                <filter string="Arbitration In Progress" name="arbitration" domain="[('arbitration_status', '=', 'IN_PROGRESS')]"/>
+                <filter string="Support Buyer" name="support_buyer" domain="[('arbitration_status', '=', 'SUPPORT_BUYER')]"/>
+                <filter string="Support Seller" name="support_seller" domain="[('arbitration_status', '=', 'SUPPORT_SELLER')]"/>
+
+                <separator/>
+                <filter string="Needs Seller Action" name="needs_action" domain="[('seller_next_action', '!=', False)]"/>
+                <filter string="Overdue Actions" name="overdue" domain="[('seller_action_deadline', '&lt;', datetime.datetime.now())]"/>
+
+                <separator/>
+                <filter string="Today" name="today" domain="[
+                    ('create_time', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0, 0, 0)).to_utc()),
+                    ('create_time', '&lt;', datetime.datetime.combine(context_today() + relativedelta(days=1), datetime.time(0, 0, 0)).to_utc())
+                ]"/>
+                <filter string="This Week" name="this_week" domain="[
+                    ('create_time', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(weeks=-1,days=1,weekday=0), datetime.time(0, 0, 0)).to_utc())),
+                    ('create_time', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(days=1,weekday=0), datetime.time(0, 0, 0)).to_utc())),
+                ]"/>
+                <filter string="This Month" name="this_month" domain="[
+                    ('create_time', '&gt;=', datetime.datetime.combine(context_today() + relativedelta(day=1), datetime.time(0, 0, 0)).to_utc()),
+                    ('create_time', '&lt;', datetime.datetime.combine(context_today() + relativedelta(months=1,day=1), datetime.time(0, 0, 0)).to_utc())
+                ]"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="Shop" name="group_shop" context="{'group_by': 'shop_id'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by': 'return_status'}"/>
+                    <filter string="Type" name="group_type" context="{'group_by': 'return_type'}"/>
+                    <filter string="Reason" name="group_reason" context="{'group_by': 'return_reason_id'}"/>
+                    <filter string="Arbitration Status" name="group_arbitration" context="{'group_by': 'arbitration_status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Pivot View -->
+    <record id="view_tiktok_return_pivot" model="ir.ui.view">
+        <field name="name">tiktok.return.pivot</field>
+        <field name="model">tiktok.return</field>
+        <field name="arch" type="xml">
+            <pivot string="Return Analysis">
+                <field name="create_time" type="row"/>
+                <field name="shop_id" type="row"/>
+                <field name="refund_total" type="measure"/>
+                <field name="refund_subtotal" type="measure"/>
+                <field name="refund_shipping_fee" type="measure"/>
+                <field name="refund_tax" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="view_tiktok_return_graph" model="ir.ui.view">
+        <field name="name">tiktok.return.graph</field>
+        <field name="model">tiktok.return</field>
+        <field name="arch" type="xml">
+            <graph string="Return Trends" type="line">
+                <field name="create_time" type="row"/>
+                <field name="refund_total" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Return Action -->
+    <record id="action_tiktok_return" model="ir.actions.act_window">
+        <field name="name">TikTok Returns</field>
+        <field name="res_model">tiktok.return</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="context">{'search_default_this_month': 1}</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,2357 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pancake_connector
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-08 08:31+0000\n"
+"PO-Revision-Date: 2025-09-08 08:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_shops_form
+msgid "<i class=\"fa fa-info-circle\"/> Pancake Data Synchronization Guide"
+msgstr "<i class=\"fa fa-info-circle\"/> Hướng dẫn đồng bộ dữ liệu từ Pancake"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_shops_form
+msgid ""
+"<strong>Fetch Customers</strong> - Synchronize the customer list from "
+"Pancake"
+msgstr ""
+"<strong>Lấy dữ liệu khách hàng</strong> - Đồng bộ danh sách khách hàng từ "
+"Pancake"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_shops_form
+msgid ""
+"<strong>Fetch Geographic Data</strong> - Synchronize geographic data "
+"(province/city, district, ward/commune) from the "
+"<strong>Configuration</strong> menu"
+msgstr ""
+"<strong>Lấy dữ liệu địa lý</strong> - Đồng bộ dữ liệu địa lý (tỉnh/thành,"
+" quận/huyện, phường/xã) từ menu <strong>Configuration</strong>"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_shops_form
+msgid "<strong>Fetch Orders</strong> - Synchronize orders from Pancake"
+msgstr "<strong>Lấy dữ liệu đơn hàng</strong> - Đồng bộ đơn hàng từ Pancake"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_shops_form
+msgid ""
+"<strong>Fetch Pages</strong> - Synchronize shop and page information from "
+"Pancake (must be done first)"
+msgstr ""
+"<strong>Lấy dữ liệu trang</strong> - Đồng bộ thông tin shop và pages từ Pancake "
+"(bắt buộc làm đầu tiên)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_shop__api_key
+msgid "API Key"
+msgstr "Khóa API"
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_shop__api_key
+msgid "API key of this shop"
+msgstr "Khóa API của shop này"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__account
+msgid "Account"
+msgstr "Tài khoản"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__account_name
+msgid "Account Name"
+msgstr "Tên tài khoản"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__activated_combo_products
+msgid "Activated Combo Products (JSON)"
+msgstr "Sản phẩm combo đã kích hoạt (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__activated_promotion_advances_json
+msgid "Activated Promotion Advances (JSON)"
+msgstr "Khuyến mãi nâng cao đã kích hoạt (JSON)"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_shops_form
+msgid ""
+"Additionally, the system will automatically synchronize pages, customers, "
+"and orders frequently."
+msgstr ""
+"Ngoài ra, hệ thống sẽ tự động đồng bộ pages, customers và orders định kỳ."
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__address_line
+msgid "Address Line"
+msgstr "Địa chỉ"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__address_ids
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customers_form
+msgid "Addresses"
+msgstr "Địa chỉ"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__ads_source
+msgid "Ads Source"
+msgstr "Nguồn quảng cáo"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_fetch_geo_wizard__fetch_type__all
+msgid "All Provinces (Old + New)"
+msgstr "Tất cả tỉnh thành (Cũ + Mới)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_fetch_geo_wizard__include_communes
+msgid "Also fetch communes for all districts"
+msgstr "Cũng lấy dữ liệu phường/xã cho tất cả quận/huyện"
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_fetch_geo_wizard__include_districts
+msgid "Also fetch districts for all provinces"
+msgstr "Cũng lấy dữ liệu quận/huyện cho tất cả tỉnh/thành"
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer__emails
+msgid "Array 'emails' from API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_shop__link_post_marketer
+msgid "Array 'link_post_marketer' from Pancake API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer__phone_numbers
+msgid "Array 'phone_numbers' from API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__assigning_care
+msgid "Assigning Care (JSON)"
+msgstr "Phân công chăm sóc (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__assigning_care_id
+msgid "Assigning Care ID"
+msgstr "ID phân công chăm sóc"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__assigning_seller
+msgid "Assigning Seller (JSON)"
+msgstr "Phân công người bán (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__assigning_seller_id
+msgid "Assigning Seller ID"
+msgstr "ID phân công người bán"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_shop__avatar_url
+msgid "Avatar URL"
+msgstr "URL ảnh đại diện"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__bank_payments
+msgid "Bank Payments (JSON)"
+msgstr "Thanh toán ngân hàng (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__bank_transfer_images
+msgid "Bank Transfer Images (JSON)"
+msgstr "Ảnh chuyển khoản ngân hàng (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer_address__customer_id
+msgid "Belongs to Pancake Customer"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer__shop_id
+msgid "Belongs to Pancake Shop"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__bill_email
+msgid "Bill Email"
+msgstr "Email hóa đơn"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__bill_full_name
+msgid "Bill Full Name"
+msgstr "Họ tên hóa đơn"
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__activated_promotion_advances_json
+msgid "Block 'activated_promotion_advances (1.6)'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__partner
+msgid "Block 'partner (1.3)'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__shipping_address_json
+msgid "Block 'shipping_address (1.5)'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__tags_json
+msgid "Block 'tags (1.2)'"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_order_items_search
+msgid "Bonus Products"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__cod
+msgid "COD"
+msgstr "Thu hộ"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_fetch_geo_wizard_form
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__6
+msgid "Cancelled"
+msgstr "Đã hủy"
+
+#. module: pancake_connector
+#. odoo-python
+#: code:addons/pancake_connector/models/pancake_api.py:0
+msgid "Cannot connect to Pancake: %s"
+msgstr "Không thể kết nối tới Pancake: %s"
+
+#. module: pancake_connector
+#. odoo-python
+#: code:addons/pancake_connector/models/pancake_shop.py:0
+msgid "Cannot find shop id %s in API response"
+msgstr "Không tìm thấy ID shop %s trong phản hồi API"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__cash
+msgid "Cash"
+msgstr "Tiền mặt"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__charged_by_card
+msgid "Charged by Card"
+msgstr "Thanh toán bằng thẻ"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__charged_by_fundiin
+msgid "Charged by Fundiin"
+msgstr "Thanh toán bằng Fundiin"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__charged_by_kredivo
+msgid "Charged by Kredivo"
+msgstr "Thanh toán bằng Kredivo"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__charged_by_momo
+msgid "Charged by MOMO"
+msgstr "Thanh toán bằng MOMO"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__charged_by_qrpay
+msgid "Charged by QRPAY"
+msgstr "Thanh toán bằng QRPAY"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__charged_by_vnpay
+msgid "Charged by VNPAY"
+msgstr "Thanh toán bằng VNPAY"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__commune_id
+msgid "Commune"
+msgstr "Phường/Xã"
+
+#. module: pancake_connector
+#: model:ir.model.constraint,message:pancake_connector.constraint_pancake_geo_commune_pancake_geo_commune_uniq
+msgid "Commune must be unique by Pancake Commune ID."
+msgstr "Phường/Xã phải là duy nhất theo ID Phường/Xã của Pancake."
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_district__commune_ids
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_province__commune_ids
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_communes
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_districts_form
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_provinces_form
+msgid "Communes"
+msgstr "Phường/Xã"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_order_items_form
+msgid "Components"
+msgstr "Thành phần"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__components_json
+msgid "Components (JSON)"
+msgstr "Thành phần (JSON)"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_order_items_search
+msgid "Composite Products"
+msgstr "Sản phẩm cấu thành"
+
+#. module: pancake_connector
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_config
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__1
+msgid "Confirmed"
+msgstr "Đã xác nhận"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__cost_surcharge
+msgid "Cost Surcharge"
+msgstr "Phụ phí chi phí"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__country_code
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_fetch_geo_wizard__country_code
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_province__country_code
+msgid "Country Code"
+msgstr "Mã quốc gia"
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_fetch_geo_wizard__country_code
+msgid "Country code (84 for Vietnam)"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_communes
+msgid "Create your first Pancake Commune!"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_customer_addresses
+msgid "Create your first Pancake Customer Address!"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_customers
+msgid "Create your first Pancake Customer!"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_districts
+msgid "Create your first Pancake District!"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_order_items
+msgid "Create your first Pancake Order Item!"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_orders
+msgid "Create your first Pancake Order!"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_pages
+msgid "Create your first Pancake Page!"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_provinces
+msgid "Create your first Pancake Province!"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_shops
+msgid "Create your first Pancake Shop!"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__create_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__create_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_fetch_geo_wizard__create_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_commune__create_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_district__create_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_province__create_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__create_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__create_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_page__create_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_shop__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__create_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__create_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_fetch_geo_wizard__create_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_commune__create_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_district__create_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_province__create_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__create_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__create_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_page__create_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_shop__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_search
+msgid "Creation Date"
+msgstr "Ngày tạo"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__creator
+msgid "Creator (JSON)"
+msgstr "Người tạo (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__creator_id
+msgid "Creator ID"
+msgstr "ID người tạo"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__custom_id
+msgid "Custom ID"
+msgstr "ID tùy chỉnh"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__customer_id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__customer_id
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customer_addresses_search
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_search
+msgid "Customer"
+msgstr "Khách hàng"
+
+#. module: pancake_connector
+#: model:ir.model.constraint,message:pancake_connector.constraint_pancake_customer_address_pancake_customer_addr_uniq
+msgid "Customer Address must be unique by (Customer, Pancake Address ID)."
+msgstr "Địa chỉ khách hàng phải là duy nhất theo (Khách hàng, ID Địa chỉ của Pancake)."
+
+#. module: pancake_connector
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_customer_addresses
+msgid "Customer Addresses"
+msgstr "Địa chỉ khách hàng"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__customer_pay_fee
+msgid "Customer Pay Fee"
+msgstr "Phí khách hàng trả"
+
+#. module: pancake_connector
+#: model:ir.model.constraint,message:pancake_connector.constraint_pancake_customer_pancake_customer_shop_pancake_id_uniq
+msgid "Customer must be unique by (Shop, Pancake ID)."
+msgstr "Khách hàng phải là duy nhất theo (Shop, ID của Pancake)."
+
+#. module: pancake_connector
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_customer_list
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_customers
+msgid "Customers"
+msgstr "Khách hàng"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__date_of_birth
+msgid "Date of Birth"
+msgstr "Ngày sinh"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__7
+msgid "Deleted"
+msgstr "Đã xóa"
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__subtotal
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__total
+msgid "Derived/if provided"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__discount
+msgid "Discount"
+msgstr "Giảm giá"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__discount_each_product
+msgid "Discount Each Product"
+msgstr "Giảm giá từng sản phẩm"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__discount_by_customer_level
+msgid "Discount by Customer Level"
+msgstr "Giảm giá theo cấp độ khách hàng"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__display_name
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__display_name
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_fetch_geo_wizard__display_name
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_commune__display_name
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_district__display_name
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_province__display_name
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__display_name
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__display_name
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_page__display_name
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_shop__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__district_id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_commune__district_id
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_communes_search
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customer_addresses_search
+msgid "District"
+msgstr "Quận/Huyện"
+
+#. module: pancake_connector
+#: model:ir.model.constraint,message:pancake_connector.constraint_pancake_geo_district_pancake_geo_district_uniq
+msgid "District must be unique by Pancake District ID."
+msgstr "Quận/Huyện phải là duy nhất theo ID Quận/Huyện của Pancake."
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_province__district_ids
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_districts
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_provinces_form
+msgid "Districts"
+msgstr "Quận/Huyện"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__duplicated_customer
+msgid "Duplicated Customer"
+msgstr "Khách hàng trùng lặp"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__duplicated_phone
+msgid "Duplicated Phone"
+msgstr "Số điện thoại trùng lặp"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__einvoices
+msgid "E-invoices (JSON)"
+msgstr "Hóa đơn điện tử (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__emails
+msgid "Emails (JSON)"
+msgstr "Email (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_commune__name_en
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_district__name_en
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_province__name_en
+msgid "English Name"
+msgstr "Tên tiếng Anh"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__estimate_delivery_date
+msgid "Estimate Delivery Date"
+msgstr "Ngày giao hàng dự kiến"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_pages_search
+msgid "Facebook"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__fb_id
+msgid "Facebook ID"
+msgstr "ID Facebook"
+
+#. module: pancake_connector
+#. odoo-python
+#: code:addons/pancake_connector/models/pancake_shop.py:0
+msgid ""
+"Failed to %s for some shops:\n"
+"%s"
+msgstr ""
+"%s không thành công cho một số shop:\n"
+"%s"
+
+#. module: pancake_connector
+#: model:ir.actions.server,name:pancake_connector.action_pancake_shop_fetch_customers
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_shops_form
+msgid "Fetch Customers"
+msgstr "Lấy dữ liệu khách hàng"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_fetch_geo_wizard_form
+msgid "Fetch Data"
+msgstr "Lấy dữ liệu"
+
+#. module: pancake_connector
+#: model:ir.actions.act_window,name:pancake_connector.action_pancake_fetch_geo_wizard
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_fetch_geo
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_fetch_geo_wizard_form
+msgid "Fetch Geographic Data"
+msgstr "Lấy dữ liệu địa lý"
+
+#. module: pancake_connector
+#: model:ir.actions.server,name:pancake_connector.action_pancake_shop_fetch_orders
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_shops_form
+msgid "Fetch Orders"
+msgstr "Lấy dữ liệu đơn hàng"
+
+#. module: pancake_connector
+#: model:ir.actions.server,name:pancake_connector.action_pancake_shop_fetch_pages
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_shops_form
+msgid "Fetch Pages"
+msgstr "Lấy dữ liệu trang"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_fetch_geo_wizard__fetch_type
+msgid "Fetch Type"
+msgstr "Kiểu lấy dữ liệu"
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__account
+msgid "Field 'account' (mã nguồn đơn)"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__account_name
+msgid "Field 'account_name'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__activated_combo_products
+msgid "Field 'activated_combo_products'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer_address__address_line
+msgid "Field 'address'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__ads_source
+msgid "Field 'ads_source'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__assigning_care
+msgid "Field 'assigning_care'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__assigning_care_id
+msgid "Field 'assigning_care_id'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__assigning_seller
+msgid "Field 'assigning_seller'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__assigning_seller_id
+msgid "Field 'assigning_seller_id'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_shop__avatar_url
+msgid "Field 'avatar_url' from Pancake API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__bank_payments
+msgid "Field 'bank_payments'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__bank_transfer_images
+msgid "Field 'bank_transfer_images'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__bill_email
+msgid "Field 'bill_email'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__bill_full_name
+msgid "Field 'bill_full_name'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__cash
+msgid "Field 'cash'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__charged_by_card
+msgid "Field 'charged_by_card'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__charged_by_fundiin
+msgid "Field 'charged_by_fundiin'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__charged_by_kredivo
+msgid "Field 'charged_by_kredivo'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__charged_by_momo
+msgid "Field 'charged_by_momo'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__charged_by_qrpay
+msgid "Field 'charged_by_qrpay'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__charged_by_vnpay
+msgid "Field 'charged_by_vnpay'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__cod
+msgid "Field 'cod' (tổng cần thu)"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__components_json
+msgid "Field 'components' from items[] (for composite/bundle/combo)"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__cost_surcharge
+msgid "Field 'cost_surcharge'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer_address__country_code
+msgid "Field 'country_code'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__creator
+msgid "Field 'creator'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__creator_id
+msgid "Field 'creator_id'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__custom_id
+msgid "Field 'custom_id'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__customer_pay_fee
+msgid "Field 'customer_pay_fee'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer__date_of_birth
+msgid "Field 'date_of_birth'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__discount
+msgid "Field 'discount'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__discount_by_customer_level
+msgid "Field 'discount_by_customer_level'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__discount_each_product
+msgid "Field 'discount_each_product'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_commune__district_id
+msgid "Field 'district_id' from Pancake API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__duplicated_customer
+msgid "Field 'duplicated_customer'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__duplicated_phone
+msgid "Field 'duplicated_phone'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__einvoices
+msgid "Field 'einvoices'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__estimate_delivery_date
+msgid "Field 'estimate_delivery_date'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer__fb_id
+msgid "Field 'fb_id'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer_address__full_address
+msgid "Field 'full_address'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer_address__full_name
+msgid "Field 'full_name' if present"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer__gender
+msgid "Field 'gender' from API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__histories
+msgid "Field 'histories'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__pancake_id
+msgid "Field 'id' from API (Thông tin đơn hàng)"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_commune__pancake_id
+msgid "Field 'id' from Pancake API /geo/communes"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_district__pancake_id
+msgid "Field 'id' from Pancake API /geo/districts"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_province__pancake_id
+msgid "Field 'id' from Pancake API /geo/provinces"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_shop__pancake_id
+msgid "Field 'id' from Pancake API /shops"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer__pancake_id
+msgid "Field 'id' from Pancake API /shops/<SHOP_ID>/customers"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__inserted_at
+msgid "Field 'inserted_at'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__is_bonus_product
+msgid "Field 'is_bonus_product'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__is_composite
+msgid "Field 'is_composite'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__is_discount_percent
+msgid "Field 'is_discount_percent'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__is_from_ecommerce
+msgid "Field 'is_from_ecommerce'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__is_linked_partner
+msgid "Field 'is_linked_partner'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__is_live_shopping
+msgid "Field 'is_live_shopping'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__is_livestream
+msgid "Field 'is_livestream'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__is_smc
+msgid "Field 'is_smc' (Messenger commerce)"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__is_wholesale
+msgid "Field 'is_wholesale'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__last_editor
+msgid "Field 'last_editor'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__last_editor_id
+msgid "Field 'last_editor_id'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer__last_order_at
+msgid "Field 'last_order_at'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__last_update_status_at
+msgid "Field 'last_update_status_at'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__link_confirm_order
+msgid "Field 'link_confirm_order'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__marketer
+msgid "Field 'marketer'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__measure_group_id
+msgid "Field 'measure_group_id'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer__name
+msgid "Field 'name' from API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_commune__name
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_district__name
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_province__name
+#: model:ir.model.fields,help:pancake_connector.field_pancake_shop__name
+msgid "Field 'name' from Pancake API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_commune__name_en
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_district__name_en
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_province__name_en
+msgid "Field 'name_en' from Pancake API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_commune__new_id
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_province__new_id
+msgid "Field 'new_id' from Pancake API (VN only)"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__note
+msgid "Field 'note' (ghi chú nội bộ)"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__note
+msgid "Field 'note' / 'note_product' if needed"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__note_image
+msgid "Field 'note_image'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__note_print
+msgid "Field 'note_print'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer__order_count
+msgid "Field 'order_count'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__order_currency
+msgid "Field 'order_currency'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__order_returned_ids
+msgid "Field 'order_returned_ids'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__order_sources
+msgid "Field 'order_sources'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__page_id
+msgid "Field 'page_id' from API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_page__pancake_id
+msgid "Field 'pages[].id' from Pancake API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_page__name
+msgid "Field 'pages[].name' from Pancake API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_page__platform
+msgid ""
+"Field 'pages[].platform' from Pancake API (e.g. facebook/instagram/...)"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_page__settings
+msgid "Field 'pages[].settings' from Pancake API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_page__shop_id
+msgid "Field 'pages[].shop_id' from Pancake API (or parent shop)"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__partner_fee
+msgid "Field 'partner_fee'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer_address__phone_number
+msgid "Field 'phone_number'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__pke_mkter
+msgid "Field 'pke_mkter'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__post_id
+msgid "Field 'post_id'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_commune__postcode
+msgid "Field 'postcode' from Pancake API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__product_id_ext
+msgid "Field 'product_id' from items[]"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_commune__province_id
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_district__province_id
+msgid "Field 'province_id' from Pancake API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer__purchased_amount
+msgid "Field 'purchased_amount' (đơn vị đồng, lưu số nguyên)"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__quantity
+msgid "Field 'quantity'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__received_at_shop
+msgid "Field 'received_at_shop' (bán tại quầy)"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer__referral_code
+msgid "Field 'referral_code'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__returned_reason
+msgid "Field 'returned_reason'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer__reward_point
+msgid "Field 'reward_point' (if present)"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__shipping_fee
+msgid "Field 'shipping_fee'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer_address__pancake_id
+msgid "Field 'shop_customer_addresses[].id' from API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__shop_id
+msgid "Field 'shop_id' from API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__status_history
+msgid "Field 'status_history'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__sub_status
+msgid "Field 'sub_status' (1.7) - Lý do chậm trễ giao hàng"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer__succeed_order_count
+msgid "Field 'succeed_order_count'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__surcharge
+msgid "Field 'surcharge'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__system_id
+msgid "Field 'system_id' from API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__tax
+msgid "Field 'tax'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__time_assign_care
+msgid "Field 'time_assign_care'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__time_send_partner
+msgid "Field 'time_send_partner'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__total_discount
+msgid "Field 'total_discount'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__transfer_money
+msgid "Field 'transfer_money'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__updated_at
+msgid "Field 'updated_at'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__variation_id_ext
+msgid "Field 'variation_id' from items[]"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__variation_info_json
+msgid "Field 'variation_info' from items[]"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__viewing
+msgid "Field 'viewing'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__warehouse_id
+msgid "Field 'warehouse_id'"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__warehouse_info
+msgid "Field 'warehouse_info'"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customers_search
+msgid "Frequent Buyers"
+msgstr "Khách hàng thường xuyên"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__full_address
+msgid "Full Address"
+msgstr "Địa chỉ đầy đủ"
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer__raw_payload
+msgid "Full JSON customer object from API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__raw_payload
+msgid "Full JSON of items[] element"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer_address__raw_payload
+msgid "Full JSON of shop_customer_addresses[] element"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_page__raw_payload
+msgid "Full JSON of the page object as returned by Pancake"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_shop__raw_payload
+msgid "Full JSON of the shop object as returned by Pancake"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__raw_payload
+msgid "Full JSON order object as returned by API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__full_name
+msgid "Full Name"
+msgstr "Họ tên đầy đủ"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__gender
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customers_search
+msgid "Gender"
+msgstr "Giới tính"
+
+#. module: pancake_connector
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_geographic
+msgid "Geographic Data"
+msgstr "Dữ liệu địa lý"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_communes_search
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customer_addresses_search
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customers_search
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_districts_search
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_order_items_search
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_search
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_pages_search
+msgid "Group By"
+msgstr "Nhóm theo"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customers_search
+msgid "High Value Customers"
+msgstr "Khách hàng giá trị cao"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__histories
+msgid "Histories (JSON)"
+msgstr "Lịch sử (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_fetch_geo_wizard__id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_commune__id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_district__id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_province__id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_page__id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_shop__id
+msgid "ID"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_fetch_geo_wizard__include_communes
+msgid "Include Communes"
+msgstr "Bao gồm phường/xã"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_fetch_geo_wizard__include_districts
+msgid "Include Districts"
+msgstr "Bao gồm quận/huyện"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__inserted_at
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__inserted_at
+msgid "Inserted At"
+msgstr "Thời gian tạo"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_pages_search
+msgid "Instagram"
+msgstr ""
+
+#. module: pancake_connector
+#. odoo-python
+#: code:addons/pancake_connector/models/pancake_api.py:0
+msgid "Invalid JSON response from Pancake"
+msgstr "JSON phản hồi không hợp lệ từ Pancake"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__is_bonus_product
+msgid "Is Bonus Product"
+msgstr "Là sản phẩm tặng kèm"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__is_composite
+msgid "Is Composite"
+msgstr "Là sản phẩm cấu thành"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__is_discount_percent
+msgid "Is Discount Percent"
+msgstr "Giảm giá theo phần trăm"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__is_from_ecommerce
+msgid "Is From E-commerce"
+msgstr "Từ thương mại điện tử"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__is_linked_partner
+msgid "Is Linked Partner"
+msgstr "Là đối tác liên kết"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__is_live_shopping
+msgid "Is Live Shopping"
+msgstr "Là live shopping"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__is_livestream
+msgid "Is Livestream"
+msgstr "Là livestream"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__is_smc
+msgid "Is SMC"
+msgstr "Là SMC"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__is_wholesale
+msgid "Is Wholesale"
+msgstr "Là bán sỉ"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__item_ids
+msgid "Items"
+msgstr "Sản phẩm"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_shop__last_cron_sync
+msgid "Last Cron Sync"
+msgstr "Lần đồng bộ cuối"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__last_editor
+msgid "Last Editor (JSON)"
+msgstr "Người chỉnh sửa cuối (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__last_editor_id
+msgid "Last Editor ID"
+msgstr "ID người chỉnh sửa cuối"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__last_order_at
+msgid "Last Order At"
+msgstr "Đơn hàng cuối"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__last_update_status_at
+msgid "Last Update Status At"
+msgstr "Cập nhật trạng thái cuối"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__write_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__write_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_fetch_geo_wizard__write_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_commune__write_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_district__write_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_province__write_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__write_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__write_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_page__write_uid
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_shop__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__write_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__write_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_fetch_geo_wizard__write_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_commune__write_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_district__write_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_province__write_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__write_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__write_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_page__write_date
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_shop__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_shop__last_cron_sync
+msgid "Last time this shop was synced by cron job"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__link_confirm_order
+msgid "Link Confirm Order"
+msgstr "Link xác nhận đơn hàng"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_search
+msgid "Live Shopping"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_search
+msgid "Livestream Orders"
+msgstr "Đơn hàng livestream"
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer_address__commune_id
+msgid "Map from 'commune_id' in API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__customer_id
+msgid "Map from 'customer.id' in API (customer block 1.1)"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer_address__district_id
+msgid "Map from 'district_id' in API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_customer_address__province_id
+msgid "Map from 'province_id' in API"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__marketer
+msgid "Marketer (JSON)"
+msgstr "Marketer (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__measure_group_id
+msgid "Measure Group ID"
+msgstr "ID nhóm đo lường"
+
+#. module: pancake_connector
+#. odoo-python
+#: code:addons/pancake_connector/models/pancake_api.py:0
+msgid "Missing API key for Pancake"
+msgstr "Không tìm thấy khóa API cho Pancake"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__name
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_commune__name
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_district__name
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_province__name
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__name
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_page__name
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_shop__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__sub_status__1
+msgid "Needs Processing"
+msgstr "Cần xử lý"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__0
+msgid "New"
+msgstr "Mới"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_commune__new_id
+msgid "New Commune ID"
+msgstr "ID phường/xã mới"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_province__new_id
+msgid "New Province ID"
+msgstr "ID tỉnh/thành mới"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_fetch_geo_wizard__fetch_type__new
+msgid "New Provinces Only"
+msgstr "Chỉ tỉnh thành mới"
+
+#. module: pancake_connector
+#. odoo-python
+#: code:addons/pancake_connector/models/pancake_geo_province.py:0
+msgid "No provinces returned from Pancake"
+msgstr "Không tìm thấy tỉnh thành từ Pancake"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__note
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__note
+msgid "Note"
+msgstr "Ghi chú"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__note_image
+msgid "Note Image (JSON)"
+msgstr "Ảnh ghi chú (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__note_print
+msgid "Note Print"
+msgstr "Ghi chú in"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_form
+msgid "Notes"
+msgstr "Ghi chú"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_fetch_geo_wizard__fetch_type__old
+msgid "Old Provinces Only"
+msgstr "Chỉ tỉnh thành cũ"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__order_id
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_order_items_search
+msgid "Order"
+msgstr "Đơn hàng"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__order_count
+msgid "Order Count"
+msgstr "Số đơn hàng"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__order_currency
+msgid "Order Currency"
+msgstr "Tiền tệ đơn hàng"
+
+#. module: pancake_connector
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_order_items
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_form
+msgid "Order Items"
+msgstr "Sản phẩm đơn hàng"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__order_returned_ids
+msgid "Order Returned IDs"
+msgstr "ID đơn hàng trả"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__order_sources
+msgid "Order Sources"
+msgstr "Nguồn đơn hàng"
+
+#. module: pancake_connector
+#: model:ir.model.constraint,message:pancake_connector.constraint_pancake_order_pancake_order_shop_pancake_id_uniq
+msgid "Order must be unique by (Shop, Pancake ID)."
+msgstr "Đơn hàng phải là duy nhất theo (Shop, ID của Pancake)."
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order__status
+msgid "Order status (see 'Trạng thái đơn hàng')"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__20
+msgid "Ordered"
+msgstr "Đã đặt hàng"
+
+#. module: pancake_connector
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_orders
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_sales
+msgid "Orders"
+msgstr "Đơn hàng"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__pke_mkter
+msgid "PK Marketer"
+msgstr "PK Marketer"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__8
+msgid "Packing"
+msgstr "Đang đóng hàng"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__page_id
+msgid "Page"
+msgstr "Trang"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_shop__page_ids
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_page_list
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_shops_form
+msgid "Pages"
+msgstr "Trang"
+
+#. module: pancake_connector
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_connector_root
+msgid "Pancake"
+msgstr ""
+
+#. module: pancake_connector
+#. odoo-python
+#: code:addons/pancake_connector/models/pancake_api.py:0
+msgid ""
+"Pancake API error (%(method)s %(url)s): HTTP %(code)s\n"
+"%(body)s"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__pancake_id
+msgid "Pancake Address ID"
+msgstr "ID địa chỉ Pancake"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_communes_form
+msgid "Pancake Commune"
+msgstr "Phường/Xã Pancake"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_commune__pancake_id
+msgid "Pancake Commune ID"
+msgstr "ID phường/xã Pancake"
+
+#. module: pancake_connector
+#: model:ir.actions.act_window,name:pancake_connector.action_pancake_communes
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_communes_list
+msgid "Pancake Communes"
+msgstr "Phường/Xã Pancake"
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_communes
+msgid "Pancake Communes are synchronized from the Pancake system."
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model,name:pancake_connector.model_pancake_customer
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customers_form
+msgid "Pancake Customer"
+msgstr "Khách hàng Pancake"
+
+#. module: pancake_connector
+#: model:ir.model,name:pancake_connector.model_pancake_customer_address
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customer_addresses_form
+msgid "Pancake Customer Address"
+msgstr "Địa chỉ khách hàng Pancake"
+
+#. module: pancake_connector
+#: model:ir.actions.act_window,name:pancake_connector.action_pancake_customer_addresses
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customer_addresses_tree
+msgid "Pancake Customer Addresses"
+msgstr "Địa chỉ khách hàng Pancake"
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_customer_addresses
+msgid "Pancake Customer Addresses are synchronized from the Pancake system."
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__pancake_id
+msgid "Pancake Customer ID"
+msgstr "ID khách hàng Pancake"
+
+#. module: pancake_connector
+#: model:ir.actions.act_window,name:pancake_connector.action_pancake_customers
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customers_tree
+msgid "Pancake Customers"
+msgstr "Khách hàng Pancake"
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_customers
+msgid "Pancake Customers are synchronized from the Pancake system."
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.actions.server,name:pancake_connector.ir_cron_pancake_sync_ir_actions_server
+msgid "Pancake Data Sync"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_districts_form
+msgid "Pancake District"
+msgstr "Quận/Huyện Pancake"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_district__pancake_id
+msgid "Pancake District ID"
+msgstr "ID quận/huyện Pancake"
+
+#. module: pancake_connector
+#: model:ir.actions.act_window,name:pancake_connector.action_pancake_districts
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_districts_list
+msgid "Pancake Districts"
+msgstr "Quận/Huyện Pancake"
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_districts
+msgid "Pancake Districts are synchronized from the Pancake system."
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model,name:pancake_connector.model_pancake_fetch_geo_wizard
+msgid "Pancake Fetch Geographic Data Wizard"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model,name:pancake_connector.model_pancake_geo_commune
+msgid "Pancake Geo Commune"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model,name:pancake_connector.model_pancake_geo_district
+msgid "Pancake Geo District"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model,name:pancake_connector.model_pancake_geo_province
+msgid "Pancake Geo Province"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_shop__pancake_id
+msgid "Pancake ID"
+msgstr "ID Pancake"
+
+#. module: pancake_connector
+#: model:ir.model,name:pancake_connector.model_pancake_order
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_form
+msgid "Pancake Order"
+msgstr "Đơn hàng Pancake"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__pancake_id
+msgid "Pancake Order ID"
+msgstr "ID đơn hàng Pancake"
+
+#. module: pancake_connector
+#: model:ir.model,name:pancake_connector.model_pancake_order_item
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_order_items_form
+msgid "Pancake Order Item"
+msgstr "Chi tiết đơn hàng Pancake"
+
+#. module: pancake_connector
+#: model:ir.actions.act_window,name:pancake_connector.action_pancake_order_items
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_order_items_list
+msgid "Pancake Order Items"
+msgstr "Chi tiết đơn hàng Pancake"
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_order_items
+msgid "Pancake Order Items are synchronized from the Pancake system."
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.actions.act_window,name:pancake_connector.action_pancake_orders
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_tree
+msgid "Pancake Orders"
+msgstr "Đơn hàng Pancake"
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_orders
+msgid "Pancake Orders are synchronized from the Pancake system."
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model,name:pancake_connector.model_pancake_page
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_pages_form
+msgid "Pancake Page"
+msgstr "Trang Pancake"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_page__pancake_id
+msgid "Pancake Page ID"
+msgstr "ID trang Pancake"
+
+#. module: pancake_connector
+#: model:ir.actions.act_window,name:pancake_connector.action_pancake_pages
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_pages_tree
+msgid "Pancake Pages"
+msgstr "Trang Pancake"
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_pages
+msgid "Pancake Pages are synchronized from the Pancake system."
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_provinces_form
+msgid "Pancake Province"
+msgstr "Tỉnh/Thành Pancake"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_province__pancake_id
+msgid "Pancake Province ID"
+msgstr "ID tỉnh/thành Pancake"
+
+#. module: pancake_connector
+#: model:ir.actions.act_window,name:pancake_connector.action_pancake_provinces
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_provinces_list
+msgid "Pancake Provinces"
+msgstr "Tỉnh/Thành Pancake"
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_provinces
+msgid "Pancake Provinces are synchronized from the Pancake system."
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model,name:pancake_connector.model_pancake_shop
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_shops_form
+msgid "Pancake Shop"
+msgstr "Cửa hàng Pancake"
+
+#. module: pancake_connector
+#: model:ir.actions.act_window,name:pancake_connector.action_pancake_shops
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_shops_tree
+msgid "Pancake Shops"
+msgstr "Cửa hàng Pancake"
+
+#. module: pancake_connector
+#: model_terms:ir.actions.act_window,help:pancake_connector.action_pancake_shops
+msgid "Pancake Shops are synchronized from the Pancake system."
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.constraint,message:pancake_connector.constraint_pancake_page_pancake_page_shop_pancake_id_uniq
+msgid "Pancake page must be unique by (Shop, Pancake Page ID)."
+msgstr "Trang Pancake phải là duy nhất theo (Shop, ID trang của Pancake)."
+
+#. module: pancake_connector
+#. odoo-python
+#: code:addons/pancake_connector/models/pancake_shop.py:0
+msgid "Pancake returned no shops for this API key"
+msgstr "Pancake không trả về cửa hàng nào cho khóa API này"
+
+#. module: pancake_connector
+#: model:ir.model.constraint,message:pancake_connector.constraint_pancake_shop_pancake_shop_uniq
+msgid "Pancake shop must be unique by Pancake ID."
+msgstr "Cửa hàng Pancake phải là duy nhất theo ID của Pancake."
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__15
+msgid "Partially Returned"
+msgstr "Hoàn một phần"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__partner
+msgid "Partner (JSON)"
+msgstr "Đối tác (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__partner_fee
+msgid "Partner Fee"
+msgstr "Phí đối tác"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__16
+msgid "Payment Collected"
+msgstr "Đã thu tiền"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__phone_number
+msgid "Phone Number"
+msgstr "Số điện thoại"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__phone_numbers
+msgid "Phone Numbers (JSON)"
+msgstr "Số điện thoại (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_page__platform
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_pages_search
+msgid "Platform"
+msgstr "Nền tảng"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_shops_form
+msgid ""
+"Please follow the steps below in order to ensure data is synchronized "
+"correctly:"
+msgstr "Thực hiện theo thứ tự sau để đảm bảo dữ liệu được đồng bộ chính xác:"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__post_id
+msgid "Post ID"
+msgstr "ID bài viết"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_commune__postcode
+msgid "Postcode"
+msgstr "Mã bưu điện"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__price
+msgid "Price"
+msgstr "Giá"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__13
+msgid "Printed"
+msgstr "Đã in"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__sub_status__2
+msgid "Processed"
+msgstr "Đã xử lý"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_order_items_search
+msgid "Product"
+msgstr "Sản phẩm"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__product_id_ext
+msgid "Product ID (Ext)"
+msgstr "ID sản phẩm (Ext)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__name
+msgid "Product/Variation display name if available"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__province_id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_commune__province_id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_district__province_id
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_communes_search
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customer_addresses_search
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_districts_search
+msgid "Province"
+msgstr "Tỉnh/Thành"
+
+#. module: pancake_connector
+#: model:ir.model.constraint,message:pancake_connector.constraint_pancake_geo_province_pancake_geo_province_uniq
+msgid "Province must be unique by Pancake Province ID."
+msgstr "Tỉnh/Thành phải là duy nhất theo ID Tỉnh/Thành của Pancake."
+
+#. module: pancake_connector
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_provinces
+msgid "Provinces"
+msgstr "Tỉnh/Thành"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__purchased_amount
+msgid "Purchased Amount (VND)"
+msgstr "Số tiền đã mua (VND)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__quantity
+msgid "Quantity"
+msgstr "Số lượng"
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_geo_province__country_code
+msgid "Query parameter 'country_code' used to fetch this record (e.g., '84')"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_communes_form
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customer_addresses_form
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customers_form
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_districts_form
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_order_items_form
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_form
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_pages_form
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_provinces_form
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_shops_form
+msgid "Raw Data"
+msgstr "Dữ liệu gốc"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__raw_payload
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer_address__raw_payload
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_commune__raw_payload
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_district__raw_payload
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_geo_province__raw_payload
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__raw_payload
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__raw_payload
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_page__raw_payload
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_shop__raw_payload
+msgid "Raw Payload"
+msgstr "Dữ liệu gốc"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__3
+msgid "Received"
+msgstr "Đã nhận"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__received_at_shop
+msgid "Received At Shop"
+msgstr "Nhận tại cửa hàng"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__referral_code
+msgid "Referral Code"
+msgstr "Mã giới thiệu"
+
+#. module: pancake_connector
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_reports
+msgid "Reports"
+msgstr "Báo cáo"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__sub_status__3
+msgid "Responded"
+msgstr "Đã phản hồi"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__5
+msgid "Returned"
+msgstr "Đã hoàn"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__returned_reason
+msgid "Returned Reason"
+msgstr "Lý do trả hàng"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__4
+msgid "Returning"
+msgstr "Đang hoàn"
+
+#. module: pancake_connector
+#: model:ir.model,name:pancake_connector.model_pancake_api_mixin
+msgid "Reusable Pancake API client"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__reward_point
+msgid "Reward Point"
+msgstr "Điểm thưởng"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__sku
+msgid "SKU"
+msgstr "Mã SKU"
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__sku
+msgid "SKU if present in variation_info"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_search
+msgid "SMC Orders"
+msgstr "Đơn hàng SMC"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_communes_search
+msgid "Search Pancake Communes"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customer_addresses_search
+msgid "Search Pancake Customer Addresses"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customers_search
+msgid "Search Pancake Customers"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_districts_search
+msgid "Search Pancake Districts"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_order_items_search
+msgid "Search Pancake Order Items"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_search
+msgid "Search Pancake Orders"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_pages_search
+msgid "Search Pancake Pages"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_provinces_search
+msgid "Search Pancake Provinces"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_shops_search
+msgid "Search Pancake Shops"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_fetch_geo_wizard__shop_id
+msgid "Select shop to fetch geographic data"
+msgstr ""
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_pages_form
+msgid "Settings"
+msgstr "Cài đặt"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_page__settings
+msgid "Settings (JSON)"
+msgstr "Cài đặt (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__2
+msgid "Shipped"
+msgstr "Đã gửi hàng"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__shipping_address_json
+msgid "Shipping Address (JSON)"
+msgstr "Địa chỉ giao hàng (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__shipping_fee
+msgid "Shipping Fee"
+msgstr "Phí vận chuyển"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__shop_id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_fetch_geo_wizard__shop_id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__shop_id
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_page__shop_id
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_customers_search
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_search
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_pages_search
+msgid "Shop"
+msgstr "Cửa hàng"
+
+#. module: pancake_connector
+#. odoo-python
+#: code:addons/pancake_connector/models/pancake_order.py:0
+msgid "Shop %s missing pancake_id, fetch pages first."
+msgstr "Cửa hàng %s không có ID Pancake, vui lòng lấy dữ liệu trang trước."
+
+#. module: pancake_connector
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_shop_list
+msgid "Shops"
+msgstr "Cửa hàng"
+
+#. module: pancake_connector
+#: model:ir.ui.menu,name:pancake_connector.menu_pancake_shops
+msgid "Shops & Pages"
+msgstr "Cửa hàng & Trang"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__status
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_search
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__status_history
+msgid "Status History (JSON)"
+msgstr "Lịch sử trạng thái (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__sub_status
+msgid "Sub Status"
+msgstr "Trạng thái phụ"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__subtotal
+msgid "Subtotal"
+msgstr "Tạm tính"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__succeed_order_count
+msgid "Succeed Order Count"
+msgstr "Số đơn hàng thành công"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__surcharge
+msgid "Surcharge"
+msgstr "Phụ phí"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__system_id
+msgid "System ID"
+msgstr "ID hệ thống"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__tags_json
+msgid "Tags (JSON)"
+msgstr "Thẻ (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__tax
+msgid "Tax"
+msgstr "Thuế"
+
+#. module: pancake_connector
+#. odoo-python
+#: code:addons/pancake_connector/models/pancake_shop.py:0
+msgid ""
+"This API key returns multiple shops. Please fill the correct 'Pancake ID' on"
+" this record first, then run again."
+msgstr ""
+"Khóa API này trả về nhiều cửa hàng. Vui lòng điền đúng 'ID của Pancake' "
+"trước, sau đó chạy lại."
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_search
+msgid "This Week"
+msgstr "Tuần này"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__time_assign_care
+msgid "Time Assign Care"
+msgstr "Thời gian phân công chăm sóc"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__time_send_partner
+msgid "Time Send Partner"
+msgstr "Thời gian gửi đối tác"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_orders_search
+msgid "Today"
+msgstr "Hôm nay"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__total
+msgid "Total"
+msgstr "Tổng cộng"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__total_discount
+msgid "Total Discount"
+msgstr "Tổng giảm giá"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__transfer_money
+msgid "Transfer Money"
+msgstr "Chuyển tiền"
+
+#. module: pancake_connector
+#: model:ir.model.fields,help:pancake_connector.field_pancake_order_item__price
+msgid "Unit price (integer, VND)"
+msgstr ""
+
+#. module: pancake_connector
+#. odoo-python
+#: code:addons/pancake_connector/models/pancake_api.py:0
+msgid "Unsupported HTTP method: %s"
+msgstr ""
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_customer__updated_at
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__updated_at
+msgid "Updated At"
+msgstr "Thời gian cập nhật"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__variation_id_ext
+msgid "Variation ID (Ext)"
+msgstr "ID biến thể (Ext)"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_order_items_form
+msgid "Variation Info"
+msgstr "Thông tin biến thể"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order_item__variation_info_json
+msgid "Variation Info (JSON)"
+msgstr "Thông tin biến thể (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__viewing
+msgid "Viewing (JSON)"
+msgstr "Xem (JSON)"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__17
+msgid "Waiting for Confirmation"
+msgstr "Chờ xác nhận"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__9
+msgid "Waiting for Delivery"
+msgstr "Chờ chuyển hàng"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__11
+msgid "Waiting for Goods"
+msgstr "Chờ hàng"
+
+#. module: pancake_connector
+#: model:ir.model.fields.selection,name:pancake_connector.selection__pancake_order__status__12
+msgid "Waiting to Print"
+msgstr "Chờ in"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__warehouse_id
+msgid "Warehouse ID"
+msgstr "ID kho hàng"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_order__warehouse_info
+msgid "Warehouse Info (JSON)"
+msgstr "Thông tin kho hàng (JSON)"
+
+#. module: pancake_connector
+#: model_terms:ir.ui.view,arch_db:pancake_connector.view_pancake_order_items_search
+msgid "Wholesale Products"
+msgstr "Sản phẩm bán sỉ"
+
+#. module: pancake_connector
+#. odoo-python
+#: code:addons/pancake_connector/wizard/pancake_fetch_geo_wizard.py:0
+msgid "You must include districts if you want to include communes"
+msgstr "Bạn phải bao gồm quận/huyện nếu bạn muốn bao gồm phường/xã"
+
+#. module: pancake_connector
+#: model:ir.model.fields,field_description:pancake_connector.field_pancake_shop__link_post_marketer
+msgid "link_post_marketer (JSON)"
+msgstr "link_post_marketer (JSON)"
