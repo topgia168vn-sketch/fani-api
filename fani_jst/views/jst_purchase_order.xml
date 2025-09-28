@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree/List View -->
+        <record id="view_jst_purchase_order_tree" model="ir.ui.view">
+            <field name="name">jst.purchase.order.tree</field>
+            <field name="model">jst.purchase.order</field>
+            <field name="arch" type="xml">
+                <list string="JST Purchase Orders">
+                    <header>
+                        <button name="action_sync_purchase_inouts" type="object" string="Sync Purchase Receipt" class="btn-primary"/>
+                    </header>
+                    <field name="purchaseId"/>
+                    <field name="purchaseStatus" string="Status"/>
+                    <field name="purchaseOrderType" string="Type"/>
+                    <field name="supplierName"/>
+                    <field name="purchaserName"/>
+                    <field name="purchaseGoodsCount"/>
+                    <field name="purchaseGoodsAmount" string="Amount"/>
+                    <field name="purchaseStatus"/>
+                    <field name="receiptStatus"/>
+                    <field name="planArriveDate"/>
+                    <field name="purchaseFinishedDate"/>
+                    <field name="created"/>
+                    <field name="jst_modified"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_jst_purchase_order_form" model="ir.ui.view">
+            <field name="name">jst.purchase.order.form</field>
+            <field name="model">jst.purchase.order</field>
+            <field name="arch" type="xml">
+                <form string="JST Purchase Order">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="purchaseId" readonly="1"/></h1>
+                        </div>
+                        <notebook>
+                            <page string="General Info">
+                                <group>
+                                    <group string="Basic Information">
+                                        <field name="purchaseId"/>
+                                        <field name="originalPurchaseId"/>
+                                        <field name="createType"/>
+                                        <field name="purchaseOrderType"/>
+                                        <field name="purchaseStatus"/>
+                                        <field name="receiptStatus"/>
+                                    </group>
+                                    <group string="Dates">
+                                        <field name="created"/>
+                                        <field name="jst_modified"/>
+                                        <field name="planArriveDate"/>
+                                        <field name="purchaseFinishedDate"/>
+                                        <field name="reviewDate"/>
+                                    </group>
+                                </group>
+
+                                <group>
+                                    <group string="Supplier Information">
+                                        <field name="supplierCode"/>
+                                        <field name="supplierName"/>
+                                        <field name="supplierConfirmDate"/>
+                                        <field name="supplierConfirmStatus"/>
+                                    </group>
+                                    <group string="Purchase Details">
+                                        <field name="purchaserName"/>
+                                        <field name="purchaseGoodsCount"/>
+                                        <field name="purchaseGoodsAmount"/>
+                                        <field name="purchaseInoutQty"/>
+                                        <field name="currencyId"/>
+                                        <field name="purchaseTaxRate"/>
+                                        <field name="purchaseOverloadRate"/>
+                                    </group>
+                                </group>
+
+                                <group>
+                                    <group string="Warehouse">
+                                        <field name="warehouseId"/>
+                                        <field name="warehouseArea"/>
+                                    </group>
+                                    <group string="Logistics">
+                                        <field name="logisticsCompanyCode"/>
+                                        <field name="logisticsId"/>
+                                        <field name="thirdOrderNo"/>
+                                        <field name="freightCost"/>
+                                        <field name="freightType"/>
+                                        <field name="isPushToSupplier"/>
+                                    </group>
+                                </group>
+
+                                <group string="System Info">
+                                    <field name="creator"/>
+                                    <field name="modifier"/>
+                                    <field name="auditer"/>
+                                    <field name="remark"/>
+                                </group>
+                            </page>
+
+                            <page string="Delivery Address">
+                                <group>
+                                    <group string="Receiver Info">
+                                        <field name="receiverName"/>
+                                        <field name="receiverMobile"/>
+                                        <field name="receiverPostcode"/>
+                                    </group>
+                                    <group string="Address Details">
+                                        <field name="receiverCountry"/>
+                                        <field name="receiverProvince"/>
+                                        <field name="receiverCity"/>
+                                        <field name="receiverDistrict"/>
+                                        <field name="receiverTown"/>
+                                        <field name="receiverAddress"/>
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Purchase Lines">
+                                <field name="jst_purchase_order_line_ids">
+                                    <list>
+                                        <field name="skuId"/>
+                                        <field name="skuName"/>
+                                        <field name="purchaseQty" string="Quantity"/>
+                                        <field name="purchasePrice" string="Price"/>
+                                        <field name="purchaseAmount" string="Amount"/>
+                                        <field name="inoutQty"/>
+                                        <field name="planArriveQty"/>
+                                        <field name="supplierName"/>
+                                        <field name="goodsType"/>
+                                    </list>
+                                </field>
+                            </page>
+
+                            <page string="Purchase Process">
+                                <field name="jst_purchase_process_ids">
+                                    <list>
+                                        <field name="processId"/>
+                                        <field name="title"/>
+                                        <field name="bussinessTime"/>
+                                        <field name="remark"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_jst_purchase_order_search" model="ir.ui.view">
+            <field name="name">jst.purchase.order.search</field>
+            <field name="model">jst.purchase.order</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="purchaseId"/>
+                    <field name="supplierName"/>
+                    <field name="supplierCode"/>
+                    <field name="purchaserName"/>
+                    <field name="originalPurchaseId"/>
+                    <separator/>
+                    <filter name="ftr_status_waitconfirm" string="Wait Confirm" domain="[('purchaseStatus','=','waitconfirm')]"/>
+                    <filter name="ftr_status_confirmed" string="Confirmed" domain="[('purchaseStatus','=','confirmed')]"/>
+                    <filter name="ftr_status_completed" string="Completed" domain="[('purchaseStatus','=','completed')]"/>
+                    <filter name="ftr_status_invalid" string="Invalid" domain="[('purchaseStatus','=','invalid')]"/>
+                    <separator/>
+                    <filter name="ftr_receipt_none" string="Not Received" domain="[('receiptStatus','=','none')]"/>
+                    <filter name="ftr_receipt_partial" string="Partially Received" domain="[('receiptStatus','=','partial')]"/>
+                    <filter name="ftr_receipt_allstocked" string="All Stocked" domain="[('receiptStatus','=','allstocked')]"/>
+                    <separator/>
+                    <filter name="ftr_order_type_in" string="Purchase In" domain="[('purchaseOrderType','=','in')]"/>
+                    <filter name="ftr_order_type_out" string="Purchase Out" domain="[('purchaseOrderType','=','out')]"/>
+                    <separator/>
+                    <filter name="ftr_created" string="Created Time" date="created"/>
+                    <filter name="ftr_reviewDate" string="Review Date" date="reviewDate"/>
+                    <filter name="ftr_supplierConfirmDate" string="Supplier Confirm Date" date="supplierConfirmDate"/>
+                    <filter name="ftr_plan_arrive_date" string="Plan Arrive Date" date="planArriveDate"/>
+                    <filter name="ftr_purchase_finished_date" string="Purchase Finished Date" date="purchaseFinishedDate"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Purchase Status" name="group_by_purchase_status" context="{'group_by':'purchaseStatus'}"/>
+                        <filter string="Receipt Status" name="group_by_receipt_status" context="{'group_by':'receiptStatus'}"/>
+                        <filter string="Supplier" name="group_by_supplier" context="{'group_by':'supplierName'}"/>
+                        <filter string="Purchaser" name="group_by_purchaser" context="{'group_by':'purchaserName'}"/>
+                        <filter string="Warehouse" name="group_by_warehouseId" context="{'group_by':'warehouseId'}"/>
+                        <separator/>
+                        <filter string="Purchase Order Type" name="group_by_order_type" context="{'group_by':'purchaseOrderType'}"/>
+                        <separator/>
+                        <filter string="Created Time" name="group_by_created" context="{'group_by':'created:day'}"/>
+                        <filter string="Review Date" name="group_by_reviewDate" context="{'group_by':'reviewDate:day'}"/>
+                        <filter string="Supplier Confirm Date" name="group_by_supplierConfirmDate" context="{'group_by':'supplierConfirmDate:day'}"/>
+                        <filter string="Plan Arrive Date" name="group_by_plan_arrive_date" context="{'group_by':'planArriveDate:day'}"/>
+                        <filter string="Purchase Finished Date" name="group_by_purchaseFinishedDate" context="{'group_by':'purchaseFinishedDate:day'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_jst_purchase_order" model="ir.actions.act_window">
+            <field name="name">JST Purchase Orders</field>
+            <field name="res_model">jst.purchase.order</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Purchase Order Line Tree View -->
+        <record id="view_jst_purchase_order_line_tree" model="ir.ui.view">
+            <field name="name">jst.purchase.order.line.tree</field>
+            <field name="model">jst.purchase.order.line</field>
+            <field name="arch" type="xml">
+                <list string="JST Purchase Order Lines">
+                    <field name="purchaseDetailId"/>
+                    <field name="purchaseId"/>
+                    <field name="skuId"/>
+                    <field name="skuName"/>
+                    <field name="purchaseQty"/>
+                    <field name="purchasePrice"/>
+                    <field name="purchaseAmount"/>
+                    <field name="inoutQty"/>
+                    <field name="planArriveQty"/>
+                    <field name="supplierName"/>
+                    <field name="goodsType"/>
+                    <field name="currencyId"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Purchase Order Line Form View -->
+        <record id="view_jst_purchase_order_line_form" model="ir.ui.view">
+            <field name="name">jst.purchase.order.line.form</field>
+            <field name="model">jst.purchase.order.line</field>
+            <field name="arch" type="xml">
+                <form string="JST Purchase Order Line">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="purchaseDetailId" readonly="1"/></h1>
+                            <h2><field name="skuName" readonly="1"/></h2>
+                        </div>
+                        <group>
+                            <group string="Identifiers">
+                                <field name="purchaseDetailId"/>
+                                <field name="purchaseId"/>
+                                <field name="jst_purchase_order_id"/>
+                                <field name="companyId"/>
+                            </group>
+                            <group string="Product">
+                                <field name="itemId"/>
+                                <field name="skuId"/>
+                                <field name="skuName"/>
+                                <field name="skuPropertyName"/>
+                                <field name="goodsType"/>
+                                <field name="weight"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group string="Quantities">
+                                <field name="purchaseQty"/>
+                                <field name="planArriveQty"/>
+                                <field name="planPurchaseQty"/>
+                                <field name="inoutQty"/>
+                                <field name="iqcExceptionQty"/>
+                                <field name="boxCapacity"/>
+                                <field name="boxQuantity"/>
+                            </group>
+                            <group string="Pricing">
+                                <field name="purchasePrice"/>
+                                <field name="purchaseAmount"/>
+                                <field name="lastPurchasePrice"/>
+                                <field name="inoutWarehousedAmount"/>
+                                <field name="currencyId"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group string="Supplier">
+                                <field name="supplierCode"/>
+                                <field name="supplierName"/>
+                                <field name="supplierItemId"/>
+                                <field name="supplierSkuId"/>
+                            </group>
+                            <group string="System">
+                                <field name="created"/>
+                                <field name="creator"/>
+                                <field name="jst_modified"/>
+                                <field name="modifier"/>
+                                <field name="planArriveDate"/>
+                            </group>
+                        </group>
+
+                        <group string="Remarks">
+                            <field name="remark" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Purchase Process Tree View -->
+        <record id="view_jst_purchase_process_tree" model="ir.ui.view">
+            <field name="name">jst.purchase.order.process.tree</field>
+            <field name="model">jst.purchase.order.process</field>
+            <field name="arch" type="xml">
+                <list string="JST Purchase Process">
+                    <field name="processId"/>
+                    <field name="purchaseId"/>
+                    <field name="title"/>
+                    <field name="bussinessTime"/>
+                    <field name="remark"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Purchase Process Form View -->
+        <record id="view_jst_purchase_process_form" model="ir.ui.view">
+            <field name="name">jst.purchase.order.process.form</field>
+            <field name="model">jst.purchase.order.process</field>
+            <field name="arch" type="xml">
+                <form string="JST Purchase Process">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="processId" readonly="1"/></h1>
+                            <h2><field name="title" readonly="1"/></h2>
+                        </div>
+                        <group>
+                            <group string="Process Information">
+                                <field name="processId"/>
+                                <field name="purchaseId"/>
+                                <field name="jst_purchase_order_id"/>
+                                <field name="title"/>
+                                <field name="bussinessTime"/>
+                            </group>
+                        </group>
+                        <group string="Remarks">
+                            <field name="remark" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

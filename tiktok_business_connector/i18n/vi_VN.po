@@ -1,0 +1,3761 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * tiktok_business_connector
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-26 14:45+0000\n"
+"PO-Revision-Date: 2025-09-26 14:45+0000\n"
+"Last-Translator: Nguyen Viet Phuong\n"
+"Language-Team: Vietnamese\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "ACO Ads"
+msgstr "Quảng cáo ACO"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_ad_unavailable
+msgid "AD Unavailable"
+msgstr "Quảng cáo Không Khả dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__deep_bid_type__aeo
+msgid "AEO"
+msgstr "AEO"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__aigc_disclosure_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__aigc_disclosure_type
+msgid "AIGC Disclosure Type"
+msgstr "Loại Tiết lộ AIGC"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_business_account_form
+msgid "Access Token"
+msgstr "Mã Truy cập"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_bussiness_account__access_token
+msgid "Access Token để truy cập TikTok Business API"
+msgstr "Mã Truy cập để truy cập TikTok Business API"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/reporting/tiktok_bc_report.py:0
+msgid ""
+"Access token (BC) not found. Please authorize the business account first."
+msgstr ""
+"Mã truy cập (BC) không tìm thấy. Vui lòng ủy quyền tài khoản doanh nghiệp trước."
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_business_account_form
+msgid "Account Information"
+msgstr "Thông tin Tài khoản"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_business_account_form
+msgid "Account Name"
+msgstr "Tên Tài khoản"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__actions
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__actions
+msgid "Actions"
+msgstr "Hành động"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_advertiser__active
+msgid "Active"
+msgstr "Hoạt động"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__odoo_ad_id
+msgid "Ad"
+msgstr "Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__ad_format
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__ad_format
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Ad Format"
+msgstr "Định dạng Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__odoo_ad_group_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__odoo_adgroup_id
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Ad Group"
+msgstr "Nhóm Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__adgroup_app_profile_page_state
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__adgroup_app_profile_page_state
+msgid "Ad Group App Profile Page State"
+msgstr "Trạng thái Trang Hồ sơ Ứng dụng của Nhóm Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__adgroup_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__adgroup_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__adgroup_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__adgroup_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__adgroup_id
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+msgid "Ad Group ID"
+msgstr "ID Nhóm Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_bc_report__data_level__auction_adgroup
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_search
+msgid "Ad Group Level"
+msgstr "Cấp độ Nhóm Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__adgroup_name
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__adgroup_name
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__adgroup_name
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__adgroup_name
+msgid "Ad Group Name"
+msgstr "Tên Nhóm Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.actions.act_window,name:tiktok_business_connector.action_tiktok_ad_group
+#: model:ir.ui.menu,name:tiktok_business_connector.menu_tiktok_ad_group
+msgid "Ad Groups"
+msgstr "Nhóm Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__ad_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__ad_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__ad_id
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+msgid "Ad ID"
+msgstr "ID Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_bc_report__data_level__auction_ad
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_search
+msgid "Ad Level"
+msgstr "Cấp độ Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__ad_name
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__ad_name
+msgid "Ad Name"
+msgstr "Tên Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__ad_text
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__ad_text
+msgid "Ad Text"
+msgstr "Văn bản Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__ad_texts
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__ad_texts
+msgid "Ad Texts"
+msgstr "Văn bản Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_form
+msgid "Additional Information"
+msgstr "Thông tin Bổ sung"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Additional Settings"
+msgstr "Cài đặt Bổ sung"
+
+#. module: tiktok_business_connector
+#: model:ir.actions.act_window,name:tiktok_business_connector.action_tiktok_ad
+#: model:ir.ui.menu,name:tiktok_business_connector.menu_tiktok_ad
+msgid "Ads"
+msgstr "Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Advanced Audience"
+msgstr "Đối tượng Nâng cao"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Advanced Dedicated Campaign"
+msgstr "Chiến dịch Chuyên dụng Nâng cao"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__odoo_advertiser_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__odoo_advertiser_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__odoo_advertiser_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__odoo_advertiser_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__odoo_advertiser_id
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Advertiser"
+msgstr "Nhà Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__advertiser_account_punish
+msgid "Advertiser Account Punish"
+msgstr "Tài khoản Nhà Quảng cáo Bị Phạt"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_advert_iser_audit
+msgid "Advertiser Audit"
+msgstr "Kiểm toán Nhà Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_advert_iser_audit_deny
+msgid "Advertiser Audit Deny"
+msgstr "Kiểm toán Nhà Quảng cáo Bị Từ chối"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_business_account_form
+msgid "Advertiser Configuration"
+msgstr "Cấu hình Nhà Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__advertiser_contract_pending
+msgid "Advertiser Contract Pending"
+msgstr "Hợp đồng Nhà Quảng cáo Đang Chờ"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__advertiser_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__advertiser_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_advertiser__advertiser_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__advertiser_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bussiness_account__advertiser_ids
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__advertiser_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__advertiser_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__advertiser_id
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+msgid "Advertiser ID"
+msgstr "ID Nhà Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_business_account_form
+msgid "Advertiser IDs"
+msgstr "ID Nhà Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bussiness_account__advertiser_ids_synced
+msgid "Advertiser IDs Synced"
+msgstr "ID Nhà Quảng cáo Đã Đồng bộ"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_bc_report__data_level__auction_advertiser
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_search
+msgid "Advertiser Level"
+msgstr "Cấp độ Nhà Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__odoo_advertiser_ids
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_ad_group__odoo_advertiser_ids
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_campaign__odoo_advertiser_ids
+#: model:ir.ui.menu,name:tiktok_business_connector.menu_tiktok_advertiser
+msgid "Advertisers"
+msgstr "Nhà Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__age_groups
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__age_groups
+msgid "Age Groups"
+msgstr "Nhóm Tuổi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_all
+msgid "All"
+msgstr "Tất cả"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__sales_destination__app
+msgid "App"
+msgstr "Ứng dụng"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+msgid "App & Profile"
+msgstr "Ứng dụng & Hồ sơ"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__app_config
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__app_config
+msgid "App Config"
+msgstr "Cấu hình Ứng dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__app_download_url
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__app_download_url
+msgid "App Download URL"
+msgstr "URL Tải xuống Ứng dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__app_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__app_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__app_id
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "App ID"
+msgstr "ID Ứng dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,help:tiktok_business_connector.field_res_config_settings__tiktok_app_id
+msgid "App ID từ TikTok for Developers"
+msgstr "ID Ứng dụng từ TikTok for Developers"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__app_promotion_type__app_install
+msgid "App Install"
+msgstr "Cài đặt Ứng dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__app_name
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__app_name
+msgid "App Name"
+msgstr "Tên Ứng dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__app_promotion_type__app_posts_promotion
+msgid "App Posts Promotion"
+msgstr "Khuyến mãi Bài đăng Ứng dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__app_promotion_type__app_preregistration
+msgid "App Preregistration"
+msgstr "Đăng ký Trước Ứng dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__objective_type__app_promotion
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "App Promotion"
+msgstr "Khuyến mãi Ứng dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__app_promotion_type
+msgid "App Promotion Type"
+msgstr "Loại Khuyến mãi Ứng dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__app_promotion_type__app_retargeting
+msgid "App Retargeting"
+msgstr "Nhắm mục tiêu Lại Ứng dụng"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "App Settings"
+msgstr "Cài đặt Ứng dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__sales_destination__website
+msgid "App Store"
+msgstr "Cửa hàng Ứng dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__app_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__app_type
+msgid "App Type"
+msgstr "Loại Ứng dụng"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Attribution & Billing"
+msgstr "Phân bổ & Thanh toán"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__attribution_event_count
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__attribution_event_count
+msgid "Attribution Event Count"
+msgstr "Số lượng Sự kiện Phân bổ"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_bc_report__report_type__audience
+msgid "Audience"
+msgstr "Đối tượng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__audience_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__audience_ids
+msgid "Audience IDs"
+msgstr "ID Đối tượng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__audience_rule
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__audience_rule
+msgid "Audience Rule"
+msgstr "Quy tắc Đối tượng"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Audience Settings"
+msgstr "Cài đặt Đối tượng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__audience_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__audience_type
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+msgid "Audience Type"
+msgstr "Loại Đối tượng"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/reporting/tiktok_bc_report.py:0
+msgid "Audience report is not supported yet."
+msgstr "Báo cáo Đối tượng chưa được hỗ trợ."
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_business_account_form
+msgid "Authorize TikTok"
+msgstr "Ủy quyền TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__auto_disclaimer_types
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__auto_disclaimer_types
+msgid "Auto Disclaimer Types"
+msgstr "Loại Tuyên bố Miễn trừ Tự động"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__auto_message_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__auto_message_id
+msgid "Auto Message ID"
+msgstr "ID Tin nhắn Tự động"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+msgid "Automated Keywords"
+msgstr "Từ khóa Tự động"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__automated_keywords_enabled
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__automated_keywords_enabled
+msgid "Automated Keywords Enabled"
+msgstr "Từ khóa Tự động Đã Bật"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__automatic_value_optimization
+msgid "Automatic Value Optimization"
+msgstr "Tối ưu hóa Giá trị Tự động"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__avatar_icon_web_uri
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__avatar_icon_web_uri
+msgid "Avatar Icon Web URI"
+msgstr "URI Web Biểu tượng Avatar"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_awaiting_release
+msgid "Awaiting Release"
+msgstr "Đang Chờ Phát hành"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__bc_report_id
+msgid "BC Report"
+msgstr "Báo cáo BC"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_bc_report__report_type__basic
+msgid "Basic"
+msgstr "Cơ bản"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_form
+msgid "Basic Information"
+msgstr "Thông tin Cơ bản"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__bid_align_type
+msgid "Bid Align Type"
+msgstr "Loại Căn chỉnh Đặt giá"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__bid_display_mode
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__bid_display_mode
+msgid "Bid Display Mode"
+msgstr "Chế độ Hiển thị Đặt giá"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__bid_price
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__bid_price
+msgid "Bid Price"
+msgstr "Giá Đặt"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__bid_type
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__bid_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__bid_type
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+msgid "Bid Type"
+msgstr "Loại Đặt giá"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Bidding"
+msgstr "Đặt giá"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__billing_event
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__billing_event
+msgid "Billing Event"
+msgstr "Sự kiện Thanh toán"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__blocked_pangle_app_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__blocked_pangle_app_ids
+msgid "Blocked Pangle App IDs"
+msgstr "ID Ứng dụng Pangle Bị Chặn"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Brand Safety"
+msgstr "An toàn Thương hiệu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__brand_safety_partner
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__brand_safety_partner
+msgid "Brand Safety Partner"
+msgstr "Đối tác An toàn Thương hiệu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__brand_safety_postbid_partner
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__brand_safety_postbid_partner
+msgid "Brand Safety Postbid Partner"
+msgstr "Đối tác An toàn Thương hiệu Sau Đặt giá"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__brand_safety_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__brand_safety_type
+msgid "Brand Safety Type"
+msgstr "Loại An toàn Thương hiệu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__brand_safety_vast_url
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__brand_safety_vast_url
+msgid "Brand Safety VAST URL"
+msgstr "URL VAST An toàn Thương hiệu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__branded_content_disabled
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__branded_content_disabled
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Branded Content Disabled"
+msgstr "Nội dung Thương hiệu Bị Tắt"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__budget
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__budget
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__budget
+msgid "Budget"
+msgstr "Ngân sách"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_form
+msgid "Budget & Bidding"
+msgstr "Ngân sách & Đặt giá"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_budget_exceed
+msgid "Budget Exceed"
+msgstr "Vượt Ngân sách"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__budget_mode
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__budget_mode
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__budget_mode
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Budget Mode"
+msgstr "Chế độ Ngân sách"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Budget Mode: Daily"
+msgstr "Chế độ Ngân sách: Hàng ngày"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+msgid "Budget Mode: Infinite"
+msgstr "Chế độ Ngân sách: Vô hạn"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Budget Mode: Total"
+msgstr "Chế độ Ngân sách: Tổng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__budget_optimize_on
+msgid "Budget Optimization"
+msgstr "Tối ưu hóa Ngân sách"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Budget Settings"
+msgstr "Cài đặt Ngân sách"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_search
+msgid "Business Account"
+msgstr "Tài khoản Doanh nghiệp"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__odoo_bc_id
+msgid "Business Account (BC)"
+msgstr "Tài khoản Doanh nghiệp (BC)"
+
+#. module: tiktok_business_connector
+#: model:ir.actions.act_window,name:tiktok_business_connector.action_tiktok_business_account
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_advertiser__business_account_ids
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_advertiser__business_account_ids
+#: model:ir.ui.menu,name:tiktok_business_connector.menu_tiktok_configuration_business_account
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_wizard_sync_tiktok_advertiser_form
+msgid "Business Accounts"
+msgstr "Tài khoản Doanh nghiệp"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/reporting/tiktok_bc_report.py:0
+msgid ""
+"Business account (BC) not found. Please choose the business account first."
+msgstr ""
+"Tài khoản doanh nghiệp (BC) không tìm thấy. Vui lòng chọn tài khoản doanh nghiệp trước."
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__cpc
+msgid "CPC (destination)"
+msgstr "CPC (điểm đến)"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__cpm
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__cpm
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__cpm
+msgid "CPM"
+msgstr "CPM"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__cpp_url
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__cpp_url
+msgid "CPP URL"
+msgstr "URL CPP"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__cpv_video_duration
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__cpv_video_duration
+msgid "CPV Video Duration"
+msgstr "Thời lượng Video CPV"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__ctr
+msgid "CTR (destination)"
+msgstr "CTR (điểm đến)"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__call_to_action
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__call_to_action
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Call To Action"
+msgstr "Lời kêu gọi Hành động"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__call_to_action_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__call_to_action_id
+msgid "Call To Action ID"
+msgstr "ID Lời kêu gọi Hành động"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__odoo_campaign_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__odoo_campaign_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__odoo_campaign_id
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Campaign"
+msgstr "Chiến dịch"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__campaign_app_profile_page_state
+msgid "Campaign App Profile Page State"
+msgstr "Trạng thái Trang Hồ sơ Ứng dụng Chiến dịch"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__campaign_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__campaign_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__campaign_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__campaign_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__campaign_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__campaign_id
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+msgid "Campaign ID"
+msgstr "ID Chiến dịch"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_bc_report__data_level__auction_campaign
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_search
+msgid "Campaign Level"
+msgstr "Cấp độ Chiến dịch"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__campaign_name
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__campaign_name
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__campaign_name
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__campaign_name
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__campaign_name
+msgid "Campaign Name"
+msgstr "Tên Chiến dịch"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__campaign_product_source
+msgid "Campaign Product Source"
+msgstr "Nguồn Sản phẩm Chiến dịch"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_form
+msgid "Campaign Settings"
+msgstr "Cài đặt Chiến dịch"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__campaign_system_origin
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__campaign_system_origin
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__campaign_system_origin
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__campaign_system_origin
+msgid "Campaign System Origin"
+msgstr "Nguồn gốc Hệ thống Chiến dịch"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__campaign_type
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Campaign Type"
+msgstr "Loại Chiến dịch"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_form
+msgid "Campaign Type & Objective"
+msgstr "Loại Chiến dịch & Mục tiêu"
+
+#. module: tiktok_business_connector
+#: model:ir.actions.act_window,name:tiktok_business_connector.action_tiktok_campaign
+#: model:ir.ui.menu,name:tiktok_business_connector.menu_tiktok_campaign
+msgid "Campaigns"
+msgstr "Chiến dịch"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_wizard_sync_tiktok_advertiser_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.wizard_sync_tiktok_ad_group_view_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.wizard_sync_tiktok_campaign_view_form
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__card_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__card_id
+msgid "Card ID"
+msgstr "ID Thẻ"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Carousel Ads"
+msgstr "Quảng cáo Carousel"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__carousel_image_index
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__carousel_image_index
+msgid "Carousel Image Index"
+msgstr "Chỉ số Hình ảnh Carousel"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__carrier_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__carrier_ids
+msgid "Carrier IDs"
+msgstr "ID Nhà mạng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__campaign_product_source__catalog
+msgid "Catalog"
+msgstr "Danh mục"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__catalog_authorized_bc_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__catalog_authorized_bc_id
+msgid "Catalog Authorized BC ID"
+msgstr "ID BC Được Ủy quyền Danh mục"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__catalog_enabled
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Catalog Enabled"
+msgstr "Danh mục Đã Bật"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__catalog_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__catalog_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__catalog_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__catalog_id
+msgid "Catalog ID"
+msgstr "ID Danh mục"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__category_exclusion_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__category_exclusion_ids
+msgid "Category Exclusion IDs"
+msgstr "ID Loại trừ Danh mục"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__click
+msgid "Click"
+msgstr "Nhấp"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__click_attribution_window
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__click_attribution_window
+msgid "Click Attribution Window"
+msgstr "Cửa sổ Phân bổ Nhấp"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__click_tracking_url
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__click_tracking_url
+msgid "Click Tracking URL"
+msgstr "URL Theo dõi Nhấp"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__clicks
+msgid "Clicks (destination)"
+msgstr "Nhấp (điểm đến)"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,help:tiktok_business_connector.field_res_config_settings__tiktok_client_secret
+msgid "Client Secret từ TikTok for Developers"
+msgstr "Client Secret từ TikTok for Developers"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Collection Ads"
+msgstr "Quảng cáo Bộ sưu tập"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_business_account_form
+msgid "Comma-separated list of advertiser IDs"
+msgstr "Danh sách ID nhà quảng cáo phân cách bằng dấu phẩy"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__comment_disabled
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__comment_disabled
+msgid "Comment Disabled"
+msgstr "Bình luận Bị Tắt"
+
+#. module: tiktok_business_connector
+#: model:ir.model,name:tiktok_business_connector.model_res_config_settings
+msgid "Config Settings"
+msgstr "Cài đặt Cấu hình"
+
+#. module: tiktok_business_connector
+#: model:ir.ui.menu,name:tiktok_business_connector.menu_tiktok_configuration
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_form
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.actions.act_window,help:tiktok_business_connector.action_tiktok_business_account
+msgid ""
+"Connect your TikTok Business account to start managing your advertising campaigns.\n"
+"                Click on \"Authorize TikTok\" to authenticate with TikTok Business API."
+msgstr ""
+"Kết nối tài khoản TikTok Business của bạn để bắt đầu quản lý chiến dịch quảng cáo.\n"
+"                Nhấp vào \"Ủy quyền TikTok\" để xác thực với TikTok Business API."
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+msgid "Content Settings"
+msgstr "Cài đặt Nội dung"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__contextual_tag_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__contextual_tag_ids
+msgid "Contextual Tag IDs"
+msgstr "ID Thẻ Ngữ cảnh"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__conversation
+msgid "Conversation"
+msgstr "Cuộc trò chuyện"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__conversion_bid_price
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__conversion_bid_price
+msgid "Conversion Bid Price"
+msgstr "Giá Đặt Chuyển đổi"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Conversion Metrics"
+msgstr "Chỉ số Chuyển đổi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__conversion_rate_v2
+msgid "Conversion rate (CVR)"
+msgstr "Tỷ lệ Chuyển đổi (CVR)"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__real_time_conversion_rate_v2
+msgid "Conversion rate (CVR) by conversion time"
+msgstr "Tỷ lệ Chuyển đổi (CVR) theo thời gian chuyển đổi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__conversion_rate
+msgid "Conversion rate (CVR, clicks)"
+msgstr "Tỷ lệ Chuyển đổi (CVR, nhấp)"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__conversion
+msgid "Conversions"
+msgstr "Chuyển đổi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__real_time_conversion
+msgid "Conversions by conversion time"
+msgstr "Chuyển đổi theo thời gian chuyển đổi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__convert
+msgid "Convert"
+msgstr "Chuyển đổi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__spend
+msgid "Cost"
+msgstr "Chi phí"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__cash_spend
+msgid "Cost Charged by Cash"
+msgstr "Chi phí Tính bằng Tiền mặt"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__voucher_spend
+msgid "Cost Charged by Voucher"
+msgstr "Chi phí Tính bằng Voucher"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Cost Metrics"
+msgstr "Chỉ số Chi phí"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__cost_per_1000_reached
+msgid "Cost per 1,000 people reached"
+msgstr "Chi phí cho 1.000 người tiếp cận"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Cost per Action"
+msgstr "Chi phí cho Hành động"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__cost_per_conversion
+msgid "Cost per conversion"
+msgstr "Chi phí cho Chuyển đổi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__real_time_cost_per_conversion
+msgid "Cost per conversion by conversion time"
+msgstr "Chi phí cho Chuyển đổi theo thời gian chuyển đổi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__cost_per_secondary_goal_result
+msgid "Cost per deep funnel result"
+msgstr "Chi phí cho Kết quả Phễu Sâu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__cost_per_result
+msgid "Cost per result"
+msgstr "Chi phí cho Kết quả"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.actions.act_window,help:tiktok_business_connector.action_tiktok_business_account
+msgid "Create your first TikTok Business Account!"
+msgstr "Tạo Tài khoản TikTok Business đầu tiên của bạn!"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__create_time
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__create_time
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__create_time
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__create_time
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__create_time
+msgid "Created Date"
+msgstr "Ngày Tạo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__create_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__create_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_advertiser__create_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__create_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__create_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bussiness_account__create_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__create_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_ad_group__create_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_advertiser__create_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_campaign__create_uid
+msgid "Created by"
+msgstr "Tạo bởi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__create_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__create_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_advertiser__create_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__create_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__create_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bussiness_account__create_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__create_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_ad_group__create_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_advertiser__create_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_campaign__create_date
+msgid "Created on"
+msgstr "Tạo vào"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__creative_authorized
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__creative_authorized
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Creative Authorized"
+msgstr "Sáng tạo Được Ủy quyền"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__creative_material_mode
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__creative_material_mode
+msgid "Creative Material Mode"
+msgstr "Chế độ Tài liệu Sáng tạo"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Creative Settings"
+msgstr "Cài đặt Sáng tạo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__creative_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__creative_type
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Creative Type"
+msgstr "Loại Sáng tạo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__bid_type__bid_type_custom
+msgid "Custom"
+msgstr "Tùy chỉnh"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__custom_conversion_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__custom_conversion_id
+msgid "Custom Conversion ID"
+msgstr "ID Chuyển đổi Tùy chỉnh"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__budget_mode__budget_mode_day
+msgid "Daily budget"
+msgstr "Ngân sách Hàng ngày"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/models/tiktok_advertiser.py:0
+msgid "Danh sách advertisers trống"
+msgstr "Danh sách nhà quảng cáo trống"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__dark_post_status
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__dark_post_status
+msgid "Dark Post Status"
+msgstr "Trạng thái Bài đăng Tối"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__data_level
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__data_level
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_search
+msgid "Data Level"
+msgstr "Cấp độ Dữ liệu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__stat_time_day
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+msgid "Date"
+msgstr "Ngày"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_form
+msgid "Date Range"
+msgstr "Phạm vi Ngày"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__dayparting
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__dayparting
+msgid "Dayparting"
+msgstr "Phân chia Ngày"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__deep_bid_type
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__deep_bid_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__deep_bid_type
+msgid "Deep Bid Type"
+msgstr "Loại Đặt giá Sâu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__deep_cpa_bid
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__deep_cpa_bid
+msgid "Deep CPA Bid"
+msgstr "Đặt giá CPA Sâu"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Deep Funnel"
+msgstr "Phễu Sâu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__deep_funnel_event_source
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__deep_funnel_event_source
+msgid "Deep Funnel Event Source"
+msgstr "Nguồn Sự kiện Phễu Sâu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__deep_funnel_event_source_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__deep_funnel_event_source_id
+msgid "Deep Funnel Event Source ID"
+msgstr "ID Nguồn Sự kiện Phễu Sâu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__deep_funnel_optimization_event
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__deep_funnel_optimization_event
+msgid "Deep Funnel Optimization Event"
+msgstr "Sự kiện Tối ưu hóa Phễu Sâu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__deep_funnel_optimization_status
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__deep_funnel_optimization_status
+msgid "Deep Funnel Optimization Status"
+msgstr "Trạng thái Tối ưu hóa Phễu Sâu"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Deep Funnel Results"
+msgstr "Kết quả Phễu Sâu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__secondary_goal_result
+msgid "Deep funnel result"
+msgstr "Kết quả Phễu Sâu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__secondary_goal_result_rate
+msgid "Deep funnel result rate"
+msgstr "Tỷ lệ Kết quả Phễu Sâu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__deeplink
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__deeplink
+msgid "Deeplink"
+msgstr "Liên kết Sâu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__deeplink_format_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__deeplink_format_type
+msgid "Deeplink Format Type"
+msgstr "Loại Định dạng Liên kết Sâu"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+msgid "Deeplink Settings"
+msgstr "Cài đặt Liên kết Sâu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__deeplink_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__deeplink_type
+msgid "Deeplink Type"
+msgstr "Loại Liên kết Sâu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__deeplink_utm_params
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__deeplink_utm_params
+msgid "Deeplink UTM Params"
+msgstr "Tham số UTM Liên kết Sâu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__deep_bid_type__default
+msgid "Default"
+msgstr "Mặc định"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_delete
+msgid "Delete"
+msgstr "Xóa"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__delivery_mode
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__delivery_mode
+msgid "Delivery Mode"
+msgstr "Chế độ Phân phối"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Demographics"
+msgstr "Nhân khẩu học"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__destination_visit
+msgid "Destination Visit"
+msgstr "Điểm đến thăm"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Device & Technical"
+msgstr "Thiết bị và kỹ thuật"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__device_model_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__device_model_ids
+msgid "Device Model IDs"
+msgstr "IDs mẫu thiết bị"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__device_price_ranges
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__device_price_ranges
+msgid "Device Price Ranges"
+msgstr "Phạm vi giá thiết bị"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__dimensions
+msgid "Dimensions"
+msgstr "Kích thước"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__operation_status__disable
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_disable
+msgid "Disable"
+msgstr "Tắt"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__disable_skan_campaign
+msgid "Disable SKAN Campaign"
+msgstr "Tắt chiến dịch SKAN"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__disclaimer_clickable_texts
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__disclaimer_clickable_texts
+msgid "Disclaimer Clickable Texts"
+msgstr "Văn bản tuyên bố miễn trừ trách nhiệm có thể nhấp"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__disclaimer_text
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__disclaimer_text
+msgid "Disclaimer Text"
+msgstr "Văn bản tuyên bố miễn trừ trách nhiệm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__disclaimer_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__disclaimer_type
+msgid "Disclaimer Type"
+msgstr "Loại tuyên bố miễn trừ trách nhiệm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__discount_amount
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__discount_amount
+msgid "Discount Amount"
+msgstr "Số tiền chiết khấu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__discount_percentage
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__discount_percentage
+msgid "Discount Percentage"
+msgstr "Phần trăm chiết khấu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__discount_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__discount_type
+msgid "Discount Type"
+msgstr "Loại chiết khấu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__display_name
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__display_name
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_advertiser__display_name
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__display_name
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__display_name
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bussiness_account__display_name
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__display_name
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_ad_group__display_name
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_advertiser__display_name
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_campaign__display_name
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__dynamic_destination
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__dynamic_destination
+msgid "Dynamic Destination"
+msgstr "Điểm đến động"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__dynamic_format
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__dynamic_format
+msgid "Dynamic Format"
+msgstr "Định dạng động"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__budget_mode__budget_mode_dynamic_daily_budget
+msgid "Dynamic daily budget"
+msgstr "Ngân sách hàng ngày động"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__operation_status__enable
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_enable
+msgid "Enable"
+msgstr "Bật"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__end_card_cta
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__end_card_cta
+msgid "End Card CTA"
+msgstr "Kêu gọi hành động thẻ cuối"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__end_date
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_search
+msgid "End Date"
+msgstr "Ngày kết thúc"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__engaged_view
+msgid "Engaged View"
+msgstr "Lượt xem tương tác"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__engaged_view_attribution_window
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__engaged_view_attribution_window
+msgid "Engaged View Attribution Window"
+msgstr "Cửa sổ phân bổ lượt xem tương tác"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__engaged_view_fifteen
+msgid "Engaged View Fifteen"
+msgstr "Lượt xem tương tác 15 giây"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__objective_type__engagement
+msgid "Engagement"
+msgstr "Tương tác"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__excluded_audience_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__excluded_audience_ids
+msgid "Excluded Audience IDs"
+msgstr "ID đối tượng bị loại trừ"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__excluded_custom_actions
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__excluded_custom_actions
+msgid "Excluded Custom Actions"
+msgstr "Hành động tùy chỉnh bị loại trừ"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__excluded_pangle_audience_package_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__excluded_pangle_audience_package_ids
+msgid "Excluded Pangle Audience Package IDs"
+msgstr "ID gói đối tượng Pangle bị loại trừ"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+msgid "Fallback Settings"
+msgstr "Cài đặt dự phòng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__fallback_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__fallback_type
+msgid "Fallback Type"
+msgstr "Loại dự phòng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__feed_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__feed_type
+msgid "Feed Type"
+msgstr "Loại nguồn cấp dữ liệu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__filters
+msgid "Filters"
+msgstr "Bộ lọc"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__final_params
+msgid "Final Params"
+msgstr "Tham số cuối cùng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__followers
+msgid "Followers"
+msgstr "Người theo dõi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__frequency
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__frequency
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__frequency
+msgid "Frequency"
+msgstr "Tần suất"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__frequency_schedule
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__frequency_schedule
+msgid "Frequency Schedule"
+msgstr "Lịch tần suất"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__gmv
+msgid "GMV"
+msgstr "Tổng giá trị hàng hóa"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__gender
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__gender
+msgid "Gender"
+msgstr "Giới tính"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_tree
+msgid "Generate Data"
+msgstr "Tạo dữ liệu"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_form
+msgid "Generate Reports"
+msgstr "Tạo báo cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__sales_destination__tiktok_shop
+msgid "Google App Store"
+msgstr "Cửa hàng Google App"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__gross_impressions
+msgid "Gross Impressions (Includes Invalid Impressions)"
+msgstr "Tổng lượt hiển thị (Bao gồm lượt hiển thị không hợp lệ)"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Group By"
+msgstr "Nhóm theo"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+msgid "HFSS"
+msgstr "HFSS"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+msgid "Has Budget"
+msgstr "Có ngân sách"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Has Deeplink"
+msgstr "Có liên kết sâu"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Has Images"
+msgstr "Có hình ảnh"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Has Landing Page"
+msgstr "Có trang đích"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+msgid "Has Schedule"
+msgstr "Có lịch trình"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Has Video"
+msgstr "Có video"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__stat_time_hour
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+msgid "Hour"
+msgstr "Giờ"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__household_income
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__household_income
+msgid "Household Income"
+msgstr "Thu nhập hộ gia đình"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_advertiser__id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bussiness_account__id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_ad_group__id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_advertiser__id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_campaign__id
+msgid "ID"
+msgstr "ID"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__campaign_type__ios14_campaign
+msgid "IOS14 Campaign"
+msgstr "Chiến dịch iOS14"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__isp_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__isp_ids
+msgid "ISP IDs"
+msgstr "ID nhà cung cấp dịch vụ internet"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__identity_authorized_bc_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__identity_authorized_bc_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__identity_authorized_bc_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__identity_authorized_bc_id
+msgid "Identity Authorized BC ID"
+msgstr "ID danh tính được ủy quyền"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__identity_id
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__identity_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__identity_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__identity_id
+msgid "Identity ID"
+msgstr "ID danh tính"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__identity_type
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__identity_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__identity_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__identity_type
+msgid "Identity Type"
+msgstr "Loại danh tính"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_identity_used_by_gmv_max_ad
+msgid "Identity Used By GMV Max AD"
+msgstr "Danh tính được sử dụng bởi quảng cáo GMV tối đa"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_identity_used_by_live_gmv_max
+msgid "Identity Used By Live GMV Max"
+msgstr "Danh tính được sử dụng bởi GMV trực tiếp tối đa"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Image Ads"
+msgstr "Quảng cáo hình ảnh"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__image_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__image_ids
+msgid "Image IDs"
+msgstr "ID hình ảnh"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__impression_tracking_url
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__impression_tracking_url
+msgid "Impression Tracking URL"
+msgstr "URL theo dõi lượt hiển thị"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__impressions
+msgid "Impressions"
+msgstr "Lượt hiển thị"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Impressions & Clicks"
+msgstr "Lượt hiển thị & Lượt nhấp"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__in_app_event
+msgid "In App Event"
+msgstr "Sự kiện trong ứng dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__included_custom_actions
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__included_custom_actions
+msgid "Included Custom Actions"
+msgstr "Hành động tùy chỉnh được bao gồm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__included_pangle_audience_package_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__included_pangle_audience_package_ids
+msgid "Included Pangle Audience Package IDs"
+msgstr "ID gói đối tượng Pangle được bao gồm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__initiate_checkouts
+msgid "Initiate Checkouts"
+msgstr "Khởi tạo thanh toán"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__install
+msgid "Install"
+msgstr "Cài đặt"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Interaction Settings"
+msgstr "Cài đặt tương tác"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__interest_category_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__interest_category_ids
+msgid "Interest Category IDs"
+msgstr "ID danh mục sở thích"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__interest_keyword_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__interest_keyword_ids
+msgid "Interest Keyword IDs"
+msgstr "ID từ khóa sở thích"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__campaign_app_profile_page_state__invalid
+msgid "Invalid"
+msgstr "Không hợp lệ"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__inventory_filter_enabled
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__inventory_filter_enabled
+msgid "Inventory Filter Enabled"
+msgstr "Bộ lọc kho hàng được bật"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__is_aco
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__is_aco
+msgid "Is ACO"
+msgstr "Là ACO"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__is_advanced_dedicated_campaign
+msgid "Is Advanced Dedicated Campaign"
+msgstr "Là chiến dịch chuyên biệt nâng cao"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__is_hfss
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__is_hfss
+msgid "Is HFSS"
+msgstr "Là HFSS"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__is_new_structure
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__is_new_structure
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__is_new_structure
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__is_new_structure
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__is_new_structure
+msgid "Is New Structure"
+msgstr "Là cấu trúc mới"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__is_search_campaign
+msgid "Is Search Campaign"
+msgstr "Là chiến dịch tìm kiếm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__is_smart_performance_campaign
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__is_smart_performance_campaign
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__is_smart_performance_campaign
+msgid "Is Smart Performance Campaign"
+msgstr "Là chiến dịch hiệu suất thông minh"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__is_template
+msgid "Is Template"
+msgstr "Là mẫu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__item_duet_status
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__item_duet_status
+msgid "Item Duet Status"
+msgstr "Trạng thái ghép đôi mục"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__item_group_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__item_group_ids
+msgid "Item Group IDs"
+msgstr "ID nhóm mục"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__item_stitch_status
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__item_stitch_status
+msgid "Item Stitch Status"
+msgstr "Trạng thái ghép nối mục"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/models/tiktok_advertiser.py:0
+msgid "Không có dữ liệu advertisers từ TikTok API"
+msgstr "Không có dữ liệu nhà quảng cáo từ TikTok API"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+msgid "Landing Page"
+msgstr "Trang đích"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__landing_page_url
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__landing_page_url
+msgid "Landing Page URL"
+msgstr "URL trang đích"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__languages
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__languages
+msgid "Languages"
+msgstr "Ngôn ngữ"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__write_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__write_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_advertiser__write_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__write_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__write_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bussiness_account__write_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__write_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_ad_group__write_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_advertiser__write_uid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_campaign__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__write_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__write_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_advertiser__write_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__write_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__write_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bussiness_account__write_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__write_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_ad_group__write_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_advertiser__write_date
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_campaign__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__objective_type__lead_generation
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__lead_generation
+msgid "Lead Generation"
+msgstr "Tạo khách hàng tiềm năng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__budget_mode__budget_mode_total
+msgid "Lifetime budget"
+msgstr "Ngân sách trọn đời"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_live_gmv_max_authorization_cancel
+msgid "Live GMV Max Authorization Cancel"
+msgstr "Hủy ủy quyền GMV trực tiếp tối đa"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__location_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__location_ids
+msgid "Location IDs"
+msgstr "ID vị trí"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__mt_live_room
+msgid "MT Live Room"
+msgstr "Phòng trực tiếp MT"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__message_event_set_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__message_event_set_id
+msgid "Message Event Set ID"
+msgstr "ID bộ sự kiện tin nhắn"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__messaging_app_account_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__messaging_app_account_id
+msgid "Messaging App Account ID"
+msgstr "ID tài khoản ứng dụng nhắn tin"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__messaging_app_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__messaging_app_type
+msgid "Messaging App Type"
+msgstr "Loại ứng dụng nhắn tin"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__metrics
+msgid "Metrics"
+msgstr "Số liệu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__deep_bid_type__min
+msgid "Min"
+msgstr "Tối thiểu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__min_android_version
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__min_android_version
+msgid "Min Android Version"
+msgstr "Phiên bản Android tối thiểu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__min_ios_version
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__min_ios_version
+msgid "Min iOS Version"
+msgstr "Phiên bản iOS tối thiểu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__modify_time
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__modify_time
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__modify_time
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__modify_time
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__modify_time
+msgid "Modified Date"
+msgstr "Ngày sửa đổi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__music_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__music_id
+msgid "Music ID"
+msgstr "ID âm nhạc"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_advertiser__name
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__name
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bussiness_account__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__billed_cost
+msgid "Net Cost"
+msgstr "Chi phí ròng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__network_types
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__network_types
+msgid "Network Types"
+msgstr "Loại mạng"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "New Structure"
+msgstr "Cấu trúc mới"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__next_day_retention
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__next_day_retention
+msgid "Next Day Retention"
+msgstr "Tỷ lệ giữ chân ngày tiếp theo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_ad_group__date_from
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_campaign__date_from
+msgid "Ngày Bắt đầu Campaign"
+msgstr "Ngày bắt đầu chiến dịch"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_ad_group__date_to
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_wizard_sync_tiktok_campaign__date_to
+msgid "Ngày kết thúc Campaign"
+msgstr "Ngày kết thúc chiến dịch"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,help:tiktok_business_connector.field_wizard_sync_tiktok_advertiser__business_account_ids
+msgid "Những tài khoản doanh nghiệp mà bạn muốn đồng bộ tài khoản quảng cáo"
+msgstr "Các tài khoản doanh nghiệp mà bạn muốn đồng bộ hóa tài khoản quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__bid_type__bid_type_no_bid
+msgid "No Bid"
+msgstr "Không đấu giá"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+msgid "No Budget"
+msgstr "Không có ngân sách"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__no_data
+msgid "No Data"
+msgstr "Không có dữ liệu"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "No Deeplink"
+msgstr "Không có liên kết sâu"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "No Landing Page"
+msgstr "Không có trang đích"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+msgid "No Schedule"
+msgstr "Không có lịch trình"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/reporting/tiktok_bc_report.py:0
+msgid "No data received from TikTok API"
+msgstr "Không nhận được dữ liệu từ TikTok API"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_not_delete
+msgid "Not Delete"
+msgstr "Không xóa"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__objective
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Objective"
+msgstr "Mục tiêu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__objective_type
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Objective Type"
+msgstr "Loại mục tiêu"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+msgid "Odoo Ad"
+msgstr "Quảng cáo Odoo"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+msgid "Odoo Ad Group"
+msgstr "Nhóm quảng cáo Odoo"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+msgid "Odoo Advertiser"
+msgstr "Nhà quảng cáo Odoo"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+msgid "Odoo Campaign"
+msgstr "Chiến dịch Odoo"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_search
+msgid "Odoo Report"
+msgstr "Báo cáo Odoo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__campaign_app_profile_page_state__off
+msgid "Off"
+msgstr "Tắt"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__campaign_app_profile_page_state__on
+msgid "On"
+msgstr "Bật"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__operating_systems
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__operating_systems
+msgid "Operating Systems"
+msgstr "Hệ điều hành"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__operation_status
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__operation_status
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__operation_status
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__operation_status
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__operation_status
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Operation Status"
+msgstr "Trạng thái hoạt động"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Operation Status: DISABLE"
+msgstr "Trạng thái hoạt động: TẮT"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Operation Status: ENABLE"
+msgstr "Trạng thái hoạt động: BẬT"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Optimization"
+msgstr "Tối ưu hóa"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__optimization_event
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__optimization_event
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__optimization_event
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__optimization_event
+msgid "Optimization Event"
+msgstr "Sự kiện tối ưu hóa"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__optimization_goal
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__optimization_goal
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__optimization_goal
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+msgid "Optimization Goal"
+msgstr "Mục tiêu tối ưu hóa"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__app_promotion_type__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__bid_align_type__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__bid_type__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__budget_mode__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__campaign_app_profile_page_state__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__campaign_product_source__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__campaign_type__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__deep_bid_type__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__objective_type__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__operation_status__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__rf_campaign_type__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__sales_destination__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__other
+msgid "Other"
+msgstr "Khác"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__pacing
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__pacing
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__deep_bid_type__pacing
+msgid "Pacing"
+msgstr "Phân bổ nhịp độ"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__page_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__page_id
+msgid "Page ID"
+msgstr "ID trang"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__page_size
+msgid "Page Size"
+msgstr "Kích thước trang"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__page_visit
+msgid "Page Visit"
+msgstr "Lượt truy cập trang"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Performance Metrics"
+msgstr "Số liệu hiệu suất"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+msgid "Phone & Contact"
+msgstr "Điện thoại & Liên hệ"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__phone_number
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__phone_number
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__phone_number
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__phone_number
+msgid "Phone Number"
+msgstr "Số điện thoại"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__phone_region_calling_code
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__phone_region_calling_code
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__phone_region_calling_code
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__phone_region_calling_code
+msgid "Phone Region Calling Code"
+msgstr "Mã gọi vùng điện thoại"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__phone_region_code
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__phone_region_code
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__phone_region_code
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__phone_region_code
+msgid "Phone Region Code"
+msgstr "Mã vùng điện thoại"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__pixel_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__pixel_id
+msgid "Pixel ID"
+msgstr "ID pixel"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Placement"
+msgstr "Vị trí"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__placement_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__placement_type
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+msgid "Placement Type"
+msgstr "Loại vị trí"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__placements
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__placements
+msgid "Placements"
+msgstr "Vị trí đặt quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__playable_url
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__playable_url
+msgid "Playable URL"
+msgstr "URL có thể chơi"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/reporting/tiktok_bc_report.py:0
+msgid "Please select an advertiser first."
+msgstr "Vui lòng chọn một nhà quảng cáo trước."
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/reporting/tiktok_bc_report.py:0
+msgid "Please set start date and end date."
+msgstr "Vui lòng đặt ngày bắt đầu và ngày kết thúc."
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__postback_window_mode
+msgid "Postback Window Mode"
+msgstr "Chế độ cửa sổ trả về"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__pre_discount_budget
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__pre_discount_budget
+msgid "Pre Discount Budget"
+msgstr "Ngân sách trước chiết khấu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__pre_discount_cpm
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__pre_discount_cpm
+msgid "Pre Discount CPM"
+msgstr "CPM trước chiết khấu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__predict_impression
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__predict_impression
+msgid "Predict Impression"
+msgstr "Dự đoán lượt hiển thị"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__preferred_lead
+msgid "Preferred Lead"
+msgstr "Khách hàng tiềm năng ưu tiên"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__product_click_in_live
+msgid "Product Click In Live"
+msgstr "Lượt nhấp sản phẩm trong buổi trực tiếp"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+msgid "Product Display"
+msgstr "Hiển thị sản phẩm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__product_display_field_list
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__product_display_field_list
+msgid "Product Display Field List"
+msgstr "Danh sách trường hiển thị sản phẩm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_product_gmv_max_authorization_cancel
+msgid "Product GMV Max Authorization Cancel"
+msgstr "Hủy ủy quyền GMV sản phẩm tối đa"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__objective_type__product_sales
+msgid "Product Sales"
+msgstr "Bán sản phẩm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__product_set_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__product_set_id
+msgid "Product Set ID"
+msgstr "ID bộ sản phẩm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__product_source
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__product_source
+msgid "Product Source"
+msgstr "Nguồn sản phẩm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__product_specific_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__product_specific_type
+msgid "Product Specific Type"
+msgstr "Loại sản phẩm cụ thể"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_product_unavailable
+msgid "Product Unavailable"
+msgstr "Sản phẩm không có sẵn"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_product_used_by_product_gmv_max
+msgid "Product Used By Product GMV Max"
+msgstr "Sản phẩm được sử dụng bởi GMV sản phẩm tối đa"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__profile_image_url
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__profile_image_url
+msgid "Profile Image URL"
+msgstr "URL hình ảnh hồ sơ"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Promotion"
+msgstr "Khuyến mãi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__promotion_target_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__promotion_target_type
+msgid "Promotion Target Type"
+msgstr "Loại mục tiêu khuyến mãi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__promotion_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__promotion_type
+msgid "Promotion Type"
+msgstr "Loại khuyến mãi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__promotion_website_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__promotion_website_type
+msgid "Promotion Website Type"
+msgstr "Loại website khuyến mãi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__promotional_music_disabled
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__promotional_music_disabled
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Promotional Music Disabled"
+msgstr "Âm nhạc khuyến mãi bị tắt"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__rf_campaign_type__pulse
+msgid "Pulse"
+msgstr "Pulse"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__purchase_intention_keyword_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__purchase_intention_keyword_ids
+msgid "Purchase Intention Keyword IDs"
+msgstr "ID từ khóa ý định mua hàng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__purchased_impression
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__purchased_impression
+msgid "Purchased Impression"
+msgstr "Lượt hiển thị đã mua"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__purchased_reach
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__purchased_reach
+msgid "Purchased Reach"
+msgstr "Phạm vi tiếp cận đã mua"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__purchases
+msgid "Purchases"
+msgstr "Mua hàng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__rf_campaign_type
+msgid "RF Campaign Type"
+msgstr "Loại chiến dịch RF"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__rf_estimated_cpr
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__rf_estimated_cpr
+msgid "RF Estimated CPR"
+msgstr "CPR ước tính RF"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__rf_estimated_frequency
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__rf_estimated_frequency
+msgid "RF Estimated Frequency"
+msgstr "Tần suất ước tính RF"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__rf_purchased_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__rf_purchased_type
+msgid "RF Purchased Type"
+msgstr "Loại mua RF"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__objective_type__rf_reach
+msgid "RF Reach"
+msgstr "Phạm vi tiếp cận RF"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__roas_bid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__roas_bid
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__roas_bid
+msgid "ROAS Bid"
+msgstr "Đấu giá ROAS"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__rta_bid_enabled
+msgid "RTA Bid Enabled"
+msgstr "Đấu giá RTA được bật"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__rta_id
+msgid "RTA ID"
+msgstr "ID RTA"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__rta_product_selection_enabled
+msgid "RTA Product Selection"
+msgstr "Lựa chọn sản phẩm RTA"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_form
+msgid "RTA Settings"
+msgstr "Cài đặt RTA"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__raw_data
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Raw Data"
+msgstr "Dữ liệu thô"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__raw_payload
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__raw_payload
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_advertiser__raw_payload
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__raw_payload
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__raw_payload
+msgid "Raw Payload"
+msgstr "Tải trọng thô"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__reach
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__objective_type__reach
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__reach
+msgid "Reach"
+msgstr "Phạm vi tiếp cận"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Reach & Frequency"
+msgstr "Phạm vi tiếp cận & Tần suất"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Real-time Conversions"
+msgstr "Chuyển đổi thời gian thực"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Real-time Results"
+msgstr "Kết quả thời gian thực"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__real_time_conversion_rate
+msgid "Real-time conversion rate (CVR, clicks)"
+msgstr "Tỷ lệ chuyển đổi thời gian thực (CVR, lượt nhấp)"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__real_time_cost_per_result
+msgid "Real-time cost per result"
+msgstr "Chi phí mỗi kết quả thời gian thực"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__real_time_result_rate
+msgid "Real-time result rate"
+msgstr "Tỷ lệ kết quả thời gian thực"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__real_time_result
+msgid "Real-time results"
+msgstr "Kết quả thời gian thực"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__campaign_type__regular_campaign
+msgid "Regular Campaign"
+msgstr "Chiến dịch thông thường"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Report Information"
+msgstr "Thông tin báo cáo"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/reporting/tiktok_bc_report.py:0
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__report_line_ids
+#: model:ir.ui.menu,name:tiktok_business_connector.tiktok_bc_report_line_menu
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_form
+msgid "Report Lines"
+msgstr "Dòng báo cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__report_id
+msgid "Report Template"
+msgstr "Mẫu báo cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.actions.act_window,name:tiktok_business_connector.tiktok_bc_report_action_template
+msgid "Report Templates"
+msgstr "Mẫu báo cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__report_type
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__report_type
+msgid "Report Type"
+msgstr "Loại báo cáo"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/reporting/tiktok_bc_report.py:0
+msgid "Report data generated successfully!"
+msgstr "Dữ liệu báo cáo được tạo thành công!"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_form
+msgid "Report này không có dữ liệu từ TikTok!"
+msgstr "Báo cáo này không có dữ liệu từ TikTok!"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_bc_report__no_data
+msgid "Report này không có thông tin từ TikTok!"
+msgstr "Báo cáo này không có thông tin từ TikTok!"
+
+#. module: tiktok_business_connector
+#: model:ir.ui.menu,name:tiktok_business_connector.menu_tiktok_reporting
+msgid "Reporting"
+msgstr "Báo cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.ui.menu,name:tiktok_business_connector.tiktok_bc_report_menu
+msgid "Reports"
+msgstr "Báo cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.ui.menu,name:tiktok_business_connector.tiktok_bc_report_menu_template
+msgid "Reports Templates"
+msgstr "Mẫu báo cáo"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Result Metrics"
+msgstr "Số liệu kết quả"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__result_rate
+msgid "Result rate"
+msgstr "Tỷ lệ kết quả"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__result
+msgid "Results"
+msgstr "Kết quả"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_review_disapproved
+msgid "Review Disapproved"
+msgstr "Đánh giá Bị Từ chối"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__bid_align_type__skan
+msgid "SKAN"
+msgstr "SKAN"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__sku_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__sku_ids
+msgid "SKU IDs"
+msgstr "ID SKU"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__sales_destination
+msgid "Sales Destination"
+msgstr "Điểm đến Bán hàng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__bid_align_type__sand
+msgid "San"
+msgstr "San"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__saved_audience_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__saved_audience_id
+msgid "Saved Audience ID"
+msgstr "ID Đối tượng Đã Lưu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__schedule_end_time
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__schedule_end_time
+msgid "Schedule End Time"
+msgstr "Thời gian Kết thúc Lịch"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__schedule_infos
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__schedule_infos
+msgid "Schedule Infos"
+msgstr "Thông tin Lịch"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Schedule Settings"
+msgstr "Cài đặt Lịch"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__schedule_start_time
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__schedule_start_time
+msgid "Schedule Start Time"
+msgstr "Thời gian Bắt đầu Lịch"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__schedule_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__schedule_type
+msgid "Schedule Type"
+msgstr "Loại Lịch"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__scheduled_budget
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__scheduled_budget
+msgid "Scheduled Budget"
+msgstr "Ngân sách Theo lịch"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bussiness_account__scope
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_business_account_form
+msgid "Scope"
+msgstr "Phạm vi"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Search Campaign"
+msgstr "Tìm kiếm Chiến dịch"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+msgid "Search Enabled"
+msgstr "Tìm kiếm Đã Bật"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__search_keywords
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__search_keywords
+msgid "Search Keywords"
+msgstr "Từ khóa Tìm kiếm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__search_result_enabled
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__search_result_enabled
+msgid "Search Result Enabled"
+msgstr "Kết quả Tìm kiếm Đã Bật"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__secondary_optimization_event
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__secondary_optimization_event
+msgid "Secondary Optimization Event"
+msgstr "Sự kiện Tối ưu hóa Thứ cấp"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__secondary_status
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__secondary_status
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__secondary_status
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__secondary_status
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__secondary_status
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Secondary Status"
+msgstr "Trạng thái Thứ cấp"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Secondary Status: DISABLE"
+msgstr "Trạng thái Thứ cấp: TẮT"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Secondary Status: ENABLE"
+msgstr "Trạng thái Thứ cấp: BẬT"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__share_disabled
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__share_disabled
+msgid "Share Disabled"
+msgstr "Chia sẻ Bị Tắt"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Shopping Ads"
+msgstr "Quảng cáo Mua sắm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__shopping_ads_deeplink_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__shopping_ads_deeplink_type
+msgid "Shopping Ads Deeplink Type"
+msgstr "Loại Liên kết Sâu Quảng cáo Mua sắm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__shopping_ads_fallback_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__shopping_ads_fallback_type
+msgid "Shopping Ads Fallback Type"
+msgstr "Loại Dự phòng Quảng cáo Mua sắm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__shopping_ads_retargeting_actions_days
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__shopping_ads_retargeting_actions_days
+msgid "Shopping Ads Retargeting Actions Days"
+msgstr "Ngày Hành động Nhắm mục tiêu Lại Quảng cáo Mua sắm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__shopping_ads_retargeting_custom_audience_relation
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__shopping_ads_retargeting_custom_audience_relation
+msgid "Shopping Ads Retargeting Custom Audience Relation"
+msgstr "Mối quan hệ Đối tượng Tùy chỉnh Nhắm mục tiêu Lại Quảng cáo Mua sắm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__shopping_ads_retargeting_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__shopping_ads_retargeting_type
+msgid "Shopping Ads Retargeting Type"
+msgstr "Loại Nhắm mục tiêu Lại Quảng cáo Mua sắm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__shopping_ads_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__shopping_ads_type
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+msgid "Shopping Ads Type"
+msgstr "Loại Quảng cáo Mua sắm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__shopping_ads_video_package_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__shopping_ads_video_package_id
+msgid "Shopping Ads Video Package ID"
+msgstr "ID Gói Video Quảng cáo Mua sắm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__show
+msgid "Show"
+msgstr "Hiển thị"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__showcase_products
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__showcase_products
+msgid "Showcase Products"
+msgstr "Sản phẩm Trưng bày"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__skip_learning_phase
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__skip_learning_phase
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+msgid "Skip Learning Phase"
+msgstr "Bỏ qua Giai đoạn Học"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__smart_audience_enabled
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__smart_audience_enabled
+msgid "Smart Audience Enabled"
+msgstr "Đối tượng Thông minh Đã Bật"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__smart_interest_behavior_enabled
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__smart_interest_behavior_enabled
+msgid "Smart Interest Behavior Enabled"
+msgstr "Hành vi Sở thích Thông minh Đã Bật"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_search
+msgid "Smart Performance Campaign"
+msgstr "Chiến dịch Hiệu suất Thông minh"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__special_industries
+msgid "Special Industries"
+msgstr "Ngành Đặc biệt"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Spend"
+msgstr "Chi tiêu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__spending_power
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__spending_power
+msgid "Spending Power"
+msgstr "Sức mạnh Chi tiêu"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Split Test"
+msgstr "Kiểm tra Phân chia"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__split_test_group_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__split_test_group_id
+msgid "Split Test Group ID"
+msgstr "ID Nhóm Kiểm tra Phân chia"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__split_test_status
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__split_test_status
+msgid "Split Test Status"
+msgstr "Trạng thái Kiểm tra Phân chia"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__rf_campaign_type__standard
+msgid "Standard"
+msgstr "Tiêu chuẩn"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Standard Conversions"
+msgstr "Chuyển đổi Tiêu chuẩn"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Standard Results"
+msgstr "Kết quả Tiêu chuẩn"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__start_date
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_search
+msgid "Start Date"
+msgstr "Ngày Bắt đầu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__statistic_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__statistic_type
+msgid "Statistic Type"
+msgstr "Loại Thống kê"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_form
+msgid "Status & Operation"
+msgstr "Trạng thái & Hoạt động"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__store_authorized_bc_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__store_authorized_bc_id
+msgid "Store Authorized BC ID"
+msgstr "ID BC Được Ủy quyền Cửa hàng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__store_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__store_id
+msgid "Store ID"
+msgstr "ID Cửa hàng"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/models/tiktok_ad.py:0
+#: code:addons/tiktok_business_connector/models/tiktok_ad_group.py:0
+#: code:addons/tiktok_business_connector/models/tiktok_advertiser.py:0
+#: code:addons/tiktok_business_connector/models/tiktok_bussiness_account.py:0
+#: code:addons/tiktok_business_connector/models/tiktok_campaign.py:0
+#: code:addons/tiktok_business_connector/reporting/tiktok_bc_report.py:0
+#: code:addons/tiktok_business_connector/wizards/wizard_sync_advertiser.py:0
+msgid "Success"
+msgstr "Thành công"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+msgid "Sync Ad"
+msgstr "Đồng bộ Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.actions.act_window,name:tiktok_business_connector.wizard_sync_tiktok_ad_group_action
+#: model:ir.ui.menu,name:tiktok_business_connector.wizard_sync_tiktok_ad_group_menu
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_tree
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_advertiser_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_advertiser_list
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_tree
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.wizard_sync_tiktok_ad_group_view_form
+msgid "Sync Ad Groups"
+msgstr "Đồng bộ Nhóm Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_tree
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_advertiser_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_advertiser_list
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_tree
+msgid "Sync Ads"
+msgstr "Đồng bộ Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.actions.act_window,name:tiktok_business_connector.action_wizard_sync_tiktok_advertiser
+#: model:ir.ui.menu,name:tiktok_business_connector.wizard_sync_tiktok_advertiser_menu
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_business_account_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_wizard_sync_tiktok_advertiser_form
+msgid "Sync Advertisers"
+msgstr "Đồng bộ Nhà Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.actions.act_window,name:tiktok_business_connector.wizard_sync_tiktok_campaign_action
+#: model:ir.ui.menu,name:tiktok_business_connector.wizard_sync_tiktok_campaign_menu
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_advertiser_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_advertiser_list
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_tree
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.wizard_sync_tiktok_campaign_view_form
+msgid "Sync Campaigns"
+msgstr "Đồng bộ Chiến dịch"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/models/tiktok_campaign.py:0
+msgid "Synced %s campaigns successfully!"
+msgstr "Đã đồng bộ %s chiến dịch thành công!"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/models/tiktok_ad.py:0
+msgid "Synced Ad successfully!"
+msgstr "Đồng bộ Quảng cáo thành công!"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/models/tiktok_ad_group.py:0
+#: code:addons/tiktok_business_connector/models/tiktok_advertiser.py:0
+#: code:addons/tiktok_business_connector/models/tiktok_campaign.py:0
+msgid "Synced ad groups successfully!"
+msgstr "Đồng bộ nhóm quảng cáo thành công!"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/models/tiktok_ad_group.py:0
+#: code:addons/tiktok_business_connector/models/tiktok_advertiser.py:0
+#: code:addons/tiktok_business_connector/models/tiktok_campaign.py:0
+msgid "Synced ads successfully!"
+msgstr "Đồng bộ quảng cáo thành công!"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/models/tiktok_bussiness_account.py:0
+#: code:addons/tiktok_business_connector/wizards/wizard_sync_advertiser.py:0
+msgid "Synced advertisers successfully!"
+msgstr "Đồng bộ nhà quảng cáo thành công!"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/models/tiktok_advertiser.py:0
+msgid "Synced campaigns successfully!"
+msgstr "Đồng bộ chiến dịch thành công!"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__campaign_system_origin
+msgid "System Origin"
+msgstr "Nguồn gốc Hệ thống"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_tts_tt_asset_unavailable
+msgid "TTS TT Asset Unavailable"
+msgstr "Tài sản TTS TT Không Khả dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_tts_tt_identity_unavailable
+msgid "TTS TT Identity Unavailable"
+msgstr "Danh tính TTS TT Không Khả dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bussiness_account__access_token
+msgid "TikTok Access Token"
+msgstr "Mã Truy cập TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.model,name:tiktok_business_connector.model_tiktok_ad
+msgid "TikTok Ad"
+msgstr "Quảng cáo TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.model,name:tiktok_business_connector.model_tiktok_ad_group
+msgid "TikTok Ad Group"
+msgstr "Nhóm Quảng cáo TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.model,name:tiktok_business_connector.model_tiktok_advertiser
+msgid "TikTok Advertiser"
+msgstr "Nhà Quảng cáo TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.actions.act_window,name:tiktok_business_connector.action_tiktok_advertiser
+msgid "TikTok Advertisers"
+msgstr "Nhà Quảng cáo TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_res_config_settings__tiktok_app_id
+msgid "TikTok App ID"
+msgstr "ID Ứng dụng TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.model,name:tiktok_business_connector.model_tiktok_bc_report
+msgid "TikTok BC Report"
+msgstr "Báo cáo BC TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.model,name:tiktok_business_connector.model_tiktok_bc_report_line
+msgid "TikTok BC Report Line"
+msgstr "Dòng Báo cáo BC TikTok"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_config_settings
+msgid "TikTok Business API"
+msgstr "API TikTok Business"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_business_account_form
+msgid "TikTok Business API Access Token"
+msgstr "Mã Truy cập API TikTok Business"
+
+#. module: tiktok_business_connector
+#: model:ir.model,name:tiktok_business_connector.model_tiktok_business_api_mixin
+msgid "TikTok Business API Mixin"
+msgstr "Mixin API TikTok Business"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_business_account_form
+msgid "TikTok Business Account Name"
+msgstr "Tên Tài khoản TikTok Business"
+
+#. module: tiktok_business_connector
+#: model:ir.model,name:tiktok_business_connector.model_tiktok_bussiness_account
+msgid "TikTok Bussiness Account"
+msgstr "Tài khoản Doanh nghiệp TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.model,name:tiktok_business_connector.model_tiktok_campaign
+msgid "TikTok Campaign"
+msgstr "Chiến dịch TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_res_config_settings__tiktok_client_secret
+msgid "TikTok Client Secret"
+msgstr "Client Secret TikTok"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "TikTok Dimension IDs"
+msgstr "ID Chiều TikTok"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "TikTok IDs"
+msgstr "ID TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__tiktok_item_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__tiktok_item_id
+msgid "TikTok Item ID"
+msgstr "ID Mục TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.ui.menu,name:tiktok_business_connector.menu_tiktok_marketing_root
+msgid "TikTok Marketing"
+msgstr "Tiếp thị TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__tiktok_page_category
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__tiktok_page_category
+msgid "TikTok Page Category"
+msgstr "Danh mục Trang TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.actions.act_window,name:tiktok_business_connector.tiktok_bc_report_line_action
+msgid "TikTok Report Lines"
+msgstr "Dòng Báo cáo TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.actions.act_window,name:tiktok_business_connector.tiktok_bc_report_action
+msgid "TikTok Reports"
+msgstr "Báo cáo TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_tiktok_shop_unavailable
+msgid "TikTok Shop Unavailable"
+msgstr "Cửa hàng TikTok Không Khả dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__campaign_product_source__store
+msgid "TikTok Shop, or TikTok Showcase"
+msgstr "Cửa hàng TikTok, hoặc Trưng bày TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__tiktok_subplacements
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__tiktok_subplacements
+msgid "TikTok Subplacements"
+msgstr "Vị trí Phụ TikTok"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/models/tiktok_business_api_mixin.py:0
+msgid "Tiktok Marketing API %s: Lỗi Code: %s - %s"
+msgstr "API Tiếp thị TikTok %s: Lỗi Code: %s - %s"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/models/tiktok_business_api_mixin.py:0
+msgid "Tiktok Marketing API %s: Lỗi khi gọi TikTok API: %s"
+msgstr "API Tiếp thị TikTok %s: Lỗi khi gọi TikTok API: %s"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/models/tiktok_business_api_mixin.py:0
+msgid "Tiktok Marketing API %s: Lỗi không mong muốn: %s"
+msgstr "API Tiếp thị TikTok %s: Lỗi không mong muốn: %s"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/reporting/tiktok_bc_report.py:0
+msgid "Tiktok Marketing API: Error generating report data: %s"
+msgstr "API Tiếp thị TikTok: Lỗi tạo dữ liệu báo cáo: %s"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/models/tiktok_advertiser.py:0
+msgid "Tiktok Marketing API: Lỗi khi đồng bộ advertisers: %s"
+msgstr "API Tiếp thị TikTok: Lỗi khi đồng bộ nhà quảng cáo: %s"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/models/tiktok_business_api_mixin.py:0
+msgid "Tiktok Marketing API: Method không được hỗ trợ: %s"
+msgstr "API Tiếp thị TikTok: Phương thức không được hỗ trợ: %s"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Time Information"
+msgstr "Thông tin Thời gian"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "TopView Settings"
+msgstr "Cài đặt TopView"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__rf_campaign_type__topview
+msgid "Topview"
+msgstr "Topview"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__objective_type__topview_reach
+msgid "Topview Reach"
+msgstr "Tiếp cận Topview"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__topview_reach_range
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__topview_reach_range
+msgid "Topview Reach Range"
+msgstr "Phạm vi Tiếp cận Topview"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__objective_type__traffic
+msgid "Traffic"
+msgstr "Lưu lượng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__traffic_landing_page_view
+msgid "Traffic Landing Page View"
+msgstr "Xem Trang Đích Lưu lượng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__tracking_app_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__tracking_app_id
+msgid "Tracking App ID"
+msgstr "ID Ứng dụng Theo dõi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__tracking_message_event_set_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__tracking_message_event_set_id
+msgid "Tracking Message Event Set ID"
+msgstr "ID Bộ Sự kiện Theo dõi Tin nhắn"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__tracking_offline_event_set_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__tracking_offline_event_set_ids
+msgid "Tracking Offline Event Set IDs"
+msgstr "ID Bộ Sự kiện Theo dõi Ngoại tuyến"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__tracking_pixel_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__tracking_pixel_id
+msgid "Tracking Pixel ID"
+msgstr "ID Pixel Theo dõi"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+msgid "Tracking Settings"
+msgstr "Cài đặt Theo dõi"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+msgid "Tracking URLs"
+msgstr "URL Theo dõi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__budget_mode__budget_mode_infinite
+msgid "Unlimited budget"
+msgstr "Ngân sách Vô hạn"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__app_promotion_type__unset
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__campaign_app_profile_page_state__unset
+msgid "Unset"
+msgstr "Chưa đặt"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__vast_moat_enabled
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__vast_moat_enabled
+msgid "VAST Moat Enabled"
+msgstr "VAST Moat Đã Bật"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__vbo_window
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__vbo_window
+msgid "VBO Window"
+msgstr "Cửa sổ VBO"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__deep_bid_type__vo_highest_value
+msgid "VO Highest Value"
+msgstr "Giá trị Cao nhất VO"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__deep_bid_type__vo_min_roas
+msgid "VO Min ROAS"
+msgstr "ROAS Tối thiểu VO"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__value
+msgid "Value"
+msgstr "Giá trị"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__vehicle_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__vehicle_ids
+msgid "Vehicle IDs"
+msgstr "ID Phương tiện"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__vertical_sensitivity_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__vertical_sensitivity_id
+msgid "Vertical Sensitivity ID"
+msgstr "ID Độ nhạy Dọc"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__vertical_video_strategy
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__vertical_video_strategy
+msgid "Vertical Video Strategy"
+msgstr "Chiến lược Video Dọc"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Video Ads"
+msgstr "Quảng cáo Video"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__video_download_disabled
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__video_download_disabled
+msgid "Video Download Disabled"
+msgstr "Tải xuống Video Bị Tắt"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__video_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__video_id
+msgid "Video ID"
+msgstr "ID Video"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__objective_type__video_views
+msgid "Video Views"
+msgstr "Lượt xem Video"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__view_attribution_window
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__view_attribution_window
+msgid "View Attribution Window"
+msgstr "Cửa sổ Phân bổ Xem"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+msgid "Viewability & Brand Safety"
+msgstr "Khả năng Xem & An toàn Thương hiệu"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__viewability_postbid_partner
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__viewability_postbid_partner
+msgid "Viewability Postbid Partner"
+msgstr "Đối tác Khả năng Xem Sau Đặt giá"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__viewability_vast_url
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__viewability_vast_url
+msgid "Viewability VAST URL"
+msgstr "URL VAST Khả năng Xem"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__virtual_objective_type
+msgid "Virtual Objective Type"
+msgstr "Loại Mục tiêu Ảo"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/models/tiktok_bussiness_account.py:0
+msgid "Vui lòng nhập TikTok App ID trước khi ủy quyền."
+msgstr "Vui lòng nhập ID Ứng dụng TikTok trước khi ủy quyền."
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/wizards/wizard_sync_advertiser.py:0
+msgid "Vui lòng ủy quyền để lấy 'Access Token' cho tài khoản doanh nghiệp %s!"
+msgstr "Vui lòng ủy quyền để lấy 'Mã Truy cập' cho tài khoản doanh nghiệp %s!"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__objective_type__web_conversions
+msgid "Web Conversions"
+msgstr "Chuyển đổi Web"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__sales_destination__web_and_app
+msgid "Web and App"
+msgstr "Web và Ứng dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.ui.menu,name:tiktok_business_connector.menu_tiktok_wizard
+msgid "Wizard"
+msgstr "Hướng dẫn"
+
+#. module: tiktok_business_connector
+#: model:ir.model,name:tiktok_business_connector.model_wizard_sync_tiktok_ad_group
+msgid "Wizard Sync Ad Group"
+msgstr "Hướng dẫn Đồng bộ Nhóm Quảng cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model,name:tiktok_business_connector.model_wizard_sync_tiktok_campaign
+msgid "Wizard Sync Campaign"
+msgstr "Hướng dẫn Đồng bộ Chiến dịch"
+
+#. module: tiktok_business_connector
+#: model:ir.model,name:tiktok_business_connector.model_wizard_sync_tiktok_advertiser
+msgid "Wizard Sync TikTok Advertiser"
+msgstr "Hướng dẫn Đồng bộ Nhà Quảng cáo TikTok"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__zipcode_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__zipcode_ids
+msgid "Zipcode IDs"
+msgstr "ID Mã bưu điện"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__ios14_quota_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__ios14_quota_type
+msgid "iOS14 Quota Type"
+msgstr "Loại Hạn ngạch iOS14"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__ios14_targeting
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__ios14_targeting
+msgid "iOS14 Targeting"
+msgstr "Nhắm mục tiêu iOS14"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__campaign_product_source__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__campaign_type__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__deep_bid_type__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__objective_type__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__operation_status__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__rf_campaign_type__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__sales_destination__other
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__other
+msgid "Other"
+msgstr "Khác"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__pacing
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__pacing
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__deep_bid_type__pacing
+msgid "Pacing"
+msgstr "Nhịp độ"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__page_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__page_id
+msgid "Page ID"
+msgstr "ID Trang"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__page_size
+msgid "Page Size"
+msgstr "Kích thước Trang"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__page_visit
+msgid "Page Visit"
+msgstr "Truy cập Trang"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Performance Metrics"
+msgstr "Chỉ số Hiệu suất"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+msgid "Phone & Contact"
+msgstr "Điện thoại & Liên hệ"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__phone_number
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__phone_number
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__phone_number
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__phone_number
+msgid "Phone Number"
+msgstr "Số Điện thoại"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__phone_region_calling_code
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__phone_region_calling_code
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__phone_region_calling_code
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__phone_region_calling_code
+msgid "Phone Region Calling Code"
+msgstr "Mã Gọi Khu vực Điện thoại"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__phone_region_code
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__phone_region_code
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__phone_region_code
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__phone_region_code
+msgid "Phone Region Code"
+msgstr "Mã Khu vực Điện thoại"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__pixel_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__pixel_id
+msgid "Pixel ID"
+msgstr "ID Pixel"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Placement"
+msgstr "Vị trí"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__placement_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__placement_type
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_search
+msgid "Placement Type"
+msgstr "Loại Vị trí"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__placements
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__placements
+msgid "Placements"
+msgstr "Vị trí"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__playable_url
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__playable_url
+msgid "Playable URL"
+msgstr "URL Có thể Chơi"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/reporting/tiktok_bc_report.py:0
+msgid "Please select an advertiser first."
+msgstr "Vui lòng chọn nhà quảng cáo trước."
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/reporting/tiktok_bc_report.py:0
+msgid "Please set start date and end date."
+msgstr "Vui lòng đặt ngày bắt đầu và ngày kết thúc."
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__postback_window_mode
+msgid "Postback Window Mode"
+msgstr "Chế độ Cửa sổ Postback"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__pre_discount_budget
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__pre_discount_budget
+msgid "Pre Discount Budget"
+msgstr "Ngân sách Trước Giảm giá"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__pre_discount_cpm
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__pre_discount_cpm
+msgid "Pre Discount CPM"
+msgstr "CPM Trước Giảm giá"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__predict_impression
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__predict_impression
+msgid "Predict Impression"
+msgstr "Ấn tượng Dự đoán"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__preferred_lead
+msgid "Preferred Lead"
+msgstr "Khách hàng Tiềm năng Ưu tiên"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__product_click_in_live
+msgid "Product Click In Live"
+msgstr "Nhấp Sản phẩm Trong Trực tiếp"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+msgid "Product Display"
+msgstr "Hiển thị Sản phẩm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__product_display_field_list
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__product_display_field_list
+msgid "Product Display Field List"
+msgstr "Danh sách Trường Hiển thị Sản phẩm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_product_gmv_max_authorization_cancel
+msgid "Product GMV Max Authorization Cancel"
+msgstr "Hủy Ủy quyền Tối đa GMV Sản phẩm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__objective_type__product_sales
+msgid "Product Sales"
+msgstr "Bán Sản phẩm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__product_set_id
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__product_set_id
+msgid "Product Set ID"
+msgstr "ID Bộ Sản phẩm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__product_source
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__product_source
+msgid "Product Source"
+msgstr "Nguồn Sản phẩm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__product_specific_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__product_specific_type
+msgid "Product Specific Type"
+msgstr "Loại Cụ thể Sản phẩm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_product_unavailable
+msgid "Product Unavailable"
+msgstr "Sản phẩm Không Khả dụng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__secondary_status__campaign_status_product_used_by_product_gmv_max
+msgid "Product Used By Product GMV Max"
+msgstr "Sản phẩm Được Sử dụng Bởi Tối đa GMV Sản phẩm"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__profile_image_url
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__profile_image_url
+msgid "Profile Image URL"
+msgstr "URL Hình ảnh Hồ sơ"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Promotion"
+msgstr "Khuyến mãi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__promotion_target_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__promotion_target_type
+msgid "Promotion Target Type"
+msgstr "Loại Mục tiêu Khuyến mãi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__promotion_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__promotion_type
+msgid "Promotion Type"
+msgstr "Loại Khuyến mãi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__promotion_website_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__promotion_website_type
+msgid "Promotion Website Type"
+msgstr "Loại Website Khuyến mãi"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__promotional_music_disabled
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad__promotional_music_disabled
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_search
+msgid "Promotional Music Disabled"
+msgstr "Nhạc Khuyến mãi Bị Tắt"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__rf_campaign_type__pulse
+msgid "Pulse"
+msgstr "Pulse"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__purchase_intention_keyword_ids
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__purchase_intention_keyword_ids
+msgid "Purchase Intention Keyword IDs"
+msgstr "ID Từ khóa Ý định Mua"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__purchased_impression
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__purchased_impression
+msgid "Purchased Impression"
+msgstr "Ấn tượng Đã Mua"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__purchased_reach
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__purchased_reach
+msgid "Purchased Reach"
+msgstr "Tiếp cận Đã Mua"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__purchases
+msgid "Purchases"
+msgstr "Mua hàng"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__rf_campaign_type
+msgid "RF Campaign Type"
+msgstr "Loại Chiến dịch RF"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__rf_estimated_cpr
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__rf_estimated_cpr
+msgid "RF Estimated CPR"
+msgstr "CPR Dự đoán RF"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__rf_estimated_frequency
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__rf_estimated_frequency
+msgid "RF Estimated Frequency"
+msgstr "Tần suất Dự đoán RF"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__rf_purchased_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__rf_purchased_type
+msgid "RF Purchased Type"
+msgstr "Loại Đã Mua RF"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__objective_type__rf_reach
+msgid "RF Reach"
+msgstr "Tiếp cận RF"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__roas_bid
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__roas_bid
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__roas_bid
+msgid "ROAS Bid"
+msgstr "Đặt giá ROAS"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__rta_bid_enabled
+msgid "RTA Bid Enabled"
+msgstr "Đặt giá RTA Đã Bật"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__rta_id
+msgid "RTA ID"
+msgstr "ID RTA"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__rta_product_selection_enabled
+msgid "RTA Product Selection"
+msgstr "Lựa chọn Sản phẩm RTA"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_campaign_form
+msgid "RTA Settings"
+msgstr "Cài đặt RTA"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__raw_data
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_form
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_ad_group_form
+msgid "Raw Data"
+msgstr "Dữ liệu Thô"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad__raw_payload
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__raw_payload
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_advertiser__raw_payload
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__raw_payload
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_campaign__raw_payload
+msgid "Raw Payload"
+msgstr "Payload Thô"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__reach
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__objective_type__reach
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__optimization_goal__reach
+msgid "Reach"
+msgstr "Tiếp cận"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Reach & Frequency"
+msgstr "Tiếp cận & Tần suất"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Real-time Conversions"
+msgstr "Chuyển đổi Thời gian Thực"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Real-time Results"
+msgstr "Kết quả Thời gian Thực"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__real_time_conversion_rate
+msgid "Real-time conversion rate (CVR, clicks)"
+msgstr "Tỷ lệ Chuyển đổi Thời gian Thực (CVR, nhấp)"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__real_time_cost_per_result
+msgid "Real-time cost per result"
+msgstr "Chi phí Thời gian Thực cho Kết quả"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__real_time_result_rate
+msgid "Real-time result rate"
+msgstr "Tỷ lệ Kết quả Thời gian Thực"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__real_time_result
+msgid "Real-time results"
+msgstr "Kết quả Thời gian Thực"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields.selection,name:tiktok_business_connector.selection__tiktok_campaign__campaign_type__regular_campaign
+msgid "Regular Campaign"
+msgstr "Chiến dịch Thường"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/reporting/tiktok_bc_report.py:0
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__report_line_ids
+#: model:ir.ui.menu,name:tiktok_business_connector.tiktok_bc_report_line_menu
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_form
+msgid "Report Lines"
+msgstr "Dòng Báo cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__report_id
+msgid "Report Template"
+msgstr "Mẫu Báo cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.actions.act_window,name:tiktok_business_connector.tiktok_bc_report_action_template
+msgid "Report Templates"
+msgstr "Mẫu Báo cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report__report_type
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__report_type
+msgid "Report Type"
+msgstr "Loại Báo cáo"
+
+#. module: tiktok_business_connector
+#. odoo-python
+#: code:addons/tiktok_business_connector/reporting/tiktok_bc_report.py:0
+msgid "Report data generated successfully!"
+msgstr "Dữ liệu báo cáo được tạo thành công!"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_form
+msgid "Report này không có dữ liệu từ TikTok!"
+msgstr "Báo cáo này không có dữ liệu từ TikTok!"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_bc_report__no_data
+msgid "Report này không có thông tin từ TikTok!"
+msgstr "Báo cáo này không có thông tin từ TikTok!"
+
+#. module: tiktok_business_connector
+#: model:ir.ui.menu,name:tiktok_business_connector.menu_tiktok_reporting
+msgid "Reporting"
+msgstr "Báo cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.ui.menu,name:tiktok_business_connector.tiktok_bc_report_menu
+msgid "Reports"
+msgstr "Báo cáo"
+
+#. module: tiktok_business_connector
+#: model:ir.ui.menu,name:tiktok_business_connector.tiktok_bc_report_menu_template
+msgid "Reports Templates"
+msgstr "Mẫu Báo cáo"
+
+#. module: tiktok_business_connector
+#: model_terms:ir.ui.view,arch_db:tiktok_business_connector.view_tiktok_bc_report_line_form
+msgid "Result Metrics"
+msgstr "Chỉ số Kết quả"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__result_rate
+msgid "Result rate"
+msgstr "Tỷ lệ Kết quả"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_bc_report_line__result
+msgid "Results"
+msgstr "Kết quả"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__ios14_quota_type
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__ios14_quota_type
+msgid "iOS14 Quota Type"
+msgstr "Loại Hạn ngạch iOS14"
+
+#. module: tiktok_business_connector
+#: model:ir.model.fields,field_description:tiktok_business_connector.field_tiktok_ad_group__ios14_targeting
+#: model:ir.model.fields,help:tiktok_business_connector.field_tiktok_ad_group__ios14_targeting
+msgid "iOS14 Targeting"
+msgstr "Nhắm mục tiêu iOS14"

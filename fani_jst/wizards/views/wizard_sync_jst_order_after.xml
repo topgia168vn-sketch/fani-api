@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="wizard_sync_jst_sale_order_after_view_from" model="ir.ui.view">
+        <field name="name">wizard.sync.jst.sale.order.after.form</field>
+        <field name="model">wizard.sync.jst.sale.order.after</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="type"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <footer>
+                    <button name="action_sync" string="Sync After Orders" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="wizard_sync_jst_sale_order_after_action" model="ir.actions.act_window">
+        <field name="name">Sync After Orders</field>
+        <field name="res_model">wizard.sync.jst.sale.order.after</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="wizard_sync_jst_sale_order_after_menu"
+                name="Sync After Orders"
+                parent="fani_jst.menu_jst_wizard"
+                action="fani_jst.wizard_sync_jst_sale_order_after_action"
+                sequence="42"/>
+</odoo>

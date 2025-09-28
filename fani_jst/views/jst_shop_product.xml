@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree/List View -->
+        <record id="view_jst_shop_product_tree" model="ir.ui.view">
+            <field name="name">jst.shop.product.tree</field>
+            <field name="model">jst.shop.product</field>
+            <field name="arch" type="xml">
+                <list string="JST Shop Products">
+                    <field name="itemId"/>
+                    <field name="itemName"/>
+                    <field name="shopName"/>
+                    <field name="platformSkuCode"/>
+                    <field name="skuId"/>
+                    <field name="skuName"/>
+                    <field name="isManualMapping"/>
+                    <field name="platformSkuStatus"/>
+                    <field name="price"/>
+                    <field name="created"/>
+                    <field name="jst_modified"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_jst_shop_product_form" model="ir.ui.view">
+            <field name="name">jst.shop.product.form</field>
+            <field name="model">jst.shop.product</field>
+            <field name="arch" type="xml">
+                <form string="JST Shop Product">
+                    <sheet>
+                        <group>
+                            <group string="Item Information">
+                                <field name="itemId"/>
+                                <field name="itemName"/>
+                                <field name="skuId"/>
+                                <field name="skuName"/>
+                                <field name="skuCode"/>
+                            </group>
+                            <group string="Shop Information">
+                                <field name="shopId"/>
+                                <field name="shopName"/>
+                                <field name="price"/>
+                                <field name="isManualMapping"/>
+                                <field name="platformSkuStatus"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Platform Details">
+                                <field name="platformItemId"/>
+                                <field name="platformSkuCode"/>
+                                <field name="platformSkuId"/>
+                                <field name="platformSkuName"/>
+                                <field name="platformItemUrl"/>
+                            </group>
+                            <group string="Product Specifications">
+                                <field name="propertyValues"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Media">
+                                <field name="picture"/>
+                                <field name="itemPicture"/>
+                            </group>
+                            <group string="Timestamps">
+                                <field name="created"/>
+                                <field name="jst_modified"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_jst_shop_product_search" model="ir.ui.view">
+            <field name="name">jst.shop.product.search</field>
+            <field name="model">jst.shop.product</field>
+            <field name="arch" type="xml">
+                <search string="Search JST Shop Products">
+                    <field name="itemId"/>
+                    <field name="itemName"/>
+                    <field name="shopName"/>
+                    <field name="skuId"/>
+                    <field name="skuName"/>
+                    <field name="platformSkuCode"/>
+                    <field name="platformSkuName"/>
+                    <separator/>
+                    <filter string="Manual Mapping" name="manual_mapping" domain="[('isManualMapping', '=', True)]"/>
+                    <filter string="Auto Mapping" name="auto_mapping" domain="[('isManualMapping', '=', False)]"/>
+                    <separator/>
+                    <filter string="On Sale" name="on_sale" domain="[('platformSkuStatus', '=', '1')]"/>
+                    <filter string="Not On Sale" name="not_on_sale" domain="[('platformSkuStatus', '=', '0')]"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Shop" name="group_shop" context="{'group_by': 'shopName'}"/>
+                        <filter string="Item" name="group_item" context="{'group_by': 'itemName'}"/>
+                        <filter string="Manual Mapping" name="group_manual_mapping" context="{'group_by': 'isManualMapping'}"/>
+                        <filter string="Platform Status" name="group_platform_status" context="{'group_by': 'platformSkuStatus'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_jst_shop_product" model="ir.actions.act_window">
+            <field name="name">JST Shop Products</field>
+            <field name="res_model">jst.shop.product</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first JST Shop Product!
+                </p>
+                <p>
+                    JST Shop Products represent the mapping between your items and platform products in different shops.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree/List View -->
+        <record id="view_jst_shop_tree" model="ir.ui.view">
+            <field name="name">jst.shop.tree</field>
+            <field name="model">jst.shop</field>
+            <field name="arch" type="xml">
+                <list string="JST Shops">
+                    <header>
+                        <button name="action_sync_all_product_shop" string="Đồng bộ sản phẩm cửa hàng"
+                            type="object"
+                            help="Đồng bộ sản phẩm của cửa hàng trên nền tảng."/>
+                    </header>
+                    <field name="shopName"/>
+                    <field name="platformId"/>
+                    <field name="enabled"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_jst_shop_form" model="ir.ui.view">
+            <field name="name">jst.shop.form</field>
+            <field name="model">jst.shop</field>
+            <field name="arch" type="xml">
+                <form string="JST Shop">
+                    <header>
+                        <button name="action_sync_all_product_shop" string="Đồng bộ sản phẩm cửa hàng"
+                            type="object"
+                            help="Đồng bộ sản phẩm của cửa hàng trên nền tảng."/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group string="Basic Information">
+                                <field name="shopName"/>
+                                <field name="companyName"/>
+                                <field name="shopId"/>
+                                <field name="companyId"/>
+                            </group>
+                            <group string="Platform Details">
+                                <field name="platformId"/>
+                                <field name="platformShopId"/>
+                                <field name="platformShopNick"/>
+                                <field name="platformVersionName"/>
+                                <field name="shopUrl"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Status - Settings">
+                                <field name="enabled"/>
+                                <field name="sessionStatus"/>
+                                <field name="isMainShop"/>
+                                <field name="mainShopId"/>
+                            </group>
+                            <group string="Additional Info">
+                                <field name="defaultCurrencyId"/>
+                                <field name="timeZone"/>
+                                <field name="mobile"/>
+                                <field name="address"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Timestamps">
+                                <field name="created"/>
+                                <field name="jst_modified"/>
+                            </group>
+                            <group string="Users">
+                                <field name="creator"/>
+                                <field name="creatorName"/>
+                                <field name="modifier"/>
+                                <field name="modifierName"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="remark" placeholder="Add remarks here..."/>
+                            <field name="logisticProvider"/>
+                            <field name="platformShopData"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_jst_shop_search" model="ir.ui.view">
+            <field name="name">jst.shop.search</field>
+            <field name="model">jst.shop</field>
+            <field name="arch" type="xml">
+                <search string="Search JST Shops">
+                    <field name="shopName"/>
+                    <field name="companyName"/>
+                    <field name="platformId"/>
+                    <field name="platformShopNick"/>
+                    <filter string="Enabled" name="enabled" domain="[('enabled', '=', True)]"/>
+                    <filter string="Main Shops" name="main_shops" domain="[('isMainShop', '=', True)]"/>
+                    <filter string="TikTok" name="tiktok" domain="[('platformId', '=', 'TikTok')]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Platform" name="group_platform" context="{'group_by': 'platformId'}"/>
+                        <filter string="Company" name="group_company" context="{'group_by': 'companyName'}"/>
+                        <filter string="Status" name="group_status" context="{'group_by': 'sessionStatus'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_jst_shop" model="ir.actions.act_window">
+            <field name="name">JST Shops</field>
+            <field name="res_model">jst.shop</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first JST shop!
+                </p>
+                <p>
+                    JST shops are synchronized from the JST ERP system.
+                    Click the "Sync from JST" button to import shops.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo> 

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- TikTok Campaign Tree View -->
+    <record id="view_tiktok_campaign_tree" model="ir.ui.view">
+        <field name="name">tiktok.campaign.tree</field>
+        <field name="model">tiktok.campaign</field>
+        <field name="arch" type="xml">
+            <list>
+                <header>
+                    <button name="action_sync_campaigns" string="Sync Campaigns" type="object" class="btn-primary"/>
+                    <button name="action_sync_ad_groups" string="Sync Ad Groups" type="object" class="btn-primary"/>
+                    <button name="action_sync_ads" string="Sync Ads" type="object" class="btn-primary"/>
+                </header>
+                <field name="campaign_id"/>
+                <field name="campaign_name"/>
+                <field name="advertiser_id" column_invisible="1"/>
+                <field name="odoo_advertiser_id"/>
+                <field name="campaign_type"/>
+                <field name="objective_type"/>
+                <field name="objective"/>
+                <field name="operation_status"/>
+                <field name="secondary_status"/>
+                <field name="budget"/>
+                <field name="budget_mode"/>
+                <field name="create_time"/>
+                <field name="modify_time"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- TikTok Campaign Form View -->
+    <record id="view_tiktok_campaign_form" model="ir.ui.view">
+        <field name="name">tiktok.campaign.form</field>
+        <field name="model">tiktok.campaign</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_sync_campaigns" string="Sync Campaigns" type="object" class="btn-primary"/>
+                    <button name="action_sync_ad_groups" string="Sync Ad Groups" type="object" class="btn-primary"/>
+                    <button name="action_sync_ads" string="Sync Ads" type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <group>
+                        <group string="Basic Information">
+                            <field name="campaign_id"/>
+                            <field name="campaign_name"/>
+                            <field name="odoo_advertiser_id"/>
+                            <field name="advertiser_id"/>
+                            <field name="app_id"/>
+                            <field name="campaign_system_origin"/>
+                            <field name="create_time"/>
+                            <field name="modify_time"/>
+                        </group>
+                        <group string="Campaign Type &amp; Objective">
+                            <field name="campaign_type"/>
+                            <field name="objective_type"/>
+                            <field name="objective"/>
+                            <field name="app_promotion_type"/>
+                            <field name="virtual_objective_type"/>
+                            <field name="sales_destination"/>
+                            <field name="rf_campaign_type"/>
+                        </group>
+                    </group>
+                    
+                    <group>
+                        <group string="Status &amp; Operation">
+                            <field name="operation_status"/>
+                            <field name="secondary_status"/>
+                            <field name="campaign_app_profile_page_state"/>
+                            <field name="postback_window_mode"/>
+                            <field name="is_new_structure"/>
+                        </group>
+                        <group string="Campaign Settings">
+                            <field name="is_search_campaign"/>
+                            <field name="is_smart_performance_campaign"/>
+                            <field name="is_advanced_dedicated_campaign"/>
+                            <field name="disable_skan_campaign"/>
+                            <field name="catalog_enabled"/>
+                            <field name="campaign_product_source"/>
+                        </group>
+                    </group>
+                    
+                    <group>
+                        <group string="Budget &amp; Bidding">
+                            <field name="budget"/>
+                            <field name="budget_mode"/>
+                            <field name="budget_optimize_on"/>
+                            <field name="bid_type"/>
+                            <field name="deep_bid_type"/>
+                            <field name="roas_bid"/>
+                            <field name="optimization_goal"/>
+                            <field name="bid_align_type"/>
+                        </group>
+                        <group string="RTA Settings">
+                            <field name="rta_id"/>
+                            <field name="rta_bid_enabled"/>
+                            <field name="rta_product_selection_enabled"/>
+                        </group>
+                    </group>
+                    
+                    <group>
+                        <group string="Additional Information">
+                            <field name="special_industries"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- TikTok Campaign Search View -->
+    <record id="view_tiktok_campaign_search" model="ir.ui.view">
+        <field name="name">tiktok.campaign.search</field>
+        <field name="model">tiktok.campaign</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="campaign_id"/>
+                <field name="campaign_name"/>
+                <field name="advertiser_id"/>
+                <field name="odoo_advertiser_id"/>
+                <field name="app_id"/>
+                <field name="campaign_type"/>
+                <field name="objective_type"/>
+                <field name="objective"/>
+                <field name="operation_status"/>
+                <field name="secondary_status"/>
+                <field name="budget_mode"/>
+                
+                <separator/>
+                <filter string="Search Campaign" name="search_campaign" domain="[('is_search_campaign', '=', True)]"/>
+                <filter string="Smart Performance Campaign" name="smart_performance" domain="[('is_smart_performance_campaign', '=', True)]"/>
+                <filter string="Advanced Dedicated Campaign" name="advanced_dedicated" domain="[('is_advanced_dedicated_campaign', '=', True)]"/>
+                <filter string="Catalog Enabled" name="catalog_enabled" domain="[('catalog_enabled', '=', True)]"/>
+                
+                <separator/>
+                <filter string="Operation Status: ENABLE" name="operation_enable" domain="[('operation_status', '=', 'ENABLE')]"/>
+                <filter string="Operation Status: DISABLE" name="operation_disable" domain="[('operation_status', '=', 'DISABLE')]"/>
+                <filter string="Secondary Status: ENABLE" name="secondary_enable" domain="[('secondary_status', '=', 'ENABLE')]"/>
+                <filter string="Secondary Status: DISABLE" name="secondary_disable" domain="[('secondary_status', '=', 'DISABLE')]"/>
+                
+                <separator/>
+                <filter string="Budget Mode: Daily" name="budget_daily" domain="[('budget_mode', '=', 'BUDGET_MODE_DAY')]"/>
+                <filter string="Budget Mode: Total" name="budget_total" domain="[('budget_mode', '=', 'BUDGET_MODE_TOTAL')]"/>
+                
+                <group expand="0" string="Group By">
+                    <filter string="Advertiser" name="group_advertiser" context="{'group_by': 'odoo_advertiser_id'}"/>
+                    <filter string="Campaign Type" name="group_campaign_type" context="{'group_by': 'campaign_type'}"/>
+                    <filter string="Objective Type" name="group_objective_type" context="{'group_by': 'objective_type'}"/>
+                    <filter string="Objective" name="group_objective" context="{'group_by': 'objective'}"/>
+                    <filter string="Operation Status" name="group_operation_status" context="{'group_by': 'operation_status'}"/>
+                    <filter string="Secondary Status" name="group_secondary_status" context="{'group_by': 'secondary_status'}"/>
+                    <filter string="Budget Mode" name="group_budget_mode" context="{'group_by': 'budget_mode'}"/>
+                    <filter string="App ID" name="group_app_id" context="{'group_by': 'app_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- TikTok Campaign Action -->
+    <record id="action_tiktok_campaign" model="ir.actions.act_window">
+        <field name="name">Campaigns</field>
+        <field name="res_model">tiktok.campaign</field>
+    </record>
+
+</odoo>

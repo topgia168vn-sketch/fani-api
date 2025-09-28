@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree/List View -->
+        <record id="view_jst_sale_order_line_tree" model="ir.ui.view">
+            <field name="name">jst.sale.order.line.tree</field>
+            <field name="model">jst.sale.order.line</field>
+            <field name="arch" type="xml">
+                <list string="JST Sale Order Lines">
+                    <field name="orderItemId" optional="hile"/>
+                    <field name="orderId" optional="hile"/>
+                    <field name="name"/>
+                    <field name="skuId"/>
+                    <field name="qty"/>
+                    <field name="price"/>
+                    <field name="amount"/>
+                    <field name="itemStatus"/>
+                    <field name="isGift"/>
+                    <field name="created"/>
+                    <field name="itemSendDate"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_jst_sale_order_line_form" model="ir.ui.view">
+            <field name="name">jst.sale.order.line.form</field>
+            <field name="model">jst.sale.order.line</field>
+            <field name="arch" type="xml">
+                <form string="JST Sale Order Line">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="orderItemId" readonly="1"/>
+                            </h1>
+                            <h2>
+                                <field name="name" readonly="1"/>
+                            </h2>
+                        </div>
+                        
+                        <group>
+                            <group string="Order Information">
+                                <field name="jst_sale_order_id"/>
+                                <field name="orderId"/>
+                                <field name="orderItemId"/>
+                                <field name="platformOrderItemId"/>
+                                <field name="itemStatus"/>
+                            </group>
+                            <group string="Product Information">
+                                <field name="itemId"/>
+                                <field name="skuId"/>
+                                <field name="platformSkuId"/>
+                                <field name="skuType"/>
+                                <field name="name"/>
+                                <field name="pic"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group string="Quantity - Pricing">
+                                <field name="qty"/>
+                                <field name="price"/>
+                                <field name="priceDisplay"/>
+                                <field name="basePrice"/>
+                                <field name="basePriceDisplay"/>
+                                <field name="amount"/>
+                                <field name="amountDisPlay"/>
+                            </group>
+                            <group string="Payment Amounts">
+                                <field name="paidAmount"/>
+                                <field name="platformFreeAmount"/>
+                                <field name="shopFreeAmount"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group string="Weight - Dimensions">
+                                <field name="weight"/>
+                                <field name="totalWeight"/>
+                            </group>
+                            <group string="Logistics">
+                                <field name="itemLogisticsCompany"/>
+                                <field name="itemLogisticsCompanyId"/>
+                                <field name="itemSendDate"/>
+                                <field name="binId"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group string="Flags">
+                                <field name="isGift"/>
+                                <field name="isPresale"/>
+                                <field name="isBuyerRate"/>
+                                <field name="isSellerRate"/>
+                                <field name="isDeleted"/>
+                                <field name="isNotNeedDelivery"/>
+                                <field name="isPlatformDelivery"/>
+                                <field name="isCombined"/>
+                            </group>
+                            <group string="Refund Information">
+                                <field name="refundId"/>
+                                <field name="refundQty"/>
+                                <field name="refundStatus"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group string="Additional Information">
+                                <field name="propertiesValue"/>
+                                <field name="remark"/>
+                                <field name="itemLockId"/>
+                                <field name="companyId"/>
+                                <field name="drpCoIdTo"/>
+                            </group>
+                            <group string="System Information">
+                                <field name="created"/>
+                                <field name="creator"/>
+                                <field name="modifier"/>
+                                <field name="modifierName"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>
