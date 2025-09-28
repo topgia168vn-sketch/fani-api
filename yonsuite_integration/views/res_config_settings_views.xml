@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_yonsuite" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.yonsuite</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <block name="integration" position="inside">
+                <setting id="yonsuite_api" string="YonSuite API">
+                    <div class="content-group mt16">
+                        <label for="yonsuite_base_url" class="o_light_label mr8" />
+                        <field name="yonsuite_base_url" placeholder="https://c1.yonyoucloud.com/iuap-api-auth" />
+                    </div>
+                    <div class="content-group">
+                        <label for="yonsuite_app_key" class="o_light_label mr8" />
+                        <field name="yonsuite_app_key" password="True" />
+                    </div>
+                    <div class="content-group">
+                        <label for="yonsuite_app_secret" class="o_light_label mr8" />
+                        <field name="yonsuite_app_secret" password="True" />
+                    </div>
+                    <div class="content-group">
+                        <label for="yonsuite_root_org_code" class="o_light_label mr8" />
+                        <field name="yonsuite_root_org_code" placeholder="global00" />
+                    </div>
+                    <div class="content-group" invisible="not yonsuite_access_token">
+                        <label for="yonsuite_access_token" class="o_light_label mr8" />
+                        <field name="yonsuite_access_token" readonly="1" />
+                    </div>
+                    <div class="content-group" invisible="not yonsuite_token_expire_time">
+                        <label for="yonsuite_token_expire_time" class="o_light_label mr8" />
+                        <field name="yonsuite_token_expire_time" readonly="1" />
+                    </div>
+                    <button type="object" name="action_get_access_token" string="Get Access Token"
+                        icon="oi-arrow-right" class="btn-link"
+                        invisible="not yonsuite_base_url or not yonsuite_app_key or not yonsuite_app_secret" />
+                </setting>
+            </block>
+        </field>
+    </record>
+    <!-- YonSuite Configuration Settings Action -->
+    <record id="yonsuite_config_settings_action" model="ir.actions.act_window">
+        <field name="name">YonSuite Configuration</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_id" ref="yonsuite_integration.res_config_settings_view_form_yonsuite" />
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module': 'yonsuite_integration'}</field>
+    </record>
+</odoo>

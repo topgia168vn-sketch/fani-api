@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- YonSuite Unit List View -->
+        <record id="yonsuite_unit_view_list" model="ir.ui.view">
+            <field name="name">yonsuite.unit.view.list</field>
+            <field name="model">yonsuite.unit</field>
+            <field name="arch" type="xml">
+                <list string="YonSuite Units" decoration-info="state=='draft'" decoration-success="state=='synced'" decoration-muted="state=='error'">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="simplified_name"/>
+                    <field name="english_name"/>
+                    <field name="unit_group_code"/>
+                    <field name="precision"/>
+                    <field name="base_unit"/>
+                    <field name="stop_status"/>
+                    <field name="state"/>
+                    <field name="last_sync_date"/>
+                    <field name="create_date"/>
+                </list>
+            </field>
+        </record>
+        
+        <!-- YonSuite Unit Form View -->
+        <record id="yonsuite_unit_view_form" model="ir.ui.view">
+            <field name="name">yonsuite.unit.view.form</field>
+            <field name="model">yonsuite.unit</field>
+            <field name="arch" type="xml">
+                <form string="YonSuite Unit">
+                    <header>
+                        <button name="action_export_to_yonsuite" type="object" string="Sync from YonSuite" class="btn-primary" 
+                                invisible="state in ['synced', 'error']" confirm="Are you sure you want to sync this unit from YonSuite?"/>
+                        <button name="action_reset_to_draft" type="object" string="Reset to Draft" class="btn-secondary" 
+                                invisible="state != 'synced'"/>
+                        <field name="state" widget="statusbar" options="{'statusbar_visible': 'draft,synced'}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_export_to_yonsuite" type="object" class="oe_stat_button" icon="fa-download" 
+                                    invisible="state in ['synced', 'error']">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Sync from</span>
+                                    <span class="o_stat_text">YonSuite</span>
+                                </div>
+                            </button>
+                        </div>
+                        
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Enter unit name..."/>
+                            </h1>
+                        </div>
+                        
+                        <group>
+                            <group string="Basic Information">
+                                <field name="yonsuite_id" readonly="1"/>
+                                <field name="code"/>
+                                <field name="simplified_name"/>
+                                <field name="english_name"/>
+                                <field name="stop_status"/>
+                            </group>
+                            <group string="Unit Properties">
+                                <field name="precision"/>
+                                <field name="truncation_type"/>
+                                <field name="base_unit"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Unit Group">
+                                <field name="unit_group" readonly="1"/>
+                                <field name="unit_group_code" readonly="1"/>
+                            </group>
+                            <group string="Timestamps">
+                                <field name="create_time" readonly="1"/>
+                                <field name="modify_time" readonly="1"/>
+                                <field name="last_sync_date" readonly="1"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Users">
+                                <field name="creator" readonly="1"/>
+                                <field name="modifier" readonly="1"/>
+                            </group>
+                            <group string="Sync Information">
+                                <field name="create_date" readonly="1"/>
+                                <field name="create_uid" readonly="1"/>
+                            </group>
+                        </group>
+                        
+                        <group string="Sync Error" invisible="not sync_error_message">
+                            <field name="sync_error_message" readonly="1" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- YonSuite Unit Search View -->
+        <record id="yonsuite_unit_view_search" model="ir.ui.view">
+            <field name="name">yonsuite.unit.view.search</field>
+            <field name="model">yonsuite.unit</field>
+            <field name="arch" type="xml">
+                <search string="Search YonSuite Units">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="simplified_name"/>
+                    <field name="english_name"/>
+                    <field name="yonsuite_id"/>
+                    <field name="unit_group_code"/>
+                    <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Synced" name="synced" domain="[('state', '=', 'synced')]"/>
+                    <filter string="Error" name="error" domain="[('state', '=', 'error')]"/>
+                    <filter string="Active" name="active" domain="[('stop_status', '=', False)]"/>
+                    <filter string="Stopped" name="stopped" domain="[('stop_status', '=', True)]"/>
+                    <filter string="Base Units" name="base_units" domain="[('base_unit', '=', True)]"/>
+                    <separator/>
+                    <filter string="My Units" name="my_units" domain="[('create_uid', '=', uid)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                        <filter string="Unit Group" name="group_unit_group" context="{'group_by': 'unit_group_code'}"/>
+                        <filter string="Base Unit" name="group_base_unit" context="{'group_by': 'base_unit'}"/>
+                        <filter string="Created by" name="group_create_uid" context="{'group_by': 'create_uid'}"/>
+                        <filter string="Creation Date" name="group_create_date" context="{'group_by': 'create_date:day'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <!-- YonSuite Unit Action -->
+        <record id="yonsuite_unit_action" model="ir.actions.act_window">
+            <field name="name">YonSuite Units</field>
+            <field name="res_model">yonsuite.unit</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="yonsuite_unit_view_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first YonSuite Unit!
+                </p>
+                <p>
+                    YonSuite Units allow you to manage and synchronize unit data with YonSuite API.
+                </p>
+            </field>
+        </record>
+        
+        
+    </data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_sync_jst_orders" model="ir.actions.server">
+        <field name="name">Sync JST Orders</field>
+        <field name="model_id" ref="model_lark_file" />
+        <field name="binding_model_id" ref="model_lark_file" />
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            records.fetch_items_in_root_folder()
+        </field>
+    </record>
+</odoo>

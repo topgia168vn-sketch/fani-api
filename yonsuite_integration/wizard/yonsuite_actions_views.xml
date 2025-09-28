@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- YonSuite Actions Form View -->
+        <record id="yonsuite_actions_view_form" model="ir.ui.view">
+            <field name="name">yonsuite.actions.view.form</field>
+            <field name="model">yonsuite.actions</field>
+            <field name="arch" type="xml">
+                <form string="YonSuite Actions">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1" />
+                            </h1>
+                        </div>
+
+                        <group>
+                            <field name="action_type" />
+                        </group>
+
+                        <div class="alert alert-info" role="alert">
+                            <strong>Note:</strong> Make sure to configure YonSuite API credentials in Configuration
+                            Settings before performing any actions. </div>
+
+                    </sheet>
+                    <footer>
+                        <button name="do_action" type="object" string="Execute Action" class="btn-primary"
+                            icon="fa-play" />
+                        <button string="Cancel" class="btn btn-secondary" special="cancel" data-hotkey="x" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- YonSuite Actions Action -->
+        <record id="yonsuite_actions_action" model="ir.actions.act_window">
+            <field name="name">YonSuite Actions</field>
+            <field name="res_model">yonsuite.actions</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">{}</field>
+        </record>
+
+
+    </data>
+</odoo>

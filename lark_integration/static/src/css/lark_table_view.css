@@ -1,0 +1,16 @@
+.o_lark_virtual_table {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.o_lark_table_container {
+  overflow: auto;
+  height: 100%;
+}
+
+.o_lark_table {
+  width: max-content;
+  min-width: 100%;
+}
+

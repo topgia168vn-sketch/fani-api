@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+  <t t-name="lark_table_view_template">
+    <div class="o_lark_virtual_table">
+      <ControlPanel display="display"/>
+      <div class="o_lark_table_container">
+        <table class="table table-sm o_list_table table table-sm table-hover table-striped o_list_table_grouped o_lark_table">
+          <thead>
+            <tr>
+              <t t-foreach="state.fields" t-as="field" t-key="field">
+                <th><t t-esc="field"/></th>
+              </t>
+            </tr>
+          </thead>
+          <tbody>
+              <t t-if="state.rows">
+                  <t t-foreach="state.rows" t-as="row" t-key="row.record_id">
+                      <tr>
+                          <t t-foreach="state.fields" t-as="field" t-key="field">
+                              <td>
+                                  <t t-esc="row[field]"/>
+                              </td>
+                          </t>
+                      </tr>
+                  </t>
+              </t>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </t>
+</templates>

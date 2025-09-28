@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_totp_form">
+        <field name="name">Lark API</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form" />
+        <field name="arch" type="xml">
+            <page name="account_security" position="after">
+                <page name='lark' srting="Lark">
+                    <group string="Lark Information">
+                        <field name="lark_user_name" />
+                        <field name="lark_user_email" />
+                        <field name="lark_user_open_id" />
+                        <field name="lark_user_union_id" />
+                        <button type="object" name="connect_to_lark" string="Connect To Lark"
+                            icon="oi-arrow-right" class="btn-link" />
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_totp_form">
+        <field name="name">Lark API</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif" />
+        <field name="arch" type="xml">
+            <page name="page_account_security" position="after">
+                <page name='lark' srting="Lark">
+                    <group string="Lark Information">
+                        <field name="lark_user_name" />
+                        <field name="lark_user_email" />
+                        <field name="lark_user_open_id" />
+                        <field name="lark_user_union_id" />
+                        <button type="object" name="connect_to_lark" string="Connect To Lark"
+                            icon="oi-arrow-right" class="btn-link" />
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>

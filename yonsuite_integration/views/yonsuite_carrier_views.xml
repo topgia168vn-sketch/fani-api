@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- YonSuite Carrier List View -->
+        <record id="yonsuite_carrier_view_list" model="ir.ui.view">
+            <field name="name">yonsuite.carrier.view.list</field>
+            <field name="model">yonsuite.carrier</field>
+            <field name="arch" type="xml">
+                <list string="YonSuite Carriers" decoration-info="state=='draft'" decoration-success="state=='synced'" decoration-muted="state=='error'">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="contacts"/>
+                    <field name="contacts_phone"/>
+                    <field name="address"/>
+                    <field name="supplier_name"/>
+                    <field name="legal_person"/>
+                    <field name="benable"/>
+                    <field name="state"/>
+                    <field name="last_sync_date"/>
+                    <field name="create_date"/>
+                </list>
+            </field>
+        </record>
+        
+        <!-- YonSuite Carrier Form View -->
+        <record id="yonsuite_carrier_view_form" model="ir.ui.view">
+            <field name="name">yonsuite.carrier.view.form</field>
+            <field name="model">yonsuite.carrier</field>
+            <field name="arch" type="xml">
+                <form string="YonSuite Carrier">
+                    <header>
+                        <button name="action_export_to_yonsuite" type="object" string="Sync from YonSuite" class="btn-primary" 
+                                invisible="state in ['synced', 'error']" confirm="Are you sure you want to sync this carrier from YonSuite?"/>
+                        <button name="action_reset_to_draft" type="object" string="Reset to Draft" class="btn-secondary" 
+                                invisible="state != 'synced'"/>
+                        <field name="state" widget="statusbar" options="{'statusbar_visible': 'draft,synced'}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_export_to_yonsuite" type="object" class="oe_stat_button" icon="fa-download" 
+                                    invisible="state in ['synced', 'error']">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Sync from</span>
+                                    <span class="o_stat_text">YonSuite</span>
+                                </div>
+                            </button>
+                        </div>
+                        
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Enter carrier name..."/>
+                            </h1>
+                        </div>
+                        
+                        <group>
+                            <group string="Basic Information">
+                                <field name="yonsuite_id" readonly="1"/>
+                                <field name="code"/>
+                                <field name="benable"/>
+                            </group>
+                            <group string="Contact Information">
+                                <field name="contacts"/>
+                                <field name="contacts_phone"/>
+                                <field name="address"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Legal Information">
+                                <field name="legal_person"/>
+                                <field name="legal_person_identity"/>
+                                <field name="license"/>
+                            </group>
+                            <group string="Supplier">
+                                <field name="supplier_name" readonly="1"/>
+                            </group>
+                        </group>
+                        
+                        <notebook>
+                            <page string="Users &amp; Timestamps" name="users_timestamps">
+                                <group>
+                                    <group string="Users">
+                                        <field name="creator_name" readonly="1"/>
+                                        <field name="modifier_name" readonly="1"/>
+                                    </group>
+                                    <group string="Timestamps">
+                                        <field name="create_time" readonly="1"/>
+                                        <field name="modify_time" readonly="1"/>
+                                        <field name="pubts" readonly="1"/>
+                                        <field name="last_sync_date" readonly="1"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Sync Information">
+                                        <field name="create_date" readonly="1"/>
+                                        <field name="create_uid" readonly="1"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Detail Information" name="detail_info">
+                                <group>
+                                    <group string="Carrier Relations">
+                                        <field name="carrier_relation_list" readonly="1" nolabel="1" widget="text"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Driver List">
+                                        <field name="driver_list" readonly="1" nolabel="1" widget="text"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Vehicle List">
+                                        <field name="vehicle_list" readonly="1" nolabel="1" widget="text"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                        
+                        <group string="Sync Error" invisible="not sync_error_message">
+                            <field name="sync_error_message" readonly="1" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- YonSuite Carrier Search View -->
+        <record id="yonsuite_carrier_view_search" model="ir.ui.view">
+            <field name="name">yonsuite.carrier.view.search</field>
+            <field name="model">yonsuite.carrier</field>
+            <field name="arch" type="xml">
+                <search string="Search YonSuite Carriers">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="yonsuite_id"/>
+                    <field name="contacts"/>
+                    <field name="contacts_phone"/>
+                    <field name="address"/>
+                    <field name="supplier_name"/>
+                    <field name="legal_person"/>
+                    <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Synced" name="synced" domain="[('state', '=', 'synced')]"/>
+                    <filter string="Error" name="error" domain="[('state', '=', 'error')]"/>
+                    <filter string="Enabled" name="enabled" domain="[('benable', '=', '1')]"/>
+                    <filter string="Disabled" name="disabled" domain="[('benable', '!=', '1')]"/>
+                    <separator/>
+                    <filter string="My Carriers" name="my_carriers" domain="[('create_uid', '=', uid)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                        <filter string="Supplier" name="group_supplier" context="{'group_by': 'supplier_name'}"/>
+                        <filter string="Enable Status" name="group_benable" context="{'group_by': 'benable'}"/>
+                        <filter string="Created by" name="group_create_uid" context="{'group_by': 'create_uid'}"/>
+                        <filter string="Creation Date" name="group_create_date" context="{'group_by': 'create_date:day'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <!-- YonSuite Carrier Action -->
+        <record id="yonsuite_carrier_action" model="ir.actions.act_window">
+            <field name="name">YonSuite Carriers</field>
+            <field name="res_model">yonsuite.carrier</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="yonsuite_carrier_view_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first YonSuite Carrier!
+                </p>
+                <p>
+                    YonSuite Carriers allow you to manage and synchronize carrier data with YonSuite API.
+                </p>
+            </field>
+        </record>
+        
+        
+    </data>
+</odoo>

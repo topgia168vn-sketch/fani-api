@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- YonSuite Product list View -->
+        <record id="yonsuite_product_view_list" model="ir.ui.view">
+            <field name="name">yonsuite.product.view.list</field>
+            <field name="model">yonsuite.product</field>
+            <field name="arch" type="xml">
+                <list string="YonSuite Products" decoration-info="state=='draft'" decoration-success="state=='synced'"
+                    decoration-muted="state=='error'">
+                    <field name="name" />
+                    <field name="code" />
+                    <field name="unit_name" />
+                    <field name="yonsuite_management_class_id" />
+                    <field name="sale_product_class_name" />
+                    <field name="stop_status" />
+                    <field name="state" />
+                    <field name="yonsuite_id" />
+                    <field name="last_sync_date" />
+                    <field name="create_date" />
+                </list>
+            </field>
+        </record>
+
+        <!-- YonSuite Product Form View -->
+        <record id="yonsuite_product_view_form" model="ir.ui.view">
+            <field name="name">yonsuite.product.view.form</field>
+            <field name="model">yonsuite.product</field>
+            <field name="arch" type="xml">
+                <form string="YonSuite Product">
+                    <header>
+                        <button name="action_reset_to_draft" type="object" string="Reset to Draft" class="btn-secondary"
+                            invisible="state != 'synced'" />
+                        <field name="state" widget="statusbar" options="{'statusbar_visible': 'draft,synced'}" />
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_export_to_yonsuite" type="object" class="oe_stat_button" icon="fa-upload"
+                                invisible="state in ['synced', 'error']">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Sync to</span>
+                                    <span class="o_stat_text">YonSuite</span>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Enter product name..." />
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="code" />
+                                <field name="yonsuite_id" readonly="1" />
+                                <field name="trans_type" />
+                                <field name="yonsuite_getallorgdept_id" />
+                                <field name="create_org_id" />
+                            </group>
+                            <group>
+                                <field name="stop_status" />
+                                <field name="has_specs" />
+                                <field name="last_sync_date" readonly="1" />
+                                <field name="create_date" readonly="1" />
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Basic Information">
+                                <group>
+                                    <group>
+                                        <field name="name" />
+                                        <field name="code" />
+                                        <field name="trans_type" />
+                                        <field name="yonsuite_getallorgdept_id" />
+                                        <field name="create_org_id" />
+                                    </group>
+                                    <group>
+                                        <field name="stop_status" />
+                                        <field name="has_specs" />
+                                        <field name="url" />
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Unit Information">
+                                <group>
+                                    <group>
+                                        <field name="yonsuite_unit_id" readonly="state == 'synced'" />
+                                        <field name="unit_id" readonly="state == 'synced'" />
+                                        <field name="unit_code" readonly="state == 'synced'" />
+                                        <field name="unit_name" readonly="state == 'synced'" />
+                                        <field name="unit_use_type" readonly="state == 'synced'" />
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Classification">
+                                <group>
+                                    <group string="Management Class">
+                                        <field name="yonsuite_management_class_id" readonly="state == 'synced'" />
+                                        <field name="manage_class" readonly="state == 'synced'" />
+                                        <field name="manage_class_code" readonly="state == 'synced'" />
+                                        <field name="manage_class_name" readonly="state == 'synced'" />
+                                    </group>
+                                    <group string="Sale Product Class">
+                                        <field name="yonsuite_sale_class_id" readonly="state == 'synced'" />
+                                        <field name="sale_product_class" readonly="state == 'synced'" />
+                                        <field name="sale_product_class_code" readonly="state == 'synced'" />
+                                        <field name="sale_product_class_name" readonly="state == 'synced'" />
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Purchase Class">
+                                        <field name="yonsuite_purchase_class_id" readonly="state == 'synced'" />
+                                        <field name="purchase_class" readonly="state == 'synced'" />
+                                        <field name="purchase_class_code" readonly="state == 'synced'" />
+                                        <field name="purchase_class_name" readonly="state == 'synced'" />
+                                    </group>
+                                    <group string="Product Template">
+                                        <field name="product_template" readonly="state == 'synced'" />
+                                        <field name="product_template_name" readonly="state == 'synced'" />
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Product Attributes">
+                                <group>
+                                    <group>
+                                        <field name="product_family" />
+                                        <field name="sales_and_operations" />
+                                        <field name="med_is_registration_manager" />
+                                        <field name="med_is_authorization_manager" />
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="real_product_attribute" widget="text" />
+                                </group>
+                                <group>
+                                    <field name="real_product_attribute_type" widget="text" />
+                                </group>
+                                <group>
+                                    <field name="virtual_product_attribute" widget="text" />
+                                </group>
+                            </page>
+
+                            <page string="Product Character Definition">
+                                <group>
+                                    <field name="product_character_def_id" />
+                                </group>
+                            </page>
+
+                            <page string="Additional Information">
+                                <group>
+                                    <group string="Platform &amp; Brand">
+                                        <field name="platform_code" readonly="state == 'synced'" />
+                                        <field name="product_line" readonly="state == 'synced'" />
+                                        <field name="product_line_code" readonly="state == 'synced'" />
+                                        <field name="product_line_name" readonly="state == 'synced'" />
+                                        <field name="brand" readonly="state == 'synced'" />
+                                        <field name="brand_code" readonly="state == 'synced'" />
+                                        <field name="brand_name" readonly="state == 'synced'" />
+                                        <field name="place_of_origin" readonly="state == 'synced'" />
+                                        <field name="manufacturer" readonly="state == 'synced'" />
+                                        <field name="platform_status" readonly="state == 'synced'" />
+                                        <field name="platform_remark" readonly="state == 'synced'" widget="text" />
+                                    </group>
+                                    <group string="Gift &amp; Coupon">
+                                        <field name="gift_card_id" readonly="state == 'synced'" />
+                                        <field name="gift_card_name" readonly="state == 'synced'" />
+                                        <field name="coupon_id" readonly="state == 'synced'" />
+                                        <field name="coupon_type" readonly="state == 'synced'" />
+                                        <field name="coupon_name" readonly="state == 'synced'" />
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Weight &amp; Volume">
+                                        <field name="weight" readonly="state == 'synced'" />
+                                        <field name="weight_unit" readonly="state == 'synced'" />
+                                        <field name="weight_unit_name" readonly="state == 'synced'" />
+                                        <field name="volume" readonly="state == 'synced'" />
+                                        <field name="volume_unit" readonly="state == 'synced'" />
+                                        <field name="volume_unit_name" readonly="state == 'synced'" />
+                                    </group>
+                                    <group string="Tax &amp; Creator">
+                                        <field name="tax_class" readonly="state == 'synced'" />
+                                        <field name="tax_class_code" readonly="state == 'synced'" />
+                                        <field name="tax_class_name" readonly="state == 'synced'" />
+                                        <field name="creator" readonly="state == 'synced'" />
+                                        <field name="create_date" readonly="state == 'synced'" />
+                                        <field name="create_time" readonly="state == 'synced'" />
+                                        <field name="modifier" readonly="state == 'synced'" />
+                                        <field name="modify_time" readonly="state == 'synced'" />
+                                        <field name="modify_date" readonly="state == 'synced'" />
+                                        <field name="customer_service_day" readonly="state == 'synced'" />
+                                        <field name="dimension_code" readonly="state == 'synced'" />
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Product Details">
+                                <group>
+                                    <group string="Basic Details">
+                                        <field name="exemption" readonly="state == 'synced'" />
+                                        <field name="warehousing_by_result" readonly="state == 'synced'" />
+                                        <field name="sales_returns_exemption" readonly="state == 'synced'" />
+                                        <field name="returns_warehousing_by_result" readonly="state == 'synced'" />
+                                        <field name="periodical_inspection" readonly="state == 'synced'" />
+                                        <field name="periodical_inspection_cycle" readonly="state == 'synced'" />
+                                        <field name="short_name" readonly="state == 'synced'" />
+                                        <field name="mnemonic_code" readonly="state == 'synced'" />
+                                        <field name="bar_code" readonly="state == 'synced'" />
+                                        <field name="business_attribute" readonly="state == 'synced'" />
+                                        <field name="sale_channel" readonly="state == 'synced'" />
+                                        <field name="product_apply_range_id" readonly="state == 'synced'" />
+                                    </group>
+                                    <group string="Unit Names">
+                                        <field name="purchase_unit_name" readonly="state == 'synced'" />
+                                        <field name="purchase_price_unit_name" readonly="state == 'synced'" />
+                                        <field name="stock_unit_name" readonly="state == 'synced'" />
+                                        <field name="produce_unit_name" readonly="state == 'synced'" />
+                                        <field name="batch_price_unit_name" readonly="state == 'synced'" />
+                                        <field name="batch_unit_name" readonly="state == 'synced'" />
+                                        <field name="online_unit_name" readonly="state == 'synced'" />
+                                        <field name="offline_unit_name" readonly="state == 'synced'" />
+                                        <field name="require_unit_name" readonly="state == 'synced'" />
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Pricing">
+                                        <field name="batch_price" readonly="state == 'synced'" />
+                                        <field name="f_mark_price" readonly="state == 'synced'" />
+                                        <field name="f_lowest_mark_price" readonly="state == 'synced'" />
+                                        <field name="f_sale_price" readonly="state == 'synced'" />
+                                        <field name="f_market_price" readonly="state == 'synced'" />
+                                        <field name="is_display_price" readonly="state == 'synced'" />
+                                        <field name="price_area_message" readonly="state == 'synced'" />
+                                    </group>
+                                    <group string="Tax Rates">
+                                        <field name="in_taxrate" readonly="state == 'synced'" />
+                                        <field name="in_taxrate_name" readonly="state == 'synced'" />
+                                        <field name="out_taxrate" readonly="state == 'synced'" />
+                                        <field name="out_taxrate_name" readonly="state == 'synced'" />
+                                        <field name="preferential_policy_type" readonly="state == 'synced'" />
+                                        <field name="preferential_policy_type_name" readonly="state == 'synced'" />
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Status &amp; Order">
+                                        <field name="i_order" readonly="state == 'synced'" />
+                                        <field name="i_status" readonly="state == 'synced'" />
+                                        <field name="mall_up_time" readonly="state == 'synced'" />
+                                        <field name="i_u_order_status" readonly="state == 'synced'" />
+                                        <field name="uorder_up_time" readonly="state == 'synced'" />
+                                    </group>
+                                    <group string="Vendor &amp; Buyer">
+                                        <field name="product_vendor" readonly="state == 'synced'" />
+                                        <field name="product_vendor_name" readonly="state == 'synced'" />
+                                        <field name="product_buyer" readonly="state == 'synced'" />
+                                        <field name="product_buyer_name" readonly="state == 'synced'" />
+                                        <field name="f_prime_costs" readonly="state == 'synced'" />
+                                        <field name="max_prime_costs" readonly="state == 'synced'" />
+                                        <field name="request_order_limit" readonly="state == 'synced'" />
+                                        <field name="can_sale" readonly="state == 'synced'" />
+                                        <field name="i_min_order_quantity" readonly="state == 'synced'" />
+                                        <field name="delivery_days" readonly="state == 'synced'" />
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Inventory Management">
+                                <group>
+                                    <group string="Batch &amp; Expiry">
+                                        <field name="is_batch_manage" readonly="state == 'synced'" />
+                                        <field name="is_expiry_date_manage" readonly="state == 'synced'" />
+                                        <field name="expire_date_no" readonly="state == 'synced'" />
+                                        <field name="expire_date_unit" readonly="state == 'synced'" />
+                                        <field name="days_before_validity_reject" readonly="state == 'synced'" />
+                                        <field name="validity_warning_days" readonly="state == 'synced'" />
+                                        <field name="is_serial_no_manage" readonly="state == 'synced'" />
+                                        <field name="is_barcode_manage" readonly="state == 'synced'" />
+                                    </group>
+                                    <group string="Stock Levels">
+                                        <field name="safety_stock" readonly="state == 'synced'" />
+                                        <field name="highest_stock" readonly="state == 'synced'" />
+                                        <field name="lowest_stock" readonly="state == 'synced'" />
+                                        <field name="rop_stock" readonly="state == 'synced'" />
+                                        <field name="warehouse_manager" readonly="state == 'synced'" />
+                                        <field name="warehouse_manager_name" readonly="state == 'synced'" />
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Warehouses">
+                                        <field name="delivery_warehouse" readonly="state == 'synced'" />
+                                        <field name="delivery_warehouse_name" readonly="state == 'synced'" />
+                                        <field name="return_warehouse" readonly="state == 'synced'" />
+                                        <field name="return_warehouse_name" readonly="state == 'synced'" />
+                                        <field name="in_store_excess_limit" readonly="state == 'synced'" />
+                                        <field name="out_store_excess_limit" readonly="state == 'synced'" />
+                                        <field name="storage_loss_rate" readonly="state == 'synced'" />
+                                    </group>
+                                    <group string="Planning">
+                                        <field name="plan_default_attribute" readonly="state == 'synced'" />
+                                        <field name="allow_negative_inventory" readonly="state == 'synced'" />
+                                        <field name="plan_method" readonly="state == 'synced'" />
+                                        <field name="plan_strategy" readonly="state == 'synced'" />
+                                        <field name="plan_strategy_name" readonly="state == 'synced'" />
+                                        <field name="key_sub_part" readonly="state == 'synced'" />
+                                        <field name="bind_carrier" readonly="state == 'synced'" />
+                                        <field name="purpose" readonly="state == 'synced'" />
+                                        <field name="utility" readonly="state == 'synced'" />
+                                        <field name="supply_demand_policy" readonly="state == 'synced'" />
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Production &amp; Cost">
+                                <group>
+                                    <group string="Production">
+                                        <field name="fixed_lead_time" readonly="state == 'synced'" />
+                                        <field name="batch_policy" readonly="state == 'synced'" />
+                                        <field name="supply_type" readonly="state == 'synced'" />
+                                        <field name="produce_department" readonly="state == 'synced'" />
+                                        <field name="produce_department_name" readonly="state == 'synced'" />
+                                        <field name="manufacture_planner" readonly="state == 'synced'" />
+                                        <field name="manufacture_planner_name" readonly="state == 'synced'" />
+                                        <field name="engineering_drawing_no" readonly="state == 'synced'" />
+                                        <field name="supply_times" readonly="state == 'synced'" />
+                                        <field name="plan_produce_limit" readonly="state == 'synced'" />
+                                        <field name="weigh" readonly="state == 'synced'" />
+                                    </group>
+                                    <group string="Cost Management">
+                                        <field name="value_manage_type" readonly="state == 'synced'" />
+                                        <field name="cost_valuation" readonly="state == 'synced'" />
+                                        <field name="check_by_cost" readonly="state == 'synced'" />
+                                        <field name="f_no_tax_cost_price" readonly="state == 'synced'" />
+                                        <field name="check_by_batch" readonly="state == 'synced'" />
+                                        <field name="accounting_by_item" readonly="state == 'synced'" />
+                                        <field name="material_cost" readonly="state == 'synced'" />
+                                        <field name="is_check_free" readonly="state == 'synced'" />
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Sales &amp; Marketing">
+                                <group>
+                                    <group string="Sales">
+                                        <field name="sale_style" readonly="state == 'synced'" />
+                                        <field name="sale_points" readonly="state == 'synced'" />
+                                        <field name="l_inventory_count" readonly="state == 'synced'" />
+                                        <field name="i_base_sale_count" readonly="state == 'synced'" />
+                                        <field name="dly_fee_rule_id" readonly="state == 'synced'" />
+                                        <field name="dly_fee_rule_id_name" readonly="state == 'synced'" />
+                                    </group>
+                                    <group string="Marketing">
+                                        <field name="enable_subscribe" readonly="state == 'synced'" />
+                                        <field name="enable_deposit" readonly="state == 'synced'" />
+                                        <field name="deposit_deal_pay_type" readonly="state == 'synced'" />
+                                        <field name="deposits" readonly="state == 'synced'" />
+                                        <field name="deposit_percentage" readonly="state == 'synced'" />
+                                        <field name="enable_modify_deposit" readonly="state == 'synced'" />
+                                        <field name="minimum_deposits" readonly="state == 'synced'" />
+                                        <field name="deposit_pay_type" readonly="state == 'synced'" />
+                                        <field name="service_duration" readonly="state == 'synced'" />
+                                        <field name="service_duration_unit" readonly="state == 'synced'" />
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Order Management">
+                                        <field name="can_order" readonly="state == 'synced'" />
+                                        <field name="only_order" readonly="state == 'synced'" />
+                                        <field name="order_advance_time" readonly="state == 'synced'" />
+                                        <field name="i_enable_cycle_purchase" readonly="state == 'synced'" />
+                                        <field name="f_settle_accounts_rate" readonly="state == 'synced'" />
+                                        <field name="is_all_area" readonly="state == 'synced'" />
+                                        <field name="i_enable_econtract" readonly="state == 'synced'" />
+                                        <field name="page_title" readonly="state == 'synced'" />
+                                        <field name="is_recommend" readonly="state == 'synced'" />
+                                    </group>
+                                    <group string="Store Settings">
+                                        <field name="allow_store_purchase" readonly="state == 'synced'" />
+                                        <field name="is_sale_in_offline_store" readonly="state == 'synced'" />
+                                        <field name="is_price_change_allowed" readonly="state == 'synced'" />
+                                        <field name="is_offline_store_order" readonly="state == 'synced'" />
+                                        <field name="is_offline_store_return" readonly="state == 'synced'" />
+                                        <field name="retail_price_dimension" readonly="state == 'synced'" />
+                                        <field name="deliver_quantity_change" readonly="state == 'synced'" />
+                                        <field name="is_process" readonly="state == 'synced'" />
+                                        <field name="process_type" readonly="state == 'synced'" />
+                                        <field name="is_material" readonly="state == 'synced'" />
+                                        <field name="is_weight" readonly="state == 'synced'" />
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="Multilingual Names">
+                                <group>
+                                    <group string="Receipt Names">
+                                        <field name="receipt_name_zh_cn" readonly="state == 'synced'" />
+                                        <field name="receipt_name_en_us" readonly="state == 'synced'" />
+                                        <field name="receipt_name_zh_tw" readonly="state == 'synced'" />
+                                    </group>
+                                    <group string="Meta Descriptions">
+                                        <field name="meta_description_zh_cn" readonly="state == 'synced'" widget="text" />
+                                        <field name="meta_description_en_us" readonly="state == 'synced'" widget="text" />
+                                        <field name="meta_description_zh_tw" readonly="state == 'synced'" widget="text" />
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Display Names">
+                                        <field name="display_name_zh_cn" readonly="state == 'synced'" />
+                                        <field name="display_name_en_us" readonly="state == 'synced'" />
+                                        <field name="display_name_zh_tw" readonly="state == 'synced'" />
+                                    </group>
+                                    <group string="Title Memos">
+                                        <field name="title_memo_zh_cn" readonly="state == 'synced'" widget="text" />
+                                        <field name="title_memo_en_us" readonly="state == 'synced'" widget="text" />
+                                        <field name="title_memo_zh_tw" readonly="state == 'synced'" widget="text" />
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+
+                        <group string="Sync Information" invisible="not sync_error_message">
+                            <field name="sync_error_message" readonly="1" nolabel="1" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- YonSuite Product Search View -->
+        <record id="yonsuite_product_view_search" model="ir.ui.view">
+            <field name="name">yonsuite.product.view.search</field>
+            <field name="model">yonsuite.product</field>
+            <field name="arch" type="xml">
+                <search string="Search YonSuite Products">
+                    <field name="name" />
+                    <field name="code" />
+                    <field name="yonsuite_id" />
+                    <field name="unit_name" />
+                    <field name="yonsuite_management_class_id" />
+                    <field name="manage_class_name" />
+                    <field name="yonsuite_sale_class_id" />
+                    <field name="sale_product_class_name" />
+                    <field name="yonsuite_purchase_class_id" />
+                    <field name="purchase_class_name" />
+                    <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]" />
+                    <filter string="Synced" name="synced" domain="[('state', '=', 'synced')]" />
+                    <filter string="Error" name="error" domain="[('state', '=', 'error')]" />
+                    <separator />
+                    <filter string="Active Products" name="active" domain="[('stop_status', '=', False)]" />
+                    <filter string="Stopped Products" name="stopped" domain="[('stop_status', '=', True)]" />
+                    <filter string="Has Specifications" name="has_specs" domain="[('has_specs', '=', True)]" />
+                    <separator />
+                    <filter string="My Products" name="my_products" domain="[('create_uid', '=', uid)]" />
+                    <group expand="0" string="Group By">
+                        <filter string="Status" name="group_state" context="{'group_by': 'state'}" />
+                        <filter string="Unit Name" name="group_unit_name" context="{'group_by': 'unit_name'}" />
+                        <filter string="Management Class" name="group_manage_class"
+                            context="{'group_by': 'yonsuite_management_class_id'}" />
+                        <filter string="Sale Product Class" name="group_sale_class"
+                            context="{'group_by': 'sale_product_class_name'}" />
+                        <filter string="Created by" name="group_create_uid" context="{'group_by': 'create_uid'}" />
+                        <filter string="Creation Date" name="group_create_date"
+                            context="{'group_by': 'create_date:day'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- YonSuite Product Action -->
+        <record id="yonsuite_product_action" model="ir.actions.act_window">
+            <field name="name">YonSuite Products</field>
+            <field name="res_model">yonsuite.product</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="yonsuite_product_view_search" />
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first YonSuite Product!
+                </p>
+                <p>
+                    YonSuite Products allow you to manage and synchronize products with YonSuite API.
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

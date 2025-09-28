@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Admin (Settings) full access rules -->
+    <record id="rule_lark_file_admin_all" model="ir.rule">
+        <field name="name">Lark File - Admin All</field>
+        <field name="model_id" ref="lark_integration.model_lark_file"/>
+        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        
+    </record>
+
+    <record id="rule_lark_file_bitable_table_admin_all" model="ir.rule">
+        <field name="name">Lark Table - Admin All</field>
+        <field name="model_id" ref="lark_integration.model_lark_file_bitable_table"/>
+        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        
+    </record>
+
+    <record id="rule_lark_file_bitable_table_view_admin_all" model="ir.rule">
+        <field name="name">Lark Table View - Admin All</field>
+        <field name="model_id" ref="lark_integration.model_lark_file_bitable_table_view"/>
+        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        
+    </record>
+
+    <record id="rule_lark_file_bitable_table_field_admin_all" model="ir.rule">
+        <field name="name">Lark Table Field - Admin All</field>
+        <field name="model_id" ref="lark_integration.model_lark_file_bitable_table_field"/>
+        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        
+    </record>
+
+    <record id="rule_lark_file_bitable_table_field_option_admin_all" model="ir.rule">
+        <field name="name">Lark Table Field Option - Admin All</field>
+        <field name="model_id" ref="lark_integration.model_lark_file_bitable_table_field_option"/>
+        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        
+    </record>
+
+    <record id="rule_lark_app_table_record_admin_all" model="ir.rule">
+        <field name="name">Lark App Table Record - Admin All</field>
+        <field name="model_id" ref="lark_integration.model_lark_app_table_record"/>
+        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        
+    </record>
+
+    <!-- Owner read-only rules for internal users -->
+    <record id="rule_lark_file_owner_read" model="ir.rule">
+        <field name="name">Lark File - Owner Read</field>
+        <field name="model_id" ref="lark_integration.model_lark_file"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[("user_id", "=", user.id)]</field>
+        
+    </record>
+
+    <record id="rule_lark_file_bitable_table_owner_read" model="ir.rule">
+        <field name="name">Lark Table - Owner Read</field>
+        <field name="model_id" ref="lark_integration.model_lark_file_bitable_table"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[("user_id", "=", user.id)]</field>
+        
+    </record>
+
+    <record id="rule_lark_file_bitable_table_view_owner_read" model="ir.rule">
+        <field name="name">Lark Table View - Owner Read</field>
+        <field name="model_id" ref="lark_integration.model_lark_file_bitable_table_view"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[("lark_table_id.user_id", "=", user.id)]</field>
+        
+    </record>
+
+    <record id="rule_lark_file_bitable_table_field_owner_read" model="ir.rule">
+        <field name="name">Lark Table Field - Owner Read</field>
+        <field name="model_id" ref="lark_integration.model_lark_file_bitable_table_field"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[("lark_table_id.user_id", "=", user.id)]</field>
+        
+    </record>
+
+    <record id="rule_lark_file_bitable_table_field_option_owner_read" model="ir.rule">
+        <field name="name">Lark Table Field Option - Owner Read</field>
+        <field name="model_id" ref="lark_integration.model_lark_file_bitable_table_field_option"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[("field_id.lark_table_id.user_id", "=", user.id)]</field>
+    </record>
+
+    <record id="rule_lark_app_table_record_owner_read" model="ir.rule">
+        <field name="name">Lark App Table Record - Owner Read</field>
+        <field name="model_id" ref="lark_integration.model_lark_app_table_record"/>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="domain_force">[("lark_table_id.user_id", "=", user.id)]</field>
+        
+    </record>
+
+</odoo>

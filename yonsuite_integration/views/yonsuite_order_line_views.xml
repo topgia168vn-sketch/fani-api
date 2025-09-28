@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- YonSuite Order Line list View -->
+        <record id="yonsuite_order_line_view_list" model="ir.ui.view">
+            <field name="name">yonsuite.order.line.view.list</field>
+            <field name="model">yonsuite.order.line</field>
+            <field name="arch" type="xml">
+                <list string="YonSuite Order Lines">
+                    <field name="order_id"/>
+                    <field name="yonsuite_id"/>
+                    <field name="childs_product_id_name"/>
+                    <field name="childs_sku_id_name"/>
+                    <field name="childs_product_class_name"/>
+                    <field name="childs_project_id_name"/>
+                    <field name="childs_qty"/>
+                    <field name="childs_ori_unit_price"/>
+                    <field name="childs_ori_money"/>
+                    <field name="childs_discount_rate"/>
+                    <field name="childs_tax_rate"/>
+                    <field name="childs_master_unit_id_name"/>
+                    <field name="childs_sale_unit_id_name"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- YonSuite Order Line Form View -->
+        <record id="yonsuite_order_line_view_form" model="ir.ui.view">
+            <field name="name">yonsuite.order.line.view.form</field>
+            <field name="model">yonsuite.order.line</field>
+            <field name="arch" type="xml">
+                <form string="YonSuite Order Line">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="childs_product_id_name" placeholder="Product Name"/>
+                            </h1>
+                        </div>
+                        
+                        <group>
+                            <group name="basic_info">
+                                <field name="order_id"/>
+                                <field name="yonsuite_id"/>
+                                <field name="product_id"/>
+                            </group>
+                        </group>
+                        
+                        <notebook>
+                            <page string="Product Information" name="product">
+                                <group>
+                                    <group name="product_details">
+                                        <field name="childs_product_id"/>
+                                        <field name="childs_product_id_code"/>
+                                        <field name="childs_product_id_name"/>
+                                        <field name="childs_product_id_model"/>
+                                        <field name="childs_product_id_model_description"/>
+                                    </group>
+                                    <group name="sku_details">
+                                        <field name="childs_sku_id"/>
+                                        <field name="childs_sku_id_code"/>
+                                        <field name="childs_sku_id_name"/>
+                                        <field name="childs_sku_id_model"/>
+                                        <field name="childs_sku_id_model_description"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group name="product_class">
+                                        <field name="childs_product_class"/>
+                                        <field name="childs_product_class_code"/>
+                                        <field name="childs_product_class_name"/>
+                                    </group>
+                                    <group name="project_info">
+                                        <field name="childs_project_id"/>
+                                        <field name="childs_project_id_code"/>
+                                        <field name="childs_project_id_name"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Units and Quantities" name="units">
+                                <group>
+                                    <group name="master_unit">
+                                        <field name="childs_master_unit_id"/>
+                                        <field name="childs_master_unit_id_name"/>
+                                        <field name="childs_master_unit_id_precision"/>
+                                    </group>
+                                    <group name="sale_unit">
+                                        <field name="childs_sale_unit_id"/>
+                                        <field name="childs_sale_unit_id_name"/>
+                                        <field name="childs_sale_unit_id_precision"/>
+                                    </group>
+                                    <group name="cqt_unit">
+                                        <field name="childs_cqt_unit_id"/>
+                                        <field name="childs_cqt_unit_id_name"/>
+                                        <field name="childs_cqt_unit_id_precision"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group name="quantities">
+                                        <field name="childs_qty"/>
+                                        <field name="childs_sub_qty"/>
+                                        <field name="childs_price_qty"/>
+                                        <field name="childs_total_push_sact_qty"/>
+                                        <field name="childs_total_push_sale_qty"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Prices" name="prices">
+                                <group>
+                                    <group name="unit_prices">
+                                        <field name="childs_ori_unit_price"/>
+                                        <field name="childs_ori_tax_unit_price"/>
+                                        <field name="childs_nat_unit_price"/>
+                                        <field name="childs_nat_tax_unit_price"/>
+                                        <field name="childs_quote_sale_price"/>
+                                        <field name="childs_lowest_selline_price"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Money Amounts" name="money">
+                                <group>
+                                    <group name="original_money">
+                                        <field name="childs_ori_money"/>
+                                        <field name="childs_ori_sum"/>
+                                    </group>
+                                    <group name="national_money">
+                                        <field name="childs_nat_money"/>
+                                        <field name="childs_nat_sum"/>
+                                    </group>
+                                    <group name="quotation_money">
+                                        <field name="childs_quotation_exclusive_tax_money"/>
+                                        <field name="childs_basic_quotation_money"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Discount and Tax" name="discount_tax">
+                                <group>
+                                    <group name="discount">
+                                        <field name="childs_discount_rate"/>
+                                        <field name="childs_discount_sum"/>
+                                        <field name="childs_discount_nat_sum"/>
+                                        <field name="childs_favorable_rate"/>
+                                        <field name="childs_cus_favorable_rate"/>
+                                    </group>
+                                    <group name="tax">
+                                        <field name="childs_tax_rate"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Cost and Settlement" name="cost_settlement">
+                                <group>
+                                    <group name="cost">
+                                        <field name="childs_quote_sale_cost"/>
+                                        <field name="childs_forecast_cb_price"/>
+                                        <field name="childs_forecast_cb_price_sum"/>
+                                        <field name="childs_cost_currency"/>
+                                        <field name="childs_cost_currency_name"/>
+                                    </group>
+                                    <group name="settlement">
+                                        <field name="childs_settlement_org_id"/>
+                                        <field name="childs_settlement_org_id_name"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Quotation Details" name="quotation">
+                                <group>
+                                    <group name="quotation_info">
+                                        <field name="childs_price_mark"/>
+                                        <field name="childs_basic_quotation"/>
+                                        <field name="childs_quotation_deduction_rate"/>
+                                        <field name="childs_quotation_deduction"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- YonSuite Order Line Search View -->
+        <record id="yonsuite_order_line_view_search" model="ir.ui.view">
+            <field name="name">yonsuite.order.line.view.search</field>
+            <field name="model">yonsuite.order.line</field>
+            <field name="arch" type="xml">
+                <search string="Search YonSuite Order Lines">
+                    <field name="order_id"/>
+                    <field name="yonsuite_id"/>
+                    <field name="childs_product_id_name"/>
+                    <field name="childs_sku_id_name"/>
+                    <field name="childs_product_class_name"/>
+                    <field name="childs_project_id_name"/>
+                    
+                    <group expand="0" string="Group By">
+                        <filter string="Order" name="group_order" context="{'group_by': 'order_id'}"/>
+                        <filter string="Product" name="group_product" context="{'group_by': 'childs_product_id_name'}"/>
+                        <filter string="SKU" name="group_sku" context="{'group_by': 'childs_sku_id_name'}"/>
+                        <filter string="Product Class" name="group_product_class" context="{'group_by': 'childs_product_class_name'}"/>
+                        <filter string="Project" name="group_project" context="{'group_by': 'childs_project_id_name'}"/>
+                        <filter string="Master Unit" name="group_master_unit" context="{'group_by': 'childs_master_unit_id_name'}"/>
+                        <filter string="Sale Unit" name="group_sale_unit" context="{'group_by': 'childs_sale_unit_id_name'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- YonSuite Order Line Action -->
+        <record id="yonsuite_order_line_action" model="ir.actions.act_window">
+            <field name="name">YonSuite Order Lines</field>
+            <field name="res_model">yonsuite.order.line</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No YonSuite Order Lines found!
+                </p>
+                <p>
+                    Order lines are automatically created when orders are synchronized from YonSuite API.
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

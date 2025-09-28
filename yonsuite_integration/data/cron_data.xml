@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Cron job to refresh YonSuite access token -->
+        <record id="ir_cron_yonsuite_refresh_token" model="ir.cron">
+            <field name="name">YonSuite: Refresh Access Token</field>
+            <field name="model_id" ref="model_res_config_settings" />
+            <field name="state">code</field>
+            <field name="code">model.get_access_token_if_needed()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+
+        <!-- Cron job to sync YonSuite partners with pagination -->
+        <record id="ir_cron_yonsuite_sync_partners" model="ir.cron">
+            <field name="name">YonSuite: Sync Partners with Pagination</field>
+            <field name="model_id" ref="model_yonsuite_partner" />
+            <field name="state">code</field>
+            <field name="code">model.action_import_partners_pagination()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+
+        <!-- Cron job to sync YonSuite products with pagination -->
+        <record id="ir_cron_yonsuite_sync_products" model="ir.cron">
+            <field name="name">YonSuite: Sync Products with Pagination</field>
+            <field name="model_id" ref="model_yonsuite_product" />
+            <field name="state">code</field>
+            <field name="code">model.action_import_products_pagination()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+
+        <!-- Cron job to sync YonSuite orders with pagination -->
+        <record id="ir_cron_yonsuite_sync_orders" model="ir.cron">
+            <field name="name">YonSuite: Sync Orders with Pagination</field>
+            <field name="model_id" ref="model_yonsuite_order" />
+            <field name="state">code</field>
+            <field name="code">model.action_import_orders_pagination()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+        <!-- Cron job to sync YonSuite Vendors with pagination -->
+        <record id="ir_cron_yonsuite_sync_vendors" model="ir.cron">
+            <field name="name">YonSuite: Sync Vendors with Pagination</field>
+            <field name="model_id" ref="model_yonsuite_vendor" />
+            <field name="state">code</field>
+            <field name="code">model.action_import_vendors_pagination()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+
+        <!-- Cron job to sync YonSuite Brands with pagination -->
+        <record id="ir_cron_yonsuite_sync_brands" model="ir.cron">
+            <field name="name">YonSuite: Sync Brands with Pagination</field>
+            <field name="model_id" ref="model_yonsuite_brand" />
+            <field name="state">code</field>
+            <field name="code">model.action_import_brands_pagination()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+
+        <!-- Cron job to sync YonSuite Units with pagination -->
+        <record id="ir_cron_yonsuite_sync_units" model="ir.cron">
+            <field name="name">YonSuite: Sync Units with Pagination</field>
+            <field name="model_id" ref="model_yonsuite_unit" />
+            <field name="state">code</field>
+            <field name="code">model.action_import_units_pagination()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+
+        <!-- Cron job to sync YonSuite Warehouses with pagination -->
+        <record id="ir_cron_yonsuite_sync_warehouses" model="ir.cron">
+            <field name="name">YonSuite: Sync Warehouses with Pagination</field>
+            <field name="model_id" ref="model_yonsuite_warehouse" />
+            <field name="state">code</field>
+            <field name="code">model.action_import_warehouses_pagination()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+
+        <!-- Cron job to sync YonSuite Carriers with pagination -->
+        <record id="ir_cron_yonsuite_sync_carriers" model="ir.cron">
+            <field name="name">YonSuite: Sync Carriers with Pagination</field>
+            <field name="model_id" ref="model_yonsuite_carrier" />
+            <field name="state">code</field>
+            <field name="code">model.action_import_carriers_pagination()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="False" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+
+        <!-- Cron job to sync YonSuite Staff with pagination -->
+        <record id="ir_cron_yonsuite_sync_staff" model="ir.cron">
+            <field name="name">YonSuite: Sync Staff with Pagination</field>
+            <field name="model_id" ref="model_yonsuite_staff" />
+            <field name="state">code</field>
+            <field name="code">model.action_import_staff_pagination()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+
+        <!-- Cron job to sync YonSuite Countries with pagination -->
+        <record id="ir_cron_yonsuite_sync_countries" model="ir.cron">
+            <field name="name">YonSuite: Sync Countries with Pagination</field>
+            <field name="model_id" ref="model_yonsuite_country" />
+            <field name="state">code</field>
+            <field name="code">model.action_import_countries_pagination()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+
+        <!-- Cron job to sync YonSuite Currencies with pagination -->
+        <record id="ir_cron_yonsuite_sync_currencies" model="ir.cron">
+            <field name="name">YonSuite: Sync Currencies with Pagination</field>
+            <field name="model_id" ref="model_yonsuite_currency" />
+            <field name="state">code</field>
+            <field name="code">model.action_import_currencies_pagination()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+
+        <!-- Cron job to sync YonSuite Admin Departments -->
+        <record id="ir_cron_yonsuite_sync_admindepts" model="ir.cron">
+            <field name="name">YonSuite: Sync Admin Departments</field>
+            <field name="model_id" ref="model_yonsuite_admindept" />
+            <field name="state">code</field>
+            <field name="code">model.action_import_admindepts_pagination()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+
+        <!-- Cron job to sync YonSuite Organization Units -->
+        <record id="ir_cron_yonsuite_sync_orgunits" model="ir.cron">
+            <field name="name">YonSuite: Sync Organization Units</field>
+            <field name="model_id" ref="model_yonsuite_orgunit" />
+            <field name="state">code</field>
+            <field name="code">model.action_import_orgunits_pagination()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+
+        <!-- Cron job to sync YonSuite All Org/Dept -->
+        <record id="ir_cron_yonsuite_sync_getallorgdept" model="ir.cron">
+            <field name="name">YonSuite: Sync All Org/Dept</field>
+            <field name="model_id" ref="model_yonsuite_getallorgdept" />
+            <field name="state">code</field>
+            <field name="code">model.action_import_getallorgdept_pagination()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+
+        <!-- Cron job to sync YonSuite Sale Areas -->
+        <record id="ir_cron_yonsuite_sync_saleareas" model="ir.cron">
+            <field name="name">YonSuite: Sync Sale Areas</field>
+            <field name="model_id" ref="model_yonsuite_salearea" />
+            <field name="state">code</field>
+            <field name="code">model.action_import_saleareas_pagination()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active" eval="True" />
+            <field name="user_id" ref="base.user_root" />
+        </record>
+
+    </data>
+</odoo>

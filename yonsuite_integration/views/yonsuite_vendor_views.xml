@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- YonSuite Vendor List View -->
+        <record id="yonsuite_vendor_view_list" model="ir.ui.view">
+            <field name="name">yonsuite.vendor.view.list</field>
+            <field name="model">yonsuite.vendor</field>
+            <field name="arch" type="xml">
+                <list string="YonSuite Vendors" decoration-info="state=='draft'" decoration-success="state=='synced'" decoration-muted="state=='error'">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="org_name"/>
+                    <field name="vendorclass_name"/>
+                    <field name="contactphone"/>
+                    <field name="stop"/>
+                    <field name="state"/>
+                    <field name="last_sync_date"/>
+                    <field name="create_date"/>
+                </list>
+            </field>
+        </record>
+        
+        <!-- YonSuite Vendor Form View -->
+        <record id="yonsuite_vendor_view_form" model="ir.ui.view">
+            <field name="name">yonsuite.vendor.view.form</field>
+            <field name="model">yonsuite.vendor</field>
+            <field name="arch" type="xml">
+                <form string="YonSuite Vendor">
+                    <header>
+                        <button name="action_export_to_yonsuite" type="object" string="Sync from YonSuite" class="btn-primary" 
+                                invisible="state in ['synced', 'error']" confirm="Are you sure you want to sync this vendor from YonSuite?"/>
+                        <button name="action_reset_to_draft" type="object" string="Reset to Draft" class="btn-secondary" 
+                                invisible="state != 'synced'"/>
+                        <field name="state" widget="statusbar" options="{'statusbar_visible': 'draft,synced'}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_export_to_yonsuite" type="object" class="oe_stat_button" icon="fa-download" 
+                                    invisible="state in ['synced', 'error']">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Sync from</span>
+                                    <span class="o_stat_text">YonSuite</span>
+                                </div>
+                            </button>
+                        </div>
+                        
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Enter vendor name..."/>
+                            </h1>
+                        </div>
+                        
+                        <group>
+                            <group string="Basic Information">
+                                <field name="yonsuite_id" readonly="1"/>
+                                <field name="code"/>
+                                <field name="org_name"/>
+                                <field name="stop"/>
+                            </group>
+                            <group string="Contact Information">
+                                <field name="contactphone"/>
+                                <field name="vendorphone"/>
+                                <field name="is_applied"/>
+                                <field name="is_creator"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Organization">
+                                <field name="org" readonly="1"/>
+                                <field name="vendor_apply_range_id" readonly="1"/>
+                                <field name="vendor_apply_range_org_name" readonly="1"/>
+                                <field name="vendorclass_name" readonly="1"/>
+                            </group>
+                            <group string="Vendor Classification">
+                                <field name="vendorclass" readonly="1"/>
+                                <field name="vendor_character_define_id" readonly="1"/>
+                                <field name="supply_type"/>
+                                <field name="bcoordination"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Status Information">
+                                <field name="internalunit"/>
+                                <field name="retail_investors"/>
+                                <field name="tax_paying_categories"/>
+                                <field name="datasource" readonly="1"/>
+                            </group>
+                            <group string="Timestamps">
+                                <field name="pubts" readonly="1"/>
+                                <field name="vendor_character_define_pubts" readonly="1"/>
+                                <field name="vendor_extends_create_time" readonly="1"/>
+                                <field name="vendor_extends_modify_time" readonly="1"/>
+                                <field name="last_sync_date" readonly="1"/>
+                            </group>
+                        </group>
+                        
+                        <notebook>
+                            <page string="Vendor Character Define" invisible="not vendor_character_define_ytenant">
+                                <group>
+                                    <group string="Character Define">
+                                        <field name="vendor_character_define_ytenant" readonly="1"/>
+                                        <field name="vendor_character_define_pubts" readonly="1"/>
+                                    </group>
+                                </group>
+                            </page>
+                            
+                            <page string="Vendor Extends" invisible="not vendor_extends_id">
+                                <group>
+                                    <group string="Extends Information">
+                                        <field name="vendor_extends_id" readonly="1"/>
+                                        <field name="vendor_extends_freeze_status"/>
+                                        <field name="vendor_extends_creator" readonly="1"/>
+                                        <field name="vendor_extends_modifier" readonly="1"/>
+                                        <field name="vendor_extends_help_code" readonly="1"/>
+                                    </group>
+                                    <group string="Vendor Relations">
+                                        <field name="vendor_extends_delivery_vendor" readonly="1"/>
+                                        <field name="vendor_extends_invoice_vendor" readonly="1"/>
+                                        <field name="vendor_extends_vendor" readonly="1"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Currency">
+                                        <field name="vendor_extends_currency" readonly="1"/>
+                                        <field name="vendor_extends_currency_name" readonly="1"/>
+                                    </group>
+                                    <group string="Timestamps">
+                                        <field name="vendor_extends_create_time" readonly="1"/>
+                                        <field name="vendor_extends_modify_time" readonly="1"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                        
+                        <group string="Sync Error" invisible="not sync_error_message">
+                            <field name="sync_error_message" readonly="1" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- YonSuite Vendor Search View -->
+        <record id="yonsuite_vendor_view_search" model="ir.ui.view">
+            <field name="name">yonsuite.vendor.view.search</field>
+            <field name="model">yonsuite.vendor</field>
+            <field name="arch" type="xml">
+                <search string="Search YonSuite Vendors">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="org_name"/>
+                    <field name="yonsuite_id"/>
+                    <field name="vendorclass_name"/>
+                    <field name="contactphone"/>
+                    <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Synced" name="synced" domain="[('state', '=', 'synced')]"/>
+                    <filter string="Error" name="error" domain="[('state', '=', 'error')]"/>
+                    <filter string="Active" name="active" domain="[('stop', '=', False)]"/>
+                    <filter string="Stopped" name="stopped" domain="[('stop', '=', True)]"/>
+                    <filter string="Applied" name="applied" domain="[('is_applied', '=', True)]"/>
+                    <filter string="Internal Unit" name="internal" domain="[('internalunit', '=', True)]"/>
+                    <separator/>
+                    <filter string="My Vendors" name="my_vendors" domain="[('create_uid', '=', uid)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                        <filter string="Vendor Class" name="group_vendor_class" context="{'group_by': 'vendorclass_name'}"/>
+                        <filter string="Supply Type" name="group_supply_type" context="{'group_by': 'supply_type'}"/>
+                        <filter string="Created by" name="group_create_uid" context="{'group_by': 'create_uid'}"/>
+                        <filter string="Creation Date" name="group_create_date" context="{'group_by': 'create_date:day'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <!-- YonSuite Vendor Action -->
+        <record id="yonsuite_vendor_action" model="ir.actions.act_window">
+            <field name="name">YonSuite Vendors</field>
+            <field name="res_model">yonsuite.vendor</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="yonsuite_vendor_view_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first YonSuite Vendor!
+                </p>
+                <p>
+                    YonSuite Vendors allow you to manage and synchronize vendor data with YonSuite API.
+                </p>
+            </field>
+        </record>
+        
+        
+    </data>
+</odoo>

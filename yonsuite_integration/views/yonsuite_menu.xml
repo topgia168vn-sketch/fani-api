@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- YonSuite Integration Root Menu -->
+        <menuitem id="yonsuite_integration_menu_root"
+            name="YonSuite Integration"
+            sequence="100" />
+
+        <!-- Configuration Menu -->
+        <menuitem id="yonsuite_config_menu"
+            name="Configuration"
+            parent="yonsuite_integration_menu_root"
+            sequence="10000" />
+
+
+        <!-- YonSuite Configuration Settings -->
+        <menuitem id="yonsuite_config_settings_menu"
+            name="Settings"
+            parent="yonsuite_config_menu"
+            action="yonsuite_integration.yonsuite_config_settings_action"
+            sequence="10" />
+
+        <!-- YonSuite Actions -->
+        <menuitem id="yonsuite_actions_menu"
+            name="Actions"
+            parent="yonsuite_integration_menu_root"
+            action="yonsuite_actions_action"
+            sequence="30" />
+
+        <!-- Data Views Menu -->
+        <menuitem id="yonsuite_data_views_menu"
+            name="Data Views"
+            parent="yonsuite_integration_menu_root"
+            sequence="300" />
+
+        <!-- Partners -->
+        <menuitem id="yonsuite_partner_menu"
+            name="Partners"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_partner_action"
+            sequence="10" />
+
+        <!-- Admin Departments -->
+        <menuitem id="yonsuite_admindept_menu"
+            name="Admin Departments"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_admindept_action"
+            sequence="15" />
+
+        <!-- Organization Units -->
+        <menuitem id="yonsuite_orgunit_menu"
+            name="Organization Units"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_orgunit_action"
+            sequence="17" />
+
+        <!-- All Org/Dept -->
+        <menuitem id="yonsuite_getallorgdept_menu"
+            name="All Org/Dept"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_getallorgdept_action"
+            sequence="18" />
+
+
+        <!-- Sale Areas -->
+        <menuitem id="yonsuite_salearea_menu"
+            name="Sale Areas"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_salearea_action"
+            sequence="20" />
+
+        <!-- Stores -->
+        <menuitem id="yonsuite_store_menu"
+            name="Stores"
+            parent="yonsuite_integration_menu_root"
+            action="yonsuite_store_action"
+            sequence="21" />
+
+        <!-- Vendors -->
+        <menuitem id="yonsuite_vendor_menu"
+            name="Vendors"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_vendor_action"
+            sequence="22" />
+
+        <!-- Brands -->
+        <menuitem id="yonsuite_brand_menu"
+            name="Brands"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_brand_action"
+            sequence="30" />
+
+        <!-- Units -->
+        <menuitem id="yonsuite_unit_menu"
+            name="Units"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_unit_action"
+            sequence="40" />
+
+        <!-- Warehouses -->
+        <menuitem id="yonsuite_warehouse_menu"
+            name="Warehouses"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_warehouse_action"
+            sequence="50" />
+
+        <!-- Carriers -->
+        <menuitem id="yonsuite_carrier_menu"
+            name="Carriers"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_carrier_action"
+            sequence="60" />
+
+        <!-- Staff -->
+        <menuitem id="yonsuite_staff_menu"
+            name="Staff"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_staff_action"
+            sequence="70" />
+
+        <!-- Countries -->
+        <menuitem id="yonsuite_country_menu"
+            name="Countries"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_country_action"
+            sequence="80" />
+
+        <!-- Currencies -->
+        <menuitem id="yonsuite_currency_menu"
+            name="Currencies"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_currency_action"
+            sequence="90" />
+
+        <!-- Management Classes -->
+        <menuitem id="yonsuite_management_class_menu"
+            name="Management Classes"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_management_class_action"
+            sequence="95" />
+
+        <!-- Purchase Classes -->
+        <menuitem id="yonsuite_purchase_class_menu"
+            name="Purchase Classes"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_purchase_class_action"
+            sequence="96" />
+
+        <!-- Sale Classes -->
+        <menuitem id="yonsuite_sale_class_menu"
+            name="Sale Classes"
+            parent="yonsuite_data_views_menu"
+            action="yonsuite_sale_class_action"
+            sequence="97" />
+
+        <!-- Products -->
+        <menuitem id="yonsuite_product_menu"
+            name="Products"
+            parent="yonsuite_integration_menu_root"
+            action="yonsuite_product_action"
+            sequence="20" />
+
+        <!-- Orders -->
+        <menuitem id="yonsuite_order_menu"
+            name="Orders"
+            parent="yonsuite_integration_menu_root"
+            action="yonsuite_order_action"
+            sequence="10" />
+
+    </data>
+</odoo>

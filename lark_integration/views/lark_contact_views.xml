@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- list View for Lark Contact -->
+    <record id="view_lark_contact_list" model="ir.ui.view">
+        <field name="name">lark.contact.list</field>
+        <field name="model">lark.contact</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="user_id" />
+                <field name="name" />
+                <field name="email" />
+                <field name="enterprise_email" />
+                <field name="job_title" />
+                <field name="department_ids" widget="many2many_tags" />
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View for Lark Contact -->
+    <record id="view_lark_contact_form" model="ir.ui.view">
+        <field name="name">lark.contact.form</field>
+        <field name="model">lark.contact</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Personal Information">
+                            <field name="name" required="1" />
+                            <field name="user_id" readonly="1" />
+                            <field name="en_name" />
+                            <field name="gender" widget="radio" options="{'1': 'Male', '2': 'Female', '0': 'Unknown'}" />
+                            <field name="description" placeholder="Description" />
+                        </group>
+                        <group string="Contact Information">
+                            <field name="email" />
+                            <field name="enterprise_email" />
+                            <field name="mobile" />
+                            <field name="mobile_visible" widget="boolean_toggle" />
+                            <field name="city" />
+                            <field name="country" />
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Work Information">
+                            <field name="department_ids" widget="many2many_tags" />
+                            <field name="job_title" />
+                            <field name="employee_no" />
+                            <field name="employee_type" />
+                            <field name="join_time" />
+                            <field name="leader_user_id" />
+                            <field name="is_tenant_manager" widget="boolean_toggle" />
+                            <field name="work_station" />
+                        </group>
+                        <group string="Lark Identifiers">
+                            <field name="open_id" readonly="1" />
+                            <field name="union_id" readonly="1" />
+                        </group>
+                    </group>
+                    <group string="Avatar">
+                        <field name="avatar_72" widget="image" readonly="1" />
+                        <field name="avatar_240" readonly="1" />
+                        <field name="avatar_640" readonly="1" />
+                        <field name="avatar_origin" readonly="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View for Lark Contact -->
+    <record id="view_lark_contact_search" model="ir.ui.view">
+        <field name="name">lark.contact.search</field>
+        <field name="model">lark.contact</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="user_id" />
+                <field name="email" />
+                <field name="enterprise_email" />
+                <field name="department_ids" />
+                <filter string="Tenant Managers" name="tenant_managers" domain="[('is_tenant_manager', '=', True)]" />
+                <group expand="0" string="Group By">
+                    <filter name="department" string="Department" context="{'group_by': 'department_ids'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+    <!-- Action Window for Lark Contact -->
+    <record id="action_lark_contact" model="ir.actions.act_window">
+        <field name="name">Lark Contacts</field>
+        <field name="res_model">lark.contact</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No contacts found. Let's fetch some contacts from Lark!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_lark_contact" name="Contact" parent="menu_lark_meta_data" action="action_lark_contact"
+        sequence="40" />
+</odoo>

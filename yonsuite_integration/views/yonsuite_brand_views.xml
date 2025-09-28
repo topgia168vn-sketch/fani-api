@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- YonSuite Brand List View -->
+        <record id="yonsuite_brand_view_list" model="ir.ui.view">
+            <field name="name">yonsuite.brand.view.list</field>
+            <field name="model">yonsuite.brand</field>
+            <field name="arch" type="xml">
+                <list string="YonSuite Brands" decoration-info="state=='draft'" decoration-success="state=='synced'" decoration-muted="state=='error'">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="simplified_name"/>
+                    <field name="english_name"/>
+                    <field name="brand_class_code"/>
+                    <field name="brand_class_name"/>
+                    <field name="order_number"/>
+                    <field name="stop_status"/>
+                    <field name="state"/>
+                    <field name="last_sync_date"/>
+                    <field name="create_date"/>
+                </list>
+            </field>
+        </record>
+        
+        <!-- YonSuite Brand Form View -->
+        <record id="yonsuite_brand_view_form" model="ir.ui.view">
+            <field name="name">yonsuite.brand.view.form</field>
+            <field name="model">yonsuite.brand</field>
+            <field name="arch" type="xml">
+                <form string="YonSuite Brand">
+                    <header>
+                        <button name="action_export_to_yonsuite" type="object" string="Sync from YonSuite" class="btn-primary" 
+                                invisible="state in ['synced', 'error']" confirm="Are you sure you want to sync this brand from YonSuite?"/>
+                        <button name="action_reset_to_draft" type="object" string="Reset to Draft" class="btn-secondary" 
+                                invisible="state != 'synced'"/>
+                        <field name="state" widget="statusbar" options="{'statusbar_visible': 'draft,synced'}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_export_to_yonsuite" type="object" class="oe_stat_button" icon="fa-download" 
+                                    invisible="state in ['synced', 'error']">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Sync from</span>
+                                    <span class="o_stat_text">YonSuite</span>
+                                </div>
+                            </button>
+                        </div>
+                        
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Enter brand name..."/>
+                            </h1>
+                        </div>
+                        
+                        <group>
+                            <group string="Basic Information">
+                                <field name="yonsuite_id" readonly="1"/>
+                                <field name="code"/>
+                                <field name="simplified_name"/>
+                                <field name="english_name"/>
+                                <field name="stop_status"/>
+                            </group>
+                            <group string="Brand Classification">
+                                <field name="brand_class" readonly="1"/>
+                                <field name="brand_class_code" readonly="1"/>
+                                <field name="brand_class_name" readonly="1"/>
+                                <field name="order_number"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Brand Details">
+                                <field name="brand_desc" nolabel="1"/>
+                                <field name="brand_keywords"/>
+                                <field name="brand_url"/>
+                            </group>
+                            <group string="Timestamps">
+                                <field name="create_time" readonly="1"/>
+                                <field name="modify_time" readonly="1"/>
+                                <field name="last_sync_date" readonly="1"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Users">
+                                <field name="creator" readonly="1"/>
+                                <field name="modifier" readonly="1"/>
+                            </group>
+                            <group string="Sync Information">
+                                <field name="create_date" readonly="1"/>
+                                <field name="create_uid" readonly="1"/>
+                            </group>
+                        </group>
+                        
+                        <group string="Sync Error" invisible="not sync_error_message">
+                            <field name="sync_error_message" readonly="1" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- YonSuite Brand Search View -->
+        <record id="yonsuite_brand_view_search" model="ir.ui.view">
+            <field name="name">yonsuite.brand.view.search</field>
+            <field name="model">yonsuite.brand</field>
+            <field name="arch" type="xml">
+                <search string="Search YonSuite Brands">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="simplified_name"/>
+                    <field name="english_name"/>
+                    <field name="yonsuite_id"/>
+                    <field name="brand_class_code"/>
+                    <field name="brand_class_name"/>
+                    <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Synced" name="synced" domain="[('state', '=', 'synced')]"/>
+                    <filter string="Error" name="error" domain="[('state', '=', 'error')]"/>
+                    <filter string="Active" name="active" domain="[('stop_status', '=', False)]"/>
+                    <filter string="Stopped" name="stopped" domain="[('stop_status', '=', True)]"/>
+                    <separator/>
+                    <filter string="My Brands" name="my_brands" domain="[('create_uid', '=', uid)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                        <filter string="Brand Class" name="group_brand_class" context="{'group_by': 'brand_class_code'}"/>
+                        <filter string="Created by" name="group_create_uid" context="{'group_by': 'create_uid'}"/>
+                        <filter string="Creation Date" name="group_create_date" context="{'group_by': 'create_date:day'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <!-- YonSuite Brand Action -->
+        <record id="yonsuite_brand_action" model="ir.actions.act_window">
+            <field name="name">YonSuite Brands</field>
+            <field name="res_model">yonsuite.brand</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="yonsuite_brand_view_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first YonSuite Brand!
+                </p>
+                <p>
+                    YonSuite Brands allow you to manage and synchronize brand data with YonSuite API.
+                </p>
+            </field>
+        </record>
+        
+        
+    </data>
+</odoo>

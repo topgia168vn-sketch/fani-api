@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- YonSuite GetAllOrgDept List View -->
+        <record id="yonsuite_getallorgdept_view_list" model="ir.ui.view">
+            <field name="name">yonsuite.getallorgdept.view.list</field>
+            <field name="model">yonsuite.getallorgdept</field>
+            <field name="arch" type="xml">
+                <list string="YonSuite All Org/Dept" decoration-info="state=='draft'" decoration-success="state=='synced'" decoration-muted="state=='error'">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="level"/>
+                    <field name="parent_name"/>
+                    <field name="parent_orgunit_id" optional="hide"/>
+                    <field name="parent_getallorgdept_id" optional="hide"/>
+                    <field name="principal_name"/>
+                    <field name="orgtype"/>
+                    <field name="isbizunit"/>
+                    <field name="isEnd"/>
+                    <field name="enable"/>
+                    <field name="state"/>
+                    <field name="last_sync_date"/>
+                    <field name="create_date"/>
+                </list>
+            </field>
+        </record>
+        
+        <!-- YonSuite GetAllOrgDept list View -->
+        <record id="yonsuite_getallorgdept_view_list" model="ir.ui.view">
+            <field name="name">yonsuite.getallorgdept.view.list</field>
+            <field name="model">yonsuite.getallorgdept</field>
+            <field name="arch" type="xml">
+                <list string="YonSuite All Org/Dept" decoration-info="state=='draft'" decoration-success="state=='synced'" decoration-muted="state=='error'">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="level"/>
+                    <field name="principal_name"/>
+                    <field name="orgtype"/>
+                    <field name="isbizunit"/>
+                    <field name="enable"/>
+                    <field name="state"/>
+                </list>
+            </field>
+        </record>
+        
+        <!-- YonSuite GetAllOrgDept Form View -->
+        <record id="yonsuite_getallorgdept_view_form" model="ir.ui.view">
+            <field name="name">yonsuite.getallorgdept.view.form</field>
+            <field name="model">yonsuite.getallorgdept</field>
+            <field name="arch" type="xml">
+                <form string="YonSuite All Org/Dept">
+                    <header>
+                        <button name="action_export_to_yonsuite" type="object" string="Sync from YonSuite" class="btn-primary" 
+                                invisible="state in ['synced', 'error']" confirm="Are you sure you want to sync this organization/department from YonSuite?"/>
+                        <button name="action_reset_to_draft" type="object" string="Reset to Draft" class="btn-secondary" 
+                                invisible="state != 'synced'"/>
+                        <field name="state" widget="statusbar" options="{'statusbar_visible': 'draft,synced'}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_export_to_yonsuite" type="object" class="oe_stat_button" icon="fa-download" 
+                                    invisible="state in ['synced', 'error']">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Sync from</span>
+                                    <span class="o_stat_text">YonSuite</span>
+                                </div>
+                            </button>
+                        </div>
+                        
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Enter organization/department name..."/>
+                            </h1>
+                        </div>
+                        
+                        <group>
+                            <group string="Basic Information">
+                                <field name="yonsuite_id" readonly="1"/>
+                                <field name="code"/>
+                                <field name="level"/>
+                                <field name="path" readonly="1"/>
+                                <field name="shortname" readonly="1"/>
+                            </group>
+                            <group string="Organization/Department">
+                                <field name="parent_id" readonly="1"/>
+                                <field name="parent_name" readonly="1"/>
+                                <field name="parentorgid_code" readonly="1"/>
+                                <field name="orgid" readonly="1"/>
+                                <field name="orgtype"/>
+                                <field name="isbizunit"/>
+                                <field name="isEnd"/>
+                                <field name="externalorg"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Parent Relationships">
+                                <field name="parent_orgunit_id" invisible="level != 2"/>
+                                <field name="parent_getallorgdept_id" invisible="level &lt; 3"/>
+                                <field name="level" readonly="1"/>
+                                <button name="action_update_parent_relationships" type="object" string="Update Parent Relationships" class="btn-secondary"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Tax Information">
+                                <field name="taxpayername"/>
+                                <field name="taxpayerid"/>
+                                <field name="taxpayertype"/>
+                                <field name="companytype"/>
+                                <field name="companytype_name"/>
+                            </group>
+                            <group string="Status">
+                                <field name="enable"/>
+                                <field name="dr"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Sorting">
+                                <field name="sort"/>
+                                <field name="displayorder"/>
+                            </group>
+                            <group string="Timestamps">
+                                <field name="creationtime" readonly="1"/>
+                                <field name="modifiedtime" readonly="1"/>
+                                <field name="effectivedate" readonly="1"/>
+                                <field name="expirationdate" readonly="1"/>
+                                <field name="pubts" readonly="1"/>
+                                <field name="last_sync_date" readonly="1"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Users">
+                                <field name="creator" readonly="1"/>
+                                <field name="modifier" readonly="1"/>
+                                <field name="principal" readonly="1"/>
+                                <field name="principal_name" readonly="1"/>
+                            </group>
+                            <group string="System Information">
+                                <field name="tenantid" readonly="1"/>
+                                <field name="tenant" readonly="1"/>
+                                <field name="sysid" readonly="1"/>
+                                <field name="sourceid" readonly="1"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Additional Info">
+                                <field name="exchangerate" readonly="1"/>
+                                <field name="exchangerate_name" readonly="1"/>
+                                <field name="countryzone" readonly="1"/>
+                                <field name="language" readonly="1"/>
+                                <field name="deptOrgExt_id" readonly="1"/>
+                            </group>
+                            <group string="Sync Information">
+                                <field name="create_date" readonly="1"/>
+                                <field name="create_uid" readonly="1"/>
+                            </group>
+                        </group>
+                        
+                        <group string="Child Organizations/Departments" invisible="not child_ids">
+                            <field name="child_ids" readonly="1" nolabel="1">
+                                <list string="Child Organizations/Departments" decoration-info="state=='draft'" decoration-success="state=='synced'" decoration-muted="state=='error'">
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="level"/>
+                                    <field name="principal_name"/>
+                                    <field name="orgtype"/>
+                                    <field name="enable"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </group>
+                        
+                        <group string="Sync Error" invisible="not sync_error_message">
+                            <field name="sync_error_message" readonly="1" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- YonSuite GetAllOrgDept Search View -->
+        <record id="yonsuite_getallorgdept_view_search" model="ir.ui.view">
+            <field name="name">yonsuite.getallorgdept.view.search</field>
+            <field name="model">yonsuite.getallorgdept</field>
+            <field name="arch" type="xml">
+                <search string="Search YonSuite All Org/Dept">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="yonsuite_id"/>
+                    <field name="parent_name"/>
+                    <field name="parent_orgunit_id"/>
+                    <field name="parent_getallorgdept_id"/>
+                    <field name="principal_name"/>
+                    <field name="creator"/>
+                    <field name="modifier"/>
+                    <field name="taxpayername"/>
+                    <field name="taxpayerid"/>
+                    <field name="shortname"/>
+                    <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Synced" name="synced" domain="[('state', '=', 'synced')]"/>
+                    <filter string="Error" name="error" domain="[('state', '=', 'error')]"/>
+                    <filter string="Enabled" name="enabled" domain="[('enable', '=', 1)]"/>
+                    <filter string="Disabled" name="disabled" domain="[('enable', '=', 2)]"/>
+                    <filter string="Business Unit" name="bizunit" domain="[('isbizunit', '=', True)]"/>
+                    <filter string="Is End" name="is_end" domain="[('isEnd', '=', True)]"/>
+                    <filter string="External Org" name="external" domain="[('externalorg', '=', True)]"/>
+                    <filter string="Organizations" name="organizations" domain="[('orgtype', '=', 1)]"/>
+                    <filter string="Departments" name="departments" domain="[('orgtype', '=', 2)]"/>
+                    <filter string="Level 1" name="level_1" domain="[('level', '=', 1)]"/>
+                    <filter string="Level 2" name="level_2" domain="[('level', '=', 2)]"/>
+                    <filter string="Level 3+" name="level_3_plus" domain="[('level', '&gt;=', 3)]"/>
+                    <filter string="Has Parent OrgUnit" name="has_parent_orgunit" domain="[('parent_orgunit_id', '!=', False)]"/>
+                    <filter string="Has Parent OrgDept" name="has_parent_orgdept" domain="[('parent_getallorgdept_id', '!=', False)]"/>
+                    <filter string="Root Records" name="root_records" domain="[('parent_id', '=', False)]"/>
+                    <separator/>
+                    <filter string="My Records" name="my_records" domain="[('create_uid', '=', uid)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                        <filter string="Organization Type" name="group_orgtype" context="{'group_by': 'orgtype'}"/>
+                        <filter string="Level" name="group_level" context="{'group_by': 'level'}"/>
+                        <filter string="Parent Name" name="group_parent_name" context="{'group_by': 'parent_name'}"/>
+                        <filter string="Parent OrgUnit" name="group_parent_orgunit" context="{'group_by': 'parent_orgunit_id'}"/>
+                        <filter string="Parent OrgDept" name="group_parent_orgdept" context="{'group_by': 'parent_getallorgdept_id'}"/>
+                        <filter string="Principal" name="group_principal" context="{'group_by': 'principal_name'}"/>
+                        <filter string="Created by" name="group_create_uid" context="{'group_by': 'create_uid'}"/>
+                        <filter string="Creation Date" name="group_create_date" context="{'group_by': 'create_date:day'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <!-- YonSuite GetAllOrgDept Action -->
+        <record id="yonsuite_getallorgdept_action" model="ir.actions.act_window">
+            <field name="name">YonSuite All Org/Dept</field>
+            <field name="res_model">yonsuite.getallorgdept</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="yonsuite_getallorgdept_view_search"/>
+            <field name="context">{'search_default_parent_id': False}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first YonSuite Organization/Department!
+                </p>
+                <p>
+                    YonSuite All Org/Dept allows you to manage and synchronize organization and department data with YonSuite API.
+                    Use list view to see the hierarchical structure of organizations and departments.
+                </p>
+            </field>
+        </record>
+        
+        <!-- YonSuite GetAllOrgDept list Action -->
+        <record id="yonsuite_getallorgdept_list_action" model="ir.actions.act_window">
+            <field name="name">YonSuite All Org/Dept (list)</field>
+            <field name="res_model">yonsuite.getallorgdept</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="yonsuite_getallorgdept_view_list"/>
+            <field name="search_view_id" ref="yonsuite_getallorgdept_view_search"/>
+            <field name="context">{'search_default_parent_id': False}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    View YonSuite All Org/Dept in list Structure!
+                </p>
+                <p>
+                    This view shows the hierarchical structure of organizations and departments with parent-child relationships.
+                </p>
+            </field>
+        </record>
+        
+        
+    </data>
+</odoo>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- View for lark.approval -->
+    <record id="view_lark_approval_form" model="ir.ui.view">
+        <field name="name">lark.approval.form</field>
+        <field name="model">lark.approval</field>
+        <field name="arch" type="xml">
+            <form string="Lark Approval Definition">
+                <sheet>
+                    <group>
+                        <field name="approval_code" />
+                        <field name="approval_name" />
+                        <field name="status" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_lark_approval_list" model="ir.ui.view">
+        <field name="name">lark.approval.list</field>
+        <field name="model">lark.approval</field>
+        <field name="arch" type="xml">
+            <list string="Lark Approval Definitions">
+                <field name="approval_code" />
+                <field name="approval_name" />
+                <field name="status" />
+            </list>
+        </field>
+    </record>
+
+    <record id="action_lark_approval" model="ir.actions.act_window">
+        <field name="name">Lark Approval Definitions</field>
+        <field name="res_model">lark.approval</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- View for lark.approval.instance -->
+    <record id="view_lark_approval_instance_form" model="ir.ui.view">
+        <field name="name">lark.approval.instance.form</field>
+        <field name="model">lark.approval.instance</field>
+        <field name="arch" type="xml">
+            <form string="Lark Approval Instance">
+                <sheet>
+                    <group>
+                        <field name="approval_id" />
+                        <field name="instance_id" />
+                        <field name="user_id" />
+                        <field name="status" />
+                        <field name="form_data" widget="text" />
+                    </group>
+                    <div>
+                        <button name="get_instance_details" string="Get Instance Details" type="object"
+                            class="btn-primary" />
+                        <button name="cancel_instance" string="Cancel Instance" type="object" class="btn-primary"
+                            confirm="Are you sure you want to cancel this approval instance?" />
+                        <button name="fetch_instance_list" string="Fetch Instance List" type="object"
+                            class="btn-primary" />
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_lark_approval_instance_list" model="ir.ui.view">
+        <field name="name">lark.approval.instance.list</field>
+        <field name="model">lark.approval.instance</field>
+        <field name="arch" type="xml">
+            <list string="Lark Approval Instances">
+                <field name="approval_id" />
+                <field name="instance_id" />
+                <field name="user_id" />
+                <field name="status" />
+            </list>
+        </field>
+    </record>
+
+    <record id="action_lark_approval_instance" model="ir.actions.act_window">
+        <field name="name">Lark Approval Instances</field>
+        <field name="res_model">lark.approval.instance</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_lark_approval" name="Approval Definitions" parent="menu_lark_meta_data"
+        action="action_lark_approval"
+        sequence="20" />
+    <menuitem id="menu_lark_approval_instance" name="Approval Instances" parent="menu_lark_meta_data"
+        action="action_lark_approval_instance" sequence="30" />
+</odoo>

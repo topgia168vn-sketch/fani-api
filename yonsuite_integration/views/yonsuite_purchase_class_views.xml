@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- YonSuite Purchase Class List View -->
+        <record id="yonsuite_purchase_class_view_list" model="ir.ui.view">
+            <field name="name">yonsuite.purchase.class.view.list</field>
+            <field name="model">yonsuite.purchase.class</field>
+            <field name="arch" type="xml">
+                <list string="YonSuite Purchase Classes" decoration-info="state=='draft'" decoration-success="state=='synced'" decoration-muted="state=='error'">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="org_code"/>
+                    <field name="org_name"/>
+                    <field name="order"/>
+                    <field name="stop_status"/>
+                    <field name="state"/>
+                    <field name="last_sync_date"/>
+                    <field name="create_date"/>
+                </list>
+            </field>
+        </record>
+        
+        <!-- YonSuite Purchase Class Form View -->
+        <record id="yonsuite_purchase_class_view_form" model="ir.ui.view">
+            <field name="name">yonsuite.purchase.class.view.form</field>
+            <field name="model">yonsuite.purchase.class</field>
+            <field name="arch" type="xml">
+                <form string="YonSuite Purchase Class">
+                    <header>
+                        <button name="action_export_to_yonsuite" type="object" string="Sync from YonSuite" class="btn-primary" 
+                                invisible="state in ['synced', 'error']" confirm="Are you sure you want to sync this purchase class from YonSuite?"/>
+                        <button name="action_reset_to_draft" type="object" string="Reset to Draft" class="btn-secondary" 
+                                invisible="state != 'synced'"/>
+                        <field name="state" widget="statusbar" options="{'statusbar_visible': 'draft,synced'}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_export_to_yonsuite" type="object" class="oe_stat_button" icon="fa-download" 
+                                    invisible="state in ['synced', 'error']">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Sync from</span>
+                                    <span class="o_stat_text">YonSuite</span>
+                                </div>
+                            </button>
+                        </div>
+                        
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Enter purchase class name..."/>
+                            </h1>
+                        </div>
+                        
+                        <group>
+                            <group>
+                                <field name="code"/>
+                                <field name="yonsuite_id" readonly="1"/>
+                                <field name="order"/>
+                                <field name="stop_status"/>
+                            </group>
+                            <group>
+                                <field name="org_id"/>
+                                <field name="org_code"/>
+                                <field name="org_name"/>
+                                <field name="path"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group>
+                                <field name="create_time"/>
+                                <field name="modify_time"/>
+                            </group>
+                            <group>
+                                <field name="last_sync_date"/>
+                                <field name="sync_error_message" widget="text" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- YonSuite Purchase Class Search View -->
+        <record id="yonsuite_purchase_class_view_search" model="ir.ui.view">
+            <field name="name">yonsuite.purchase.class.view.search</field>
+            <field name="model">yonsuite.purchase.class</field>
+            <field name="arch" type="xml">
+                <search string="Search Purchase Classes">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="org_code"/>
+                    <field name="org_name"/>
+                    <separator/>
+                    <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Synced" name="synced" domain="[('state', '=', 'synced')]"/>
+                    <filter string="Error" name="error" domain="[('state', '=', 'error')]"/>
+                    <separator/>
+                    <filter string="Active" name="active" domain="[('stop_status', '=', False)]"/>
+                    <filter string="Stopped" name="stopped" domain="[('stop_status', '=', True)]"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                        <filter string="Organization Code" name="group_org_code" context="{'group_by': 'org_code'}"/>
+                        <filter string="Organization Name" name="group_org_name" context="{'group_by': 'org_name'}"/>
+                        <filter string="Create Date" name="group_create_date" context="{'group_by': 'create_date:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <!-- YonSuite Purchase Class Kanban View -->
+        <record id="yonsuite_purchase_class_view_kanban" model="ir.ui.view">
+            <field name="name">yonsuite.purchase.class.view.kanban</field>
+            <field name="model">yonsuite.purchase.class</field>
+            <field name="arch" type="xml">
+                <kanban string="YonSuite Purchase Classes" class="o_kanban_small_column">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="state"/>
+                    <field name="stop_status"/>
+                    <field name="org_name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_content">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <strong class="o_kanban_record_title">
+                                                <field name="name"/>
+                                            </strong>
+                                            <br/>
+                                            <span class="o_kanban_record_subtitle text-muted">
+                                                <field name="code"/>
+                                            </span>
+                                        </div>
+                                        <div class="o_kanban_record_body">
+                                            <div t-if="record.org_name.value">
+                                                <strong>Organization:</strong> <field name="org_name"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left">
+                                            <span t-if="record.stop_status.value" class="badge badge-danger">Stopped</span>
+                                            <span t-else="" class="badge badge-success">Active</span>
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+                                            <span t-if="record.state.value == 'draft'" class="badge badge-info">Draft</span>
+                                            <span t-elif="record.state.value == 'synced'" class="badge badge-success">Synced</span>
+                                            <span t-elif="record.state.value == 'error'" class="badge badge-danger">Error</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        
+        <!-- YonSuite Purchase Class Action -->
+        <record id="yonsuite_purchase_class_action" model="ir.actions.act_window">
+            <field name="name">YonSuite Purchase Classes</field>
+            <field name="res_model">yonsuite.purchase.class</field>
+            <field name="view_mode">list,form,kanban</field>
+            <field name="search_view_id" ref="yonsuite_purchase_class_view_search"/>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new YonSuite Purchase Class
+                </p>
+                <p>
+                    Purchase classes are used to categorize and organize purchase items in YonSuite.
+                </p>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

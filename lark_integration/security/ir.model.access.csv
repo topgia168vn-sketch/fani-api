@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lark_approval,lark.approval,model_lark_approval,base.group_user,1,1,1,1
+access_lark_approval_instance,lark.approval.instance,model_lark_approval_instance,base.group_user,1,1,1,1
+access_lark_contact,lark.contact,model_lark_contact,base.group_user,1,1,1,1
+access_lark_department,lark.department,model_lark_department,base.group_user,1,1,1,1
+
+access_lark_file,lark_file,model_lark_file,base.group_user,1,1,1,1
+access_lark_file_bitable_table,lark_file_bitable_table,model_lark_file_bitable_table,base.group_user,1,1,1,1
+access_lark_file_bitable_table_view,lark_file_bitable_table_view,model_lark_file_bitable_table_view,base.group_user,1,1,1,1
+access_lark_file_bitable_table_field,lark_file_bitable_table_field,model_lark_file_bitable_table_field,base.group_user,1,1,1,1
+access_lark_file_bitable_table_field_option,lark_file_bitable_table_field_option,model_lark_file_bitable_table_field_option,base.group_user,1,1,1,1
+access_lark_app_table_record,lark_app_table_record,model_lark_app_table_record,base.group_user,1,1,1,1
+access_lark_person,lark_person,model_lark_person,base.group_user,1,1,1,1
+

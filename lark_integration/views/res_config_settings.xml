@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.lark</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <block name="integration" position="inside">
+                <setting id="lark_api" string="Lark API">
+                    <div class="content-group mt16">
+                        <label for="lark_app_id" class="o_light_label mr8" />
+                        <field name="lark_app_id" />
+                    </div>
+                    <div class="content-group">
+                        <label for="lark_app_secret" class="o_light_label mr8" />
+                        <field name="lark_app_secret" password="True" />
+                    </div>
+                    <div class="content-group">
+                        <label for="lark_app_access_token" class="o_light_label mr8" />
+                        <field name="lark_app_access_token" password="True" />
+                    </div>
+                    <div class="content-group">
+                        <label for="lark_app_access_token_expiry" class="o_light_label mr8" />
+                        <field name="lark_app_access_token_expiry" password="True" />
+                    </div>
+                    <button type="object" name="get_app_access_token" string="Get App Access Token"
+                        icon="oi-arrow-right" class="btn-link" />
+                </setting>
+            </block>
+        </field>
+    </record>
+
+    <menuitem id="menu_lark_root" name="Lark Integration" sequence="10">
+        <menuitem id="menu_lark_meta_data" name="Meta Data" sequence="9000" />
+        <menuitem id="menu_lark_configuration" name="Configuration"
+            sequence="10000">
+        </menuitem>
+    </menuitem>
+</odoo>

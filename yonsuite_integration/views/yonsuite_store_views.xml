@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- YonSuite Store List View -->
+        <record id="yonsuite_store_view_list" model="ir.ui.view">
+            <field name="name">yonsuite.store.view.list</field>
+            <field name="model">yonsuite.store</field>
+            <field name="arch" type="xml">
+                <list string="YonSuite Stores" decoration-info="state=='draft'" decoration-success="state=='synced'" decoration-muted="state=='error'">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="mnemonic"/>
+                    <field name="org_id"/>
+                    <field name="orgid"/>
+                    <field name="org_name"/>
+                    <field name="cust_id"/>
+                    <field name="cust"/>
+                    <field name="cust_name"/>
+                    <field name="warehouse_id"/>
+                    <field name="warehouse"/>
+                    <field name="warehouse_name"/>
+                    <field name="area_class_id"/>
+                    <field name="area_class"/>
+                    <field name="area_class_name"/>
+                    <field name="store_type"/>
+                    <field name="platform_type"/>
+                    <field name="terminal_type"/>
+                    <field name="delivery_method"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                    <field name="stop"/>
+                    <field name="state"/>
+                    <field name="last_sync_date"/>
+                    <field name="create_date"/>
+                </list>
+            </field>
+        </record>
+        
+        <!-- YonSuite Store Form View -->
+        <record id="yonsuite_store_view_form" model="ir.ui.view">
+            <field name="name">yonsuite.store.view.form</field>
+            <field name="model">yonsuite.store</field>
+            <field name="arch" type="xml">
+                <form string="YonSuite Store">
+                    <header>
+                        <button name="action_export_to_yonsuite" type="object" string="Push to YonSuite" class="btn-primary" 
+                                invisible="state in ['synced', 'error']" confirm="Are you sure you want to push this store to YonSuite?"/>
+                        <button name="action_reset_to_draft" type="object" string="Reset to Draft" class="btn-secondary" 
+                                invisible="state != 'synced'"/>
+                        <field name="state" widget="statusbar" options="{'statusbar_visible': 'draft,synced'}"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_export_to_yonsuite" type="object" class="oe_stat_button" icon="fa-upload" 
+                                    invisible="state in ['synced', 'error']">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Push to</span>
+                                    <span class="o_stat_text">YonSuite</span>
+                                </div>
+                            </button>
+                        </div>
+                        
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Enter store name..."/>
+                            </h1>
+                        </div>
+                        
+                        <group>
+                            <group string="Basic Information">
+                                <field name="yonsuite_id" readonly="1"/>
+                                <field name="code"/>
+                                <field name="mnemonic"/>
+                                <field name="codebianma"/>
+                                <field name="store_type"/>
+                                <field name="stop"/>
+                            </group>
+                            <group string="Organization">
+                                <field name="org_id" domain="[('state', '=', 'synced')]"/>
+                                <field name="orgid" readonly="orgid_readonly" force_save="1"/>
+                                <field name="org_name" readonly="1" force_save="1"/>
+                                <field name="cust_id" domain="[('state', '=', 'synced')]"/>
+                                <field name="cust" readonly="cust_readonly"/>
+                                <field name="cust_name" readonly="1"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Warehouse and Area">
+                                <field name="warehouse_id" domain="[('state', '=', 'synced')]"/>
+                                <field name="warehouse" readonly="warehouse_readonly" force_save="1"/>
+                                <field name="warehouse_name" readonly="1" force_save="1"/>
+                                <field name="area_class_id" domain="[('state', '=', 'synced')]"/>
+                                <field name="area_class" readonly="area_class_readonly" force_save="1"/>
+                                <field name="area_class_name" readonly="1" force_save="1"/>
+                            </group>
+                            <group string="Business Information">
+                                <field name="membercorp"/>
+                                <field name="c_app_id" readonly="1"/>
+                                <field name="platform_type" readonly="1"/>
+                                <field name="terminal_type" readonly="1"/>
+                                <field name="terminal_category" readonly="1"/>
+                                <field name="channel_customer"/>
+                                <field name="merchant_store"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Delivery and Time">
+                                <field name="delivery_method" readonly="1"/>
+                                <field name="km_radius"/>
+                                <field name="circle_radius"/>
+                                <field name="start_time" readonly="1"/>
+                                <field name="end_time" readonly="1"/>
+                                <field name="i_online_delivery"/>
+                                <field name="central_warehouse_distribution"/>
+                                <field name="share_res"/>
+                            </group>
+                            <group string="Shipping Address">
+                                <field name="cust_shipping_address" readonly="1"/>
+                                <field name="cust_shipping_address_name" readonly="1"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Timestamps">
+                                <field name="create_time" readonly="1"/>
+                                <field name="modify_time" readonly="1"/>
+                                <field name="pubts" readonly="1"/>
+                                <field name="last_sync_date" readonly="1"/>
+                            </group>
+                            <group string="Users">
+                                <field name="creator" readonly="1"/>
+                                <field name="modifier" readonly="1"/>
+                            </group>
+                        </group>
+                        
+                        <group>
+                            <group string="Sync Information">
+                                <field name="create_date" readonly="1"/>
+                                <field name="create_uid" readonly="1"/>
+                            </group>
+                        </group>
+                        
+                        <group string="Sync Error" invisible="not sync_error_message">
+                            <field name="sync_error_message" readonly="1" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- YonSuite Store Search View -->
+        <record id="yonsuite_store_view_search" model="ir.ui.view">
+            <field name="name">yonsuite.store.view.search</field>
+            <field name="model">yonsuite.store</field>
+            <field name="arch" type="xml">
+                <search string="Search YonSuite Stores">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="mnemonic"/>
+                    <field name="yonsuite_id"/>
+                    <field name="org_id"/>
+                    <field name="orgid"/>
+                    <field name="org_name"/>
+                    <field name="cust_id"/>
+                    <field name="cust"/>
+                    <field name="cust_name"/>
+                    <field name="warehouse_id"/>
+                    <field name="warehouse"/>
+                    <field name="warehouse_name"/>
+                    <field name="area_class_id"/>
+                    <field name="area_class"/>
+                    <field name="area_class_name"/>
+                    <field name="store_type"/>
+                    <field name="platform_type"/>
+                    <field name="terminal_type"/>
+                    <field name="delivery_method"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                    <field name="cust_shipping_address_name"/>
+                    <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Synced" name="synced" domain="[('state', '=', 'synced')]"/>
+                    <filter string="Error" name="error" domain="[('state', '=', 'error')]"/>
+                    <filter string="Active" name="active" domain="[('stop', '=', False)]"/>
+                    <filter string="Stopped" name="stopped" domain="[('stop', '=', True)]"/>
+                    <separator/>
+                    <filter string="Online Delivery" name="online_delivery" domain="[('i_online_delivery', '=', 1)]"/>
+                    <filter string="Merchant Store" name="merchant_store" domain="[('merchant_store', '=', 1)]"/>
+                    <filter string="Channel Customer" name="channel_customer" domain="[('channel_customer', '=', 1)]"/>
+                    <separator/>
+                    <filter string="My Stores" name="my_stores" domain="[('create_uid', '=', uid)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                        <filter string="Store Type" name="group_store_type" context="{'group_by': 'store_type'}"/>
+                        <filter string="Platform Type" name="group_platform_type" context="{'group_by': 'platform_type'}"/>
+                        <filter string="Terminal Type" name="group_terminal_type" context="{'group_by': 'terminal_type'}"/>
+                        <filter string="Delivery Method" name="group_delivery_method" context="{'group_by': 'delivery_method'}"/>
+                        <filter string="Organization Unit" name="group_org_id" context="{'group_by': 'org_id'}"/>
+                        <filter string="Organization" name="group_org" context="{'group_by': 'org_name'}"/>
+                        <filter string="Customer Partner" name="group_cust_id" context="{'group_by': 'cust_id'}"/>
+                        <filter string="Customer" name="group_cust" context="{'group_by': 'cust_name'}"/>
+                        <filter string="Warehouse Unit" name="group_warehouse_id" context="{'group_by': 'warehouse_id'}"/>
+                        <filter string="Warehouse" name="group_warehouse" context="{'group_by': 'warehouse_name'}"/>
+                        <filter string="Area Class Unit" name="group_area_class_id" context="{'group_by': 'area_class_id'}"/>
+                        <filter string="Area Class" name="group_area_class" context="{'group_by': 'area_class_name'}"/>
+                        <filter string="Created by" name="group_create_uid" context="{'group_by': 'create_uid'}"/>
+                        <filter string="Creation Date" name="group_create_date" context="{'group_by': 'create_date:day'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <!-- YonSuite Store Action -->
+        <record id="yonsuite_store_action" model="ir.actions.act_window">
+            <field name="name">YonSuite Stores</field>
+            <field name="res_model">yonsuite.store</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="yonsuite_store_view_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first YonSuite Store!
+                </p>
+                <p>
+                    YonSuite Stores allow you to manage and push store data to YonSuite API.
+                </p>
+            </field>
+        </record>
+        
+        
+    </data>
+</odoo>
