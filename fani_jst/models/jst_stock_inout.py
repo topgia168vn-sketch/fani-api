@@ -33,16 +33,22 @@ class JstStockInout(models.Model):
         string='JST Stock InOut Items',
         help="Product lines contained in the stock in/out order"
     )
+    odoo_wave_ids = fields.Many2many(
+        'jst.wave.shipping',
+        string='Wave Shippings',
+        help="Related wave shippings",
+        index=True
+    )
 
     # ==== Fields from dict 2 (in order) ====
     inoutId = fields.Char("InOut ID", help="Unique ID of the stock in/out order", index=True)
-    orderId = fields.Integer("Order ID", help="Linked order ID", index=True)
+    orderId = fields.Integer("Order ID", help="Linked order ID", index=True, aggregator=None)
     status = fields.Char("Status", help="Status code of the stock in/out", index=True)
     statusDisplay = fields.Char("Status Display", help="Status description returned by API")
-    linkCoId = fields.Integer("Linked Company ID", help="Linked company ID")
+    linkCoId = fields.Integer("Linked Company ID", help="Linked company ID", aggregator=None)
     linkCompanyName = fields.Char("Linked Company Name", help="Linked company name")
-    warehouseId = fields.Integer("Warehouse ID", help="Warehouse ID", index=True)
-    shopId = fields.Integer("Shop ID", help="Shop ID handling the order", index=True)
+    warehouseId = fields.Integer("Warehouse ID", help="Warehouse ID", index=True, aggregator=None)
+    shopId = fields.Integer("Shop ID", help="Shop ID handling the order", index=True, aggregator=None)
     warehouseName = fields.Char("Warehouse Name", help="Warehouse name", index=True)
     supplierCode = fields.Char("Supplier Code", help="Supplier code")
     supplierName = fields.Char("Supplier Name", help="Supplier name")
@@ -50,7 +56,7 @@ class JstStockInout(models.Model):
     orderDate = fields.Datetime("Order Date", help="Order creation date", index=True)
     areaType = fields.Char("Area Type", help="Warehouse type")
     areaTypeDisplay = fields.Char("Area Type Display", help="Warehouse type description")
-    companyId = fields.Integer("Company ID", help="Company ID owning the order")
+    companyId = fields.Integer("Company ID", help="Company ID owning the order", aggregator=None)
     currency = fields.Char("Currency", help="Currency code, e.g., CNY")
     type = fields.Char("Type", help="Business type (e.g., SaleOut)")
     typeDisplay = fields.Char("Type Display", help="Business type description")
@@ -69,7 +75,7 @@ class JstStockInout(models.Model):
     skuQty = fields.Float("SKU Quantity", help="Number of SKUs")
     created = fields.Datetime("Created", help="Record creation time", index=True)
     creatorName = fields.Char("Creator Name", help="User name who created the record")
-    creator = fields.Integer("Creator ID", help="User ID who created the record")
+    creator = fields.Integer("Creator ID", help="User ID who created the record", aggregator=None)
     receiverName = fields.Char("Receiver Name", help="Receiver name")
     remark = fields.Text("Remark", help="Remark or note")
     platformName = fields.Char("Platform Name", help="E-commerce platform name")
@@ -77,7 +83,7 @@ class JstStockInout(models.Model):
     # ==== Extra fields from Delivery Sale Order
     factFreight = fields.Float("Fact Freight", help="Actual freight cost")
     jst_modified = fields.Datetime("Modified", help="Record last modification time", index=True)
-    modifier = fields.Integer("Modifier ID", help="User ID who last modified the record")
+    modifier = fields.Integer("Modifier ID", help="User ID who last modified the record", aggregator=None)
     outType = fields.Char("Out Type", help="Out type, e.g., Deliver")
     totalQty = fields.Float("Total Quantity (Planned)", help="Total planned quantity")
     
@@ -189,15 +195,15 @@ class JstStockInout(models.Model):
                 break
         _logger.info("Sync JST InOut (Purchase): Kết thúc đồng bộ.")
 
-    def _sync_jst_other_inouts(self, requestModel, pageIndex=1, only_create=False):
+    def _sync_jst_other_out_inouts(self, requestModel, pageIndex=1, only_create=False):
         """
-        Đồng bộ Stock Other InOut theo thời gian modified
+        Đồng bộ Stock Other Out InOut theo thời gian modified
         docs: https://www.showdoc.com.cn/jsterp/7834151469503121
         """
         if not requestModel:
-            _logger.info("Sync JST InOut (Other): Không truyền tham số requestModel")
+            _logger.info("Sync JST InOut (Out Other): Không truyền tham số requestModel")
             return
-        _logger.info("Sync JST Other InOut: Bắt đầu đồng bộ ...")
+        _logger.info("Sync JST InOut (Out Other): Bắt đầu đồng bộ ...")
         path = "/api/OtherInoutOrder/GetOtherOutInoutItems"
         while True:
             body_data = {
@@ -210,7 +216,7 @@ class JstStockInout(models.Model):
             resp_data = self.env['res.config.settings']._call_api_jst("/api/OtherInoutOrder/GetOtherOutInouts", body_data)
 
             if not resp_data.get('success'):
-                _logger.error("Sync JST InOut (Other): Error Call API Other Inout: %s", resp_data.get('message'))
+                _logger.error("Sync JST InOut (Out Other): Error Call API Other Inout: %s", resp_data.get('message'))
                 break
 
             data = resp_data.get('data') or []
@@ -222,7 +228,7 @@ class JstStockInout(models.Model):
                     inout_ids = [item.get("inoutId", 0) for item in data_max_200]
                     inout_data_more = {item.get("inoutId", 0): item for item in data_max_200}
                     self._sync_jst_inout_detail(path, inoutIds=inout_ids, InoutDataMore=inout_data_more, only_create=only_create, is_other_delivery=True)
-                _logger.info("Sync JST InOut (Other): Page %s -> Đã đồng bộ %s inouts.", pageIndex, total_inouts)
+                _logger.info("Sync JST InOut (Out Other): Page %s -> Đã đồng bộ %s inouts.", pageIndex, total_inouts)
 
                 dp = resp_data.get('dataPage') or {}
                 if dp.get('isLast', True):
@@ -230,7 +236,135 @@ class JstStockInout(models.Model):
                 pageIndex = dp.get('pageIndex', pageIndex) + 1
             else:
                 break
-        _logger.info("Sync JST InOut (Other): Kết thúc đồng bộ.")
+        _logger.info("Sync JST InOut (Out Other): Kết thúc đồng bộ.")
+
+    def _sync_jst_other_in_inouts(self, requestModel, pageIndex=1, only_create=False):
+        """
+        Đồng bộ Stock Other Out InOut theo thời gian modified
+        docs: https://www.showdoc.com.cn/jsterp/7836367838451336
+        """
+        if not requestModel:
+            _logger.info("Sync JST InOut (In Other): Không truyền tham số requestModel")
+            return
+        _logger.info("Sync JST InOut (In Other): Bắt đầu đồng bộ ...")
+        path = "/api/OtherInoutOrder/GetOtherInInoutItems"
+        while True:
+            body_data = {
+                "requestModel": requestModel,
+                "dataPage": {
+                    "pageSize": 500,
+                    "pageIndex": pageIndex
+                }
+            }
+            resp_data = self.env['res.config.settings']._call_api_jst("/api/OtherInoutOrder/GetOtherInInouts", body_data)
+
+            if not resp_data.get('success'):
+                _logger.error("Sync JST InOut (In Other): Error Call API Other Inout: %s", resp_data.get('message'))
+                break
+
+            data = resp_data.get('data') or []
+            if data:
+                total_inouts = len(data)
+                while data :
+                    data_max_200 = data[:200]
+                    data = data[200:]
+                    inout_ids = [item.get("inoutId", 0) for item in data_max_200]
+                    inout_data_more = {item.get("inoutId", 0): item for item in data_max_200}
+                    self._sync_jst_inout_detail(path, inoutIds=inout_ids, InoutDataMore=inout_data_more, only_create=only_create, is_other_delivery=True)
+                _logger.info("Sync JST InOut (In Other): Page %s -> Đã đồng bộ %s inouts.", pageIndex, total_inouts)
+
+                dp = resp_data.get('dataPage') or {}
+                if dp.get('isLast', True):
+                    break
+                pageIndex = dp.get('pageIndex', pageIndex) + 1
+            else:
+                break
+        _logger.info("Sync JST InOut (In Other): Kết thúc đồng bộ.")
+
+    def _sync_jst_transfer_out_inouts(self, requestModel, pageIndex=1):
+        """
+        Đồng bộ Stock Transfer Out InOut
+        docs:
+            - https://www.showdoc.com.cn/jsterp/8466001110293477
+            - https://www.showdoc.com.cn/jsterp/8466004859189248
+        """
+        if not requestModel:
+            _logger.info("Sync JST InOut (Transfer Out): Không truyền tham số requestModel")
+            return
+        _logger.info("Sync JST InOut (Transfer Out): Bắt đầu đồng bộ ...")
+        path = "/api/Allocation/GetAllocateOutInoutItems"
+        while True:
+            body_data = {
+                "requestModel": requestModel,
+                "dataPage": {
+                    "pageSize": 500,
+                    "pageIndex": pageIndex
+                }
+            }
+            resp_data = self.env['res.config.settings']._call_api_jst("/api/Allocation/GetAllocateOutInouts", body_data)
+            if not resp_data.get('success'):
+                _logger.error("Sync JST InOut (Transfer Out): Error Call API Transfer Out Inout: %s", resp_data.get('message'))
+                break
+            data = resp_data.get('data') or []
+            if data:
+                total_inouts = len(data)
+                while data :
+                    data_max_200 = data[:200]
+                    data = data[200:]
+                    inout_ids = [item.get("inoutId") for item in data_max_200 if item.get("inoutId")]
+                    inout_data_more = {item.get("inoutId"): item for item in data_max_200 if item.get("inoutId")}
+                    self._sync_jst_inout_detail(path, inoutIds=inout_ids, InoutDataMore=inout_data_more, only_create=False, is_other_delivery=False)
+                _logger.info("Sync JST InOut (Transfer Out): Page %s -> Đã đồng bộ %s inouts.", pageIndex, total_inouts)
+                dp = resp_data.get('dataPage') or {}
+                if dp.get('isLast', True):
+                    break
+                pageIndex = dp.get('pageIndex', pageIndex) + 1
+            else:
+                break
+        _logger.info("Sync JST InOut (Transfer Out): Kết thúc đồng bộ.")
+
+    def _sync_jst_transfer_in_inouts(self, requestModel, pageIndex=1):
+        """
+        Đồng bộ Stock Transfer In InOut
+        docs:
+            - https://www.showdoc.com.cn/jsterp/8466016868858420
+            - https://www.showdoc.com.cn/jsterp/8466018143883851
+        """
+        if not requestModel:
+            _logger.info("Sync JST InOut (Transfer In): Không truyền tham số requestModel")
+            return
+        _logger.info("Sync JST InOut (Transfer In): Bắt đầu đồng bộ ...")
+        path = "/api/Allocation/GetAllocateInInoutItems"
+        while True:
+            body_data = {
+                "requestModel": requestModel,
+                "dataPage": {
+                    "pageSize": 500,
+                    "pageIndex": pageIndex
+                }
+            }
+            resp_data = self.env['res.config.settings']._call_api_jst("/api/Allocation/GetAllocateInInouts", body_data)
+            if not resp_data.get('success'):
+                _logger.error("Sync JST InOut (Transfer In): Error Call API Transfer In Inout: %s", resp_data.get('message'))
+                break
+            data = resp_data.get('data') or []
+            if data:
+                total_inouts = len(data)
+                while data :
+                    data_max_200 = data[:200]
+                    data = data[200:]
+
+                    inout_ids = [item.get("inoutId") for item in data_max_200 if item.get("inoutId")]
+                    inout_data_more = {item.get("inoutId"): item for item in data_max_200 if item.get("inoutId")}
+                    self._sync_jst_inout_detail(path, inoutIds=inout_ids, InoutDataMore=inout_data_more, only_create=False, is_other_delivery=False)
+                _logger.info("Sync JST InOut (Transfer In): Page %s -> Đã đồng bộ %s inouts.", pageIndex, total_inouts)
+                dp = resp_data.get('dataPage') or {}
+                if dp.get('isLast', True):
+                    break
+                pageIndex = dp.get('pageIndex', pageIndex) + 1
+            else:
+                break
+        _logger.info("Sync JST InOut (Transfer In): Kết thúc đồng bộ.")
 
     def _sync_jst_inout_detail(self, path, inoutIds=None, OrderIds=None, PurchaseIds=None, InoutDataMore=None, only_create=False, is_other_delivery=False):
         if not inoutIds and not OrderIds and not PurchaseIds:
@@ -466,7 +600,7 @@ class JstStockInout(models.Model):
             "modifiedBegin": ts_start,
             "modifiedEnd": ts_end
         }
-        self._sync_jst_other_inouts(requestModel)
+        self._sync_jst_other_out_inouts(requestModel)
         # Sau khi đồng bộ xong cần update thời gian lần tiếp theo gọi
         next_ts_sync_other_inout = str(ts_end + 1)
         ConfigParamater.set_param('jst.next_ts_sync_other_inout', next_ts_sync_other_inout)

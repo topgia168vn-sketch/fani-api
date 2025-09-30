@@ -7,7 +7,7 @@
     'description': """Odoo - JST
     """,
     'author': 'Nguyen Viet Phuong',
-    'depends': ['base'],
+    'depends': ['base_setup'],
     'data': [
         'security/ir.model.access.csv',
         'data/cron_sync.xml',
@@ -25,8 +25,10 @@
         'views/jst_logistic_company_view.xml',
         'views/jst_stock_inout.xml',
         'views/jst_stock_inout_item.xml',
+        'views/jst_stock_tranfer.xml',
         'views/jst_purchase_order.xml',
         'views/jst_user_view.xml',
+        'views/jst_wave_shipping_views.xml',
         'views/res_config_settings.xml',
         'views/menu.xml',
         'wizards/views/wizard_sync_jst_shop.xml',
@@ -40,6 +42,8 @@
         'wizards/views/wizard_sync_jst_stock_inpout.xml',
         'wizards/views/wizard_sync_jst_purchase_order.xml',
         'wizards/views/wizard_sync_jst_user.xml',
+        'wizards/views/wizard_sync_jst_wave_shipping.xml',
+        'wizards/views/wizard_sync_jst_tranfer.xml',
     ],
     'installable': True,
     'application': True,

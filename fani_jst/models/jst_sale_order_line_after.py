@@ -15,7 +15,7 @@ class JstSaleOrderAfterLine(models.Model):
     _rec_name = 'afterSaleOrderItemId'
 
     # lưu ý: afterSaleOrderId cần lấy theo after order
-    jst_sale_order_after_id = fields.Many2one('jst.sale.order.after', string='JST After Sale Order')
+    jst_sale_order_after_id = fields.Many2one('jst.sale.order.after', string='JST After Sale Order', ondelete='cascade')
 
     afterSaleOrderId = fields.Integer("After Sale Order ID", aggregator=None)
     afterSaleOrderItemId = fields.Integer("After Sale Order Item ID", aggregator=None)

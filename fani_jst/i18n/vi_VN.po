@@ -25,7 +25,7 @@ msgstr "Chi phí vận chuyển thực tế"
 #: model:ir.model.fields,help:fani_jst.field_jst_stock_inout__realQty
 #: model:ir.model.fields,help:fani_jst.field_jst_stock_inout_item__realQty
 msgid "Actual quantity"
-msgstr "Số lượng thực tế"
+msgstr "SL thực tế"
 
 #. module: fani_jst
 #: model:ir.model.fields,help:fani_jst.field_jst_stock_inout__realTotalCostAmount
@@ -3500,7 +3500,7 @@ msgstr "ID đơn hàng nền tảng thô"
 #: model:ir.model.fields,field_description:fani_jst.field_jst_stock_inout__realQty
 #: model:ir.model.fields,field_description:fani_jst.field_jst_stock_inout_item__realQty
 msgid "Real Quantity"
-msgstr "Số lượng thực tế"
+msgstr "SL thực tế"
 
 #. module: fani_jst
 #: model:ir.model.fields,field_description:fani_jst.field_jst_stock_inout__realTotalCostAmount
@@ -4322,7 +4322,7 @@ msgstr "Đồng bộ tất cả Kho hàng"
 #. module: fani_jst
 #: model:ir.actions.server,name:fani_jst.ir_cron_sync_jst_after_orders_ir_actions_server
 msgid "Sync JST After-Sale Orders"
-msgstr "Đồng bộ đơn hàng sau bán"
+msgstr "Đồng bộ đơn hàng sau bán JST"
 
 #. module: fani_jst
 #: model:ir.actions.server,name:fani_jst.ir_cron_sync_jst_inout_ir_actions_server
@@ -4352,7 +4352,7 @@ msgstr "Đồng bộ đơn giao hàng khác JST"
 #. module: fani_jst
 #: model:ir.actions.server,name:fani_jst.ir_cron_sync_jst_product_inventory_ir_actions_server
 msgid "Sync JST Product Inventory"
-msgstr "Đồng bộ Sản phẩm tồn kho"
+msgstr "Đồng bộ Sản phẩm tồn kho JST"
 
 #. module: fani_jst
 #: model:ir.actions.server,name:fani_jst.ir_cron_sync_jst_products_ir_actions_server

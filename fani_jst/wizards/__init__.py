@@ -9,3 +9,5 @@ from . import wizard_sync_jst_order_after
 from . import wizard_sync_jst_stock_inout
 from . import wizard_sync_jst_purchase_order
 from . import wizard_sync_jst_user
+from . import wizard_sync_jst_wave_shipping
+from . import wizard_sync_jst_tranfer
