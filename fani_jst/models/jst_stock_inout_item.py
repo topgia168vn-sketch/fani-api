@@ -18,7 +18,8 @@ class JstStockInoutItem(models.Model):
     jst_stock_inout_id = fields.Many2one(
         'jst.stock.inout',
         string='JST Stock InOut',
-        help="Reference to the stock in/out order"
+        help="Reference to the stock in/out order",
+        ondelete='cascade'
     )
 
     # ==== Fields from API dict (in order) ====

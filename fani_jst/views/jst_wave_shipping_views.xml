@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- JST Wave Shipping List View -->
+    <record id="view_jst_wave_shipping_tree" model="ir.ui.view">
+        <field name="name">jst.wave.shipping.tree</field>
+        <field name="model">jst.wave.shipping</field>
+        <field name="arch" type="xml">
+            <list string="JST Wave Shippings">
+                <field name="waveId" string="Wave ID"/>
+                <field name="status" string="Status"/>
+                <field name="waveType" string="Wave Type"/>
+                <field name="skuCount" string="SKU Count"/>
+                <field name="skuQty" string="SKU Qty"/>
+                <field name="orderQty" string="Order Qty"/>
+                <field name="created" string="Created"/>
+                <field name="odoo_inout_ids" string="Inouts" widget="many2many_tags"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- JST Wave Shipping Form View -->
+    <record id="view_jst_wave_shipping_form" model="ir.ui.view">
+        <field name="name">jst.wave.shipping.form</field>
+        <field name="model">jst.wave.shipping</field>
+        <field name="arch" type="xml">
+            <form string="JST Wave Shipping">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    
+                    <div class="oe_title">
+                        <h1>
+                            <field name="waveId" readonly="1"/>
+                        </h1>
+                    </div>
+                    
+                    <group>
+                        <group>
+                            <field name="companyId" readonly="1"/>
+                            <field name="status" readonly="1"/>
+                            <field name="statusDisplay" readonly="1"/>
+                            <field name="waveType" readonly="1"/>
+                            <field name="waveTypeDisplay" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="linkCoId" readonly="1"/>
+                            <field name="linkCompanyName" readonly="1"/>
+                            <field name="skuCount" readonly="1"/>
+                            <field name="skuQty" readonly="1"/>
+                            <field name="orderQty" readonly="1"/>
+                            <field name="created" readonly="1"/>
+                        </group>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Wave Items" name="wave_items">
+                            <field name="odoo_wave_shipping_item_ids" readonly="1">
+                                <list>
+                                    <field name="skuId" string="SKU ID"/>
+                                    <field name="skuName" string="SKU Name"/>
+                                    <field name="qty" string="Quantity"/>
+                                </list>
+                            </field>
+                        </page>
+                        
+                        <page string="Wave Inouts" name="wave_inouts">
+                            <group>
+                                <field name="odoo_inout_ids" widget="many2many_tags"/>
+                            </group>
+                            <field name="odoo_wave_inout_ids" readonly="1">
+                                <list>
+                                    <field name="odoo_inout_id" string="View Inout"/>
+                                    <field name="inoutId" string="Inout ID"/>
+                                    <field name="orderId" string="Order ID"/>
+                                </list>
+                            </field>
+                        </page>
+                        
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- JST Wave Shipping Search View -->
+    <record id="view_jst_wave_shipping_search" model="ir.ui.view">
+        <field name="name">jst.wave.shipping.search</field>
+        <field name="model">jst.wave.shipping</field>
+        <field name="arch" type="xml">
+            <search string="Search JST Wave Shippings">
+                <field name="waveId" string="Wave ID"/>
+                <field name="companyId" string="Company ID"/>
+                <field name="status" string="Status"/>
+                <field name="waveType" string="Wave Type"/>
+                <field name="linkCompanyName" string="Link Company"/>
+                <field name="created" string="Created"/>
+                
+                <!-- <filter string="Active" name="active" domain="[('status', '!=', False)]"/>
+                <filter string="Today" name="today" domain="[('created', '>=', datetime.datetime.combine(context_today(), datetime.time(0,0,0))), ('created', '&lt;=', datetime.datetime.combine(context_today(), datetime.time(23,59,59)))]"/>
+                <filter string="This Week" name="this_week" domain="[('created', '>=', (context_today() - datetime.timedelta(days=context_today().weekday())).strftime('%Y-%m-%d')), ('created', '&lt;=', (context_today() + datetime.timedelta(days=6-context_today().weekday())).strftime('%Y-%m-%d'))]"/> -->
+                
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Status" name="group_status" context="{'group_by': 'status'}"/>
+                    <filter string="Wave Type" name="group_wave_type" context="{'group_by': 'waveType'}"/>
+                    <filter string="Link Company" name="group_link_company" context="{'group_by': 'linkCompanyName'}"/>
+                    <filter string="Created Date" name="group_created" context="{'group_by': 'created:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- JST Wave Shipping Action -->
+    <record id="action_jst_wave_shipping" model="ir.actions.act_window">
+        <field name="name">JST Wave Shippings</field>
+        <field name="res_model">jst.wave.shipping</field>
+    </record>
+
+    <!-- JST Wave Shipping Item List View -->
+    <record id="view_jst_wave_shipping_item_tree" model="ir.ui.view">
+        <field name="name">jst.wave.shipping.item.tree</field>
+        <field name="model">jst.wave.shipping.item</field>
+        <field name="arch" type="xml">
+            <list string="JST Wave Shipping Items">
+                <field name="odoo_wave_shipping_id" string="Related Wave Shipping"/>
+                <field name="waveId" string="Wave ID"/>
+                <field name="skuId" string="SKU ID"/>
+                <field name="skuName" string="SKU Name"/>
+                <field name="qty" string="Quantity"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- JST Wave Shipping Item Search View -->
+    <record id="view_jst_wave_shipping_item_search" model="ir.ui.view">
+        <field name="name">jst.wave.shipping.item.search</field>
+        <field name="model">jst.wave.shipping.item</field>
+        <field name="arch" type="xml">
+            <search string="Search JST Wave Shipping Items">
+                <field name="waveId" string="Wave ID"/>
+                <field name="skuId" string="SKU ID"/>
+                <field name="skuName" string="SKU Name"/>
+                <field name="qty" string="Quantity"/>
+
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Wave Shipping" name="group_wave_shipping" context="{'group_by': 'odoo_wave_shipping_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- JST Wave Shipping Item Action -->
+    <record id="action_jst_wave_shipping_item" model="ir.actions.act_window">
+        <field name="name">JST Wave Shipping Items</field>
+        <field name="res_model">jst.wave.shipping.item</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <!-- JST Wave Inout List View -->
+    <record id="view_jst_wave_inout_tree" model="ir.ui.view">
+        <field name="name">jst.wave.inout.tree</field>
+        <field name="model">jst.wave.inout</field>
+        <field name="arch" type="xml">
+            <list string="JST Wave Inouts">
+                <field name="waveId" string="Wave ID"/>
+                <field name="odoo_inout_id" string="View Inout"/>
+                <field name="inoutId" string="Inout ID"/>
+                <field name="orderId" string="Order ID"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- JST Wave Inout Form View -->
+    <record id="view_jst_wave_inout_form" model="ir.ui.view">
+        <field name="name">jst.wave.inout.form</field>
+        <field name="model">jst.wave.inout</field>
+        <field name="arch" type="xml">
+            <form string="JST Wave Inout">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="waveId" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="odoo_inout_id" readonly="1"/>
+                        <field name="inoutId" readonly="1"/>
+                        <field name="orderId" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- JST Wave Inout Search View -->
+    <record id="view_jst_wave_inout_search" model="ir.ui.view">
+        <field name="name">jst.wave.inout.search</field>
+        <field name="model">jst.wave.inout</field>
+        <field name="arch" type="xml">
+            <search string="Search JST Wave Inouts">
+                <field name="waveId" string="Wave ID"/>
+                <field name="inoutId" string="Inout ID"/>
+                <field name="orderId" string="Order ID"/>
+
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Wave Shipping" name="group_wave_shipping" context="{'group_by': 'odoo_wave_shipping_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- JST Wave Inout Action -->
+    <record id="action_jst_wave_inout" model="ir.actions.act_window">
+        <field name="name">JST Wave Inouts</field>
+        <field name="res_model">jst.wave.inout</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

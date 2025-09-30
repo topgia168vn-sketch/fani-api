@@ -12,7 +12,6 @@
                     <field name="status"/>
                     <field name="warehouseName"/>
                     <field name="shopId"/>
-                    <field name="companyId"/>
                     <field name="platformOrderId"/>
                     <field name="qty"/>
                     <field name="realQty"/>
@@ -23,6 +22,7 @@
                     <field name="sendTime"/>
                     <field name="created"/>
                     <field name="jst_modified"/>
+                    <field name="odoo_wave_ids" string="Wave Shippings" widget="many2many_tags"/>
                 </list>
             </field>
         </record>
@@ -140,17 +140,27 @@
                     <filter name="ftr_send_time" string="Send Time" date="sendTime"/>
                     <separator/>
                     <filter name="delivery_order" string="Delivery Order" domain="[('type','=','SaleOut')]"/>
+                    <filter name="delivery_other_order" string="Other Delivery Order" domain="[('type','=','OtherOut')]"/>
                     <filter name="receipt_order" string="Purchase Receipt" domain="[('type','=','PurchaseIn')]"/>
-                    <filter name="other_order" string="Other Order" domain="[('is_other_delivery','=',True)]"/>
+                    <filter name="receipt_other_order" string="Other Receipt Order" domain="[('type','=','OtherIn')]"/>
+                    <filter name="transfer_out" string="Transfer Out" domain="[('type','=','AllocateOut')]"/>
+                    <filter name="transfer_in" string="Transfer In" domain="[('type','=','AllocateIn')]"/>
+
                     <separator/>
                     <group expand="0" string="Group By">
+
+                        <filter string="Order Id" name="group_by_orderId" context="{'group_by':'orderId'}"/>
+                        <separator/>
                         <filter string="Status" name="group_by_status" context="{'group_by':'status'}"/>
                         <filter string="Warehouse" name="group_by_warehouseName" context="{'group_by':'warehouseName'}"/>
                         <filter string="Shop" name="group_by_shopId" context="{'group_by':'shopId'}"/>
                         <separator/>
+                        <filter string="Type" name="group_by_type" context="{'group_by':'type'}"/>
                         <filter string="Stock Type" name="group_by_type" context="{'group_by':'type'}"/>
                         <separator/>
+                        <filter string="Order Date" name="group_by_orderDate" context="{'group_by':'orderDate:day'}"/>
                         <filter string="Created Time" name="group_by_created" context="{'group_by':'created:day'}"/>
+                        <filter string="Inout Time" name="group_by_inoutTime" context="{'group_by':'inoutTime:day'}"/>
                         <filter string="Send Time" name="group_by_sendTime" context="{'group_by':'sendTime:day'}"/>
                         <separator/>
                     </group>
@@ -174,6 +184,14 @@
             <field name="context">{'search_default_ftr_inoutTime': 1}
             </field>
         </record>
+        <record id="action_jst_stock_inout_out_other" model="ir.actions.act_window">
+            <field name="name">Other Delivery Orders</field>
+            <field name="res_model">jst.stock.inout</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('type', '=', 'OtherOut')]</field>
+            <field name="context">{'search_default_ftr_inoutTime': 1}
+            </field>
+        </record>
         <record id="action_jst_stock_inout_receipt" model="ir.actions.act_window">
             <field name="name">Receipt Orders</field>
             <field name="res_model">jst.stock.inout</field>
@@ -182,11 +200,29 @@
             <field name="context">{'search_default_ftr_inoutTime': 1}
             </field>
         </record>
-        <record id="action_jst_stock_inout_other" model="ir.actions.act_window">
-            <field name="name">Other Orders</field>
+        <record id="action_jst_stock_inout_in_other" model="ir.actions.act_window">
+            <field name="name">Other Purchase Orders</field>
             <field name="res_model">jst.stock.inout</field>
             <field name="view_mode">list,form</field>
-            <field name="domain">[('is_other_delivery', '=', True)]</field>
+            <field name="domain">[('type', '=', 'OtherIn')]</field>
+            <field name="context">{'search_default_ftr_inoutTime': 1}
+            </field>
+        </record>
+
+        <!-- Transfer Out/In Orders -->
+        <record id="action_jst_stock_inout_out_transfer" model="ir.actions.act_window">
+            <field name="name">Transfer Out</field>
+            <field name="res_model">jst.stock.inout</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('type', '=', 'AllocateOut')]</field>
+            <field name="context">{'search_default_ftr_inoutTime': 1}
+            </field>
+        </record>
+        <record id="action_jst_stock_inout_in_transfer" model="ir.actions.act_window">
+            <field name="name">Transfer In</field>
+            <field name="res_model">jst.stock.inout</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('type', '=', 'AllocateIn')]</field>
             <field name="context">{'search_default_ftr_inoutTime': 1}
             </field>
         </record>

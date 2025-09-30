@@ -18,3 +18,5 @@ from . import jst_purchase_order
 from . import jst_purchase_order_line
 from . import jst_purchase_order_process
 from . import jst_users
+from . import jst_wave_shipping
+from . import jst_stock_tranfer

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- JST Stock Transfer List View -->
+    <record id="view_jst_stock_tranfer_tree" model="ir.ui.view">
+        <field name="name">jst.stock.tranfer.tree</field>
+        <field name="model">jst.stock.tranfer</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="allocationId" string="Allocation ID"/>
+                <field name="allocationStatus" string="Status"/>
+                <field name="allocationTotalQty" string="Total Qty"/>
+                <field name="outWarehouseName" string="Out Warehouse"/>
+                <field name="inWarehouseName" string="In Warehouse"/>
+                <field name="outQty" string="Out Qty"/>
+                <field name="inQty" string="In Qty"/>
+                <field name="outStatus" string="Out Status"/>
+                <field name="inStatus" string="In Status"/>
+                <field name="created" string="Created"/>
+                <field name="jst_modified" string="Modified"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- JST Stock Transfer Form View -->
+    <record id="view_jst_stock_tranfer_form" model="ir.ui.view">
+        <field name="name">jst.stock.tranfer.form</field>
+        <field name="model">jst.stock.tranfer</field>
+        <field name="arch" type="xml">
+            <form string="JST Stock Transfer">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="allocationId" readonly="1"/>
+                        </h1>
+                    </div>
+                    <notebook>
+                        <page string="Information" name="basic_info">
+                            <group>
+                                <group name="basic_info" string="Basic Information">
+                                    <field name="allocationId"/>
+                                    <field name="allocationStatus"/>
+                                    <field name="allocationTotalQty"/>
+                                    <field name="orderType"/>
+                                    <field name="createType"/>
+                                    <field name="enabled"/>
+                                </group>
+                                <group name="warehouse_info" string="Warehouse Information">
+                                    <field name="outWarehouseId"/>
+                                    <field name="outWarehouseName"/>
+                                    <field name="inWarehouseId"/>
+                                    <field name="inWarehouseName"/>
+                                    <field name="warehouseArea"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group name="quantities" string="Quantities">
+                                    <field name="outQty"/>
+                                    <field name="inQty"/>
+                                    <field name="outStatus"/>
+                                    <field name="inStatus"/>
+                                </group>
+                                <group name="logistics" string="Logistics">
+                                    <field name="logisticsCompanyCode"/>
+                                    <field name="logisticsCompanyName"/>
+                                    <field name="logisticsNo"/>
+                                    <field name="freightCost"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group name="dates" string="Dates">
+                                    <field name="created"/>
+                                    <field name="jst_modified"/>
+                                    <field name="revieweDate"/>
+                                </group>
+                                <group name="users" string="Users">
+                                    <field name="creator"/>
+                                    <field name="modifier"/>
+                                    <field name="auditer"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group name="company_info" string="Company Information">
+                                    <field name="companyId"/>
+                                    <field name="linkCoId"/>
+                                </group>
+                                <group name="other_info" string="Other Information">
+                                    <field name="printCount"/>
+                                    <field name="outType"/>
+                                    <field name="inLinkWarehouseId"/>
+                                    <field name="outLinkWarehouseId"/>
+                                    <field name="comment"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Line Details" name="line_details">
+                            <field name="jst_stock_tranfer_detail_ids" readonly="1">
+                                <list>
+                                    <field name="allocationItemId"/>
+                                    <field name="skuId"/>
+                                    <field name="skuName"/>
+                                    <field name="allocationQty"/>
+                                    <field name="outQty"/>
+                                    <field name="inQty"/>
+                                    <field name="costPrice"/>
+                                    <field name="salePrice"/>
+                                    <field name="boxCapacity"/>
+                                    <field name="boxQuantity"/>
+                                    <field name="producedDate"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- JST Stock Transfer Search View -->
+    <record id="view_jst_stock_tranfer_search" model="ir.ui.view">
+        <field name="name">jst.stock.tranfer.search</field>
+        <field name="model">jst.stock.tranfer</field>
+        <field name="arch" type="xml">
+            <search string="Search JST Stock Transfers">
+                <field name="allocationId" string="Allocation ID"/>
+                <field name="allocationStatus" string="Allocation Status"/>
+                <field name="outWarehouseName" string="Out Warehouse"/>
+                <field name="inWarehouseName" string="In Warehouse"/>
+                <field name="logisticsNo" string="Logistics Number"/>
+                <separator/>
+                <filter string="Wait Confirm" name="ftr_waitconfirm" domain="[('allocationStatus', '=', 'waitconfirm')]"/>
+                <filter string="Invalid" name="ftr_invalid" domain="[('allocationStatus', '=', 'invalid')]"/>
+                <filter string="Confirmed" name="ftr_confirmed" domain="[('allocationStatus', '=', 'confirmed')]"/>
+                <filter string="Completed" name="ftr_completed" domain="[('allocationStatus', '=', 'completed')]"/>
+                <separator/>
+                <filter string="Created Date" name="created_date" date="created"/>
+                <filter string="Reviewed Date" name="reviewed_date" date="revieweDate"/>
+                
+                <group expand="0" string="Group By">
+                    <filter string="Transfer Status" name="group_status" context="{'group_by': 'allocationStatus'}"/>
+                    <filter string="Out Warehouse" name="group_out_warehouse" context="{'group_by': 'outWarehouseName'}"/>
+                    <filter string="In Warehouse" name="group_in_warehouse" context="{'group_by': 'inWarehouseName'}"/>
+                    <filter string="Create Type" name="group_create_type" context="{'group_by': 'createType'}"/>
+                    <separator/>
+                    <filter string="Created Date" name="group_created" context="{'group_by': 'created'}"/>
+                    <filter string="Reviewed Date" name="group_reviewed" context="{'group_by': 'revieweDate'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- JST Stock Transfer Detail List View -->
+    <record id="view_jst_stock_tranfer_detail_tree" model="ir.ui.view">
+        <field name="name">jst.stock.tranfer.detail.tree</field>
+        <field name="model">jst.stock.tranfer.detail</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="allocationId"/>
+                <field name="allocationItemId"/>
+                <field name="skuId"/>
+                <field name="skuName"/>
+                <field name="allocationQty"/>
+                <field name="outQty"/>
+                <field name="inQty"/>
+                <field name="costPrice"/>
+                <field name="salePrice"/>
+                <field name="boxCapacity"/>
+                <field name="boxQuantity"/>
+                <field name="producedDate"/>
+                <field name="created"/>
+                <field name="jst_modified"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- JST Stock Transfer Detail Form View -->
+    <record id="view_jst_stock_tranfer_detail_form" model="ir.ui.view">
+        <field name="name">jst.stock.tranfer.detail.form</field>
+        <field name="model">jst.stock.tranfer.detail</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="allocationId" readonly="1"/>
+                        </h1>
+                        <h2>
+                            <field name="allocationItemId" readonly="1"/>
+                        </h2>
+                    </div>
+                    <group>
+                        <group name="basic_info" string="Basic Information">
+                            <field name="allocationId"/>
+                            <field name="allocationItemId"/>
+                            <field name="allocationQty"/>
+                            <field name="enabled"/>
+                        </group>
+                        <group name="product_info" string="Product Information">
+                            <field name="skuId"/>
+                            <field name="skuName"/>
+                            <field name="itemId"/>
+                            <field name="itemName"/>
+                            <field name="itemShortname"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group name="quantities" string="Quantities">
+                            <field name="outQty"/>
+                            <field name="inQty"/>
+                            <field name="boxCapacity"/>
+                            <field name="boxQuantity"/>
+                        </group>
+                        <group name="prices" string="Prices">
+                            <field name="costPrice"/>
+                            <field name="salePrice"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group name="dates" string="Dates">
+                            <field name="created"/>
+                            <field name="jst_modified"/>
+                            <field name="producedDate"/>
+                        </group>
+                        <group name="users" string="Users">
+                            <field name="creator"/>
+                            <field name="modifier"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group name="company_info" string="Company Information">
+                            <field name="companyId"/>
+                        </group>
+                        <group name="other_info" string="Other Information">
+                            <field name="skuBatchId"/>
+                            <field name="skuPic"/>
+                            <field name="skuPropertyName"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- JST Stock Transfer Detail Search View -->
+    <record id="view_jst_stock_tranfer_detail_search" model="ir.ui.view">
+        <field name="name">jst.stock.tranfer.detail.search</field>
+        <field name="model">jst.stock.tranfer.detail</field>
+        <field name="arch" type="xml">
+            <search string="Search JST Stock Transfer Details">
+                <field name="allocationId" string="Allocation ID"/>
+                <field name="allocationItemId" string="Allocation Item ID"/>
+                <field name="skuId" string="SKU ID"/>
+                <field name="skuName" string="SKU Name"/>
+                <field name="itemId" string="Item ID"/>
+                <field name="itemName" string="Item Name"/>
+                
+                <separator/>
+                <filter string="Created Date" name="created_date" date="created"/>
+                <filter string="Produced Date" name="produced_date" date="producedDate"/>
+
+                
+                <group expand="0" string="Group By">
+                    <filter string="Transfer" name="group_allocation" context="{'group_by': 'jst_stock_tranfer_id'}"/>
+                    <filter string="SKU ID" name="group_sku" context="{'group_by': 'skuId'}"/>
+                    <filter string="Item ID" name="group_item" context="{'group_by': 'itemId'}"/>
+                    <separator/>
+                    <filter string="Created Date" name="group_created" context="{'group_by': 'created'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- JST Stock Transfer Action -->
+    <record id="action_jst_stock_tranfer" model="ir.actions.act_window">
+        <field name="name">JST Stock Transfers</field>
+        <field name="res_model">jst.stock.tranfer</field>
+    </record>
+
+    <!-- JST Stock Transfer Detail Action -->
+    <record id="action_jst_stock_tranfer_detail" model="ir.actions.act_window">
+        <field name="name">JST Stock Transfer Details</field>
+        <field name="res_model">jst.stock.tranfer.detail</field>
+    </record>
+
+</odoo>

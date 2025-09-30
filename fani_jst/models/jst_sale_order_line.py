@@ -15,7 +15,7 @@ class JstSaleOrderLine(models.Model):
     _rec_name = 'orderItemId'
 
     # lưu ý: orderId cần lấy theo order
-    jst_sale_order_id = fields.Many2one('jst.sale.order', string='JST Sale Order')
+    jst_sale_order_id = fields.Many2one('jst.sale.order', string='JST Sale Order', ondelete='cascade')
 
     pic = fields.Char("Product Picture")
     name = fields.Char("Product Name")

@@ -35,11 +35,13 @@
                 sequence="10"/>
 
 
-    <!-- Menu Inventory -->
+    <!-- Menu Stock -->
     <menuitem id="menu_jst_stock"
               name="Stock"
               parent="menu_jst_root"
               sequence="20"/>
+
+    <!-- Sub Menu Operations -->
     <menuitem id="menu_jst_operation"
               name="Operations"
               parent="menu_jst_stock"
@@ -53,22 +55,75 @@
                 name="Delivery Orders"
                 parent="menu_jst_operation"
                 action="action_jst_stock_inout_delivery"
-                sequence="50"/>
+                sequence="20"/>
+    <menuitem id="menu_jst_stock_inout_out_other"
+                name="Other Delivery Orders"
+                parent="menu_jst_operation"
+                action="action_jst_stock_inout_out_other"
+                sequence="25"/>
     <menuitem id="menu_jst_stock_inout_receipt"
                 name="Receipt Orders"
                 parent="menu_jst_operation"
                 action="action_jst_stock_inout_receipt"
-                sequence="20"/>
-    <menuitem id="menu_jst_stock_inout_other"
-                name="Other Orders"
+                sequence="30"/>
+    <menuitem id="menu_jst_stock_inout_in_other"
+                name="Other Receipt Orders"
                 parent="menu_jst_operation"
-                action="action_jst_stock_inout_other"
+                action="action_jst_stock_inout_in_other"
+                sequence="35"/>
+
+    <!-- Sub Menu Stock Transfers -->
+    <menuitem id="menu_jst_stock_tranfer_root"
+              name="Stock Transfers"
+              parent="menu_jst_stock"
+              sequence="20"/>
+    <menuitem id="menu_jst_stock_tranfer"
+                name="Transfers"
+                parent="menu_jst_stock_tranfer_root"
+                action="action_jst_stock_tranfer"
+                sequence="10"/>
+    <menuitem id="menu_jst_stock_tranfer_detail"
+                name="Transfer Details"
+                parent="menu_jst_stock_tranfer_root"
+                action="action_jst_stock_tranfer_detail"
+                sequence="15"/>
+    <menuitem id="menu_jst_stock_tranfer_out_transfer"
+                name="Transfer Out"
+                parent="menu_jst_stock_tranfer_root"
+                action="action_jst_stock_inout_out_transfer"
+                sequence="20"/>
+    <menuitem id="menu_jst_stock_tranfer_in_transfer"
+                name="Transfer In"
+                parent="menu_jst_stock_tranfer_root"
+                action="action_jst_stock_inout_in_transfer"
                 sequence="25"/>
-              
+
+    <!-- Sub Menu Wave Shippings -->
+    <menuitem id="menu_jst_wave_shipping_root"
+              name="Wave Shippings"
+              parent="menu_jst_stock"
+              sequence="30"/>
+    <menuitem id="menu_jst_wave_shipping"
+              name="Wave Shippings"
+              parent="menu_jst_wave_shipping_root"
+              action="action_jst_wave_shipping"
+              sequence="10"/>
+    <menuitem id="menu_jst_wave_shipping_item"
+              name="Wave Items"
+              parent="menu_jst_wave_shipping_root"
+              action="action_jst_wave_shipping_item"
+              sequence="12"/>
+    <menuitem id="menu_jst_wave_inout"
+              name="Wave Inouts"
+              parent="menu_jst_wave_shipping_root"
+              action="action_jst_wave_inout"
+              sequence="14"/>
+
+    <!-- Sub Menu Inventory -->
     <menuitem id="menu_jst_inventory"
               name="Inventory"
               parent="menu_jst_stock"
-              sequence="20"/>
+              sequence="100"/>
    <menuitem id="menu_jst_product_inventory"
                 name="Product Inventory"
                 parent="menu_jst_inventory"

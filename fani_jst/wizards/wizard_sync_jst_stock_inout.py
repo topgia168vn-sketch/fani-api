@@ -42,4 +42,5 @@ class WizardSyncJSTStockInout(models.TransientModel):
             if self.inout_type == 'purchase':
                 self.env['jst.stock.inout']._sync_jst_purchase_inouts(requestModel)
             else:
-                self.env['jst.stock.inout']._sync_jst_other_inouts(requestModel)
+                self.env['jst.stock.inout']._sync_jst_other_out_inouts(requestModel)
+                self.env['jst.stock.inout']._sync_jst_other_in_inouts(requestModel)
